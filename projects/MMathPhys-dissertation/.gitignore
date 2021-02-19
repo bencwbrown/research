@@ -259,9 +259,6 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 
-# TeXnicCenter
-*.tps
-
 # auto folder when using emacs and auctex
 ./auto/*
 *.el
@@ -274,6 +271,3 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
-
-# MacOS specific
-.DS_Store
