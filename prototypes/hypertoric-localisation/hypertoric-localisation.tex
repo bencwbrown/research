@@ -9,8 +9,8 @@
 \usepackage[all,cmtip]{xy}
 
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usetikzlibrary{matrix,arrows,patterns,calc,through,backgrounds,fadings, decorations}
-
 \usetikzlibrary{decorations.pathreplacing}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -23,19 +23,45 @@
 \newtheorem{remark}{\it Remark\/}
 \newtheorem{example}{\it Example\/}
 
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
-\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mcL}{\mathcal{L}}
 \newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
 \newcommand{\mfg}{\mathfrak{g}}
 \newcommand{\mfh}{\mathfrak{h}}
 \newcommand{\mft}{\mathfrak{t}}
 
-\newcommand{\Tr}{\text{Tr}}
-\newcommand{\End}{\text{End}}
+\DeclareMathOperator{\Lie}{\text{Lie}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
 
 \usepackage{hyperref}
 
@@ -59,28 +85,50 @@
 
 \section{Symplectic Toric Manifolds \& Orbifolds} \label{sec:symplectic-toric-manifolds-orbifolds}
 
+\section{Hypertoric Manifolds \& Symplectic Cutting} \label{sec:hypertoric-manifolds-symplectic-cutting}
+
+
+
 \subsection{Symplectic Toric Manifolds} \label{subsec:toric-manifolds}
 
 \subsection{Symplectic Toric Orbifolds} \label{subsec:toric-orbifolds}
 
+The symplectic toric manifolds and their associated Delzant polytopes in the previous subsection were generalised to symplectic toric orbifolds in \cite{LT-1997}, where the associated polytope \emph{non-basic}, that is we weaken the conditions on the edge vectors to each vertex so that they no longer need to be form a $\ZZ$-basis.
 
 
-\section{Index Theory and Localisation} \label{sec:index-theory-localisation}
 
 
-\subsection{Subsection} %\label{subsec:}
+
+
+
+
+
+
+
+\section{Index Theory and Equivariant Localisation} \label{sec:index-theory-localisation}
+
+\subsection{Equivariant Index Formula} \label{subsec:equivariant-index}
+
+Let $T$ be an $n$-torus, $M$ a $T$-manifold equipped with pre-quantisation data $(\mcL, \langle\, ,\, \rangle, \nabla)$ and a $T$-equivariant complex structure.
+
+
 
 
 
 \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
 \providecommand{\href}[2]{#2}
-\begin{thebibliography}{LMTW98}
 
-%\bibitem[AB04]{alexeevbrion}
-%Valery Alexeev and Michel Brion, \emph{Stable reductive varieties. {I}.
-%  {A}ffine varieties}, Invent. Math. \textbf{157} (2004), no.~2, 227--274.
-
-
-\end{thebibliography}
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
 
 \end{document}  
+
+
+
+
+
+
+
+
+
+
