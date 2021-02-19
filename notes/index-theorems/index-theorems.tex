@@ -1,0 +1,262 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[parfill]{parskip}    
+\usepackage{graphicx}
+\usepackage{amssymb, amsfonts,mathabx}
+\usepackage{epstopdf}
+
+\usepackage{amsmath, amsthm}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix,arrows,patterns,calc,through,backgrounds,fadings, decorations}
+\usetikzlibrary{decorations.pathreplacing}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition\rm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}{\it Remark\/}
+\newtheorem{example}{Example}
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longleftarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\lbracket}{\left(}
+\newcommand{\rbracket}{\right)}
+
+
+\newcommand{\al}{\alpha}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mft}{\mathfrak{t}}
+
+\newcommand{\dbar}{\bar{\partial}}
+
+\DeclareMathOperator{\Lie}{\text{Lie}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Td}{Td}
+\DeclareMathOperator{\Ch}{Ch}
+
+\usepackage{hyperref}
+
+\title{Index Theorems - NOTES}
+\author{Benjamin C. W. Brown}
+\address[Benjamin Brown]{School of Mathematics and Maxwell Institute, The University of Edinburgh, Peter Guthrie Tait Road, Edinburgh EH9 3FD, United Kingdom}
+\email{B.Brown@ed.ac.uk}
+\date{\today}  
+\thanks{}                                         
+\begin{document}
+
+\maketitle
+ 
+
+\section{Index Theory} \label{sec:index-theory}
+
+\subsection{Non-Equivariant Index Formula} \label{subsec:non-equivariant-index-formula}
+
+For a holomorphic vector bundle $\mcL$ over a complex $n$-dimensional variety $M$, the \emph{index} $\ind(\dbar, \mcL)$w is defined as
+
+\begin{equation*}
+	\ind(\dbar, \mcL) := \sum\limits_{k = 0}^{n}(-1)^{k}\dim H^{k}(M; \mcL).
+\end{equation*}
+
+Viewing the index $\ind(\dbar, \mcL)$ as the Euler characteristic $\chi(M, \mcL)$ of the vector bundle $\mcL$, we can apply the Atiyah-Singer index theorem, which we state below, to express the index as an integral over $M$ of the product of the Todd class $\Td(TM)$ of the tangent bundle $TM \ra M$ over $M$, and the Chern character $\Ch(\mcL) := \exp(c_{1}(\mcL))$ of $\mcL$, where $c_{1}(\mcL)$ is the first Chern class of $\mcL$.
+
+\begin{theorem}[Atiyah-Singer Index Theorem, \cite{MAIS1968}]
+	\label{thm:atiyah-singer-index-theorem}
+	Let $M$ be a compact complex manifold, $\mcL$ a holomorphic vector bundle over $M$. Let
+
+	\begin{equation*}
+		\Td(TM) = \prod \frac{x_{i}}{1 - e^{-x_{i}}}
+	\end{equation*}
+
+	be the Todd class of the complex vector bundle $TM \ra M$, where the $x_{i}$ are the Chern roots of $TM$. Then the Euler characteristic $\chi(M, \mcL)$ of the sheaf of germs of holomorphic sections of $\mcL$ is given by
+	
+	\begin{equation*}
+		\chi(M, \mcL) = \int_{M} \Td(M)\cdot \Ch(\mcL).
+	\end{equation*}
+\end{theorem}
+
+\subsection*{Example}
+
+Let $M = \CC\PP^{1}$ and let $\mcL$ be the line bundle $\mcO(k)$ for some positive integer $k$. If $\langle \xi \rangle = H^{2}(M; \ZZ)$, \ie $\xi$ is the generator of $H^{2}(\CC\PP^{1}; \ZZ)$, then $c_{1}(\mcL) = k\xi$, and thus the Chern character of $\mcL$ is
+\begin{equation*}
+	\Ch(\mcL) = e^{c_{1}(\mcL)} = \sum_{j=0}^{\infty} (k\xi)^{j} = 1 + k\xi
+\end{equation*}
+(the higher powers of $\xi$ vanish since $\dim_{\CC} M = 1)$.
+	
+For $n$-dimensional complex projective space $\CC\PP^{n}$, both the total Chern class 
+
+\begin{equation*}
+	c(\CC\PP^{n}) := c(T\CC\PP^{n}) := 1 + c_{1} + c_{2} + c_{3} + \ldots,
+\end{equation*}
+
+and the Todd class $\Td(T\CC\PP^{n})$ for the tangent bundle $T\CC\PP^{n} \ra \CC\PP^{n}$, can be calculated using the exact Euler sequence,
+\begin{figure}[h!]
+	\begin{tikzcd}
+		\{0\} \arrow[r] & \mathcal{O} \arrow[r] & \mathcal{O}(1)^{\oplus(n+1)} \arrow[r] & T\mathbb{CP}^{n} \arrow[r] & \{0\},
+	\end{tikzcd}
+\end{figure}
+along with the multiplicativity of the total Chern class and the Todd class,
+\begin{equation*}
+	c(\mcF \oplus \mcG) = c(\mcF)\cdot c(\mcG), \qquad \Td(\mcF \oplus \mcG) = \Td(\mcF) \cdot \Td(\mcG),
+\end{equation*}
+
+which yields
+
+\begin{equation*}
+	c(\CC\PP^{n}) = c(T\CC\PP^{n} \oplus \mcO) = c(\mcO(1)^{\oplus(n+1)}) = (1 + \xi)^{n+1},
+\end{equation*}
+and
+\begin{equation*}
+	\Td(T\CC\PP^{n}) = \Td(T\CC\PP^{n} \oplus \mcO ) = \Td(\mcO(1)^{\oplus (n+1)}) = \Td\lbracket\mcO(1)\rbracket^{n+1} = \lbracket \frac{\xi}{1 - e^{-\xi}} \rbracket^{n+1}.
+\end{equation*}
+	
+This expression can be expanded as a formal power series which, for $n = 1$ in our example with the complex projective line $\CC\PP^{1}$, gets us
+
+\begin{equation*}
+	c(\CC\PP^{1}) = (1 + \xi)^{2} = 1 + 2\xi, \qquad \Td(T\CC\PP^{1}) = 1 + \tfrac{1}{2}c_{1}(T\CC\PP^{1}) = 1 + \xi.
+\end{equation*}
+
+Finally, applying the Atiyah-Singer index theorem \ref{thm:atiyah-singer-index-theorem}, we have
+
+\begin{equation*}
+	\chi(\CC\PP^{1}, \mcL) = \int_{\CC\PP^{1}} \Td(\CC\PP^{1}) \cdot \Ch(\mcL) = \int_{\CC\PP^{1}} (1 + \xi) \cdot (1 + k\xi ) = \int_{\CC\PP^{1}} 1 + (k+1)\xi = k + 1.
+\end{equation*}
+
+\subsection*{Example}
+
+Now we let $M = \CC\PP^{2}$, and let $\mcL = \mcO(k)$ and $\langle \xi \rangle = H^{2}(M, \ZZ)$ again as above. Now we have
+
+\begin{equation*}
+	c(\mcL) = e^{c_{1}(\mcL)} = 1 + k\xi + k^{2}\xi^{2},
+\end{equation*}
+
+and 
+\begin{equation*}
+	\begin{split}
+		c(T\CC\PP^{2}) &= 1 + c_{1} + c_{2} = (1 + \xi)^{3} = 1 + 3\xi + 3\xi^{2}, \\ 
+		\Td(T\CC\PP^{2}) &= 1 + \frac{c_{1}}{2} + \frac{c_{1}^{2} + c_{2}}{12} = 1 + \frac{3}{2}\xi + \frac{9\xi^{2} + 3\xi^{2}}{12} = 1 + \frac{3}{2}\xi + \xi^{2}.
+	\end{split}
+\end{equation*}
+
+Hence by the Atiyah-Bott index theorem \ref{thm:atiyah-singer-index-theorem},
+
+\begin{equation*}
+	\begin{split}
+		\chi(M, \mcL) &= \int_{M} \Td(TM) \cdot \Ch(\mcL) = \int_{M} \lbracket 1 + \tfrac{3}{2}\xi + \xi^{2} \rbracket \cdot \lbracket 1 + k\xi + k^{2}\xi^{2} \rbracket \\
+		&= \int_{M} (k^{2} + \tfrac{3}{2}k + 1)\xi^{2} + O(\xi) = k^{2} + \tfrac{3}{2}k + 1.
+	\end{split}
+\end{equation*}
+
+\subsection*{Example}
+
+Let $M = \CC\PP^{3}$, and let $\mcL$, $\xi$, etc. be as above. Then
+
+\begin{equation*}
+	\begin{split}
+		\Ch(\mcL) &= 1 + k\xi + (k\xi)^{2} + (k\xi)^{3}, \\
+		c(TM) &= (1 + \xi)^{4} = 1 + 4\xi + 6\xi^{2} + 4\xi^{3}, \\
+		\Td(TM) &= 1 + \frac{c_{1}}{2} + \frac{c_{1}^{2} + c_{2}}{12} + \frac{c_{1}c_{2}}{24} = 1 + 2\xi + \frac{11}{6}\xi^{2} + \xi^{3}.
+	\end{split}
+\end{equation*}
+
+Then by the Atiyah-Bott Index theorem \ref{thm:atiyah-singer-index-theorem},
+
+\begin{equation*}
+	\begin{split}
+		\chi(M, \mcL) &= \int_{M} \Td(TM) \cdot \Ch(\mcL) = \int_{M} \lbracket 1 + 2\xi + \frac{11}{6}\xi^{2} + \xi^{3} \rbracket \cdot \lbracket 1 + k\xi + k^{2}\xi^{2} + k^{3}\xi^{3} \rbracket \\
+		&= \int_{M} \lbracket k^{3} + 2k^{2} + \frac{11}{6}k + 1 \rbracket\xi^{3} + O(\xi^{2}) = 
+	\end{split}
+\end{equation*}
+
+\subsection{Equivariant Index Theorems}
+
+\subsubsection{Equivariant Characteristic Classes}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\href}[2]{#2}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
