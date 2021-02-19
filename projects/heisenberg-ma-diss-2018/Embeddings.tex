@@ -1,0 +1,398 @@
+\section{Projectively Embedded Elliptic Curves}
+\label{embeddings}
+
+We just saw that a basis for the space $R_{n}(\Lambda_{\tau})$ of theta functions of weight $n$ is given by
+\begin{equation}
+	x_{i}(z,\tau) = \vtc{\tfrac{i}{n}}{0}(nz,n\tau),\qquad \text{for }i\in \ZZ/n\ZZ,
+\end{equation}
+and that when $n \geq 3$, the map
+\begin{equation*}
+	\phi_{n}: z \longmapsto [x_{0}(z): \ldots, x_{n-1}(z)]
+\end{equation*}
+is a holomorphic embedding of the elliptic curve $E_{\tau} = \CC/\Lambda_{\tau}$ into $\PP^{n-1}$. For any $\Lambda_{\tau}$-quasi-periodic function $f(z)$, define the two transformations
+\begin{equation}
+	\begin{split}
+	(S_{b} f)(z) &= f(z + b),\\
+	(T_{a}f)(z) &= \be(iaz + a^{2}\tau/2)\cdot f(z+a\tau),
+	\end{split}
+\end{equation}
+for any real numbers $a$ and $b$. Then in terms of these operations we have
+\begin{equation}
+	\begin{split}
+	\vt_{a,b}(z,\tau) &= (S_{b}T_{a}\vt_{0,0})(z,\tau),\\
+	(S_{b_{1}}\vt_{a,b})(z) &= \vt_{a,b + b_{1}}(z,\tau),\qquad \text{for } a,b_{1}, b \in \ZZ/n\ZZ, \\
+	(T_{a_{1}}\vt_{a,b})(z,\tau) &= \be(-a_{1}b)\cdot\vt_{a_{1} + a,b}(z,\tau),\qquad \text{for } a,a_{1}, b \in \ZZ/n\ZZ, \\
+	\vt_{a+p, b + q}(z,\tau) &= \be(aq)\cdot \vt_{a,b}(z,\tau) ,\qquad \text{for all } p, q \in \ZZ, a, b \in \ZZ/n\ZZ.
+	\end{split}
+\end{equation}
+In particular, the image of the map $\phi_{n}(z)$ in $\PP^{n-1}$ must be invariant under the action of $S_{b}$ and $T_{a}$. The following lemma provides an identity for our basis theta functions $x_{i}(z)$.\\
+
+\begin{lemma}[\cite{Krazer_1890,Tracy_1985}]
+	\label{product_lemma}
+	For any positive integer $n$, and for all positive integers $a, b \in\ZZ$, we have the following identity
+	\begin{equation}
+		\label{product_identity}
+		\vtc{a}{b}(z,\tau)\cdot\vtc{a}{b + \frac{1}{n}}(z,\tau)\cdot\ldots\cdot\vtc{a}{b+\frac{n-1}{n}}(z,\tau) = c\cdot\vtc{a}{nb + \frac{n-1}{2}}(nz,n\tau),
+	\end{equation}
+	for any $(z,\tau)$ in $\CC \times \mcH$, where $c$ is independent of $z, a,$ and $b$.
+\end{lemma}
+
+\begin{proof}
+	From Lemma \ref{zero_point} and its Corollary \ref{cor_zeros}, the $n$ simple zeros of both sides of equation (\ref{product_identity}) coincide. So their ratio is an entire and bounded function, and thus equal to a constant $c$ by Liouville's theorem. To see that $c$ is independent of both $a$ and $b$, observe that the ratio remains the same under $z \mapsto z + 1/n$ and $z \mapsto z + 1/n\tau$.
+\end{proof}
+
+\subsection{The Hesse Cubic}
+
+To develop the general case of embedding our elliptic curve $E_{\tau}$ into some $\PP^{n-1}$ via the theta functions $\vt_{i/n,0}(nz,n\tau)$, we start with the easiest case when $n =3$. This method was originally done by Klein in \cite{KF_1892}, as well as by Hurwitz \cite{Hurtwiz_1886} and Bianchi \cite{Bianchi_1880}, where they used products of $\sigma$-functions with prescribed zeros in the fundamental parallelogram. We follow a similar vein, of course here we adapt their methods by using theta functions instead. The closest reference to ours using $\vt$-functions is \cite{Tracy_1985}.
+
+Let $E_{\tau} = \CC/\Lambda_{\tau}$ be an elliptic curve, and let $z \in E_{\tau}$. Consider the $\vt$-products\footnote{The adjustment to the rational characteristics by the half-factor is so that the sum of their zeros add up to 0 \text{mod} $\Lambda_{\tau}$, so that the $x_{i}$ belong to the line bundle $\mcL(3[O])$ \cite{Hulek_1983}.}:
+\begin{equation*}
+	\begin{split}
+	x_{0}(z) &= \vt_{\tfrac{1}{2},\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{1}{2},\tfrac{1}{3}+\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{1}{2},\tfrac{2}{3}+\tfrac{1}{6}}(z,\tau),\\
+	x_{1}(z) &= \vt_{\tfrac{1}{3}+\tfrac{1}{2},\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{1}{3}+\tfrac{1}{2},\tfrac{1}{3}+\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{1}{3}+\tfrac{1}{2},\tfrac{2}{3}+\tfrac{1}{6}}(z,\tau),\\
+	x_{2}(z) &= \vt_{\tfrac{2}{3}+\tfrac{1}{2},\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{2}{3}+\tfrac{1}{2},\tfrac{1}{3}+\tfrac{1}{6}}(z,\tau)\cdot\vt_{\tfrac{2}{3}+\tfrac{1}{2},\tfrac{2}{3}+\tfrac{1}{6}}(z,\tau).
+	\end{split}
+\end{equation*}
+By Lemma \ref{product_lemma}, we can rewrite each $x_{i}(z)$ as\footnote{There is not actually much to gain from writing out the $x_{i}(z)$ as $\vt$-products, since it is only after Lemma \ref{product_lemma} that it becomes apparent they form a basis for $R_{3}(\Lambda_{\tau})$. However as $\sigma$-products were first used in Klein and Fricke's treatise \cite{KF_1892}, as well as in \cite{Bianchi_1880,Hurtwiz_1886}, starting with $\vt$-products seems a fitting tribute to their century's old papers.}
+\begin{equation*}
+	x_{i}(z) = \vtc{\frac{i}{3} + \frac{1}{2}}{\frac{1}{2}}(3z,3\tau),
+\end{equation*}
+so the $x_{i}(z)$ form a basis for the vector space $R_{3}(\Lambda_{\tau})$. Moreover, by Lemma \ref{zero_point} and Corollary \ref{cor_zeros}, the three zeros of each $x_{i}(z)$ are precisely
+\begin{equation}
+	\label{hesse_zeros}
+	P_{ki} = \frac{1}{3}(k + i\tau),\qquad k,i = 0,1,2,
+\end{equation} 
+and their sum is $\sum_{k=0}^{2}P_{ki} \equiv 0$ mod $\Lambda_{\tau}$ for each $i = 0,1,2$, see Figure \ref{fig:lattice}.
+
+%//////////////////// FIGURE ////////////////////%
+\begin{figure}[htbp]
+	\centering
+	{\unitlength=.05in{\def\arraystretch{1.0}
+			\begin{picture}(50,35)(0,-5)
+			\thicklines
+			
+			%%%%%%%%%% ab-axis %%%%%%%%%%
+			\put(0,0){\vector(1,1){24}}
+			\put(23,27){\makebox(0,0){$\tau$}}
+			\put(0,0){\vector(1,0){45}}
+			\put(45,-3){\makebox(0,0){$1$}}
+			\put(24,24){\line(1,0){45}}
+			\put(69,27){\makebox(0,0){$1+\tau$}}
+			\put(45,0){\line(1,1){24}}
+			
+			%%%%%%%%%% lattice %%%%%%%%%%
+			\dashline[10]{1}(8,8)(53,8)
+			\dashline[10]{1}(15,0)(39,24)
+			\dashline[10]{1}(16,16)(61,16)
+			\dashline[10]{1}(30,0)(54,24)
+			
+			%%%%%%%%%% label %%%%%%%%%%
+			\put(0,-3){\makebox(0,0){$P_{00} = O$}}
+			\put(17,-3){\makebox(0,0){$P_{10}$}}
+			\put(32,-3){\makebox(0,0){$P_{20}$}}
+			\put(25,5){\makebox(0,0){$P_{11}$}}
+			\put(40,5){\makebox(0,0){$P_{21}$}}
+			\put(33,13){\makebox(0,0){$P_{12}$}}
+			\put(48,13){\makebox(0,0){$P_{22}$}}
+			\put(10,5){\makebox(0,0){$P_{01}$}}
+			\put(18,13){\makebox(0,0){$P_{02}$}}
+			
+			%%%%%%%%%% point %%%%%%%%%%%%%%
+			\put(0,0){\circle*{1}}
+			\put(15,0){\circle*{1}}
+			\put(30,0){\circle*{1}}
+			\put(8,8){\circle*{1}}
+			\put(23,8){\circle*{1}}
+			\put(38,8){\circle*{1}}
+			\put(16,16){\circle*{1}}
+			\put(31,16){\circle*{1}}
+			\put(46,16){\circle*{1}}
+			\end{picture}
+		}}
+		\caption{The zeros of $x_i(z)$ for $i=0,1,2$ in the fundamental parallelogram.}
+		\label{fig:lattice}
+	\end{figure}
+	%//////////////////// FIGURE ////////////////////%
+
+Thus the three zeros belonging to each $x_{i}(z)$ lie on an inflection line.
+Denoting $\sigma = S_{\tfrac{1}{3}}$ and $\tau = T_{\frac{1}{3}}$, so that their action is then translating by a 3-torsion point of $E_{\tau}$, we can easily verify that
+\begin{equation}
+	\label{hesse_transformation}
+	\begin{split}
+	\sigma(x_{0}) &\sim x_{0},\qquad \tau(x_{0}) \sim x_{1};\\
+	\sigma(x_{1}) &\sim \e x_{1},\qquad \tau(x_{1}) \sim x_{2};\\
+	\sigma(x_{2}) &\sim \e^{2} x_{2},\qquad \tau(x_{2}) \sim x_{0},
+	\end{split}
+\end{equation}
+where $\e = e^{2\pi i /3}$ and by the symbol $\sim$ we mean up to a common nowhere vanishing holomorphic function. Thus in $\PP^{2}$, considering now the index $i \in \ZZ/3\ZZ$, the action of $\sigma$ and $\tau$ becomes
+\begin{equation}
+\label{hesse_heisenberg}
+	\begin{split}
+	\sigma: x_{i} &\longmapsto \e^{i} x_{i},\\
+	\tau: x_{i} &\longmapsto x_{i+1}.
+	\end{split}
+\end{equation}
+Similarly let $\imath:z \mapsto -z$ denote the involution on the elliptic curve $E_{\tau}$, then since $\vt_{a,b}(-z,\tau) = \vt_{-a,-b}(z,\tau)$ its action extends to $\PP^{2}$ via
+\begin{equation}
+	\label{hesse_involution}
+	\imath: x_{i} \longmapsto x_{-i}.
+\end{equation}
+
+The cubic homogeneous polynomials that are invariant under $S$ are $x_{0}^{3}, x_{1}^{3}, x_{2}^{3}$ and $x_{0}x_{1}x_{2}$, so then the image of $E_{\tau}$ in $\PP^{2}$ has to be of the form \cite{Tracy_1985}
+\begin{equation*}
+	f(x_{0},x_{1}, x_{2}) = Ax_{0}^{3} + Bx_{1}^{3} + C x_{3}^{3} + Dx_{0}x_{1}x_{2} = 0.
+\end{equation*}
+Further, for $f$ to be invariant under the action of $T$, we must have that $A = B = C$, so after rescaling and setting $D = -3a$ we arrive at
+\begin{equation}
+	\label{hesse_pencil}
+	E_{a(\tau)}:\quad f(x_{0}, x_{1}, x_{2}) = x_{0}^{3} + x_{1}^{3} + x_{2}^{3} -3a(\tau) x_{0}x_{1}x_{2} = 0,
+\end{equation}
+which is the homogeneous cubic polynomial known as the \emph{Hesse cubic}. The variable $a(\tau)$ depends on the lattice $\Lambda_{\tau}$ and it is well known that an elliptic $E_{\tau}$ in Hesse form is non-singular if and only if $a(\tau) \neq 1, \e, \e^{2}, \infty$, \cite{Dolgachev_2006}. In the case that $a(\tau)$ does take on one of these four values, then the curve $E_{a}$ degenerates into the union of three lines that form a triangle. We will investigate this scenario in the subsequent section.\\
+
+\begin{remark}
+	Consider the affine part of the Hesse pencil where $x_{0}(z) \neq 0$, then it is isomorphic to the curve $C$ in $\CC^{2}$ given by the equation
+	\begin{equation*}
+	C:\quad 1 + x_{1}^{2} + x_{2}^{2} - 3ax_{1}x_{2} = 0.
+	\end{equation*}
+	It follows that the functions
+	\begin{equation*}
+	\Phi_{1}(z) = \frac{x_{1}(z)}{x_{0}(z)},\qquad \Phi_{2}(z) = \frac{x_{2}(z)}{x_{0}(z)},
+	\end{equation*}
+	define a surjective holomorphic map $\CC^{2}\setminus Z \rightarrow C$, where $Z$ is the zero set of $\vt_{1/2,0}(3z,3\tau) = x_{0}(z)$, and the fibres of the map are equal to the cosets $z + \ZZ + \tau \ZZ$. Moreover, the functions $\Phi_{1}(z)$ and $\Phi_{2}(z)$ are elliptic functions with respect to $\Lambda_{\tau}$, hence we have succeeded in parametrising the Hesse pencil by doubly-periodic functions \cite{Dolgachev_1997}. This of course is an example of the Uniformisation Theorem of Klein and Poincar{\'e}, (a consequence of which being) that any genus one algebraic curve can be parametrised by elliptic functions.
+\end{remark}
+
+
+
+
+
+\subsection{The General Case for $n > 3$}
+
+We now aim to generalise the results of the previous section, by embedding the basis of the $R_{n}(\Lambda_{\tau})$ into $\PP^{n-1}$ for any integer $n > 3$. The content of this section (and indeed the previous one) is fundamentally classical; the general case for odd and even $n$ has been covered in Klein and Fricke's treatise \cite{KF_1892}, whereas Bianchi goes into incredible depth for $n =3,5$ in \cite{Bianchi_1880}. Hurwitz considers the case when $n$ is even in \cite{Hurtwiz_1886}. A modern reference is \cite{Hulek_1983}, but all of the previous references use $\sigma$-products as already stated. In \cite{Tracy_1985}, Tracy provides a sketch of the case when $n$ is odd, so our main contribution is the even $n$ case; as such, the author is unaware of an English translate of the proof of Theorem \ref{quadric_existence_theorem}.
+
+Using the previous example on the Hesse pencil as our guiding analogy, we first remark that $n$ homogeneous polynomials $x_{0}, \ldots, x_{n-1}$ each should have a zero at $n$ unique $n$-torsion points. To this end, from Corollary \ref{cor_zeros} we know that the theta functions $\vtc{\frac{i}{n} + a}{b}$, where $(a,b) \in \QQ^{2}$, have $n$ zeros precisely at the points at
+\begin{equation*}
+	P_{ik} = \bigg(\frac{i}{n} + a + \frac{1}{2}\bigg)\tau + \bigg(\frac{b}{n} + \frac{1}{2n} + \frac{k}{n}\bigg),\qquad k = 0,\ldots,n-1,
+\end{equation*}
+and their sum is
+\begin{equation}
+\begin{split}
+	\label{zero_point_sum}
+	\sum_{k=0}^{n-1} P_{ik} &= \bigg(i + na + \frac{n}{2}\bigg)\tau + \bigg(b + \frac{1}{2} + \frac{(n-1)}{2}\bigg)\\
+	&\equiv \bigg(na + \frac{n}{2}\bigg)\tau + \bigg(b + \frac{n}{2}\bigg)\mod \Lambda_{\tau}.
+\end{split}
+\end{equation}
+We require that $\sum_{k=0}^{n-1}P_{ik} \equiv 0$ mod $\Lambda_{\tau}$, so in setting
+\begin{equation*}
+	\begin{cases}
+	a = b = 0,\qquad &\text{when $n$ is even},\\
+	a = b = \frac{1}{2},\qquad &\text{when $n$ is odd,}
+	\end{cases}
+\end{equation*}
+this is achieved. This amounts to considering the following bases for $R_{n}(\Lambda_{\tau})$:
+\begin{equation}
+	\label{general_n_basis}
+	x_{i}(z) =
+	\begin{cases}
+	\vtc{\frac{i}{n} + \frac{1}{2}}{\frac{1}{2}}(nz,n\tau) &= \displaystyle\prod_{k=0}^{n-1}\vtc{\frac{i}{n} + \frac{1}{2}}{\frac{k}{n} + \frac{1}{2n}}(z,\tau),\qquad n\equiv 1\ (\text{mod } 2),\\
+	\\
+	\vtc{\frac{i}{n}}{0}(nz,n\tau) &= \displaystyle\prod_{k=0}^{n-1}\vtc{\frac{i}{n}}{\frac{k}{n}}(z,\tau),\qquad\qquad\ n\equiv 0\ (\text{mod } 2).\\
+	\end{cases}
+\end{equation}
+
+With this at hand, we are now ready to state the main result of this section:\\
+
+\begin{theorem}
+	\label{quadric_existence_theorem}
+	Let $\Lambda_{\tau}$ be a lattice and let $E_{\tau} = \CC/\Lambda_{\tau}$ be its corresponding elliptic curve. Then for $n\geq 4$, the image $\phi_{n}(E_{\tau}) \subseteq\PP^{n-1}$ is the set-theoretic intersection of $\tfrac{n(n-3)}{2}$ quadrics.
+\end{theorem}
+
+\begin{proof}
+	It is a classical result of the Riemann quartic identity (see \cite{Krazer_1890,Tracy_1985}) that
+	\begin{equation}
+	\label{riemann_quartic}
+	\begin{split}
+	&\ \vt_{1,1}(u_{1} + u_{2},\tau)\cdot\vt_{1,1}(u_{1}-u_{2},\tau)\cdot\vt_{1,1}(u_{3}+u_{4},\tau)\cdot\vt_{1,1}(u_{3}-u_{4},\tau)\\
+	+ &\ \vt_{1,1}(u_{1} + u_{3},\tau)\cdot\vt_{1,1}(u_{1} - u_{3},\tau)\cdot\vt_{1,1}(u_{4} + u_{2},\tau)\cdot\vt_{1,1}(u_{4} - u_{2},\tau)\\
+	+ &\ \vt_{1,1}(u_{1} + u_{4},\tau)\cdot\vt_{1,1}(u_{1}-u_{4},\tau)\cdot\vt_{1,1}(u_{2} + u_{3},\tau)\cdot\vt_{1,1}(u_{2}- u_{3},\tau) = 0,
+	\end{split}
+	\end{equation}
+	for any $u_{i}\in E_{\tau}$, and where we write $\vt_{1,1}(z,\tau)$ in the place of $\vt_{\frac{1}{2},\frac{1}{2}}(z,\tau)$. Written out in full, the identity is
+	\begin{equation}
+	\begin{split}
+	& \be(u_{3})\cdot\vt(u_{1} + u_{2} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot\vt(u_{1} - u_{2} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\\
+	&\cdot \vt(u_{3} + u_{4} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot\vt(u_{3} - u_{4} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\\
+	+&\ \be(u_{4})\cdot\vt(u_{1} + u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot\vt(u_{1} - u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\\
+	&\cdot\vt(u_{4} + u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot \vt(u_{4} - u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\\
+	+&\ \be(u_{2})\cdot\vt(u_{1} + u_{4} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot\vt(u_{1} - u_{4} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\\
+	&\cdot\vt(u_{2} + u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau)\cdot\vt(u_{2} - u_{3} + \tfrac{1}{2}\tau + \tfrac{1}{2},\tau) = 0,
+	\end{split}
+	\end{equation}
+	after removing common nowhere vanishing factors.
+	Making the substitutions
+	\begin{equation*}
+		u_{i}\longmapsto \frac{nz}{2} + \frac{\alpha_{i} \tau}{n} - \gamma\cdot\bigg(\frac{\tau}{2} + \frac{1}{2}\bigg),
+	\end{equation*}
+	where 
+	\begin{equation*}
+		\gamma = 0 \quad\text{or}\quad=\frac{1}{2},
+	\end{equation*}
+	depending on whether $n$ is odd or even, respectively, and letting $\tau \mapsto n\tau$ we arrive at
+	\begin{equation}
+	\label{riemann_quartic_general_basis}
+	\begin{split}
+	& c_{1}(\tau)\cdot\vt\Big(nz + \tfrac{\alpha_{1} + \alpha_{2}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)\cdot\vt\Big(\tfrac{\alpha_{1} - \alpha_{2}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big)\\
+	&\vt\Big(nz + \tfrac{\alpha_{3} + \alpha_{4}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)
+	\cdot\vt\Big(\tfrac{\alpha_{3} - \alpha_{4}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big)\\
+	+&c_{2}(\tau)\cdot\vt\Big(nz + \tfrac{\alpha_{1} + \alpha_{3}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)\cdot\vt\Big(\tfrac{\alpha_{1} - \alpha_{3}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big)\\
+	&\cdot\vt\Big(nz + \tfrac{\alpha_{2} + \alpha_{4}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)
+	\cdot\vt\Big(\tfrac{\alpha_{2} - \alpha_{4}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big)\\
+	+&c_{3}(\tau)\cdot\vt\Big(nz + \tfrac{\alpha_{1} + \alpha_{4}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)\cdot\vt\Big(\tfrac{\alpha_{1} - \alpha_{4}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big)\\
+	&\vt\Big(nz + \tfrac{\alpha_{2} + \alpha_{3}}{n}\tau + (\tfrac{1}{2} - \gamma)(n\tau + 1),n\tau\Big)\cdot\vt\Big(\tfrac{\alpha_{2} - \alpha_{3}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big) = 0,
+	\end{split}
+	\end{equation}
+	where $c_{1},c_{2}$ and $c_{3}$ are nowhere vanishing functions independent of $z$, but depend upon $\alpha_{1}, \alpha_{2}, \alpha_{3}, \alpha_{4}$, and $\tau$. Comparing the identity (\ref{riemann_quartic_general_basis}) to our basis (\ref{general_n_basis}), we find that
+	\begin{equation}
+	\label{quadric}
+	\begin{split}
+	&c_{1}(\tau)\cdot y_{\alpha_{1} - \alpha_{2}}(\tau)\cdot y_{\alpha_{3} - {\alpha_{4}}}(\tau)\cdot x_{\alpha_{1} + \alpha_{2}}(z)\cdot x_{\alpha_{3} + \alpha_{4}}(z)\\
+	+& c_{2}(\tau)\cdot y_{\alpha_{1} - \alpha_{3}}(\tau)\cdot y_{\alpha_{2} - {\alpha_{4}}}(\tau)\cdot x_{\alpha_{1} + \alpha_{3}}(z)\cdot x_{\alpha_{2} + \alpha_{4}}(z)\\
+	+&c_{3}(\tau) \cdot y_{\alpha_{1} - \alpha_{4}}(\tau)\cdot y_{\alpha_{2} - {\alpha_{3}}}(\tau)\cdot x_{\alpha_{1} +\alpha_{4}}(z)\cdot x_{\alpha_{2}+\alpha_{3}}(z) = 0,
+	\end{split}
+	\end{equation}
+	is a quadratic relation satisfied by the $x_{i}(z)$, where we have set
+	\begin{equation}
+		\label{modular_coefficients}
+		y_{\alpha_{i} - \alpha_{j}}(\tau) := \vt\Big(\tfrac{\alpha_{i} - \alpha_{j}}{n}\tau + \tfrac{1}{2}n\tau + \tfrac{1}{2},n\tau\Big).
+	\end{equation}	
+	We now claim that equation (\ref{quadric}) defines $\tfrac{n(n-3)}{2}$ linearly independent quadrics in total. To see this, notice that each quadratic term in equation (\ref{quadric}), $x_{\alpha}x_{\beta}$ has the same index sum, $s = \alpha + \beta$. We have to consider now the cases when $n$ is odd or even.
+	
+	When $n$ is odd, the quadrics whose sum equals a fixed $s$ can be written out as
+	\begin{equation}
+		\label{quadric_sum}
+		x_{0}x_{s},\ x_{1}x_{s-1},\ldots,\ x_{j}x_{s-j},\ldots,\ x_{n}x_{s-n},
+	\end{equation}
+	and in total there are $\tfrac{n+1}{2}$ quadrics. However by the identity (\ref{quadric}), any quadric whose index sum equals $s$ can be written out as a linear combination of the first two quadrics of (\ref{quadric_sum}), that is
+	\begin{equation}
+	\label{odd_n_combination}
+		x_{j}x_{s-j} = a_{j}x_{0}x_{s} + b_{j}x_{1}x_{s-1},
+	\end{equation} 
+	so there are in total $\tfrac{n-3}{2}$ linearly independent quadrics for each $s$ when $n$ is an odd integer, and as $s$ ranges from 0 to $n-1$, we have $\tfrac{n(n-3)}{2}$ linearly independent quadrics in total.
+	
+	When $n$ is even, we have to distinguish between the cases when $s$ is odd or even. In the former, there are $\tfrac{n}{2}$ quadrics with a fixed odd $s$:
+	\begin{equation*}
+		x_{0}x_{s},\ x_{2}x_{s-2},\ \ldots\ ,\ x_{n-2}x_{s-n+2},
+	\end{equation*}
+	and again by (\ref{odd_n_combination}) there are $\tfrac{n-4}{2}$ linearly independent quadric for a fixed odd $s$ and a total of of $\tfrac{n}{2}\cdot{\tfrac{n-4}{2}} = \tfrac{n(n-4)}{4}$ independent quadrics.
+	
+	When $s$ is even, we consider again (\ref{odd_n_combination}) for when $j$ is odd, but instead when $j$ is even we consider the equation
+	\begin{equation}
+	\label{even_n_combination}
+		x_{j}x_{s-j} = c_{j}x_{0}x_{s} + d_{j}x_{2}x_{j-2}
+	\end{equation}
+	that arises from ({\ref{quadric}}). Now there are a total of $\tfrac{n}{2} + 1$ quadrics for a fixed even $s$, and and the relations (\ref{odd_n_combination}) and (\ref{even_n_combination}) mean that there are $\tfrac{n-2}{2}$ independent quadrics, thus a total of $\tfrac{n}{2}\cdot \tfrac{n-2}{2} = \tfrac{n(n-2)}{4}$ as $s$ ranges from 0 to $n-2$. Hence for $n$ even, there are
+	\begin{equation*}
+		\frac{n(n-4)}{4} + \frac{n(n-2)}{4} = \frac{n(n-3)}{2}
+	\end{equation*}
+	linearly independent quadrics.
+\end{proof}
+
+Clearly, Theorem \ref{quadric_existence_theorem} does not tell us anything about the case when $n = 3$, since the subscripts in (\ref{quadric}) have to be distinct to be non-trivial. The equations (\ref{quadric}) were first found by Klein in \cite{KF_1892}, and were also obtained independently by V{\'e}lu \cite{Velu_1978} in his thesis when $n$ is prime. In fact, V{\'e}lu found the set of quadrics in (\ref{quadric}) under the assumption that the underlying field was of any characteristic not equal to $n$. Also if we set $n = 2d + 1$ for some $d\geq 2$, that is if $n\geq 5$ is odd, then Gross proved in \cite{Gross_1996} that the quadrics in (\ref{quadric}) can be written as the rank 2 locus of the $n \times n$ matrix
+\begin{equation}
+	\label{gross_matrix}
+	M_{d} = \Big( y_{(d+1)(i-j)} \cdot x_{(d+1)(i+j)}  \Big)_{i,j \in \ZZ/n\ZZ}
+\end{equation}
+which we remark is an $n\times n$ skew-symmetric matrix as $y_{0}(\tau) = \vt_{1,1}(0,n\tau)$.
+ 
+\subsection{The Fermat Quartic}
+
+When $n = 4$, where are $\tfrac{4\cdot (4-3)}{2} = 2$ independent quadrics, which are
+\begin{equation}
+	\label{jacobi_lin_comb}
+	\begin{split}
+	Q_{0}(x_{0},\ldots,x_{3}) &= a x_{0}^{2} + b x_{2}^{2} + x_{1}x_{3}=0,\\
+	Q_{1}(x_{0},\ldots,x_{3}) &= c x_{1}^{2} + d x_{3}^{2} + x_{0}x_{2}=0,
+	\end{split}
+\end{equation}
+for some parameters $a,b,c$ and $d$ whose sole dependence is on $\tau$. In fact, applying our transformations $S$ and $T$ to the quadrics in (\ref{jacobi_lin_comb}), we find that $a = b = c = d$, so let us introduce a new variable $\lambda = 1/2a$ to find
+\begin{equation}
+\begin{split}
+Q_{0}(x_{0},\ldots,x_{3}) &= x_{0}^{2} + x_{2}^{2} + 2\lambda x_{1}x_{3} = 0,\\
+Q_{1}(x_{0},\ldots,x_{3}) &= x_{1}^{2} + x_{3}^{2} + 2\lambda  x_{0}x_{2} = 0.\\
+\end{split}
+\end{equation}
+Now $x_{0}(z)$ vanishes at $z_{0} = \tfrac{1}{2}(\tau + 1)$, so from $Q_{0}$ we find that
+\begin{equation*}
+	\lambda = - \frac{x_{2}^{2}(z_{0})}{2x_{1}(z_{0})x_{3}(z_{0})}\qquad\text{with}\qquad z_{0} = \frac{1}{2}(\tau + 1),
+\end{equation*}
+which agrees with Hulek's result in \cite{Hulek_1983}, and is also one of the main examples given by Mumford in \cite{Mumford_1966}. Let us set
+
+\begin{equation}
+\label{order_4_quadrics}
+	E_{\lambda} := Q_{0}(\lambda) \cap Q_{1}(\lambda),
+\end{equation}
+
+then one has the following Proposition, whose proof is straightforward:\\
+
+\begin{prop}[\cite{BHM_1985}]
+	For all values $\lambda \in \PP^{1} \setminus \{0,\infty, \pm 1,\pm i \}$ the curve $E_{\lambda}$ is a smooth elliptic curve. Otherwise $E_{\lambda}$ is a connected cycle of four lines.
+\end{prop}
+
+A $\lambda\in\PP^{1}$ varies, the curves $E_{\lambda}$ sweep out a surface $F$. Eliminating the parameter $\lambda$ from the quadratic equations one finds that the equation for $F$ is
+\begin{equation*}
+	(x_{1}^{2} + x_{3}^{2})x_{1}x_{3} - (x_{0}^{2} + x_{2}^{2})x_{0}x_{2} = 0.
+\end{equation*}
+
+After a change of coordinates
+\begin{equation*}
+	\begin{split}
+	x_{0} \mapsto (ix_{0} + x_{2}),\quad & x_{1} \mapsto (x_{1} + ix_{3}),\\
+	x_{2} \mapsto (ix_{0} - x_{2}),\quad & x_{3} \mapsto (x_{1} - ix_{3}),
+	\end{split}
+\end{equation*}
+the above equation is transformed (up to a constant) to the Fermat quartic
+\begin{equation*}
+	x_{0}^{4} + x_{1}^{4} + x_{2}^{4} + x_{3}^{4} = 0,
+\end{equation*}
+that is that $F$ is projectively equivalent to the Fermat quartic, \cite{BHM_1985}.
+
+\subsection{The Bianchi Quintic}
+
+Let us consider the case $n = 5$ in Theorem \ref{quadric_existence_theorem}. There are then $\tfrac{5\cdot(5-3)}{2} = 5$ linearly independent quadrics:
+\begin{equation}
+\label{bianchi_quadrics}
+	\begin{split}
+	Q_{0}(x_{0},\ldots,x_{4}) &= x_{0}^{2} + ax_{2}x_{3} + bx_{1}x_{4},\\
+	Q_{1}(x_{0},\ldots,x_{4}) &= x_{1}^{2} + ax_{3}x_{4} + bx_{2}x_{0},\\
+	Q_{2}(x_{0},\ldots,x_{4}) &= x_{2}^{2} + ax_{4}x_{0} + bx_{3}x_{1},\\
+	Q_{3}(x_{0},\ldots,x_{4}) &= x_{3}^{2} + ax_{0}x_{1} + bx_{4}x_{2},\\
+	Q_{4}(x_{0},\ldots,x_{4}) &= x_{4}^{2} + ax_{1}x_{2} + bx_{0}x_{3},\\
+	\end{split}
+\end{equation}
+where $a$ and $b$ are parameters that depend solely on $\tau$. In fact, we can determine the relationship between $a$ and $b$; as $x_{0}(z)$ vanishes at $z=0$, evaluating the two quadrics $Q_{2}$ and $Q_{4}$ there yields
+\begin{equation*}
+	a = -\frac{x_{4}^{2}(0)} {x_{1}(0)x_{2}(0)},\quad\text{and}\quad b = -\frac{x_{2}^{2}(0)} {x_{3}(0)x_{1}(0)}.
+\end{equation*}
+Then, since $x_{1}(z) = x_{4}(-z) = (\tau x_{0})(-z) = -(\tau x_{0})(z) = -x_{4}(z)$, and similarly $x_{2}(z) = -x_{3}(z)$, we see that $x_{1}(0) = -x_{4}(0)$ and $x_{2}(z) = -x_{3}(z)$, thus
+\begin{equation}
+	\label{bianchi_modular}
+	a = -\frac{x_{1}(0)}{x_{2}(0)},\qquad b = \frac{x_{2}(0)}{x_{1}(0)} = -\frac{1}{a},
+\end{equation}
+so the five quadrics (\ref{bianchi_quadrics}) become
+\begin{equation}
+	\label{bianchi_quadric_intersection}
+	Q_{i}(x_{0},\ldots,x_{4}) = x_{i}^{2} + a x_{i+2}x_{i+3} - \frac{1}{a}x_{i+1}x_{i+4} = 0.
+\end{equation}
+
+In fact, we can arrange the quadrics in (\ref{bianchi_quadric_intersection}) neatly in the form of a skew-symmetric 5$\times$5 matrix
+\begin{equation*}
+M=
+	\begin{bmatrix}
+	0 & -x_{3} & -a x_{1} & ax_{4} & x_{2} \\
+	x_{3} & 0 & - x_{4} & -ax_{2} & ax_{0} \\
+	ax_{1} & x_{4} & 0 & -x_{0} & -ax_{3} \\
+	-ax_{4} & x_{2} & x_{0} & 0 & -x_{1} \\
+	-x_{2} & -ax_{0} & ax_{3} & x_{1} & 0 
+	\end{bmatrix},
+\end{equation*}
+whose five 4$\times$4 Pfaffians make up the quadrics (\ref{bianchi_quadric_intersection}). This arrangement of quadrics was first studied in great detail by Bianchi \cite{Bianchi_1880}, hence our naming of this example as the ``Bianchi quintic''.
+

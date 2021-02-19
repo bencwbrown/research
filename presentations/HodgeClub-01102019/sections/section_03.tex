@@ -1,0 +1,62 @@
+\section{The Kempf-Ness Theorem}
+
+At the start of this talk, we came across an example where the symplectic reduction with respect to an $K = S^{1}$ action on $\PP^{n}$ via
+$$
+	S^{1} \ni t \longmapsto \diag(t^{-1}, t,\ldots, t) \in U(n+1)
+$$
+was equal to $\PP^{n-1}$, \ie $\mu^{-1}(\xi)/K_{\xi} \cong \PP^{n-1}$. One observes that this is identical to the topological quotient of the dense open subset $\CC^{n}\setminus \{0\}$ of $\PP^{n}$, by the action of the complexification $\CC^{\ast}$ of $K = S^{1}$.
+
+On the other hand, we also saw that the projective GIT quotient for the ring $R = \CC[x_{0}: \ldots x_{n}]$ with the following $G = \CC^{\ast}$-action
+$$
+	t\cdot [x_{0}: x_{1}: \ldots : x_{n}] = [t^{-1}x_{0}: tx_{1},\ldots, tx_{n}],
+$$
+also resulted in
+$$
+	\PP^{n} \sslash \CC^{\ast} \cong \PP^{n-1}.
+$$
+
+This phenomena holds in much more generality and, quite surprisingly in fact, the symplectic reduction $\mu^{-1}(0)/K$ and the geometric invariant theoretic quotient $X \sslash G$ are topologically the same.
+
+\begin{thm}[Kempf-Ness Theorem]
+	Let $X \subset \PP^{n}$ be a projective variety with the action of a complex, reductive Lie group $G$ with respective maximal compact subgroup $K$. Then any $x \in X$ is semi-stable if and only if the closure of its orbit meets $\mu^{-1}(0)$, and the inclusion of $\mu^{-1}(0)$ into $X^{ss}$ induces a homeomorphism
+	$$
+		\mu^{-1}(0)/K \longrightarrow X \sslash G.
+	$$
+\end{thm}
+
+\subsection{Linearisations}
+
+For a proper projective algebraic variety $X$, we need to embed it into projective space $X \hookrightarrow \PP^{n}$, and this embedding is determined by an ample line bundle $\mc{L}$ on $X$. Thus, to construct a GIT quotient of the projective variety $X$ we also need to consider some extra data that comes in the form of a lift of the $G$-action to the line bundle $\mc{L}$ on $X$. Such a choice of lift is called a \emph{linearisation} of the action.
+
+\begin{defn}
+	Let $\pi:\mc{L} \rightarrow X$ be a line bundle on $X$. A \emph{linearisation} of the action of $G$ with respect to $\mc{L}$ is an action of $G$ on $\mc{L}$ such that:
+	\begin{enumerate}
+		\item For all $g \in G$ and $l \in \mc{L}$, we have $\pi(g \cdot l) = g \cdot \pi(l)$, \ie $\pi$ is $G$-equivariant.
+		\item For all $x \in X$ and $g \in G$, the fibre map $\mc{L}_{x} \mapsto \mc{L}_{g\cdot x}$ is a linear map.
+	\end{enumerate}
+\end{defn}
+
+\begin{ex}
+	Consider the trivial line bundle $\mc{L} = X \times \A^{1}$ on a variety $X$, then a linearisation of a $G$-action on $X$ with respect to $\mc{L}$ corresponds to a character $\chi: G \rightarrow \GG_{m}$. The character $\chi$ defines a lift of the action to $\mc{L}$ by
+	$$
+	g \cdot (x,z) = (g\cdot x, \chi(g)z),\qquad \text{where } (x,z) \in X \times \A^{1}.
+	$$
+\end{ex}
+
+To finish, we remark that the freedom to choose a linearisation of a $G$-action on a line bundle $\mc{L}$ over a variety $X$ is analogous to the choice of constant $\lambda \in Z(\mf{g}^{\ast})$ added onto the image of the moment map in the symplectic picture.
+
+\begin{ex}
+	Consider $\CC^{n}$ with the diagonal action of $S^{1}$ on it, so that its moment map is
+	$$
+		\mu(z) = \frac{1}{2}\sum_{i=1}^{n}|z_{i}|^{2} - \lambda, \qquad \lambda \in \ZZ_{>0}.
+	$$
+	In the GIT picture, this is equivalent to taking $R = \CC[x_{1},\ldots, x_{n}, y]$ with $\deg(x_{i}) = 0$ and $\deg(y) = 1$, so we still recover
+	$$
+		\Proj(R) = \Spec(\CC[x_{1},\ldots, x_{n}]) \times \PP^{0} \cong \CC^{n}.
+	$$
+	However, in introducing a new, \emph{distinct} action of $\CC^{\ast}$ that lifts to $R$ (which can be viewed as the space of sections over $\CC^{n}$) as
+	$$
+		t\cdot x_{i} = t^{-1}x_{i},\qquad t\cdot y = t^{\lambda}y,
+	$$
+	and then the maximal compact subgroup $S^{1} \subset \CC^{\ast}$ has the moment map as given above.
+\end{ex}

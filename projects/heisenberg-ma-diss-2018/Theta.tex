@@ -1,0 +1,229 @@
+\section{Theta Functions}
+
+We now want to find a non-constant map $\phi:E = \CC/\Lambda \rightarrow \PP^{n}$ to embed our elliptic curve $E$ in projective space for some $n$. Recall that the complex projective space $\PP^{n}$ is defined as the set of non-zero vectors in $\CC^{n+1}$ up to multiplication of some non-zero scalar. As a complex manifold, $\PP^{n}$ is covered by $n+1$ subsets $U_{i} = \{ (z_{0},\ldots, z_{n})\in \CC^{n+1} \st z_{i} \neq 0\}$, and a holomorphic map $\phi:E \rightarrow \PP^{n}$ is defined, after composition with the natural map $\CC \rightarrow \CC/\Lambda$, by $n+1$ holomorphic functions $f_{0},\ldots f_{n}$ on $\CC$. These $n+1$ functions need not be periodic with respect to $\Lambda$, but must satisfy the weaker property, namely that they must be \emph{theta functions}: \\
+
+\begin{defn}[\cite{Dolgachev_1997}]
+	A holomorphic function $f(z)$ on $\CC$ is called a \emph{theta function (relative to the lattice $\Lambda$)} if, for any $\lambda \in \Lambda$ there exists an invertible holomorphic function $e_{\lambda}(z)$ such that
+	\begin{equation*}
+		f(z + \lambda) = e_{\lambda}(z)f(z)\qquad\text{for all } \lambda \in \Lambda.
+	\end{equation*}
+	The set $\{e_{\lambda}(z)\}_{\lambda \in \Lambda}$ is called the \emph{theta factor} for $f$.
+\end{defn}
+
+As our first example of a theta function, we consider the \emph{Riemann theta function} $\vt(z,\tau)$ on the lattice $\Lambda_{\tau}$, defined by
+\begin{equation*}
+	\vt(z,\tau) = \sum_{n\in \ZZ}\exp\big(\pi i(2zn + n^{2}\tau)\big).
+\end{equation*}
+It can easily be shown to converge uniformly on $\CC\times \mcH$, see e.g. \cite{Mumford_1983}, and it satisfies
+\begin{equation*}
+	\begin{split}
+	\vt(z + m + n\tau,\tau) = \exp(-\pi i (2nz + n^{2}\tau))\vt(z,\tau),
+	\end{split}
+\end{equation*}
+so $\vt(z,\tau)$ is a theta function with the theta factor
+\begin{equation*}
+	e_{m+n\tau}(z) = \exp(-\pi i (2nz + n^{2}\tau)).
+\end{equation*}
+
+Now the question is what sort of form does a theta function $f(z)$ take on?  First of all, let us consider the lattice $\Lambda_{\tau} = \{ n + m\tau \st n,m \in \ZZ,\ \im\tau > 0 \}$; any lattice $\Lambda$ is equivalent to such a $\Lambda_{\tau}$ by homothety. Secondly, Liouville's theorem tells us that $f(z)$ cannot be doubly-periodic with respect to $\Lambda_{\tau}$, so now we focus our attention to finding entire functions $f(z)$ with the simplest quasi-periodic behaviour with respect to $\Lambda_{\tau}$, namely that $f(z)$ behaves as
+\begin{equation*}
+	f(z+1) = f(z),\qquad f(z +\tau) = \be(-(az + b))\cdot f(z),
+\end{equation*}
+where we write $\be(z) = \exp(2\pi i z)$, and which we call the functional equations for $f(z)$. Since $f(z)$ is periodic in $z$ with respect to $z \mapsto z+1$, we can expand it as a Fourier series
+\begin{equation*}
+	f(z) = \sum_{n\in\ZZ}a_{n}\be(n z),\qquad a_{n}\in\CC.
+\end{equation*}
+Then writing $f(z + 1 + \tau)$ in terms of $f(z)$ by combining the functional equations in either order, we find that
+\begin{equation*}
+	f(z + 1 + \tau) = f(z+\tau) = \be(-(az+b)),
+\end{equation*}
+and also
+\begin{equation*}
+	f(z + 1 + \tau) = \be(-(a(z+1) + b))f(z+1) = \be(-a)\be(-(az+b))f(z),
+\end{equation*}
+so $a = k$ for some $k \in \ZZ$. Substituting the Fourier series into the second functional equation, we find that
+\begin{equation*}
+	\begin{split}
+	\sum_{n \in\ZZ}a_{n} \be( n \tau)\cdot\be(n z) &= f(z+\tau)\\
+	&=\be(-(kz + b))\cdot f(z)\\
+	&= \sum_{n\in\ZZ}a_{n}\be((n-k)z)\cdot\be(- b)\\
+	&= \sum_{n\in\ZZ} a_{n+k}\be(-b)\cdot \be(n z).
+	\end{split}
+\end{equation*}
+Comparing the coefficients of the first and last term, we get the recursive relation
+\begin{equation}
+\label{recursive}
+	a_{n+k} = a_{n}\be((n\tau + b)).
+\end{equation}
+Now if $k = 0$, then for at most one $n$ we have that $a_{n} \neq 0$, and we have the uninteresting possibility that $f(z) = \be(z)$. If $k \neq 0$, then there is the recursive relation for solving for $a_{n + pk}$ in terms of $a_{n}$ for all $p \in \ZZ$, but when $k \leq -1$ we see that the recursive relation leads to rapidly growing coefficients $a_{n}$, and so there cannot be any entire functions $f(z)$. However, when $k \geq 1$ this is not the case, and we find a $k$-dimensional vector space of possibilities for $f(z)$, as each $f(z)$ is determine by its Fourier coefficients $a_{0},\ldots, a_{k-1}$. In fact, we can solve the recursive equation (\ref{recursive}) explicitly; to simplify things, let us replace $f(z)$ by $f(z + \tau/2 - b/k)$, then
+\begin{equation*}
+\begin{split}
+f(z + \tau/2 - b/k + \tau) &= \be(-(k(z + \tau/2 - b/k) + b))\cdot f(z + \tau/2 - b/k)\\
+&\be(-k(z + \tau/2))\cdot f(z + \tau/2 - b/k),
+\end{split}
+\end{equation*}
+so we may assume that $b = k\tau/2$. Then in letting $i \in \{0,\ldots, k-1\}$, we get \cite{Dolgachev_1997}
+\begin{equation*}
+	a_{i + pn} = \be \big( \tfrac{1}{2}\big( (i + pn)^{2}\tau  \big)/n\big)\cdot a_{i}
+\end{equation*}
+as our explicit solution to the recurrence relation (\ref{recursive}). This shows that each $f(z)$ with the theta factor
+\begin{equation}
+\label{theta_factor}
+	e_{k\tau + l}(z) = \be\big(-n(kz + \tfrac{k^{2}}{2}\tau )\big)
+\end{equation}
+can be written in the form
+\begin{equation*}
+	f(z) = \sum_{i=0}^{n-1} c_{i}\cdot \Theta_{i}(z,\tau)_{n},
+\end{equation*}
+where
+\begin{equation*}
+	\Theta_{i}(z,\tau)_{n}= \sum_{r\in\ZZ} \be\big(\tfrac{1}{2}(i + rn)^{2}\tau/n\big)\cdot \be(z(i + rn)),\qquad i = 0,\ldots, n-1.
+\end{equation*}
+We will see shortly that it will be more convenient to rewrite these functions in the form
+\begin{equation}
+	\label{big_theta}
+	\Theta_{i}(z,\tau)_{n}= \sum_{r\in\ZZ} \be\bigg(\tfrac{1}{2}\big(\tfrac{i}{n} + r\big)^{2}n\tau\bigg)\cdot \be \bigg(nz\big(\tfrac{i}{n} + r\big)\bigg).
+\end{equation}
+
+It is easy to see using the uniqueness of the Fourier coefficients for a holomorphic function that the $\Theta_{i}(z)_{n}$ are linearly independent, and hence form a basis for the theta functions with the theta factor (\ref{theta_factor}). In summary,\\
+
+\begin{prop}[\cite{Dolgachev_1997}]
+	\label{theta_basis_one}
+	Each theta factor is equivalent to the theta factor of the form
+	\begin{equation*}
+		e_{k+l\tau}(z) = \be\Big(-n\big(lz + \tfrac{l^{2}}{2}\tau\big)\Big).
+	\end{equation*}
+	The $\CC$-vector space $R_{n}(\Lambda_{\tau})$ of such functions is zero dimensional if $n<0$. For $n = 0$ it consists of constant functions, whereas for $n >0$ is if of dimension $n$ as is spanned by the functions
+	\begin{equation*}
+	\Theta_{i}(z,\tau)_{n}= \sum_{r\in\ZZ} \be\bigg(\tfrac{1}{2}\big(\tfrac{i}{n} + r\big)^{2}n\tau\bigg)\cdot \be \bigg(nz\big(\tfrac{i}{n} + r\big)\bigg).
+	\end{equation*}
+\end{prop}
+
+A very useful definition is the following generalisation of the $\vt(z,\tau)$:\\
+
+\begin{defn}[\cite{Mumford_1983}]
+	For every $(a,b) \in \QQ^{2}$ and $(z,\tau) \in \CC \times \mcH$, the \emph{theta function of rational characteristic $(a,b)$}, is the series
+	\begin{equation*}
+		\vtc{a}{b}(z,\tau) = \sum_{r\in\ZZ}\be\bigg((r + a)(z + b) + \frac{1}{2}(r+a)(r+b)\tau \bigg),
+	\end{equation*}
+	which will be commonly abbreviated at $\vt_{a,b}(z,\tau)$.
+\end{defn}
+
+These are really just translates of $\vt(z,\tau)$ multiplied by an elementary exponential factor:
+\begin{equation*}
+	\vtc{a}{b}(z,\tau) = \be\big(a(z+b) + \tfrac{1}{2}a^{2}\tau\big)\cdot\vt(z + a\tau + b),\qquad\text{for all } a,b \in \QQ,
+\end{equation*}
+
+and in terms of a theta function with rational characteristics, we now see that
+\begin{equation}
+\label{theta_weight_n}
+	\Theta_{i}(z,\tau)_{n} = \vtc{\frac{i}{n}}{0}(nz,n\tau),
+\end{equation}
+and we call such functions \emph{theta functions of weight $n$}, \cite{Mumford_1983}. With this in hand, we can rephrase Proposition \ref{theta_basis_one} in the following terms:\\
+
+\begin{prop}[\cite{Mumford_1983}]
+	\label{theta_basis}
+	Fix a lattice $\Lambda_{\tau}\subset \CC$. Then a basis of the vector space of theta functions of weight $n$, $R_{n}(\Lambda_{\tau})$, can be given by:
+	\begin{equation*}
+		x_{i}(z) = \vtc{\tfrac{i}{n}}{0}(nz,n\tau),\qquad \text{for }i \in \ZZ/n\ZZ.
+	\end{equation*}
+\end{prop}
+
+Now we can determine the zeros of the $\vtc{\tfrac{i}{n}}{0}(nz,n\tau)$:\\
+
+\begin{prop}[\cite{Dolgachev_1997}]
+	A non-zero function $f(z) \in R_{n}(\Lambda_{\tau})$ has exactly $n$ zeros in $\CC/\Lambda_{\tau}$ counting multiplicities.
+\end{prop}
+
+\begin{proof}
+	It is well known that the number of zeros (with multiplicity) of a holomorphic function $f(z)$ on an open subset $U$ of $\CC$ inside of a compact set $K \subset U$ is equal to
+	\begin{equation}
+		\text{\# of zeros of } f(z) = \frac{1}{2\pi i}\int_{\partial K}d \log f(z)\ dz.
+	\end{equation}
+	We assume that $f(z)$ has no zeros on $\partial K$, and after a suitable translation by $z_{0}\in \CC$, we can take the fundamental parallelogram $z_{0} + \Pi$ for $\Lambda_{\tau}$ as our $K$. As $f(z) \in R_{n}(\Lambda_{\tau})$,
+	\begin{equation*}
+		d\log f(z+\tau) = -2\pi indz + d\log f(z)
+	\end{equation*}
+	as $\tau$ is fixed, and then we obtain from the above equation that
+	\begin{equation*}
+		\begin{split}
+		2\pi i\cdot(\text{\# of zeros of } f(z)) &= \int_{\partial K}d \log f(z)\ dz\\
+		&= \int_{z_{0}}^{z_{0} + 1} (d \log f(z) - d\log f(z+\tau))\ dz\\
+		&- \int_{z_{0}}^{z_{0} + \tau} (d \log f(z) - d\log f(z+1))\ dz\\
+		&= \int_{z_{0}}^{z_{0} + 1} 2\pi in\ dz = 2\pi i n,
+		\end{split}
+	\end{equation*}
+	which proves our assertion.
+\end{proof}
+
+\begin{lemma}[\cite{Dolgachev_1997}]
+	\label{zero_point}
+	The zero of the function $\vt_{a,b}(z,\tau)$ in $\CC/\Lambda_{\tau}$ is the point
+	\begin{equation}
+		P = \bigg(a + \frac{1}{2}\bigg)\tau + \bigg(b + \frac{1}{2}\bigg).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	We observe that
+	\begin{equation*}
+		\begin{split}
+		\vt_{\frac{1}{2},\frac{1}{2}}(-z,\tau) &= \sum_{m\in \ZZ}\be\big(\tfrac{1}{2}(m+1/2)^{2}\tau + (m+1/2)(-z+1/2)\big)\\
+		&= \sum_{k\in \ZZ}\be\big(\tfrac{1}{2}(-k-1/2)^{2}\tau + (k+1/2)(z-1/2)\big) \qquad(\text{where }k = -m-1)\\
+		&= \sum_{k\in \ZZ}\be\big(\tfrac{1}{2}(k+1/2)^{2}\tau + (k+1/2)(z+1/2)\big)\be(-(k+1/2))\\
+		&= -\vt_{\frac{1}{2},\frac{1}{2}}(z,\tau),
+		\end{split}
+	\end{equation*}
+	so the theta function $\vt_{\frac{1}{2},\frac{1}{2}}(z,\tau)$ is an odd function, thus its zero is located at $z=0$ in $\Lambda_{\tau}$. The zero point $P$ for $\vt_{a,b}(z,\tau)$ is then the one stated, as $\vt_{a,b}(z,\tau)$ is obtained from $\vt_{\frac{1}{2},\frac{1}{2}}(z,\tau)$ by translation.
+\end{proof}
+
+\begin{cor}[\cite{Dolgachev_1997}]
+	\label{cor_zeros}
+	The zeros of the function $\vt_{a,b}(nz,n\tau)$ in $\CC/\Lambda_{\tau}$ are the points
+	\begin{equation}
+		\label{zeros}
+		P_{i} = \bigg(a + \frac{1}{2}\bigg)\tau + \frac{b}{n} + \frac{1}{2n} + \frac{i}{n},\qquad i= 0, \ldots, n-1.
+	\end{equation}
+\end{cor}
+
+\begin{proof}
+	By Lemma \ref{zero_point}, if $P$ is the zero for $\vt_{a,b}(z,\tau)$ then a zero point for $\vt_{a,b}(nz,n\tau)$ is of the form
+	\begin{equation*}
+		nP = \bigg(a + \frac{1}{2}\bigg)n\tau + \bigg(b + \frac{1}{2}\bigg) + \ZZ + n\tau\ZZ,
+	\end{equation*}
+	and consequently
+	\begin{equation}
+		P_{i} = \bigg(a+\frac{1}{2}\bigg)\tau + \bigg(\frac{b}{n} + \frac{1}{2n} + \frac{i}{n}\bigg) + \Lambda_{\tau},\qquad i = 0,\ldots,n-1.
+	\end{equation}
+\end{proof}
+
+We can now state and prove the main theorem of this section, that lets us embed a complex elliptic curve $E_{\tau} = \CC/\Lambda_{\tau}$ into projective space by means of theta functions.\\
+
+\begin{theorem}[\cite{Dolgachev_1997,Mumford_1983}]
+	For each $n\geq 1$, the map
+	\begin{equation*}
+		\begin{split}
+		\phi_{n}:E_{\tau}&\longrightarrow \PP^{n-1}\\
+		z &\longmapsto \bigg(\vtc{0}{0}(nz,n\tau),\vtc{\frac{1}{n}}{0}(nz,n\tau),\ldots, \vtc{\frac{n-1}{n}}{0}(nz,n\tau)\bigg)
+		\end{split}
+	\end{equation*}
+	defines a holomorphic map. If $n\geq 3$, this map is a holomorphic embedding.
+\end{theorem}
+
+\begin{proof}
+	Firstly, the map is well-defined, since each theta function $\vt_{i/n,0}(nz,n\tau)$ has the same theta factor. Also from Corollary \ref{cor_zeros}, they do not all vanish at the same point, hence define the same point in projective space. The map is holomorphic since the theta functions are holomorphic functions.
+	
+	Let us show that it is injective when $n\geq 3$. Suppose that $\phi_{n}(z_{1}) = \phi_{n}(z_{1}^{\prime})$, or that $d\phi_{n}(z_{1}) = 0$. Then for any integers $k,l$,
+	\begin{equation*}
+		\vtc{\frac{i}{n}}{0}(nz + k + l\tau,n\tau) = \be(ki/s)\be(2nlz + \tfrac{ln\tau}{2})\vtc{\frac{i}{n}}{0}(nz,n\tau). 
+	\end{equation*}
+	This shows that $\phi_{n}(z_{1} + \tfrac{k}{n} + \tfrac{l}{n\tau}  ) = \phi_{n}(z_{1}^{\prime} + \tfrac{k}{n} + \tfrac{l}{n}\tau)$. Note that, if $n \geq 3$, we can always choose $k$ and $l$ to be such that the four points $z_{1}, z_{1}^{\prime}$, $z_{2} = z_{1} + \tfrac{k}{n} + \tfrac{l}{n}\tau, z_{2}^{\prime} = z_{1} + \tfrac{k}{n} + \tfrac{l}{n}\tau$ are distinct. The linear space generated by the functions $\vt_{i/n, 0}$ is of dimension $n$. So we can find a linear combination $f$ of these functions such that it vanishes at $z_{1}, z_{2}$, and some other $n-3$ points $z_{3},\ldots, z_{n-1}$, which are distinct modulo $\Lambda_{\tau}$. But then $f$ also vanishes at $z_{1}^{\prime}$ and $z_{2}^{\prime}$, or $f$ has a double zero at $z_{1}$ and $z_{2}$. Thus we have $n+1$ zeros of $f$ counting multiplicities, which contradicts Lemma \ref{zero_point} and proves our assertion.
+\end{proof}
+
+We finish this section by stating the image of our complex elliptic curve $E_{\tau} = \CC/\Lambda_{\tau}$ is in fact and algebraic variety, when embedded with some projective space $\PP^{n}$. This is due to Chow's Theorem, which states:\\
+
+\begin{theorem}[Theorem of Chow, \cite{Mumford_1974}]
+	Let $X$ be a complete algebraic variety and $Y$ a closed analytic subset of $X_{\text{hol}}$, where $X_{\text{hol}}$ is the canonically associated analytic space structure on the underlying set of $X$. Then $Y$ is Zariski closed in $X$.
+\end{theorem}
+
+Chow proved the theorem for $X = \PP^{n}$, and as far as we are concerned this is the case we are after, with $Y = \phi_{n}(E_{\tau})$.

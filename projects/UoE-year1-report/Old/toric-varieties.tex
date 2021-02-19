@@ -1,0 +1,236 @@
+
+\chapter{Toric Varieties and Convexity}
+
+\section{Toric Varieties}
+
+\begin{thm}[Atiyah, Guillemin-Sternberg]
+	Let $(M,\omega)$ be a compact connected symplectic manifold, and let $T^{n}$ be a torus that acts on $M$ in a Hamiltonian manner. Now consider the moment map $\mu : M \rightarrow \mf{t}^{n}$ for this $T^{n}$-action, then we have the following:
+	\begin{itemize}
+		\item the level sets $\mu^{-1}(c)$ are connected, for each $c \in \RR^{n}$;
+		\item the image $\mu(M)$ is convex;
+		\item the image $\mu(M)$ is the convex hull of the images of the fixed points of the action.
+	\end{itemize}
+\end{thm}
+
+The image $\mu(M) \subset \mf{t}^{n}$ of the moment map is called the \emph{moment polytope} of the $T^{n}$-action.
+
+\begin{ex}
+	Consider the complex projective plane $\CC\PP^{2}$ with the Fubini-Study \K form $(\CC\PP^{2}, \omega_{FS})$. We can let the torus $T^{2}$ act on $\CC\PP^{2}$ by
+	\begin{equation*}
+	(t_{1}, t_{2}) \cdot [z_{0}:z_{1}:z_{2}] = [z_{0}: t_{1}z_{1}: t_{2}z_{2}],\qquad \text{for } (t_{1}, t_{2}) \in T^{2}.
+	\end{equation*}
+	which has the following moment map $\mu: \CC\PP^{2} \rightarrow (\mf{t}^{2})^{\ast}$ as
+	\begin{equation*}
+	\mu([z_{0}:z_{1}:z_{2}]) = \frac{1}{2}\bigg( \frac{|z_{1}|^{2}}{\|z\|^{2}}, \frac{|z_{2}|^{2}}{\|z\|^{2}} \bigg).
+	\end{equation*}
+	There are three fixed points of the $T^{2}$-action, namely
+	\begin{equation*}
+	[1:0:0],\qquad [0:1:0],\qquad [0:0:1],
+	\end{equation*}
+	which get mapped to
+	\begin{equation*}
+	(0,0),\qquad (\tfrac{1}{2},0),\qquad (0,\tfrac{1}{2}),
+	\end{equation*}
+	respectively. Hence the moment polytope $\mu(\CC\PP^{2}) \subset (\mf{t}^{2}) \cong \RR^{2}$ is the right-angled triangle in the positive quadrant in $\RR^{2}$.
+\end{ex}
+
+
+
+\section{The Delzant Construction}
+
+\begin{defn}
+	A \emph{symplectic toric manifold} is a compact connected symplectic manifold $(M^{2n},\omega)$  with an effective Hamiltonian action of a torus $T^{n}$ of dimension equal to half the dimension of the manifold
+	\begin{equation*}
+	\dim T^{n} = \frac{1}{2}\dim M^{2n},
+	\end{equation*}
+	and with a choice of corresponding moment map $\mu: M \rightarrow (\mf{t}^{n})^{\ast}$.
+\end{defn}
+
+
+\begin{defn}
+	A \emph{Delzant polytope} $\Delta$ in $\RR^{n}$ is a polytope satisfying:
+	\begin{itemize}
+		\item simplicity: there are $n$ edges meeting at each vertex;
+		\item rationality: each edge that meets a vertex $p$ is of the form $p + tu_{i}$, with $t_{i} \geq 0$ and $u_{i} \in \ZZ^{n}$;
+		\item smoothness: for each vertex, the corresponding $u_{1},\ldots, u_{n}$ can be chosen to be a $\ZZ$-basis of $\ZZ^{n}$.
+	\end{itemize}
+\end{defn}
+
+It turns out that the moment polytope of a symplectic toric manifold is Delzant.
+
+\begin{lem}
+	For any symplectic toric manifold $(M,\omega)$, its moment polytope is Delzant.
+\end{lem}
+
+So this shows that any toric symplectic manifold has, as the image of its moment map, a Delzant polytope associated to it.
+
+\subsection{Symplectic Construction}
+
+\begin{thm}[Delzant, \cite{delzant-1988}]
+	Toric manifolds are classified by Delzant polytopes. More specifically, the bijective correspondence between these two sets is given by the moment map:
+	\begin{equation*}
+	\begin{split}
+	\frac{\{\text{toric manifolds}\}}{\{ T^{n}\text{-equivariant symplectomorphisms}\}} &\longleftrightarrow \frac{\{\text{Delzant polytopes}\}}{\{\text{translations}\}}\\
+	(M^{2n}_{\Delta}, \omega_{\Delta}, T^{n}, \mu) &\longleftrightarrow \mu(M_{\Delta}) = \Delta.
+	\end{split}
+	\end{equation*}
+\end{thm}
+
+We do not give a proof of this theorem, but we shall outline the steps involved in the construction of a toric symplectic manifold when given a convex Delzant polytope to introduce the notation used, before investigating two examples.
+
+Let $\Delta$ be a convex polytope in $\RR^{n}$ with $N$ facets, which satisfy the Delzant condition. For each facet $F_{j}$ of $\Delta$, where $j = 1, \ldots, N$, let $v_{j} \in \ZZ^{n}$ be the primitive inward-pointing normal vector to $F_{j}$. Define a projection $\pi_{\ast}: \RR^{N} \rightarrow \RR^{n}$ by sending the $j$-th basis vector $e_{j} \in \RR^{N}$ to $v_{j} \in \RR^{n}$:
+\begin{equation*}
+	\pi_{\ast}: \RR^{N} \rightarrow \RR^{n}:\ e_{j} \mapsto v_{j}.
+\end{equation*}
+Since $\Delta$ is Delzant, the vectors $v_{j}$ span $\RR^{n}$, and further they form a $\ZZ$-basis for $\ZZ^{n}$ (prove?). So $\pi_{\ast}$ is surjective from $\ZZ^{N}$ onto $\ZZ^{n}$ and induces a map between tori:
+\begin{equation*}
+	\pi:\RR^{N}/\ZZ^{N} \rightarrow \RR^{n}/\ZZ^{n}.
+\end{equation*}
+Set $K:= \ker(\pi)$ and $\mf{k} := \ker(\pi_{\ast})$, so that $K$ is a subtorus of $T^{N}$ with inclusion homomorphism $\imath :K \hookrightarrow T^{N}$ and $\imath_{\ast} : \mf{k} \rightarrow \mf{t}^{N}$ is the Lie algebra of $K$. Then we get two exact sequences
+
+\begin{equation*}
+\begin{tikzcd}
+1 \arrow{r}
+&K \arrow{r}{i_{\ast}}
+&T^{N} \arrow{r}{\pi_{\ast}}
+&T^{n} \arrow{r}
+&1,
+\\
+0 \arrow{r}
+&\mf{k} \arrow{r}{i_{\ast}}
+&\mf{t}^{N} \arrow{r}{\pi_{\ast}}
+&\mf{t}^{n} \arrow{r}
+&0,
+\end{tikzcd}
+\end{equation*}
+the second of which induces the dual exact sequence
+\begin{equation*}
+\begin{tikzcd}
+0
+&\arrow{l} (\mf{k})^{\ast}
+&\arrow{l}{i^{\ast}} (\mf{t}^{N})^{\ast}
+&\arrow{l}{\pi^{\ast}} (\mf{t}^{n})^{\ast}
+&\arrow{l} 0.
+\end{tikzcd}
+\end{equation*}
+
+With the primitive normal vectors $v_{j}$, we can write the polytope $\Delta$ as
+\begin{equation*}
+	\Delta = \{ x \in \RR^{n}\ :\ \langle x,\ v_{j} \rangle \geq \lambda_{j},\ 1\ \leq j \leq N \}
+\end{equation*}
+for some real numbers $\lambda_{j}$. (assuming the $\lambda_{j}$ are integers $\implies$ prequantisable see mark hamilton).
+
+(need more here)
+
+Now set $\nu = \imath(-\lambda) \in \mf{k}^{\ast}$. As the sequence (label) is exact, $(\imath^{\ast})^{-1}(0) = \im(\pi^{\ast})$, whence $(\imath^{\ast})(\nu) = \im(\pi^{\ast} - \lambda)$. Since $\imath^{\ast}$ is a linear map between vector spaces, $(\imath^{\ast})^{-1}(\nu)$ is an affine subspace of $\RR^{N}$. The intersection of this affine subspace with $\RR_{+}^{N}$ can be identified with the polytope $\Delta$.
+
+The torus $T^{N}$ acts on $\CC^{N}$ in the standard way with the diagonal multiplication action, which is Hamiltonian with moment map
+\begin{equation*}
+	\phi: \CC^{N} \rightarrow (\mf{t}^{N})^{\ast}: (z_{1}, \ldots, z_{N}) \mapsto \big(\pi |z_{1}|^{2}, \ldots, \pi |z_{N}|^{2}\big).
+\end{equation*}
+The inclusion $\imath: K \hookrightarrow T^{N}$ induces a Hamiltonian action of $K$ on $\CC^{N}$ as a subtorus, with moment map
+\begin{equation*}
+	\mu: \imath^{\ast} \circ \phi: \CC^{N} \rightarrow \mf{k}^{\ast}.
+\end{equation*}
+Let $M = \mu^{-1} / K$, then as the action of $T^{N}$ on $\CC^{N}$ commutes with the action of $K$ it descends to a Hamiltonian action on the quotient $M$. It is not effective however, but the quotient torus $T^{n} = T^{N}/K$ does act effectively on $M$. Delzant's theorem is then the statement that $M$ equipped with this action is a smooth toric manifold, with moment polytope $\Delta$.
+
+
+
+\subsection{Complex Construction}
+
+
+
+\newpage
+Since the symplectic form $\omega_{\Delta}$ on $M_{\Delta}$ coincides with that of $\omega_{0}$ on $\CC^{d}$ when both are pulled back to $Z$, we have the following:
+
+\begin{cor}
+	The symplectic manifold $(M_{\Delta},\omega_{\Delta})$ constructed above has a natural K{\"a}hler structure.
+\end{cor}
+
+\begin{rmk}
+	Let $\Delta$ be a Delzant polytope in $(\RR^{n})^{\ast}$ and with $d$ facets. Let $v_{i} \in \ZZ^{n}$, $i=1,\ldots d$, be the primitive outward-pointing normal vectors to the facets of $\Delta$. Then $\Delta$ can be described as $n$ intersection of half-spaces
+	\begin{equation*}
+	\Delta = \{ x\in (\RR^{n})^{\ast} : \langle x, v_{i} \rangle \leq \lambda_{i},\ i=1,\ldots, d \} \quad\text{for some } \lambda_{i}\in \RR.
+	\end{equation*}
+\end{rmk}
+
+\begin{ex}
+	From the $T^{2} acts \CC\PP^{2}$ example from before:
+	\begin{equation*}
+	\begin{split}
+	\Delta &= \big\{ x\in (\RR^{2})^{\ast} : x_{1} \leq 0,\ x_{2} \leq 0,\ x_{1} + x_{2} \geq -\tfrac{1}{2} \big\}\\
+	&= \big\{ x\in (\RR^{2})^{\ast} : \langle x,(1,0)\rangle \leq 0,\ \langle x,(0,1)\rangle \leq 0,\ \langle x, (-1,-1) \rangle \leq \tfrac{1}{2} \big\}
+	\end{split}
+	\end{equation*}
+	
+\end{ex}
+
+\section{Examples}
+
+In this section we shall apply the above theory to construct two examples of toric symplectic varieties, not just to illustrate the aforementioned theory, but also because these two examples will be necessary for further discussion on hypertoric varieties and quantisation later on in this report.
+
+\subsection{$T^{3}$ acting on $\CC^{3}$}
+
+Consider the polytope $\Delta$ to be the triangle in $\RR^{2}$ with vertices $(0,0), (0,m)$, and $(m,0)$, for $m \in \ZZ_{+}$. Here $N = 3$ and $n=2$, and the three normal vectors to $\Delta$ are
+\begin{equation*}
+	v_{1} = (0,1),\quad v_{2} = (1,0),\quad v_{3} = (-1,-1)
+\end{equation*}
+and $\lambda$ is $(0,0,-m)$. Thus the map $\pi: \mf{t}^{3} \rightarrow \mf{t}^{2}$ is represented by the matrix
+\begin{equation*}
+	\begin{bmatrix}
+	0 & 1 & -1 \\
+	1 & 0 & -1
+	\end{bmatrix},
+\end{equation*}
+or if the coordinates of $\mf{t}^{3}$ are $(x,y,z)$, then equivalently
+\begin{equation*}
+	\pi(x,y,z) = (y-z,x-z).
+\end{equation*}
+The kernel of this map is clearly
+\begin{equation*}
+	\ker \pi = \{ (x,y,z) \in \mf{t}^{3}\ :\ x = y = z \} =: \mf{k},
+\end{equation*}
+and $\mf{k}$ can be identified with $\RR$ by the inclusion $i:t \hookrightarrow (t,t,t)$. Exponentiating, the corresponding map on tori is
+\begin{equation*}
+	\pi: T^{3} \rightarrow T^{2}:\ (e^{2\pi i x}, e^{2\pi i y}, e^{2\pi z} ) \mapsto \big( e^{2\pi i (y-z)}, e^{2\pi i (x-z)}\big),
+\end{equation*}
+with kernel $\ker\pi = (e^{2\pi i t}, e^{2\pi i t}, e^{2\pi i t}) =: K$, which is $S^{1}$ embedded into $T^{3}$ as the diagonal subtorus.
+
+For the dual sequence, the map $\pi^{\ast}$ can be found by transposing the matrix for $\pi_{\ast}$,
+\begin{equation*}
+	\begin{bmatrix}
+	1 & 0 \\
+	0 & 1 \\
+	-1 & -1
+	\end{bmatrix},
+\end{equation*}
+or equivalently if we represent the coordinates in $(\mf{t}^{2})^{\ast}$ by $(a,b)$, then
+\begin{equation*}
+	\pi^{\ast}(a,b) = (a, b, -a-b).
+\end{equation*}
+Similarly, or since (image = kernel),
+\begin{equation*}
+	i^{\ast}(x,y,z) = x + y + z.
+\end{equation*}
+
+Recall that $\lambda = (0,0,-m)$, so that $\nu = \imath^{\ast}(-\lambda) = \lambda$. Then the affine space $(\imath^{\ast})^{-1}(\nu) \cap \RR_{+}^{3}$ intersected with the positive orthant $\RR_{+}^{3}$ is the space $\{(x,y,z)\in \RR^{3}\ :\ x + y + z = m \}$, which is a triangle (need more).
+
+Finally, using the moment map $\phi:\CC^{3} \rightarrow (\mf{t}^{3})^{\ast} \cong \RR^{3}$ for the $T^{3}$-action on $\CC^{3}$, we see that $\mu^{-1}(\nu) = \{ z \in \CC^{3} \st | z_{1} |^{2} + | z_{2} |^{2} + | z_{3} |^{2} = m/\pi \} \cong S^{5}$, and which the symplectic reduction by the diagonal action of $K \cong S^{1}$ is $M = \mu^{-1}(\nu)/K \cong \CC\PP^{2}$.
+
+(need more) Observe that the number of integral lattice points contained in $\Delta$, including those on the boundary, is equal to
+\begin{equation*}
+	1 + 2 + \ldots + m + (m + 1) = \frac{m(m+1)}{2}.
+\end{equation*}
+
+\subsection{$T^{4}$ acting on $\CC^{4}$}
+
+Now let $\Delta$ be the pyramid in $\RR^{3}$ with vertices $(0,0,0),\ (m,0,0),\ (0,m,0),\ (0,0,m)$, where once again $m \in \ZZ_{+}$. In this case $N = 4$ and $n = 3$, and the primitive inward-pointing normal vectors to $\Delta$ are
+\begin{equation*}
+v_{1} = (0,0,1),\quad v_{2} = (0,1,0),\quad v_{3} = (1,0,0),\quad v_{4} = (-1,-1,-1),
+\end{equation*}
+and $\lambda$ is $(0,0,-m)$??.
+
+With the same notation as before, this situation is almost identical to the previous example \emph{mutatis mutandi}; one finds for $\imath^{\ast}:(\mf{t}^{4})^{\ast} \rightarrow \mf{k}^{\ast} \cong \RR$ that
+\begin{equation*}
+	\imath^{\ast}(w,x,y,z) = w + x + y + z,
+\end{equation*}

@@ -1,0 +1,99 @@
+ 
+\usepackage{natbib}         % Pour la bibliographie
+\usepackage{url}            % Pour citer les adresses web
+\usepackage[T1]{fontenc}    % Encodage des accents
+\usepackage[utf8]{inputenc} % Lui aussi
+\usepackage{numprint}       % Histoire que les chiffres soient bien
+
+\usepackage{amsmath}        % La base pour les maths
+\usepackage{mathrsfs}       % Quelques symboles supplémentaires
+\usepackage{amssymb}        % encore des symboles.
+\usepackage{amsfonts}       % Des fontes, eg pour \mathbb.
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{scalerel}
+\usepackage{stackengine,wasysym}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows}
+\usepackage{pstricks}
+\usepackage{pstcol}
+
+
+
+\usepackage{cancel}
+
+%\usepackage[svgnames]{xcolor} % De la couleur
+
+%%% Si jamais vous voulez changer de police: décommentez les trois 
+%\usepackage{tgpagella}
+%\usepackage{tgadventor}
+%\usepackage{inconsolata}
+
+%%% Pour L'utilisation de Python
+\usepackage{minted}
+\usemintedstyle{friendly}
+
+\usepackage{graphicx} % inclusion des graphiques
+\usepackage{wrapfig}  % Dessins dans le texte.
+
+\usepackage{tikz}     % Un package pour les dessins (utilisé pour l'environnement {code})
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newtheorem{thm}{Theorem}[]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{goal}[thm]{Goal}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{exer}{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{qstn}[thm]{Question}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+
+\DeclareMathOperator{\mult}{mult}
+
+\newcommand\reallywidetilde[1]{\ThisStyle{%
+		\setbox0=\hbox{$\SavedStyle#1$}%
+		\stackengine{-.1\LMpt}{$\SavedStyle#1$}{%
+			\stretchto{\scaleto{\SavedStyle\mkern.2mu\AC}{.2150\wd0}}{.4\ht0}%
+		}{O}{c}{F}{T}{S}%
+}}
+
+
+

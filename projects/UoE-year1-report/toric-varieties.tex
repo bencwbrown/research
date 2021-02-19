@@ -1,0 +1,221 @@
+
+\chapter{Symplectic Toric Varieties and Delzant's Construction}
+ 
+The content of this chapter has now become quite standard, and as such can be found in several textbooks on symplectic and/or toric geometry, \eg \cite{Aud04,Gui94,Sil01}. We shall mostly follow \cite{Gui94} for this chapter, as the reference is written with the end goal of geometric quantisation in mind for toric symplectic manifolds.
+ 
+\section{Basic Definitions and Theorems}
+
+Let $G$ be a compact connected Lie group, $\mf{g}$ its Lie algebra, and $\mf{g}^{\ast}$
+the vector space dual of $\mf{g}$.  Let $(M,\w)$ be a symplectic manifold, and suppose that it is also a Hamiltonian $G$-space. If $G$ does not act effectively on $M$, then by quotienting $G$ by the kernel of the action, we end up with an effective action on $M$ by the resulting quotient group.
+
+\begin{thm}
+	If $G$ acts effective on $M$, then $\dim M \geq 2 \dim G$.
+\end{thm}
+
+Later on in this section, we shall investigate the cases when equality holds. Before that however, we will give an overview of the Marsden-Weinstein reduction: let $(M,\w_{M})$ be a Hamiltonian $G$-space with moment map $\Phi$, and let $M_{0} = \Phi^{-1}(0)$. As $\Phi$ is $G$-equivariant, $M_{0}$ is $G$-invariant.
+
+\begin{thm}
+	If $G$ acts freely on $M_{0}$, then $0$ is a regular value of $\Phi$, and so $M_{0}$ is a closed submanifold of $M$ of codimension equal to $\dim G$.
+\end{thm}
+
+Assuming still that $G$ does act freely on $M_{0}$, then since $G$ is compact the orbit space
+\begin{equation*}
+	B := M_{0}/G
+\end{equation*}
+is a Hausdorff manifold of codimension $2\dim G$, and the map from points to orbits
+\begin{equation*}
+	\pi: M_{0} \longrightarrow B
+\end{equation*}
+is a principal $G$-fibration. Let $i: M_{0} \rightarrow M$ be the inclusion map.
+
+\begin{thm}
+	There exists a symplectic form $\w_{B}$ on $B$ such that
+	\begin{equation*}
+		i^{\ast}\w_{M} = \pi^{\ast}\w_{B}.
+	\end{equation*}
+\end{thm}
+
+\begin{defn}
+	$(B,\w_{B})$ is the \emph{reduction} of $(M,\w_{M})$.
+\end{defn}
+
+\begin{rmk}
+	When $G$ is abelian (and so is isomorphic to a torus), its coadjoint action on $\mf{g}^{\ast}$ is trivial. In this case, one can use any value $c \in \mf{g}^{\ast}$ to reduce at, by using the moment map $\Phi - c$ in place of $\Phi$.
+\end{rmk}
+
+
+\section{Toric Symplectic Varieties and Delzant's Construction}
+
+Now let $G = T^{d} = \RR^{d}/\ZZ^{d}$ and $\mf{g} = \RR^{d}$ and $\mf{g}^{\ast} = (\RR^{d})^{\ast}$. We will construct a variety of examples of Hamiltonian $G$-spaces of dimension $2d$, on which $G$ acts effectively. These are called:
+
+\begin{defn}
+	A \emph{symplectic toric manifold} is a compact connected symplectic manifold $(M,\omega)$  with an effective Hamiltonian action of a torus $T$ such that
+	\begin{equation*}
+	\dim T = \frac{1}{2}\dim M,
+	\end{equation*}
+	and with a choice of corresponding moment map $\mu: M \rightarrow \mf{t}^{\ast}$.
+\end{defn}
+
+
+\begin{thm}[Atiyah, Guillemin-Sternberg Convexity, \cite{Ati82,GS82}]
+	Let $(M,\omega)$ be a symplectic toric manifold, and let $T$ be a torus that acts on $M$ in a Hamiltonian manner. Consider the moment map $\mu : M \rightarrow \mf{t}^{\ast}$ for this $T$-action, then the following hold:
+	\begin{itemize}
+		\item the level sets $\mu^{-1}(c)$ are connected, for each $c \in \mf{t}^{\ast}$;
+		\item the image $\mu(M)$ is convex;
+		\item the image $\mu(M)$ is the convex hull of the images of the fixed points of the action.
+	\end{itemize}
+\end{thm}
+
+\begin{defn}
+	A \emph{Delzant polytope} \cite{Del88} $\Delta$ in $(\RR^{d})^{\ast}$ is a convex polytope satisfying:
+	\begin{itemize}
+		\item simplicity: there are $d$ edges meeting at each vertex;
+		\item rationality: each edge that meets a vertex $p$ is of the form $p + tu_{i}$, with $0 \leq t_{i} \leq \infty$ and $u_{i} \in (\ZZ^{d})^{\ast}$ for each $i = 1,\ldots, d$;
+		\item smoothness: for each vertex, the corresponding $u_{1},\ldots, u_{d}$ can be chosen to be a $\ZZ$-basis of $(\ZZ^{d})^{\ast}$.
+	\end{itemize}
+\end{defn}
+
+It turns out that the moment polytope of a symplectic toric manifold is Delzant.
+
+\begin{prop}[\cite{Del88}]
+	\label{prop:manifold-delzant}
+	For any symplectic toric manifold $(M,\omega)$, its moment polytope $\Delta_{M} := \mu(M)$ is a Delzant polytope.
+\end{prop}
+
+So this shows that any toric symplectic manifold has, as the image of its moment map, a Delzant polytope associated to it.
+
+\begin{thm}[\cite{Del88}]
+	\label{thm:classification}
+	Symplectic toric manifolds are classified by Delzant polytopes. More specifically, the bijective correspondence between these two sets is given by the moment map:
+	\begin{equation*}
+	\begin{split}
+	\frac{\{\text{symplectic toric manifolds}\}}{\{ T^{d}\text{-equivariant symplectomorphisms}\}} &\longleftrightarrow \frac{\{\text{Delzant polytopes}\}}{SL(d,\ZZ) \ltimes \RR^{d}}\\
+	(M^{2d}_{\Delta}, \omega, T^{d}, \mu) &\longleftrightarrow \mu(M_{\Delta}) = \Delta.
+	\end{split}
+	\end{equation*}
+\end{thm}
+
+So Proposition \ref{prop:manifold-delzant} provided one direction of Theorem \ref{thm:classification}, and Delzant proved the opposite direction. Let us outline how one can associate a symplectic manifold $X_{\Delta}$ to every such Delzant polytope. To begin with, we start with the $(d-1)$-dimensional faces, or facets, of $\Delta$, which can be defined by equations of the form
+\begin{equation*}
+	\langle u_{i}, v \rangle = \lambda_{i},\qquad i = 1,\ldots, n
+\end{equation*}
+where $u_{i} \in \ZZ^{d}$. Without loss of generality, we can assume that the $u_{i}$'s are \emph{primitive}, \ie, that they are \emph{not} of the form $u_{i} = ku_{i}^{\prime}$, $k \neq \pm 1$, and $u_{i}^{\prime} \in \ZZ^{d}$. We can also assume that $\Delta$ is the intersection of the half-spaces
+\begin{equation*}
+	\langle u_{i}, v \rangle \geq \lambda_{i},
+\end{equation*}
+so that the $u_{i}$'s are all \emph{inward} pointing normal vectors to the facets. This condition along with primitivity determine the $u_{i}$'s uniquely. Let $e_{1},\ldots, e_{n}$ be the standard basis vectors of $\RR^{n}$ and consider the map
+\begin{equation*}
+	\pi: \ZZ^{n} \rightarrow \ZZ^{d},\qquad e_{i} \mapsto u_{i},
+\end{equation*}
+and its extension
+\begin{equation*}
+	\pi: \RR^{n} \rightarrow \RR^{d}.
+\end{equation*}
+We then get the induced quotient map by exponentiating
+\begin{equation*}
+	\pi: T^{n} \rightarrow T^{d}.
+\end{equation*}
+Denoting the kernel of $\pi$ by $N$, one obtains the exact sequence:
+\[
+\begin{tikzcd}
+1 \arrow[r] & N \arrow[r, hook, "i"] & T^{n} \arrow[r, "\pi"] &
+T^{d} \arrow[r] & 1
+\end{tikzcd}
+\]
+where $i:N \hookrightarrow T^{n}$ is the inclusion homomorphism. The torus $T^{n}$ acts on $\CC^{n}$ by the multiplication mapping
+\begin{equation*}
+	e^{i\theta}\cdot z = (e^{i\theta_{1}}z_{1},\ldots, e^{i\theta_{n}}z_{n})
+\end{equation*}
+and this action is Hamiltonian with moment map
+\begin{equation*}
+	\mu: \CC^{n} \rightarrow (\RR^{n})^{\ast},\qquad \mu(z) = \frac{1}{2}\big( |z_{1}|^{2},\ldots, |z_{n}|^{2} \big) + \lambda,
+\end{equation*}
+where $\lambda = (\lambda_{1},\ldots, \lambda_{n}) \in (\RR^{n})^{\ast}$ is an arbitrary constant, though soon we shall we that the $\lambda_{i}$'s are those that delimit the Delzant polyhedron $\Delta$. By restricting the action of $T^{n}$ on $\CC^{n}$ to $N$, one gets a Hamiltonian action of $N$ on $\CC^{n}$ whose moment map is the following. Recall the inclusion homomorphism $i:N \hookrightarrow T^{n}$, and let $\mf{n}$ be the Lie algebra of $N$. Then by differentiating we get the inclusion $i:\mf{n} \rightarrow \RR^{n}$ on the Lie algebra level, and then by transposing we get $i^{\ast}: (\RR^{n})^{\ast} \rightarrow \mf{n}^{\ast}$.
+\begin{lem}
+	The moment map for the action of $N$ on $\CC^{n}$ is $i^{\ast} \circ \mu$.
+\end{lem}
+It can be further proven that
+\begin{thm}
+	$(i^{\ast} \circ \mu)^{-1}(0)$ is a compact subset of $\CC^{n}$ and $N$ acts freely on this set.
+\end{thm}
+
+It is this theorem that lets us legitimately reduce $\CC^{n}$ with respect to the action of $N$, which results in a compact symplectic manifold on which the quotient $T^{d} = T^{n}/N$ acts. Let $X_{\Delta} := (i^{\ast} \circ \mu)^{-1}(0)/N$ denote the resulting compact symplectic manifold, then its dimension is
+\begin{equation*}
+	\dim X_{\Delta} = \dim \CC^{n} - 2 \dim N = 2n - 2(n - d) = 2d = 2\dim T^{d}
+\end{equation*}
+
+\begin{rmk}
+	By differentiating and dualising the exact sequence above, we get:
+	\[
+	\begin{tikzcd}
+	0  & \arrow[l]  \mf{n}^{\ast} & \arrow[l, hook, "i^{\ast}", swap] (\RR^{n})^{\ast} & \arrow[l, "\pi^{\ast}", swap] (\RR^{d})^{\ast} & \arrow[l] 0,
+	\end{tikzcd}
+	\]
+	so $\im\pi^{\ast} = \ker i^{\ast}$ from the exactness. Let $\Delta^{\prime} = \pi^{\ast}\Delta$, then $\Delta^{\prime} \cong \Delta$ since $\pi^{\ast}$ is injective. 
+\end{rmk}
+
+\begin{lem}
+	$(i^{\ast} \circ \mu)^{-1}(0) = \mu^{-1}(\Delta^{\prime})$.
+\end{lem}
+
+\begin{proof}
+	The image of $\mu$ is the set of points $x \in (\RR^{n})^{\ast}$ satisfying
+	\begin{equation*}
+		\langle x, e_{i} \rangle \geq \lambda_{i},\qquad i = 1,\ldots, n.
+	\end{equation*}
+	But $i^{\ast}(x) = 0 \iff v = \pi^{\ast}(y)$ for some $y \in (\RR^{d})^{\ast}$, and
+	\begin{equation*}
+		\langle e_{i}, \pi^{\ast}(y) \rangle \geq \lambda_{i}, \qquad i = 1,\ldots n
+	\end{equation*}
+	implies
+	\begin{equation*}
+		\langle \pi(e_{i}), y \rangle = \langle u_{i}, y \rangle \geq \lambda_{i},\qquad i = 1,\ldots, n,
+	\end{equation*}
+	hence $y \in \Delta$.
+\end{proof}
+This lemma lets us interpret the resulting Delzant polytope as the intersection of the half-spaces determined by the $\lambda_{i}$'s, further intersected with the $(n-d)$-dimensional affine subspace defined by $\ker i^{\ast}$.
+
+\begin{ex}
+	Let $e_{i}$, $i = 1,\ldots,3$, be the standard basis of $\RR^{3}$, and let $\pi: \RR^{3} \rightarrow \RR^{2}$ be given by
+	\begin{equation*}
+	\pi(e_{i}) =
+	\begin{cases}
+	e_{i},\qquad &\text{for } i=1,2,\\
+	-e_{1}-e_{2},\qquad &\text{for } i=3,
+	\end{cases}
+	\end{equation*}
+	and label $\pi(e_{i}) = u_{i}$ Observe that $\pi$ is represented by the matrix
+	\begin{equation*}
+	\pi = \begin{bmatrix}
+	1 & 0 & -1 \\
+	0 & 1 & -1
+	\end{bmatrix}
+	\end{equation*}
+	whose kernel is the span of the diagonal hyperplane, $\ker \pi = \Span_{\RR}(1, 1, 1) \subset \RR^{3}$. Denoting $\mf{n} := \ker\pi$, then the inclusion map $i :\mf{n} \hookrightarrow \RR^{3}$ is just the diagonal embedding, and its transpose $i^{\ast}:(\RR^{3})^{\ast} \rightarrow \mf{n}^{\ast}$ is just summation. Exponentiating and letting $T^{n+1}$ act on $\CC^{n+1}$ diagonally (which is Hamiltonian), we get the moment map
+	\begin{equation*}
+	\mu:\CC^{3} \longrightarrow (\RR^{3})^{\ast},\qquad \mu(z) = \frac{1}{2}\Big(|z_{1}|^{2}, |z_{2}|^{2}, |z_{3}|^{2}   \Big) - \lambda,
+	\end{equation*}
+	where $\lambda = (\lambda_{1}, \lambda_{2}, \lambda_{3}) \in (\RR^{3})^{\ast}$ is a constant, which has to have integral components if we are to anticipate a Delzant polytope. The moment map for the Hamiltonian action of $N$ on $\CC^{3}$ via inclusion is subsequently
+	\begin{equation*}
+	i^{\ast} \circ \mu:\CC^{3} \rightarrow \mf{n}^{\ast},\qquad (i^{\ast} \circ \mu)(z) = \frac{1}{2}\sum_{i=1}^{3}(|z_{i}|^{2} - \lambda_{i}),
+	\end{equation*}
+	so that the zero level-set $(i^{\ast} \circ \mu)^{-1}(0) \subseteq \CC^{d}$ is
+	\begin{equation*}
+	(i^{\ast} \circ \mu)^{-1}(0) = \{z \in \CC^{3} \st |z_{1}|^{2} + |z_{2}|^{2} + |z_{3}|^{2} = 2(\lambda_{1} + \lambda_{2} + \lambda_{2}) \}.
+	\end{equation*}
+	For this example, we now set $\lambda_{1} = \lambda_{2} = 2$ and $\lambda_{3} = k\in \ZZ_{\geq 0}$, and also letting $|z_{i}|^{2} = 2x_{i}$, where we use $x_{i} \in (\RR_{\geq 0})^{\ast}$ represent the image of $\mu$ in $(\RR^{3})^{\ast}$, image of the moment map $\phi:X \rightarrow (\RR^{2})^{\ast}$ for the symplectic quotient $X = (i^{\ast} \circ \mu)^{-1}(0)/N$ above is now
+	\begin{equation*}
+	\{ x \in (\RR_{\geq 0}^{3})^{\ast} \st x_{1} + x_{2} + x_{3} = k \} \cong \{ (x,y) \in \RR_{\geq 0}^{2} \st x + y \leq k \} =: \Delta \subseteq \RR^{2}.
+	\end{equation*}
+	Here, $\Delta$ is an isosceles triangle in $\RR^{2}$ with two of the sides with length $k$. Also, since $(i^{\ast} \circ \mu)^{-1}(0) \cong S^{5}$, and $N\cong S^{1}$ acts on this level-set diagonally, we see that
+	\begin{equation*}
+	(i^{\ast} \circ \mu)^{-1}(0)/N \cong S^{5}/S^{1} \cong \CC\PP^{2}
+	\end{equation*}
+	that is the complex projective plane.
+	
+	Mutatis mutandi, it is not hard to see that letting the same $N \cong S^{1}$ act on $\CC^{n+1}$, we get 
+	\begin{equation*}
+	(i^{\ast} \circ \mu)^{-1}(0)/N \cong S^{2n+1}/S^{1} \cong \CC\PP^{n}.
+	\end{equation*}
+\end{ex}
+

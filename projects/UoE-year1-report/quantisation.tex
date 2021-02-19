@@ -1,0 +1,158 @@
+\chapter{Geometric Quantisation and Lattice Point Counting}
+
+Essentially all of the content from this chapter comes from \cite{GGK02}, though \cite{Gui94} provides a more colloquial and digestible angle to the geometric quantisation construction with a larger focus on toric symplectic manifolds, and we shall also refer to it too regularly.
+
+\section{Pre-Quantisation, Polarisation, and Quantisation}
+
+Quantum mechanics associates to some symplectic manifold $(M,\w)$ a quantum model $\mc{Q}(M,\w)$, which is a Hilbert space. The space $\mc{Q}(M,\w)$ is the quantum mechanical analogue of the classical phase space $(M,\w)$, and is searched for as a vector space of smooth functions $C^{\infty}(M,\RR)$, which are to be thought of as the wave-functions for the corresponding quantum system to the classical phase space. The construction of geometric quantisation goes along of the lines of the following; given a symplectic manifold $(M,\w)$ we associate to it a Hermitian line bundle $\mc{L} \rightarrow M$ with a connection $\nabla$ on $\mc{L}$ whose curvature form is $\w$. If such a line bundle exists, then we say that $(M,\w)$ is \emph{pre-quantisable}. Pre-quantisability of $(M,\w)$ is determined by the following theorem.
+
+\begin{thm}
+	$(M,\w)$ is pre-quantisable if and only if $[\w]$ is in the image of the map
+	\begin{equation*}
+		\imath_{\ast}:H^{2}(M,\ZZ) \longrightarrow H^{2}(M,\RR).
+	\end{equation*}
+\end{thm}
+
+In the case when $(M,\w)$ is a toric symplectic manifold, \ie it has an associated Delzant polytope, then we can state an equivalent necessary and sufficient condition for $(M,\w)$ to be pre-quantisable.
+
+\begin{thm}[\cite{Gui94}]
+	If $\Delta$ is a Delzant polytope, $M_{\Delta}$ is pre-quantisable if and only if the vertices of $\Delta$ are integer lattice points.
+\end{thm}
+
+Let us suppose from now that $(M,\w)$ is pre-quantisable, then we can consider what sort of space of sections of the pre-quantum line bundle $\mc{L}\rightarrow M$ we should take as our Hilbert space $\mc{Q}(M,\w)$. The first thing to note is that we cannot take the space of \emph{all} sections of $\mc{L}$, since it is ``too big'', due to the works of Groenewold \cite{Gro46} and van Hove \cite{Hov51}. To remedy this we add a further structure called a \emph{polarisation}, which informally means that we only consider sections of $\mc{L}$ that are ``independent of half the variables''.
+
+\begin{rmk}
+	In Hamiltonian mechanics, the state space is the cotangent bundle $T^{\ast}X$ of the configuration space $X$. In quantum mechanics, the state space is the Hilbert space $L^{2}(X,\CC)$, \ie the Hilbert space of complex-valued wave-functions. The correspondence
+	\begin{equation*}
+		T^{\ast}X \longleftrightarrow L^{2}(X,\CC),
+	\end{equation*}
+	which in physics would correspond to varying the size of Planck's constant $\hbar$, is studied in geometric quantisation within the context of symplectic geometry, and to define analogues of $L^{2}(X,\CC)$ for symplectic manifolds $X$ other than cotangent bundles.
+\end{rmk}
+
+If we further assume now that $(M,\w)$ is \K so that it has a complex structure that is compatible with the symplectic form, then a natural choice of polarisation is that of a \emph{complex polarisation}. In local coordinates $z_{1}, \ldots, z_{n}$, a function $f$ is polarised with respect to the complex polarisation if
+\begin{equation*}
+	\frac{\partial f}{\partial \bar{z}_{1}} = \ldots =  \frac{\partial f}{\partial \bar{z}_{n}} = 0,
+\end{equation*}
+which is to say that $f$ is a holomorphic function. It can then be shown that:
+
+\begin{thm}[\cite{Guillemin2002MomentMC}]
+	Let $(M,\w)$ be a complex manifold and $\w$ be a closed $(1,1)$-form, and fix a pre-quantisation line bundle $(\mc{L}, \langle,\rangle, \nabla)$ for $(M,\w)$. Equip $(M,\w)$ with a complex polarisation. Then $\mc{L}$ is a holomorphic line bundle, and its polarised sections are holomorphic sections. Then the (virtual) vector space
+	\begin{equation*}
+		\mc{Q}(M,\w) := \sum (-1)^{i}H^{i}(M,\mc{O}_{\mc{L}})
+	\end{equation*}
+	is a Hilbert space that we can use as our quantisation $\mc{Q}(M,\w)$, where $\mc{O}_{\mc{L}}$ is the \emph{sheaf} of holomorphic sections.
+\end{thm}
+
+\begin{rmk}
+	When $\w$ is sufficiently positive, the higher cohomology groups $H^{>0}(M,\mc{O}_{\mc{L}})$ vanish by Kodaira's theorem, and we obtain $\mc{Q}(M) = H^{0}(M,\mc{O}_{\mc{L}})$, \ie the space of global holomorphic sections of $\mc{L}$, which would seem a more natural choice at first for $\mc{Q}(M)$. The reason for the virtual representation definition of $\mc{Q}(M)$ is that if the curvature form $\w$ is sufficiently negative and if $M$ is compact, then there are no non-zero holomorphic sections by Kodaira vanishing \cite{Guillemin2002MomentMC}.
+\end{rmk}
+
+The sheaf cohomology $H^{k}(M,\mc{O}_{\mc{L}})$ is equal to the cohomology $H^{0,k}(M,\mc{L})$ of the \emph{twisted Dolbeault complex}
+\begin{equation*}
+	\ldots \longrightarrow \Omega^{0,k}(M,\mc{L}) \overset{\overline{\partial}}{\longrightarrow} \Omega^{0,k+1}(M,\mc{L}) \longrightarrow \ldots,
+\end{equation*}
+so we have equivalently
+\begin{equation}
+	\label{def:dolbeault-quantisation}
+	\mc{Q}(M,\w) = \sum(-1)^{k}H^{0,k}(M,\mc{L})
+\end{equation}
+
+\begin{rmk}
+	It is shown in \cite{GGK02} that in the case where $(M,\w)$ is K{\"a}hler, \ie if we strengthen the hypothesis of the above theorem to include also an almost complex structure compatible with $\w$, then the higher cohomology groups $H^{0,>0}(M,\mc{L})$ vanish and we arrive at
+	\begin{equation*}
+		\mc{Q}(M,\w) = H^{0,0}(M,\mc{L}) = H^{0}(M,\mc{O}_{\mc{L}}).
+	\end{equation*}
+\end{rmk}
+
+The definition (\ref{def:dolbeault-quantisation}) is still not completely satisfactory when $M$ is non-compact, since the quantisation should be a (virtual) Hilbert space and not just a (virtual) vector space. When $M$ is non-compact we replace equation (\ref{def:dolbeault-quantisation}) with the alternating sum of $L^{2}$-cohomology groups:
+\begin{equation}
+	\mc{Q}(M,\w) = \sum (-1)^{k}H^{0,k}_{L^{2}}(M,\mc{L}).
+\end{equation}
+We will not go into too much detail into how the $L^{2}$-cohomology groups $H^{0,\ast}_{L^{2}}(M,\mc{L})$ are defined, though we shall remark that they require the additional structure of a measure $\m$ on $M$. When $M$ is symplectic, we can just take $\mu$ to be the Liouville measure, \ie $\mu = (\sqrt{-1})^{n}dzd\overline{z}$.
+
+\section{Quantisation Commutes with Reduction}
+
+Let $(M,\w)$ be a symplectic manifold with a Hamiltonian action of some Lie group $G$, with moment map $\Phi:M \rightarrow \mf{g}^{\ast}$. Then, under suitable conditions, the statement ``quantisation commutes with reduction'' roughly means that the processes of geometric quantisation and symplectic reduction can be interchanged without changing the final result. This result was proven first by Guillemin and Sternberg (insert ref) in the case that $(M,\w)$ was a compact \K manifold, $G$ was a compact Lie group, and $M$ was equipped with the complex polarisation. To be precise:
+\begin{thm}[G-S]
+	Let $(M,\w)$ be a compact \K manifold possessing a compact Lie group of symmetries, $G$. Let $\mc{Q}(M)_{G}$ be the set of fixed vectors of $G$ in $\mc{Q}(M)$. Then
+	\begin{equation*}
+		\mc{Q}(M)_{G} = \mc{Q}(M_{G}),
+	\end{equation*}
+	$M_{G}$ being the set of fixed points of $G$ in $M$.
+\end{thm}
+
+More generally, if $M$ is not compact but is equipped with a \emph{proper} moment map $\Phi: M \rightarrow \mf{g}^{\ast}$ for a Hamiltonian $G$-action, then:
+\begin{thm}
+	Let $(M,\w,\Phi)$ be a symplectic, Hamiltonian $G$-manifold with \emph{proper} moment map $\Phi:M \rightarrow \mf{g}^{\ast}$. Suppose that $\alpha \in \mf{g}^{\ast}$ is a regular value for $\Phi$ and that $G$ acts freely on $\Phi^{-1}(\alpha)$, so that the Marsden-Weinstein quotient $M_{\alpha} := \Phi^{-1}(\alpha)/G$ is well-defined and compact. Then
+	\begin{equation*}
+		\mc{Q}(M_{\alpha}) \cong \mc{Q}(M)^{\alpha},
+	\end{equation*}
+	where $\mc{Q}(M)^{\alpha}$ denotes the subspace of vectors in $\mc{Q}(M)$ which transform with weight $\alpha$.
+\end{thm}
+
+In particular, the Guillemin-Sternberg conjecture can be interpreted as identifying $\mc{Q}(M)_{G} = \mc{Q}(M)^{0}$ being the subspace of vectors which transform under $G$ with weight $0$ (\ie are fixed), and that $M_{G} = \Phi^{-1}(0)/G$ as the Marsden-Weinstein quotient.
+
+When $M_{\Delta}$ is a toric symplectic manifold with corresponding Delzant polytope $\Delta \subset (\RR^{d})^{\ast}$, we have the particularly nice geometric viewpoint of the $[Q,R] = 0$ conjecture.
+
+\begin{prop}[\cite{Ham08}]
+	\label{thm:lattice}
+	Let $M_{\Delta}$ be a toric manifold with moment polytope $\Delta \subset \RR^{d}$. Then the dimension of the quantisation space $\mc{Q}(M_{\Delta})$ is equal to the number of integer lattice points in $\Delta$,
+	\begin{equation*}
+		\dim \mc{Q}(M_{\Delta}) = \#(\Delta \cap \ZZ^{d}).
+	\end{equation*}
+\end{prop}
+
+\begin{ex}
+	This example also appears in \cite{Ham08}. Let $M_{\Delta} = \CC\PP^{n}$ be obtained via the Delzant construction as before with $N \cong S^{1}$ acting on $\CC^{n+1}$ diagonally, through the inclusion into $T^{n+1}$. For $\CC\PP^{n}$ to be pre-quantisable, we require that the Marsden-Weinstein quotient $\CC\PP^{n} = \mu^{-1}(k)/N$ to be reduced at an integral point $k \in (\ZZ^{n+1})^{\ast}$. The residual torus action $T^{n} \cong T^{n+1}/N$ has a moment map $\bar{\mu}:\CC\PP^{n} \rightarrow (\RR^{n})^{\ast}$, whose image $k\Delta \subset (\RR^{n})^{\ast}$ is the standard $n$-dimensional simplex $\Delta$, dilated by a factor of $k$.
+	
+	Since $\CC^{n+1}$ is simply-connected, the pre-quantum line bundle $\mc{L}$ is trivial, and in particular we can identify its global holomorphic sections with the space of homogeneous polynomials in $n+1$ variables. Suppose that $N_{\CC}$ acts on $\mc{L}$ with weight $k$. Then if $s(z) = z_{0}^{\lambda_{0}}\ldots z_{n}^{\lambda_{n}}$ is a trivialising section for $\mc{L} = \CC^{n+1} \times \CC_{k}$, then
+	\begin{equation*}
+		s(t\cdot z) = t^{\lambda_{0} + \ldots + \lambda_{n}}s(z),
+	\end{equation*}
+	whereas
+	\begin{equation*}
+		t\cdot s(z) = t^{k}s(z).
+	\end{equation*}
+	Whence, for $s:\CC^{n+1} \rightarrow \CC_{k}$ to be an $N_{\CC}$-equivariant and holomorphic section for $\mc{L}$, we must have
+	\begin{equation*}
+		\lambda_{0} + \ldots + \lambda_{n} = k,
+	\end{equation*}
+	whose solution set
+	$$
+		\{(\lambda_{1},\ldots, \lambda_{n})\in \ZZ^{n+1} \st \sum_{i=0}^{n}\lambda_{i} = k   \}
+	$$
+	is in a one-to-one correspondence with the set
+	\begin{equation*}
+		\{ (\lambda_{1}, \ldots,  \lambda_{n}) \in \ZZ^{n} \st \lambda_{1} + \ldots + \lambda_{n} \leq k \} = (\ZZ^{n} \cap \Delta).
+	\end{equation*}
+	Whence, the subspace $\mc{Q}(\CC^{n+1})_{k}$ of vectors in $\mc{Q}(\CC^{n+1})$ that have multiplicity $k$ can be identified with the space $H^{0}(\CC\PP^{n},\mc{O}(k))$, \ie the space of homogenous polynomials of degree $k$ in $n+1$ variables. It is well-known that
+	\begin{equation*}
+		\dim H^{0}(\CC\PP^{n},\mc{O}(k)) = \binom{n + k}{n} = \frac{(k+1)(k+2),\ldots (k+n)}{n!},
+	\end{equation*}
+	and that this number coincides with $\#(\ZZ^{n} \cap \Delta)$ by theorem (\ref{thm:lattice}).
+\end{ex}
+
+
+\section{Counting Integer Points in Delzant Polytopes}
+
+Let us work out by hand some ways that we can determine $\#(\ZZ^{n}\cap \Delta)$, where $\Delta$ is the moment polytope for $\CC\PP^{n}$ from the previous section, for small values of $n$.
+
+\begin{ex}
+	Let $n = 2$, then the Delzant polytope $k\Delta$ is the 2-dimensional simplex $\Delta$ dilated by a factor of $k$, \ie a right-angled triangle with base and height lengths equal to $k$. It can be shown that
+	$$
+		\#(k\Delta \cap \ZZ^{2}) = \sum_{m=0}^{k}m = \frac{(k+1)(k+2)}{2} = \frac{1}{2}k^{2} + \frac{3}{2}k + 1.  
+	$$
+\end{ex}
+
+\begin{ex}
+	Let $n = 3$, so that now the Delzant polytope is the $3$-dimensional simplex $k\Delta$ that again is a dilation of the standard simplex by a factor of $k$. In this case, we have
+	\begin{equation}
+	\label{eqn:verlinde}
+		\#(k\Delta \cap \ZZ^{3}) = \frac{(k+1)(k+2)(k+3)}{3!} = \frac{1}{6}k^{3} + k^{2} + \frac{11}{6}k + 1.
+	\end{equation}
+\end{ex}
+
+We finish this section by remarking that the cubic polynomial in $k$ in equation (\ref{eqn:verlinde}) coincides with what is known as the \emph{Verlinde formula} \cite{Ver88}, which is the dimension of the space of global holomorphic sections of the $k$\textsuperscript{th} tensor power of the determinant line bundle $\mc{L}$, over the moduli space of flat $SU(2)$ connections over a Riemann surface of genus 2, $\mc{M}_{\text{flat}}(\Sigma_{2};SU(2))$ \cite{GP17}, \ie
+$$
+	\dim H^{0}(\mc{M}_{\text{flat}}(\Sigma_{2};SU(2)), \mc{L}^{k}) = \frac{1}{6}k^{3} + k^{2} + \frac{11}{6}k + 1.
+$$

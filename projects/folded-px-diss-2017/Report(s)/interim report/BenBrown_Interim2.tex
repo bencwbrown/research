@@ -1,0 +1,292 @@
+\documentclass[a4paper,onecolumn,12pt]{article}
+
+\usepackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\setstretch{1.44}
+\setlength{\columnsep}{6mm}
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries\large\scshape\filcenter}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\normalsize\scshape\filcenter}{\thesubsection}{1em}{}
+
+\newtheorem{thm}{Theorem}[]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{exer}{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{qstn}[thm]{Question}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\tta}[1]{\theta_{#1}}
+\newcommand{\vm}{V_{\mu}}
+\newcommand{\vn}{V_{\nu}}
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial \tau}}
+\newcommand{\dd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ddxm}{\frac{\partial}{\partial x^{\mu}}}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\x}[1]{x^{#1}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\dirac}{\slashed{\partial}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\hooft}[3]{\bar{\eta}^{#1}_{#2 #3}}
+\newcommand{\vol}{\w=d\tau\wedge dx^{1}\wedge dx^{2}\wedge dx^{3}}
+\newcommand{\vole}{\w=d\tau\wedge dx\wedge dy\wedge dz}
+\newcommand{\half}{\frac{1}{2}}
+% Following change makes the caption size footnotesize From: http://rorasa.wordpress.com/2010/01/13/instant-latex-command-for-small-figure-and-table-caption/  
+
+\renewcommand{\abstractname}{}    % clear the title
+\newcommand{\captionfonts}{\footnotesize}
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\Alph{subsection}.}
+
+\makeatletter
+\long\def\@makecaption#1#2{
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\renewcommand\p@subsection{\thesection}
+    
+\makeatother
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Final Year Physics Project - Interim Report}
+
+\author{Benjamin Brown \\
+        \small
+        Department of Physics, University of Warwick,
+        Coventry CV4 7AL, United Kingdom}
+\date{}
+
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Aims and Objectives}
+
+The aim of this project is to study the notion of \emph{folded hyperk{\"a}hler manifolds}, i.e. a 4-dimensional manifold which is hyperk{\"a}hler away from some folding hypersurface, on which the hyperk{\"a}hler structure degenerates and the metric is singular \cite{hitchin_2015,biquard_2015}. In particular, it will be interesting to look into more examples of \HK structures that admit a folding hypersurface since the symplectic and \K versions of folding have already been studied in much more detail \cite{dasilva_2000,baykur_2006}.\\
+From a physicist's point of view the topic of folded \HK structures still is an interesting topic; the canonical example of a folded \HK structure comes from a particular choice of the Gibbons-Hawking metric \cite{hitchin_2015}, and Biquard \cite{biquard_2015} has also constructed folded \HK manifolds by modifying the work of Ashtekar, Jacobson and Smolin (ASJ) on half-flat solutions to Einstein's equations \cite{ashtekar_1988}. A specific feature of these two examples of folded \HK manifolds is that the signature of the metric swaps from Euclidean $(++++)$ to anti-Euclidean $(----)$ as one travels across the fold. Such a feature is a recurring theme in the physics literature on 5-dimensional supergravity \cite{gibbons_2013}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Background Theory}
+The work done in Term 1 was dedicated to understanding \HK manifolds and examples of them. To this end, I followed route of the Ashtekar formulation \cite{ashtekar_1987} of the self-dual Einstein equations in 4-dimensions since Biquard \cite{biquard_2015} uses a modified version of this to construct a folded \HK manifold.
+
+The basis of the construction is this: we take a real, 3-dimensional manifold $Y$ with volume form $\al.$ Now consider the product 4-manifold $Y\times\R,$ where $\tau\in\R$ can be considered as `time'.\\
+
+\begin{claim}[Donaldson \cite{donaldson}]
+	Let $V_{i}$ $(i=1,2,3)$ be time-dependent, volume-preserving, linearly independent vector fields on $Y$ that satisfy Nahm's equations
+	$$\ddt{V_{i}} = \frac{1}{2}\e_{ijk}[V_{j},V_{k}],
+	$$
+	where $\e_{ijk}$ is the fully-antisymmetric tensor. Then we can construct a complex symplectic structure on $Y\times\R.$
+\end{claim}
+\begin{proof}
+	For brevity, write $\mathcal{M} = Y\times\R.$ For each time $\tau,$ let $\e_{1},\e_{2},\e_{3}$ be the basis of 1-forms dual to the $V_{i}.$ Then, for some non-vanishing real function $f$ on $Y$ that $\alpha=f\e_{1}\wedge\e_{2}\wedge\e_{3}$
+	for the volume form on $Y.$ Define two 2-forms on $\mathcal{M}$ by
+	\begin{subequations}
+		\begin{align}
+		\theta_{1} &= f(d\tau \wedge \e_{1} +  \e_{2}\wedge \e_{3}),\\
+		\theta_{2} &= f(d\tau \wedge \e_{2} +  \e_{3}\wedge \e_{1}).
+		\end{align}
+	\end{subequations}
+	Then $\theta^{2}_{1}=\theta^{2}_{2}=f dt\wedge\alpha,$ and $\theta_{1}\wedge\theta_{2}=\theta_{2}\wedge\theta_{1}=0$ and so if $\theta_{1}, \theta_{2}$ are closed on $\mathcal{M},$ then we have a complex symplectic structure on $\mathcal{M}.$ To this end, we make use of the identity
+	\begin{equation}
+	\label{cartan}
+	d(\imath_{X}\imath_{Y}\phi) = \imath_{[X,Y]}\phi + \imath_{X}\mathcal{L}_{Y}\phi - \imath_{Y}\mathcal{L}_{X}\phi + \imath_{X}\imath_{Y}d\phi
+	\end{equation}
+	for any two vector fields $X$ and $Y$ and form $\phi,$ and where $\mathcal{L}$ denotes the Lie derivative. We apply with identity to $d(\imath_{V_{2}}\imath_{V_{3}}\alpha),$ yielding
+	\begin{align*}
+	d(\imath_{V_{2}}\imath_{V_{3}}\alpha) &= \imath_{[V_{2},V_{3}]}\alpha + \imath_{V_{2}}\mathcal{L}_{V_{3}}\alpha - \imath_{V_{3}}\mathcal{L}_{V_{2}}\alpha + \imath_{V_{2}}\imath_{V_{3}}d\alpha\\
+	&= \imath_{[V_{2},V_{3}]}\alpha,
+	\end{align*}
+	since the vector fields are volume-preserving. Furthermore, we have that 
+	\begin{equation*}
+	\imath_{V_{3}}\alpha = f\e_{1}\wedge e_{2},\qquad \imath_{V_{2}}\imath_{V_{3}}\alpha = f\e_{1},\qquad \imath_{V_{1}}\alpha=f\e_{2}\wedge\e_{3},
+	\end{equation*}
+	\begin{equation*}
+	d(\imath_{V_{1}}\alpha) = \mathcal{L}_{V_{1}}\alpha - \imath_{V_{1}}d\alpha = 0,
+	\end{equation*}
+	and so $\imath_{V_{1}}\alpha$ is a closed 2-form. Temporarily, let us write $\underline{d}$ for the exterior derivative on forms over $\mathcal{M}$ and $d$ for the exterior derivative of forms over $Y$ with, time regarded as a parameter. In this notation,
+	\begin{equation*}
+	\underline{d}\psi = d\psi + dt\wedge\dd{\psi}{\tau},
+	\end{equation*}
+	and so
+	\begin{align*}
+	\underline{d}\theta_{1} &= d\theta_{1} + d\tau \wedge \dd{\theta_{1}}{\tau}\\
+	&= d(f\e_{2}\wedge\e_{3}) + d\tau\wedge \Bigg[\dd{f}{\tau} d\tau\wedge\e_{1} + \dd{}{\tau}(f \e_{2} \wedge e_{3})\Bigg]\\
+	&= d(\imath_{V_{1}}\alpha) + d\tau\wedge \Bigg[d(f\e_{1}) + \dd{}{\tau}(f \e_{2} \wedge e_{3})\Bigg]\\
+	&= 0 + d\tau\wedge \Bigg[d(\imath_{V_{2}}\imath_{V_{3}}\alpha) + \dd{}{\tau}(\imath_{V_{1}}\alpha)\Bigg],
+	\end{align*}
+	where we have used the fact that $\imath_{V_{1}}\alpha$ is closed on $Y.$ Therefore $\theta_{1}$ is closed on $\mathcal{M}$ if and only if
+	\begin{equation*}
+	d(\imath_{V_{2}}\imath_{V_{3}}\alpha) + \dd{}{\tau}(\imath_{V_{1}}\alpha)
+	= \imath_{[V_{2},V_{3}]}\alpha + \imath_{\partial V_{1}/\partial\tau}\alpha
+	= 0,
+	\end{equation*}
+	since $\alpha$ is time-independent. From the non-degeneracy of $\alpha,$ we conclude that $\theta_{1}$ is closed on $\mathcal{M}$ if and only if $\dd{V_{1}}{\tau} + [V_{2},V_{3}] = 0,$ and the same argument for $\theta_{2}$ proves that $\theta_{2}$ is closed on $\mathcal{M}$ if and only if $\dd{V_{2}}{\tau} + [V_{3},V_{1}] = 0.$ Hence we have a complex symplectic structure on $\mathcal{M}.$
+\end{proof}
+An immediate corollary of this claim is that we actually have three complex symplectic structures on $Y\times\R.$\\
+
+\begin{cor}
+	With the same hypotheses as above, we have three complex symplectic structures on $Y\times\R.$
+\end{cor}
+\begin{proof}
+	Introduce a third 2-form on $\mathcal{M}$ given by
+	\begin{equation*}
+	\theta_{3} = f(d\tau \wedge \e_{3} +  \e_{1}\wedge \e_{2}).
+	\end{equation*}
+	By the same argument for both $\theta_{1}$ and $\theta_{2},$ $\theta_{3}$ is also a closed 2-form on $\mathcal{M}$ and the three complex symplectic structures come from pairing together $\theta_{1}$ with $\theta_{2},$ $\theta_{2}$ with $\theta_{3},$ and finally $\theta_{3}$ with $\theta_{1}.$
+\end{proof}
+With three complex symplectic forms, it looks promising that we can use them to define a \HK structure of the product manifold $Y\times\R.$ For the purpose of this, we state the following lemma without proof.\\
+\begin{lem}[Hitchin \cite{Hitchin_1987}]
+	\label{hitchin_lemma}
+	Let $g$ be an almost \HK metric, with 2-forms $\tta{1},\tta{2},\tta{3}$ corresponding to almost complex structures $I,J,K.$ Then $g$ is \HK if each $\tta{i}$ is closed.
+\end{lem}
+In light of this lemma, we only need to define three almost complex structures that admits an action of the quaternions at each point in the tangent space, which are compatible with the metric. To proceed further, it will be convenient to introduce a fourth vector $V_{0} = \ddt{},$ Latin indices for space coordinates, and Greek indices for spacetime coordinates; now we can define the \emph{'t Hooft symbols}. $\hooft{a}{\m}{\n}$\\
+\begin{defn}['t Hooft \cite{thooft_1976}]
+	The 't Hooft symbols $\hooft{a}{\m}{\n}$ are defined by the relations
+	\[
+	\bar{\eta}^{a}_{\mu \nu}:= 
+	\begin{cases}
+	\epsilon_{a\mu\nu}& \text{if } \mu,\nu = 1,2,3\\
+	\delta_{a\nu}& \text{if } \mu = 0\\
+	-\delta_{a\mu}& \text{if } \nu = 0\\
+	0& \text{otherwise.}
+	\end{cases}
+	\]
+\end{defn}
+They obey the following identities which we will make use of:
+\begin{subequations}
+	\begin{align}
+	\label{thooft}
+	\bar{\eta}^{a}_{\mu \nu} &= \epsilon_{0 a\mu\nu} + \delta_{0\mu}\delta_{a\nu} - \delta_{a\mu}\delta_{0\nu},\\
+	\bar{\eta}^{a}_{\mu \nu} &= -\bar{\eta}^{a}_{\nu \mu},\\
+	\bar{\eta}^{a}_{\mu \nu}\bar{\eta}^{b}_{\mu \sigma} &= \delta_{ab}\delta_{\nu\sigma} + \epsilon_{abc}\bar{\eta}^{c}_{\nu \sigma}.
+	\end{align}
+\end{subequations}
+We now define three almost complex structures on $Y\times\R$ by
+\begin{equation}
+	J^{a}(V_{\m}) = \hooft{a}{\n}{\m}(V_{\n}),
+\end{equation}
+for $a=1,2,3.$ To see that this does indeed define three almost complex structures, observe that
+\begin{align*}
+	J^{a}J^{b}(V_{\m}) &= \hooft{a}{\n}{\m}\hooft{b}{\sigma}{\n}(V_{\sigma})\\
+	&=-\hooft{a}{\n}{\m}\hooft{b}{\n}{\sigma}(V_{\sigma})\\
+	&=-\delta_{ab}\delta_{\m\sigma}(V_{\sigma}) + \epsilon_{abc}\bar{\eta}^{c}_{\m \sigma}(V_{\sigma})\\
+	&=-\delta_{ab}(V_{\m}) + \epsilon_{abc}\bar{\eta}^{c}_{\sigma \m}(V_{\sigma})\\
+	&=-\delta_{ab}(V_{\m}) + \epsilon_{abc}J^{c}(V_{\m}),
+\end{align*}
+and so each point in the tangent space to $Y\times\R$ admits an action of the quaternions.
+It remains to define a metric which is compatible with respect to the three almost complex structures \ie an almost \HK structure. Such a metric can be defined by 
+\begin{equation}
+	g(V_{\m},V_{\n}) = f(d\tau\wedge\al)(V_{0},V_{1},V_{2},V_{3})\delta_{\m\n},
+\end{equation}
+so that $\tta{a}(V_{\m},V_{\n}) = g(J^{a}(V_{\m}),V_{\n}).$ Then as each $\tta{a}$ is closed, by Lemma \ref{hitchin_lemma} we have a \HK manifold.
+
+We pause here remark that the \K forms $\tta{a}$ can be written in a more compact form; namely, that if we let $\omega = d\tau\wedge\alpha$ be the volume form on $Y\times\R,$ then we  write
+\begin{equation}
+	\tta{a} = \frac{1}{2}\hooft{a}{\m}{\n}\imath_{V_{\m}}\imath_{V_{\n}}\omega.
+\end{equation}
+The benefit of this representation is that we recover the so-called ``half-flat'' condition \cite{ashtekar_1988, hashimoto_1997}, 
+\begin{equation}
+\label{half_flat}
+	\frac{1}{2}\hooft{a}{\m}{\n}[V_{\m},V_{\n}] = 0
+\end{equation}
+by taking the exterior derivative of the $\tta{a}$ and using identity (\ref{cartan}). 
+
+To generalise what has been covered, we make the following statements: in 4-dimensions the Riemann curvature tensor is half-flat, \ie self-dual or anti-self dual, if and only if the metric is \HK \cite{robinson_1988}. Furthermore, Ashtekar, Smolin and Jacobson reduced the construction of a \HK structure to finding four linearly independent vectors $V_{\m}$ and volume form $\w$ on a 4-dimensional manifold $\mathcal{M}$ \cite{ashtekar_1987,ashtekar_1988}
+\begin{subequations}
+	\begin{equation}
+		\label{volume_pres}
+		\mathcal{L}_{V_{a}}\al = 0,
+	\end{equation}
+	\begin{equation}
+		\label{half_flat2}
+		\frac{1}{2}\hooft{a}{\m}{\n}[V_{b},V_{c}] = 0.
+	\end{equation}
+\end{subequations}
+Then a \HK metric on $\mathcal{M}$ is given by $g(V_{\m},V_{\m})=f\w(V_{0},V_{1},V_{2},V_{3})\delta_{\m\n},$ where $f$ is a real, non-negative function on $\mathcal{M}.$ Then three complex structures $J^{a}$ $(a=1,2,3)$ are defined by the action of the 't Hooft symbols on the tangent vectors at each point of $\mathcal{M}$ by
+\begin{equation}
+	J^{a}(V_{\m}) = \hooft{a}{\n}{\m}(V_{\n}).
+\end{equation}
+\begin{ex}[Gibbons-Hawking Metric]
+	To demonstrate the construction of an explicit \HK manifold using the method above, we consider Euclidean space with standard coordinates $\R^{4} = \{(\tau,\x{1},\x{2},\x{3})\}$ as the underlying spacetime with volume-form $\vol$. Let $\phi$ and $\psi_{i}$ $(i=1,2,3)$ be smooth functions and let the four vector fields $V_{\mu}$ be given by
+	\begin{subequations}
+		\begin{align}
+			V_{0} &= \phi\ddt{},\\
+			V_{i} &= \dd{}{\x{i}} + \psi_{i}\ddt{}.
+		\end{align}
+	\end{subequations}
+	Then the volume-preserving property (\ref{volume_pres}) implies that the functions $\phi$ and $\psi_{i}$ are independent of $\tau,$ and half-flat condition (\ref{half_flat2}) implies the \emph{monopole equations}
+	\begin{equation}
+		\underset{3}{\ast} d\phi = d\psi,
+	\end{equation}
+	where $\psi = \sum_{i=1}^{3}\psi_{i}d\x{i}$ and $\ast_{3}$ denotes the Hodge star operator on $\R^{3} = \{(\x{1},\x{2},\x{3})\}$ with its flat metric. These conditions are the same as the ansatz used by Gibbons and Hawking to construct \HK metrics with a triholomorphic Killing vector, $\partial/\partial\tau$ \cite{gibbons_1978}.
+\end{ex}
+Now is a good time to discuss why this particular route was taken, \ie why we have largely followed Ashtekar's Hamiltonian approach to general relativity to understand \HK manifolds. First and foremost, the canonical example of a folded \HK manifold was based upon the Gibbons-Hawking metric by taking $\phi\equiv z,$ so that there is a folded hypersurface defined by $z=0$ \cite{hitchin_2015}.\\
+Secondly, Biquard modifies the Ashtekar-Smolin-Jacobson construction of \HK manifolds to define a folded \HK metric on a product 4-dimensional manifold $X^{3}\times(-\e,\e),$ for some $\e$ small enough \cite{biquard_2015}.\\
+It will be interesting to review the construction of several other \HK manifolds who constructions are similar to those two mentioned, and to investigate whether or not they admit a folded structure.
+
+\section{Summary of work done in Term 1}
+The work done in Term 1 is as follows:
+
+\begin{enumerate}
+	\item Understood and appreciated the definition of a \HK manifold, \ie its definition in terms of three complex structures which obey quaternionic multiplication which are also compatible with the Riemannian metric. Equivalently, one can say that the holonomy group of a 4-dimensional \HK manifold is $Sp(1).$
+	\item Constructed a \HK by considering a real 3-manifold $Y$ which admits a one-parameter triad of linearly-independent vector fields which preserve the volume form and Nahm's equations. Then by taking the product 4-manifold $Y\times\R$ with three \K forms defined by the covectors dual to the triad, as well as $d\tau\in T^{*}\R,$ we showed that a \HK structure for the product 4-manifold exists.
+	\item Investigated the more general construction of \HK manifolds down the route of Ashtekar's approach to general relativity, that introduces a triad of volume-preserving vector fields that obey the half-flat condition \ref{half_flat}. The manifold is then \HK since the half-flat condition implies that the holonomy group of the manifold is $Sp(1).$
+	\item As an example of the above, chose three vector fields that satisfied the conditions (\ref{volume_pres}) and (\ref{half_flat2}) to arrive at the ansatz used for the construction of the Gibbons-Hawking metric.
+\end{enumerate}
+
+\section{Plan of Work for Term 2}
+Over the course of Term 2, I aim to:
+\begin{enumerate}
+	\item Elucidate the nature of the more ``general construction'' of \HK structures mentioned above, as it was not sufficiently explained (in my opinion) at the end of Term 1. This should be covered by the end of week 1.
+	\item Look at the first example of a folded \HK structure, which is a special case of the Gibbons-Hawking metric. Whilst a simple example, it allows us to concisely define in what way a \HK structure can be said to be `folded.' This should be covered by the end of week 2.
+	\item Look at the second example of a folded \HK structure, given by Biquard in \cite{biquard_2015}. The beauty about this example is that the \HK structure folds in the same way as the folded Gibbons-Hawking metric does, which implies that there is a naturality to the definition. This should be covered by the end of week 3.
+	\item The rest of the term will be dedicated to trying to find other examples of \HK structures. The benefit of the claimed general construction mentioned in point 1. is that it provides a wealth of \HK structures. Several examples of which are given in \cite{hashimoto_1997}, such as the $SU(\infty)$-Toda equation. This will cover weeks 4 to 8 inclusive.
+	\item Weeks 9 and 10 will be dedicated to the writing of the final report, which is due in on the Thursday of week 10 (16/03/2017).
+\end{enumerate}
+
+\bibliography{BenBrown_Interim} 
+\bibliographystyle{ieeetr}
+
+\end{document}

@@ -1,0 +1,21 @@
+This directory contains Latex files for 4th year projects
+
+You should run pdflatex on the file Report.tex
+(You need to run it twice to get the table of contents correct).
+
+You will need to edit the preamble to set 
+Your Name 
+Project Title
+Uncomment the relevant module (MA4K8 or MA4K9)
+Set the correct submission year, e.g. replace 2000 with 2017
+
+
+There are many things in the preamble you may find useful. Uncomment as
+necessary.
+
+Then you should generate the body of your report in files like the examples:
+Introduction.tex 
+Conclusion.tex 
+The files have comments and should be self explanatory. 
+
+
