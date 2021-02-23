@@ -226,18 +226,21 @@ Then by the Atiyah-Bott Index theorem \ref{thm:atiyah-singer-index-theorem},
 
 \subsection{Set-Up}
 
-We will use the $S^{1}$-action to symplectically cut the toric \HK manifold $M$ in order to compactify it as follows: consider the product $M \times \CC$, where now $S^{1}$ acts on $M \times \CC$ as
+We can use the residual $S^{1}$-action to perform a symplectic cut of the toric \HK manifold $M$ in order to compactify it as follows: consider the product $M \times \CC$, where now $S^{1}$ acts on $M \times \CC$ as
 $$
-e^{i\theta} \cdot \big( [z,w], \xi   \big) = \big( [z,e^{i\theta}], e^{i\theta}\xi\big),
+e^{i\theta} \cdot \big( [z,w], \xi   \big) = \big( [z,e^{i\theta}w], e^{i\theta}\xi\big),
 $$
-which is hamiltonian with moment map
+which is a Hamiltonian action with associated moment map
 \begin{equation*}
 	\begin{split}
 		\mu_{\text{cut}}: M \times \CC &\longrightarrow \RR_{\geq 0}, \\
-		\mu_{\text{cut}}\big( [z,w], \xi  \big) &= \Phi[z,w] + \tfrac{1}{2}|\xi|^{2} - \e,
+		\mu_{\text{cut}}\big( [z,w], \xi  \big) &= \Phi[z,w] + \tfrac{1}{2}|\xi|^{2} - \e,,
 	\end{split}
 \end{equation*}
-for some $\e \in \RR_{\geq 0}$. Then we have
+where $\Phi:M \ra \RR_{\geq 0}$ is the moment map $\Phi[z,w] = \tfrac{1}{2}\|w\|^{2}$ for the residual $S^{1}$-action on $M$, and $\e \in \RR_{\geq 0}$.
+
+Then we have
+
 \begin{equation*}
 	\begin{split}
 		\mu_{\text{cut}}^{-1}(0) &= \big\{ ([z,w],\xi) \in M \times \CC \st \|w\|^{2} + |\xi|^{2} = 2\e    \big\} \\
@@ -247,19 +250,24 @@ for some $\e \in \RR_{\geq 0}$. Then we have
 		&=: \Sigma_{1} \bigsqcup \Sigma_{2},
 	\end{split}
 \end{equation*}
+
 where $\Sigma_{1}$ is just the level-set of $\Phi$ at the level $\e$ in $M$, and $\Sigma_{2} = M \times S^{1}$ is exhibited as a trivial $S^{1}$-bundle over $\Sigma_{2}$, using the globally defined section
+
 \begin{equation*}
 	M \rightarrow M \times S^{1}, \qquad [z,w] \longmapsto \big( [z,w], e^{i\theta}\sqrt{2\e - \|w\|^{2}}\big), \qquad e^{i\theta} \in S^{1}.
 \end{equation*}
-Finally, taking the quotient of $\m_{\text{cut}}^{-1}(0)$ by the $S^{1}$-action, we obtain the symplectic cut
+
+Finally, by taking the quotient of $\m_{\text{cut}}^{-1}(0)$ by the $S^{1}$-action, we obtain the \emph{symplectic cut of $M$ at level $\epsilon$},
+
 \begin{equation*}
 	M_{\leq \e} := \m_{\text{cut}}^{-1}(0)/S^{1} = \Sigma_{1}/S^{1} \bigsqcup \Sigma_{2}/S^{1},
 \end{equation*}
+
 where $\Sigma_{1}/S^{1} = \Phi^{-1}(\e)/S^{1}$ is just the symplectic reduction, and where $\Sigma_{2}/S^{1}$ is diffeomorphic to $M$ for $\|w\|^{2} < 2\e$, which we denote by $M_{<\epsilon}$.
 
 \subsection{Restriction to the Extended Core Component, $\mc{E}_{A}$}
 
-Since the residual circle $S^{1}$-action acts as a subgroup of the original torus $T^{n}$ when restricted to each component $\mc{E}_{A}$ of the extended core $\mc{E}$, we can described combinatorially the resulting configuration of the hyperplane arrangement in $(\RR^{d})^{\ast}$ from taking the cut. For each component, let $j_{A}: \mf{s}^{1} \rightarrow \RR^{n}$ be the derivative of the inclusion of $S^{1}$ into $T^{n}$ on the Lie algebra level, that is
+Since the residual circle $S^{1}$-action acts as a subgroup of the original torus $T^{n}$ when restricted to each component $\mc{E}_{A}$ of the extended core $\mc{E}$, we can describe the resulting configuration of the hyperplane arrangement in $(\RR^{d})^{\ast}$ from taking the cut in a combinatorial way. For each component, let $j_{A}: \mf{s}^{1} \rightarrow \RR^{n}$ be the derivative of the inclusion of $S^{1}$ into $T^{n}$ on the Lie algebra level, that is
 \begin{equation*}
 	j_{A}( \xi  ) = (\xi_{1},\ldots, \xi_{n}),\qquad \text{where } \xi_{i} = 
 	\begin{cases}
