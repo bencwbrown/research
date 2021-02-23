@@ -289,21 +289,20 @@ which introduces an inward-pointing half-space
 \end{equation*}
 such that the image of the extended core component $\mc{E}_{A}$ after being compactified is the original convex polytope $\Delta_{A}$ intersected with $H_{A}$. One can also see clearly that the symplectic quotient $\Phi^{-1}(\e)/S^{1}$ has the restricted $S^{1}$-action as its stabiliser subgroup since, by definition of $H_{A}$, the moment map $\Phi|_{\mc{E}_{A}}$ equals the hyperplane $H_{A}$, \ie $\Phi|_{\mc{E}_{A}}$ is constant along $\Phi^{-1}(\epsilon)/S^{1}$.
 
-\begin{remark}
-	If we had used instead the following action for $S^{1}$
+\begin{example}
+	In our $M = T^{\ast}\CC\PP^{2}$ example, for each component $\mcE_{A}$ of the extended core $\mcE$, we have:
 	\begin{equation*}
-		e^{i\theta}\cdot \big( [z,w], \xi \big) = \big( [z,e^{i\theta}w], e^{-i\theta}\xi \big)
+		\begin{split}
+			\mcE_{123} = \{ [z_{1}, z_{2}, z_{3}; 0, 0, 0] \in M \}; \qquad S_{123}^{1} &= \{(\tau, \tau, \tau) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{12} = \{ [z_{1}, z_{2}, 0; 0, 0, w_{3}] \in M \}; \qquad S_{12}^{1} &= \{(\tau, \tau, 1) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{23} = \{ [0, z_{2}, z_{3}; w_{1}, 0, 0] \in M \}; \qquad S_{23}^{1} &= \{(1, \tau, \tau) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{13} = \{ [z_{1}, 0, z_{3}; 0, w_{2}, 0] \in M \}; \qquad S_{13}^{1} &= \{(\tau, 1, \tau) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{1} = \{ [z_{1}, 0, 0; 0, w_{2}, w_{3}] \in M \}; \qquad S_{1}^{1} &= \{(\tau, 1, 1) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{2} = \{ [0, z_{2}, 0; w_{1}, 0, w_{3}] \in M \}; \qquad S_{2}^{1} &= \{(1, \tau, 1) : \tau \in S^{1} \} < T^{3}, \\
+			\mcE_{3} = \{ [0, 0, z_{3}; w_{1}, w_{2}, 0] \in M \}; \qquad S_{3}^{1} &= \{(1, 1, \tau) : \tau \in S^{1} \} < T^{3}. 
+		\end{split}
 	\end{equation*}
-	with respective moment map
-	\begin{equation*}
-		\m_{\text{cut}} ([z,w],\xi) = \frac{1}{2}\|w\|^{2} - \frac{1}{2}|\xi|^{2} - \e,
-	\end{equation*}
-	and taken the cut, then the resulting then we would obtain the other ``discarded half'' $\mf{M}_{>\e}$ of the hypertoric manifold $\mf{M}$ along with the symplectic quotient $\Phi^{-1}(\e)/S^{1}$ with the opposite orientation:
-	\begin{equation*}
-		\mf{M}_{\geq \e} = \mf{M}_{> \e} \bigsqcup \Big(-(\Phi^{-1}(\e)/S^{1})\Big).
-	\end{equation*}
-	The component $M_{\e}$ is non-compact however, so we focus on $M_{<\e}$.
-\end{remark}
+\end{example}
 
 
 
