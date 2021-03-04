@@ -97,6 +97,8 @@
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Td}{Td}
 \DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\pt}{pt}
 
 \title{Equivariant Localisation and Fixed-Point Theorems}
 
@@ -140,8 +142,73 @@
 
 \begin{abstract}
 
+
 \end{abstract}
 
+\section{Introduction}
+
+Often in mathematics, we are tasked with the problem of evaluating an integral over some space, that is trying to evaluate
+
+$$ \int_{M}\w $$
+
+for some space $M$. Depending on the form $\w$, this integral can be related to finding the volume, to finding topological or enumerative invariants, integrating characteristic classes, or computing partition functions of physical systems. Such computations can be difficult, and there are many ways that we can tackle the integral. Two methods are particularly fruitful - that of \emph{localisation} and \emph{symmetry}.
+
+\subsection{Symmetry and Localisation}
+
+By symmetry, we mean that we have a group $G$ acting on $M$, and by identifying orbits we reduce the problem to that over a smaller space, $M/G$. Such an approach comes up in symplectic reduction, gauge theory, and integrable systems.
+
+By localisation, informally this means that we relate global calculations to ones that are local. The Poincaré-Hopf theorem is an example of this, which relates the Euler characteristic of a compact manifold $M$ to the sum of the indices of the zeros of a vector field on it:
+
+$$ \chi(M) = \int_{M} e(TM) = \sum\limits_{\mathbf{V}(p)=0} \Ind(\mathbf{V}). $$
+
+Unsurprisingly, it is often easier to consider a finite set of points rather than the global space $M$. The notion of localisation in algebra is a similar notion, in which we consider a single point (a prime) at a time.
+
+Symmetry and localisation synergise through the Atiyah-Bott fixed-point theorem; in the situation that we have a smooth manifold $M$ together with the action of a compact connected Lie group $G$, then the integral on $M$ localises on the (isolated) fixed-point set $M^{G} := F \subseteq M$ of the $G$-action. If $i : F \hookrightarrow M$ is the inclusion, and $e(\nu_{p})$ is the Euler class of the normal bundle $\nu_{p}$ to the fixed-point $p \in F$, then
+
+$$ \int_{M} \w = \sum\limits_{p \in F} \int_{p} \frac{i^{\ast}\w}{e(\nu_{p})}. $$
+
+What I want to do in this talk is discuss some interesting cases when the fixed-point formula can be applied, and investigate how to use it in these examples. 
+Consider the following geometric sum:
+
+\begin{equation*}
+	\begin{split}
+		\sum\limits_{k=0}^{10000} q^{k} &= 1 + q + q^{2} + \ldots + q^{10001} \\
+		&= \left(\frac{1-q}{1-q}\right)\cdot(1 + q + q^{2} + \ldots + q^{10001}) \\
+		&= \frac{1 - q^{10001}}{1 - q} \\
+		&= \frac{1}{1 - q} + \frac{1 - q^{10000}}{1 - q^{-1}}.
+	\end{split}
+\end{equation*}
+
+To evaluate the left-hand side, we need to know the value of each term at the 10001 integral points inside of the closed interval $[0, 10000]$, whereas the right-hand side only needs the two terms to be evaluated. So we can say that this sum \emph{localises} at the end points.
+
+\section{Equivariant Cohomology}
+
+TODO: introduce equivariantly closed forms at least.
+
+
+\subsection{The Berline-Vergne-Atiyah-Bott Fixed Point Theorem}
+
+When a manifold has a torus action, the equivariant localisation formula is a powerful tool for doing calculations in \emph{ordinary} cohomology, despite being formulated in \emph{equivariant} cohomology.
+
+
+\begin{theorem}[\textbf{Atiyah-Bott, Berline-Vergne Theorem}]
+	Suppose an $l$-dimensional torus $T$ acts on a compact oriented manifold $M$ with fixed-point set $F := M^{T}$. If $\phi$ is an equivariant closed form on $M$ and $i_{F}: F \hookrightarrow M$ is the inclusion map, then
+	\begin{equation*}
+		\int_{M} \phi = \int_{F} \frac{i_{F}^{\ast} \phi}{e_{T}(\nu_{F})},
+	\end{equation*}
+	as elements of $H_{T}^{\ast}(\pt) = \RR[u_{1}, \ldots, u_{l}]$. Here, $\nu_{F}$ is the normal bundle of $F$ in $M$, and $e_{T}$ is the equivariant Euler class.
+\end{theorem}
+
+
+\section{Riemann-Roch-Hirzebruch Theorem}
+
+For $\mcL \ra M$ a holomorphic line bundle over a complex manifold $M$. The Hirzebruch-Riemann-Roch Theorem then states that the Euler characteristic, $\chi(M; \mcL)$, is equal to the characteristic number
+
+\begin{equation*}
+	\chi(M; \mcL) =	\int_{M} e^{c_{1}(\mcL)}\, \Td(TM).
+\end{equation*}
+
+Here, $c_{1}(\mcL)$ is the \emph{1st Chern class} of $\mcL$, and $\Td(M)$ is the \emph{Todd class} of the complex vector bundle $TM \ra M$.
 
 
 
