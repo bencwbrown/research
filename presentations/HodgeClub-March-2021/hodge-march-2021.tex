@@ -31,9 +31,9 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{prop}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition\rm}
+\newtheorem{defn}[theorem]{Definition\rm}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{remark}{\it Remark\/}
 \newtheorem{example}{Example}
@@ -44,7 +44,7 @@
 \newcommand{\cf}{\emph{cf.} }
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-\newcommand{\lra}{\longleftarrow}
+\newcommand{\lra}{\longrightarrow}
 \newcommand{\lla}{\longleftarrow}
 \newcommand{\lbracket}{\left(}
 \newcommand{\rbracket}{\right)}
@@ -52,6 +52,7 @@
 
 \newcommand{\al}{\alpha}
 \newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
 \newcommand{\m}{\mu}
 \newcommand{\n}{\nu}
 \newcommand{\e}{\epsilon}
@@ -67,6 +68,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\vp}{\varphi}
+\newcommand{\mcA}{\mathcal{A}}
 \newcommand{\mcE}{\mathcal{E}}
 \newcommand{\mcF}{\mathcal{F}}
 \newcommand{\mcG}{\mathcal{G}}
@@ -99,6 +101,7 @@
 \DeclareMathOperator{\Ch}{Ch}
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\rk}{rk}
 
 \title{Equivariant Localisation and Fixed-Point Theorems}
 
@@ -183,24 +186,173 @@ To evaluate the left-hand side, we need to know the value of each term at the 10
 
 \section{Equivariant Cohomology}
 
-TODO: introduce equivariantly closed forms at least.
+Let $G$ be a compact Lie group acting on a toplogical space $M$. If $G$ acts freely on $M$, then the quotient space $M/G$ is usually as nice as the space $M$ is itself; for instance, if $M$ is a manifold then so is $M/G$.
+
+The idea behind an equivariant cohomology group, $H_{G}^{\ast}(M)$, is that the equivariant cohomology groups of $M$ should just be the cohomology groups of $M/G$:
+
+\begin{equation*}
+	H_{G}^{\ast}(M) = H^{\ast}(M/G), \qquad \text{when the action is free.}
+\end{equation*}
+
+For example, if $G$ acts on itself by left multiplication, then
+
+\begin{equation*}
+	H_{G}^{\ast}(G) = H^{\ast}(\pt).
+\end{equation*}
+
+However, if the action is not free, then the space $M/G$ might not behave very nicely from a cohomological point of view. Then the idea is that $H_{G}^{\ast}(M)$ should be the ``correct'' subsitute for $H^{\ast}(M/G)$.
+
+\subsection{Classifying Bundles}
+
+As cohomology is unchanged under homotopy equivalence, our guiding idea is that the equivariant cohomology of $M$ should be the ordinary cohomology of $M^{\ast}/G$, where $M^{\ast}$ is some topological space homotopy equivalent to $M$ and on which $G$ acts freely. The standard way of constructing such a space is to take it to be the product $M^{\ast} = M \times E$, where $E$ is some contractible space on which $G$ acts freely. Then the equivariant cohomology groups of $M$ are defined by the recipe
+
+\begin{equation*}
+	H_{G}^{\ast}(M) := H^{\ast}\left( (M \times E)/G \right).
+\end{equation*}
+
+Note that if $G$ acts freely on $M$ then the projection
+
+\begin{equation*}
+	(M \times E)/G \lra M/G
+\end{equation*}
+
+is a fibration with typical fibre $E$. Then as $E$ is contractible, we get that
+
+\begin{equation*}
+	H_{G}^{\ast}(M) = H^{\ast}\left( (M \times E)/G \right) = H^{\ast}(M/G),
+\end{equation*}
+
+so we arrive at the same situation if $G$ acts freely on $M$.
+
+\subsection{The Cartan Model}
+
+Let $M$ be an $n$-dimensional manifold acted on by a Lie group $G$ with with Lie algebra $\mfg$. A \emph{$G$-equivariant differential form} on $M$ is defined to be a polynomial map $\alpha : \mfg \ra \W(M)$ such that
+
+\begin{equation*}
+	\alpha(gX) = g \cdot \alpha(X), \qquad \text{for } g \in G.
+\end{equation*}
+
+Let $\CC[\mfg]$ denote the algebra of $\CC$-valued polynomial functions on $\mfg$. Then we can view the tensor product
+
+\begin{equation*}
+	\CC[\mfg] \otimes \W(M),
+\end{equation*}
+
+as the algebra of polynomial maps from $\mfg$ to $\W$. The group $G$ acts on an element $\alpha \in \CC[\mfg] \otimes \W(M)$ by the formula\footnote{$G$ acts on $\W(M)$ by the induced $G$-action on $M$, and on $\mfg$ by the adjoint action.}
+
+\begin{equation*}
+	(g \cdot \alpha)(X) := g \cdot \left( \alpha ( g^{-1} \cdot X )  \right), \qquad \text{for all } g \in G, \text{ and } X \in \mfg.
+\end{equation*}
+
+Let $\W^{G}(M) = \left( \CC[\mfg] \otimes \W(M) \right)^{G}$ be the subalgebra of $G$-invariant elements; an element $\alpha \in \W^{G}(M)$ thus satisfies $\alpha(g \cdot X) = g\cdot \alpha(M)$, hence is an equivariant differential form. Equip $\CC[\mfg] \otimes \W(M$ with the following $\ZZ$-grading,
+
+\begin{equation*}
+	\deg(P \otimes \alpha) := 2\cdot \deg(P) + \deg(\alpha),
+\end{equation*}
+
+for the polynomial $P \in \CC[\mfg]$, and $\alpha \in \W(M)$. Define the \emph{equivariant exterior differential}, or \emph{Cartan differential}, $d_{G}$ by
+
+\begin{equation*}
+	(d_{G}\alpha)(X) := (d - \imath_{X_{M}}) \alpha(X),
+\end{equation*}
+
+where $d :\W^{k}(M) \ra \W^{k+1}(M)$ is the usual de Rham differential, $X_{M}$ is the fundamental vector field of $X \in \mfg$ on $M$, and $\imath_{X} : \W^{k}(M) \ra \W^{k-1}(M)$ is the contraction of $X$ on a differential form.
+
+\begin{prop}
+	The Cartan differential $d_{G}$ is closed on $\W_{G}^{\ast}$, \ie $d_{G}^{2} = 0$.
+\end{prop}
+
+\begin{proof}
+	Let us compute $d_{G}^{2}$ on $\CC[\mfg] \otimes \W^{\ast}(M)$. Some notation: set $\CC[\mfg] \cong \CC[\phi^{1}, \ldots, \phi^{\rk \mfg}]$, for a set of generators $\{\phi^{\mu} \}$ of $\mfg$, then $d_{G}$ can be written as
+	
+		\begin{equation*}
+			d_{G} = d \otimes 1 + i_{\mu} \otimes \phi^{\mu}.
+		\end{equation*}
+
+	Then the homotopy formula $\imath_{\mu} d + d \imath_{\mu} = \mcL_{\mu}$, where $\mcL_{\mu}$ is the Lie derivative of $M$ along a vector field generated by $V_{\mu}$, gets us that
+	
+	\begin{equation*}
+		\begin{split}
+			d_{G}^{2} &= (d \otimes 1 + \imath_{\mu} \otimes \phi^{\mu}) (d \otimes 1 + \imath_{\mu} \otimes \phi^{\mu}) \\
+			&= d^{2} \otimes 1 + \left( (\imath_{\mu}d + d\imath_{\mu})  \otimes \phi^{\mu} \right) + (\imath_{\mu}\imath_{\nu}) \otimes (\phi^{\mu}\phi^{\nu}) \\
+			&= (\imath_{\mu}d + d\imath_{\mu})  \otimes \phi^{\mu} \\
+			&= \mcL_{\mu} \otimes \phi^{\mu}.
+		\end{split}
+	\end{equation*}
+	
+	TODO: FINISH!
+\end{proof}
+
+\begin{corollary}
+	The space of equivariant differential forms $\W_{G}^{\ast}(M) = \left( \CC[\mfg] \otimes \W^{\ast}(M) \right)^{G}$, equipped with the Cartan differential $d_{G}$ forms a complex, called the \textbf{Cartan complex}:
+	
+	\begin{equation*}
+		\left( \W_{G}^{\ast}(M), d_{G} \right) = \left( (\CC[\mfg] \otimes \W^{\ast}(M)   )^{G}, d_{G} \right).
+	\end{equation*}
+
+\end{corollary}
+
+\begin{defn}
+	The \textbf{equivariant cohomology} $H_{G}^{\ast}(M)$ of $M$ is the cohomology of the Cartan complex, $(\W_{G}^{\ast}(M), d_{G})$.
+\end{defn}
+
+\subsection{Equivariantly Closed Forms}
+
+In the Cartan model, an equivariant two-form
+
+	\begin{equation*}
+		\tilde{\w} \in \W_{G}^{2}(M) = \left( \left( \W_{G}^{2}(M) \otimes \CC_{0}[\mfg] \right) \oplus \left( \W^{0}(M) \otimes \CC_{1}[\mfg] \right) \right)^{G},
+	\end{equation*} 
+
+can be written as
+
+	\begin{equation*}
+		\tilde{\w} = \w - \mu,
+	\end{equation*}
+
+where $\w \in \W^{2}(M)$ is a two-form invariant under $G$ and $\mu \in \left( \W^{0}(M) \otimes \mfg \right)^{G}$ can be considered as a $G$-equivariant map,
+
+	\begin{equation*}
+		\mu : \mfg \lra \W^{0}(M) = \mc{C}^{\infty}(M),
+	\end{equation*}
+
+from the Lie algebra, $\mfg$, to the space of smooth functions on $M$. For each $\xi \in \mfg$, $\mu(\xi)$ is a smooth function on $M$, and this function depends linearly on $\xi$. Therefore, for each $p \in M$, the value $\mu(\xi)(p)$ depends linearly on $\xi$, and thus we can think of $\mu$ as defining a map from $M$ to the dual Lie algebra, $\mfg^{\ast}$:
+
+	\begin{equation*}
+		\mu : M \lra \mfg^{\ast}; \qquad \langle \mu(p), \xi \rangle := \mu(\xi)(p).
+	\end{equation*}
+
+
+
+
+
+
+
+
+
 
 
 \subsection{The Berline-Vergne-Atiyah-Bott Fixed Point Theorem}
 
-When a manifold has a torus action, the equivariant localisation formula is a powerful tool for doing calculations in \emph{ordinary} cohomology, despite being formulated in \emph{equivariant} cohomology.
-
+When a manifold has a torus action, the equivariant localisation formula is a powerful tool for doing calculations in \textbf{ordinary} cohomology, despite being formulated in \textbf{equivariant} cohomology.
 
 \begin{theorem}[\textbf{Atiyah-Bott, Berline-Vergne Theorem}]
-	Suppose an $l$-dimensional torus $T$ acts on a compact oriented manifold $M$ with fixed-point set $F := M^{T}$. If $\phi$ is an equivariant closed form on $M$ and $i_{F}: F \hookrightarrow M$ is the inclusion map, then
+	Suppose an $m$-dimensional torus $T$ acts on a compact oriented manifold $M$ with fixed-point set $F := M^{T}$. If $\phi$ is an equivariant closed form on $M$ and $i_{F}: F \hookrightarrow M$ is the inclusion map, then
 	\begin{equation*}
 		\int_{M} \phi = \int_{F} \frac{i_{F}^{\ast} \phi}{e_{T}(\nu_{F})},
 	\end{equation*}
-	as elements of $H_{T}^{\ast}(\pt) = \RR[u_{1}, \ldots, u_{l}]$. Here, $\nu_{F}$ is the normal bundle of $F$ in $M$, and $e_{T}$ is the equivariant Euler class.
+	as elements of $H_{T}^{\ast}(\pt) = \RR[u_{1}, \ldots, u_{l}]$. Here, $\nu_{F}$ is the normal bundle of $F$ in $M$, and $e_{T}$ is the $T$-equivariant Euler class.
 \end{theorem}
 
+\section{Examples}
 
-\section{Riemann-Roch-Hirzebruch Theorem}
+\subsection{Stationary Phase and Duistermaat-Heckman}
+
+Let $M$ be a compact, oriented $2n$-manifold, $f : M \ra \RR$ a function, and $\tau \in \W^{2n}(M)$.
+
+TODO: SEE LORING TU'S BOOK.
+
+\subsection{Riemann-Roch-Hirzebruch Theorem}
 
 For $\mcL \ra M$ a holomorphic line bundle over a complex manifold $M$. The Hirzebruch-Riemann-Roch Theorem then states that the Euler characteristic, $\chi(M; \mcL)$, is equal to the characteristic number
 
