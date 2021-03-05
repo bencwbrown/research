@@ -504,45 +504,7 @@ So given an ordinary characteristic class $[\w] \in H^{2}(M)$ and a moment map $
 
 \newpage
 
-In the Cartan model, an equivariant two-form
-
-	\begin{equation*}
-		\tilde{\w} \in \W_{G}^{2}(M) = \left( \left( \W_{G}^{2}(M) \otimes \CC_{0}[\mfg] \right) \oplus \left( \W^{0}(M) \otimes \CC_{1}[\mfg] \right) \right)^{G},
-	\end{equation*} 
-
-can be written as
-
-	\begin{equation*}
-		\tilde{\w} = \w - \mu,
-	\end{equation*}
-
-where $\w \in \W^{2}(M)$ is a two-form invariant under $G$ and $\mu \in \left( \W^{0}(M) \otimes \mfg \right)^{G}$ can be considered as a $G$-equivariant map,
-
-	\begin{equation*}
-		\mu : \mfg \lra \W^{0}(M) = \mc{C}^{\infty}(M),
-	\end{equation*}
-
-from the Lie algebra, $\mfg$, to the space of smooth functions on $M$. For each $\xi \in \mfg$, $\mu(\xi)$ is a smooth function on $M$, and this function depends linearly on $\xi$. Therefore, for each $p \in M$, the value $\mu(\xi)(p)$ depends linearly on $\xi$, and thus we can think of $\mu$ as defining a map from $M$ to the dual Lie algebra, $\mfg^{\ast}$:
-
-	\begin{equation*}
-		\mu : M \lra \mfg^{\ast}; \qquad \langle \mu(p), \xi \rangle := \mu(\xi)(p).
-	\end{equation*}
-
-We will use the notation
-
-\begin{equation*}
-	\mu^{\xi} \qquad \text{for} \qquad \mu(\xi).
-\end{equation*}
-
-The condition for $\tilde{\w}$ to be equivariantly closed now becomes
-
-\begin{equation*}
-	d_{G}\tilde{\w} = 0 \iff  d\w = 0 \quad \text{and} \quad \imath_{\xi} = -d\mu^{\xi}.
-\end{equation*}
-
-\begin{defn}
-	Call such a map $\mu : M \lra \mfg^{\ast}$ satisfying the above conditions for a given action of $G$ and two-form $\w$ a \textbf{moment map}.
-\end{defn}
+\section{Equivariant Localisation}
 
 
 
@@ -554,12 +516,22 @@ The condition for $\tilde{\w}$ to be equivariantly closed now becomes
 When a manifold has a torus action, the equivariant localisation formula is a powerful tool for doing calculations in \textbf{ordinary} cohomology, despite being formulated in \textbf{equivariant} cohomology.
 
 \begin{theorem}[\textbf{Atiyah-Bott, Berline-Vergne Theorem}]
-	Suppose an $m$-dimensional torus $T$ acts on a compact oriented manifold $M$ with fixed-point set $F := M^{T}$. If $\phi$ is an equivariant closed form on $M$ and $i_{F}: F \hookrightarrow M$ is the inclusion map, then
+	Suppose an $n$-dimensional torus $T$ acts on a compact oriented manifold $M$ with fixed-point set $F := M^{T}$. If $\phi$ is an equivariant closed form on $M$ and $i_{F}: F \hookrightarrow M$ is the inclusion map, then
 	\begin{equation*}
-		\int_{M} \phi = \int_{F} \frac{i_{F}^{\ast} \phi}{e_{T}(\nu_{F})},
+		\int_{M} \phi = \sum\limits_{F \subseteq M^{T}} \int_{F} \frac{i_{F}^{\ast} \phi}{e^{T}(\nu_{F})},
 	\end{equation*}
-	as elements of $H_{T}^{\ast}(\pt) = \RR[u_{1}, \ldots, u_{l}]$. Here, $\nu_{F}$ is the normal bundle of $F$ in $M$, and $e_{T}$ is the $T$-equivariant Euler class.
+	as elements of $H_{T}^{\ast}(\pt) = \RR[u_{1}, \ldots, u_{n}]$. Here, $\nu_{F}$ is the normal bundle of $F$ in $M$, and $e^{T}$ is the $T$-equivariant Euler class.
 \end{theorem}
+
+In the case when the fixed-point set $M^{T} = \{p_{i}\}$ consists of isolated fixed-points, the localisation theorem simplifies greatly:
+
+\begin{theorem}
+	With the above hypotheses, if $M^{T}$ consists of isolated fixed-points, then:
+	\begin{equation*}
+		\int_{M} \phi = \sum\limits_{p \in M^{T}} \frac{\phi(p)}{\prod_{i} \lambda_{p, i}}.
+	\end{equation*}
+\end{theorem}
+
 
 \section{Examples}
 
