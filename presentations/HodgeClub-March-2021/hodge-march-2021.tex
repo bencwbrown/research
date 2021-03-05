@@ -87,7 +87,7 @@
 \newcommand{\prr}{\phi_{\mathbb{R}}}
 \newcommand{\pcc}{\phi_{\mathbb{C}}}
 
-\DeclareMathOperator{\Lie}{\text{Lie}}
+\DeclareMathOperator{\Lie}{Lie}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Image}{Im}
@@ -102,6 +102,11 @@
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Pf}{Pf}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\U}{U}
 
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
 		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
@@ -298,7 +303,138 @@ where $d :\W^{k}(M) \ra \W^{k+1}(M)$ is the usual de Rham differential, $X_{M}$ 
 	The \textbf{equivariant cohomology} $H_{G}^{\ast}(M)$ of $M$ is the cohomology of the Cartan complex, $(\W_{G}^{\ast}(M), d_{G})$.
 \end{defn}
 
-\subsection{Equivariantly Closed Forms}
+\subsection{Equivariant Characteristic Classes}
+
+Let $G$ and $T$ be compact, connected Lie groups.
+
+An ordinary characteristic class for a principal $G$-bundle on an $n$-dimensional manifold $M$ is $[p(F_{A})] \in H^{2n}(M)$, for a $G$ -invariant degree $n$ polynomial $p \in \RR[\mfg]^{G}$. here $F_{A}$ is the curvature of any connection $A$ on the $G$-bundle.
+
+To get a $T$-equivariant characteristic class for a principal $G$-bundle associated to a $G$-invariant, degree $n$ polynomial $p \in \RR[\mfg]^{G}$, we take $[p(F_{A, T})] \in H_{T}^{2n}(M)$, where now $F_{A,T}$ is the $T$-equivariant curvature of any $T$-equivariant connection $A$ on the $G$-bundle.
+
+Restricted to the $T$-fixed points $M^{T}$ of $M$, the $T$-equivariant characteristic class associated to a polynomial $p \in \RR[\mfg]^{G}$ is
+
+\begin{equation*}
+	p(F_{A} + \e^{a}\rho(T_{a})).
+\end{equation*}
+
+TODO: EXPLAIN WHAT $\e^{a}$, etc. ARE!
+
+In particular, when $V$ is a representation of $G$ and $p$ is the Chern character of the vector bundle $V$, then, if $M$ is a point, the equivariant Chern characters are just the ordinary characters of the space $V$ as a $G$-module.
+
+\subsection{The Equivariant Euler Class}
+
+Here, let $G = \SO(2n)$ which preserves the Riemannian metric on an oriented real vector space $V$ of dimension $\dim_{\RR}(V) = 2n$.
+
+\begin{defn}
+	Consider the following adjoint-invariant polynomial,
+	
+	\begin{equation*}
+		\Pf : \mf{so}(2n;\RR) \lra \RR,
+	\end{equation*}
+
+	of degree $n$ on the Lie algebra $\mf{so}(2n;\RR)$, called the \textbf{Pfaffian}.
+	
+	The case that we shall be interested in is when we have the $(2n \times 2n)$-antisymmetric matrix,
+	
+	\begin{equation*}
+		\Pf
+		\begin{pmatrix}
+			0 & \lambda_{1} & \dots & \dots & 0 & 0 \\
+			-\lambda_{1} & 0 & \dots & \dots & 0 & 0 \\
+			\vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+			\vdots & \vdots & \dots & \ddots & \vdots & \vdots \\
+			0 & 0 & \dots & \dots & 0 & \lambda_{n} \\
+			0 & 0 & \dots & \dots & -\lambda_{n} & 0			
+		\end{pmatrix}
+		= \lambda_{1}\cdot\ldots \cdot \lambda_{n}.
+	\end{equation*}
+	
+\end{defn}
+
+\begin{defn}
+	
+	Let $P \ra M$ be an $\SO(2n;\RR)$-principal bundle over $M$. The \textbf{Euler characteristic class} of $P$, $e(P)$, is given by
+	
+	\begin{equation*}
+		e(P) := [\Pf(F)] \in H^{2n}(M; \ZZ).
+	\end{equation*}
+
+\end{defn}
+
+\begin{example}
+	If $M$ is an oriented, $2n$-dimensional real manifold, then the \textbf{Euler characteristic} is given by
+
+	\begin{equation*}
+		e(M) = \int_{M} e(TM) = \int_{M} \Pf(R_{\nabla}),
+	\end{equation*}
+
+	where $R_{\nabla}$ is the curvature form of the tangent bundle $TM$, equipped with the Levi-Civita connection.
+\end{example}
+
+To upgrade the Euler characteristic class $e$ to a $T$-equivariant one $e_{T}$, where $T$ is a torus acting on a manifold $M$ with isolated fixed-point set $M^{T}$, we need to investigate the polynomial
+
+\begin{equation*}
+	\Pf(F_{A} + \e^{a}\rho(T_{a})).
+\end{equation*}
+
+For simplicity, let $T = S^{1}$. Then, for a point $p \in M^{S^{1}}$, the $S^{1}$-action on $T_{p}M$ gives rise to an $S^{1}$-representation,
+
+\begin{equation*}
+	\rho : S^{1} \lra \GL(T_{m}M); \qquad g \longmapsto l_{g, \ast},
+\end{equation*}
+
+where $l_{g, \ast} : T_{p}M \ra T_{g\cdot p}M = T_{p}M$ is the differential of the action of $g \in S^{1}$ on $T_{m}M$.
+
+As $p$ is isolated, $\rho$ decomposes into a direct sum of $2$-dimensional irreducible representations,
+
+\begin{equation*}
+	T_{p}M \cong L^{m_{1}} \oplus \ldots \oplus L^{m_{n}}.
+\end{equation*}
+
+Here, $L^{m} : S^{1} \ra \GL(2;\RR)$ is a representation of $S^{1}$ as $m$-fold rotations in $\RR^{2}$,
+
+\begin{equation*}
+	L^{m} : g \longmapsto l_{g,\ast}; \qquad
+	L^{m}(e^{it}) =
+	\begin{bmatrix}
+		-m\sin(mt) & -m\cos(mt) \\
+		m\cos(mt) & -m\sin(mt)
+	\end{bmatrix}.
+\end{equation*}
+
+
+
+
+
+\subsection{Chern Classes}
+
+Now let $G = \U(n)$, then $\mfg = \mf{u}(n)$ can be identified with the space of matrices of the form $iA$, where $A = A^{T}$. Define the polynomial $c_{k}$, of degree $k$ in $A$ to be the coefficient of $(-1)^{k}\lambda^{n-k}$ in the characteristic polynomial of $A$:
+
+\begin{equation*}
+	\det(\lambda - A) = \lambda^{n} - c_{1}(A)\lambda^{n-1} + \ldots + (-1)^{n}c_{n}(A).
+\end{equation*}
+
+In particular, $c_{1}(A) = \Tr(A)$ and $c_{n}(A) = \det(A)$. These polynomials are clearly adjoint invariant, thus the characteristic polynomial is.
+
+The characteristic classes corresponding to the $c_{i}$ for a complex vector bundle are called its \textbf{Chern classes}.
+
+\begin{remark}
+	If we consider a complex vector bundle $(V, J)$ of $\dim_{\CC}(V) = n$ then, by forgetting the complex structure on $V$, we get an oriented real vector bundle $V$ of real dimension $\dim_{\RR}(V) = 2n$.
+	
+	By this correspondence, the Euler class $e(V)$ and the top Chern class $c_{n}(V)$ of $V$ are related by
+	
+	\begin{equation*}
+		e(V) = (2\pi)^{-n}c_{n}(V).
+	\end{equation*}
+	
+\end{remark}
+
+
+
+
+
+
+\newpage
 
 In the Cartan model, an equivariant two-form
 
@@ -324,10 +460,21 @@ from the Lie algebra, $\mfg$, to the space of smooth functions on $M$. For each 
 		\mu : M \lra \mfg^{\ast}; \qquad \langle \mu(p), \xi \rangle := \mu(\xi)(p).
 	\end{equation*}
 
+We will use the notation
 
+\begin{equation*}
+	\mu^{\xi} \qquad \text{for} \qquad \mu(\xi).
+\end{equation*}
 
+The condition for $\tilde{\w}$ to be equivariantly closed now becomes
 
+\begin{equation*}
+	d_{G}\tilde{\w} = 0 \iff  d\w = 0 \quad \text{and} \quad \imath_{\xi} = -d\mu^{\xi}.
+\end{equation*}
 
+\begin{defn}
+	Call such a map $\mu : M \lra \mfg^{\ast}$ satisfying the above conditions for a given action of $G$ and two-form $\w$ a \textbf{moment map}.
+\end{defn}
 
 
 
