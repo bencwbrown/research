@@ -106,7 +106,7 @@
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SO}{SO}
-\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\UU}{U}
 
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
 		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
@@ -303,7 +303,7 @@ where $d :\W^{k}(M) \ra \W^{k+1}(M)$ is the usual de Rham differential, $X_{M}$ 
 	The \textbf{equivariant cohomology} $H_{G}^{\ast}(M)$ of $M$ is the cohomology of the Cartan complex, $(\W_{G}^{\ast}(M), d_{G})$.
 \end{defn}
 
-\subsection{Equivariant Characteristic Classes}
+\subsection{Characteristic Classes}
 
 Let $G$ and $T$ be compact, connected Lie groups.
 
@@ -321,7 +321,7 @@ TODO: EXPLAIN WHAT $\e^{a}$, etc. ARE!
 
 In particular, when $V$ is a representation of $G$ and $p$ is the Chern character of the vector bundle $V$, then, if $M$ is a point, the equivariant Chern characters are just the ordinary characters of the space $V$ as a $G$-module.
 
-\subsection{The Equivariant Euler Class}
+\subsection{The Euler Class}
 
 Here, let $G = \SO(2n)$ which preserves the Riemannian metric on an oriented real vector space $V$ of dimension $\dim_{\RR}(V) = 2n$.
 
@@ -402,13 +402,9 @@ Here, $L^{m} : S^{1} \ra \GL(2;\RR)$ is a representation of $S^{1}$ as $m$-fold 
 	\end{bmatrix}.
 \end{equation*}
 
-
-
-
-
 \subsection{Chern Classes}
 
-Now let $G = \U(n)$, then $\mfg = \mf{u}(n)$ can be identified with the space of matrices of the form $iA$, where $A = A^{T}$. Define the polynomial $c_{k}$, of degree $k$ in $A$ to be the coefficient of $(-1)^{k}\lambda^{n-k}$ in the characteristic polynomial of $A$:
+Now let $G = \UU(n)$, then $\mfg = \mf{u}(n)$ can be identified with the space of matrices of the form $iA$, where $A = A^{T}$. Define the polynomial $c_{k}$, of degree $k$ in $A$ to be the coefficient of $(-1)^{k}\lambda^{n-k}$ in the characteristic polynomial of $A$:
 
 \begin{equation*}
 	\det(\lambda - A) = \lambda^{n} - c_{1}(A)\lambda^{n-1} + \ldots + (-1)^{n}c_{n}(A).
@@ -419,15 +415,87 @@ In particular, $c_{1}(A) = \Tr(A)$ and $c_{n}(A) = \det(A)$. These polynomials a
 The characteristic classes corresponding to the $c_{i}$ for a complex vector bundle are called its \textbf{Chern classes}.
 
 \begin{remark}
-	If we consider a complex vector bundle $(V, J)$ of $\dim_{\CC}(V) = n$ then, by forgetting the complex structure on $V$, we get an oriented real vector bundle $V$ of real dimension $\dim_{\RR}(V) = 2n$.
+	If we consider a complex vector bundle $V_{\CC}$ of $\dim_{\CC}(V) = n$ then, by forgetting the complex structure on $V_{\CC}$, we get an oriented real vector bundle $V_{\RR}$ of real dimension $\dim_{\RR}(V) = 2n$.
 	
 	By this correspondence, the Euler class $e(V)$ and the top Chern class $c_{n}(V)$ of $V$ are related by
 	
 	\begin{equation*}
-		e(V) = (2\pi)^{-n}c_{n}(V).
+		e(V_{\RR}) = c_{n}(V_{\CC}).
 	\end{equation*}
 	
 \end{remark}
+
+\subsection{Equivariant Characteristic Classes}
+
+\begin{defn}
+	A $G$\textbf{-equivariant vector bundle} of a $G$-manifold $M$ is a vector bundle $V \ra M$ with an action of $G$ on the total space $V$ covering the action of $G$ on $M$.
+\end{defn}
+
+\begin{defn}
+	Let $(M, \w)$ be a symplectic manifold, and suppose that a torus $T$ acts on $M$ preserving $\w$. The action is \textbf{Hamiltonian} if there exists a \textbf{moment map} $\mu : M \ra \mft^{\ast}$, whuch satisfies
+	
+	\begin{equation*}
+		\imath_{\xi_{M}}\w = d\langle \mu,\, \xi \rangle, \quad \text{for all } \xi \in \mft.
+	\end{equation*}
+
+	Here, $\xi_{M}$ is the induced vector field on $M$.
+\end{defn}
+
+\begin{prop}
+	Let $(M, \w, \mu)$ be a symplectic manifold with a Hamiltonian action of a torus $T$ and associated moment map $\mu : M \ra \mft^{\ast}$. Set
+	
+	\begin{equation*}
+		\tilde{\w} := \w + \mu.
+	\end{equation*}
+	
+	Then $\tilde{\w}$ is a $T$-equivariantly closed two-form.
+\end{prop}
+
+\begin{proof}
+	For $\tilde{\w}$ to be equivariantly closed under $d_{T}$, we have
+	
+	\begin{equation*}
+		d_{T}\tilde{\w} = 0 \iff (d - \imath_{\xi})(\w + \mu^{\xi}) = d\w - \imath_{\xi}\w + d\mu^{\xi} - \imath_{\xi}\mu^{\xi} = -\imath_{\xi}\w + d\mu^{\xi} = 0 \iff \imath_{\xi}\w = d\mu^{\xi}.
+	\end{equation*}
+\end{proof}
+
+So given an ordinary characteristic class $[\w] \in H^{2}(M)$ and a moment map $\mu : M \ra \mfg^{\ast}$, we can elevate it to an equivariant characteristic class by the substitution
+
+\begin{equation*}
+		H^{2}(M) \ni [\w] \longmapsto [\w_{G}] = [\w + \mu] \in H_{G}^{2}(M).
+\end{equation*}
+
+\begin{prop}
+	If $E$ is a complex vector bundle with a $T$-action and $E \cong \bigoplus_{j} \mcL_{j}$, where $\mcL_{j}$ are complex line bundles with $T$-action given by weights $\lambda_{j} : T \ra U(1)$, then the equivariant Euler class of $E$ is
+	
+	\begin{equation*}
+		e^{T}(E) = \prod\limits_{j} c_{1}^{T}(\mcL_{j}).
+	\end{equation*}
+	In the Cartan model, this is represented by
+	\begin{equation*}
+		e^{T}(E)(\xi) = \prod\limits_{j} (F_{j} - \lambda_{j})(\xi).
+	\end{equation*}
+\end{prop}
+
+\begin{example}
+	If $T$ acts on $M$ and $F$ is a component of $M^{T}$, then the normal bundle $\nu_{F}$ is a $T$-equivariant bundle over $V$. Assume that $\nu_{F}$ decomposes equivariantly as $\nu_{F} \cong \bigoplus_{j} \nu_{F, j}$ with weights $\lambda_{F, j} \in \mft^{\ast}$. Then the equivariant Euler class $e^{T}(\nu_{F})$ is
+	\begin{equation*}
+		e^{T}(\nu_{F}) = \prod\limits_{j} \left( c_{1}(\nu_{F,j}) + \beta_{F,j} \right).
+	\end{equation*}
+
+	When the fixed-point set $M^{T}$ consists of isolated fixed-points then, for $p \in M^{T}$,
+	
+	\begin{equation*}
+		e^{T}(\nu_{p})
+	\end{equation*}
+
+\end{example}
+
+
+
+
+
+
 
 
 

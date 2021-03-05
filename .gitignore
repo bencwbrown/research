@@ -278,3 +278,4 @@ TSWLatexianTemp*
 # MacOS specific
 .DS_Store
 prototypes/hypertoric-localisation/hypertoric-localisation.pdf
+*.pdf
