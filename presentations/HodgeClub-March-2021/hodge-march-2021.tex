@@ -102,6 +102,7 @@
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\Pf}{Pf}
 
 \DeclareMathOperator{\GL}{GL}
@@ -525,17 +526,59 @@ Let $M$ be a compact, oriented $2n$-manifold, $f : M \ra \RR$ a function, and $\
 
 TODO: SEE LORING TU'S BOOK.
 
-\subsection{Riemann-Roch-Hirzebruch Theorem}
+\subsection{The Index and Hirzebruch-Riemann Roch Theorems}
 
-For $\mcL \ra M$ a holomorphic line bundle over a complex manifold $M$. The Hirzebruch-Riemann-Roch Theorem then states that the Euler characteristic, $\chi(M; \mcL)$, is equal to the characteristic number
+\begin{theorem}[\textbf{Hirzebruch-Riemann-Roch, (HRR)}]
+	Let $\mcL \ra M$ a holomorphic line bundle over a \textbf{complex projective algebraic variety} $M$. Then the Euler characteristic, $\chi(M; \mcL)$, is equal to the characteristic number
+	\begin{equation*}
+		\chi(M; \mcL) =	\int_{M} e^{c_{1}(\mcL)}\, \Td(TM).
+	\end{equation*}
+	Here, $c_{1}(\mcL)$ is the \emph{1st Chern class} of $\mcL$, and $\Td(M)$ is the \emph{Todd class} of the complex vector bundle $TM \ra M$.
+\end{theorem}
 
+\begin{defn}
+	The \textbf{Todd class} $\Td(TM)$ of a complex tangent bundle $(TM, J)$ is
+	\begin{equation*}
+		\Td(TM) := \prod_{j = 1}^{n} \frac{c_{1}}{1 + e^{-c_{1}}},
+	\end{equation*}
+	where $c_{1} := c_{1}(TM)$ is the 1st Chern class of the tangent bundle.
+\end{defn}
+
+\begin{example}
+	Let $M = \CC\PP^{1}$ and $\mcL = \mcO(k)$. Then $c_{1}(\mcL) = kH$, where $H$ generates $H^{2}(\CC\PP^{1}; \ZZ)$. The Chern character of $\mcL$ is
+	\begin{equation*}
+		e^{c_{1}(\mcL)} = 1 + kH.
+	\end{equation*}
+	The tangent bundle $TM$ is a line bundle with 1st Chern class $c_{1}(TM) = 2H$, so its Todd class is
+	\begin{equation*}
+		\Td(c_{1}(TM)) = \frac{c_{1}(TM)}{1 + e^{-c_{1}(TM)}} = 1 + \frac{1}{2}c_{1}(TM) = 1 + H.
+	\end{equation*}
+	Thus, the Riemann-Roch integral is
+	\begin{equation*}
+		\int_{M} (1 + kH)(1 + H) = \int_{M} (k+1)H + 1 = k+1.
+	\end{equation*}
+	In particular, if $k = 10000$, then we get $\chi(\CC\PP^{1}; \mcL) = 10001$, which we saw at the start of this talk.
+\end{example}
+
+\begin{remark}
+	The sections of $\mcL$ can be identified with degree $k$ polynomials in the two coordinate variables of $\CC\PP^{1}$, and hence the space of sections has dimension $k+1$. The higher cohomology spaces vanish: $H^{j}(\CC\PP^{1}; \mcL) = 0$ if $j \geq 1$ by Kodaira vanishing.
+\end{remark}
+
+This integral formula was originally proven for complex projective algebraic varieties by Hirzebruch, but the Atiyah-Singer index theorem generalises it to include complex analytic manifolds by the following argument:
+
+The characteristic number $\chi(M; \mcL)$ also equals
 \begin{equation*}
-	\chi(M; \mcL) =	\int_{M} e^{c_{1}(\mcL)}\, \Td(TM).
+	\chi(M; \mcL) = \sum (-1)^{k} \dim H^{k}(M; \mcL).
 \end{equation*}
-
-Here, $c_{1}(\mcL)$ is the \emph{1st Chern class} of $\mcL$, and $\Td(M)$ is the \emph{Todd class} of the complex vector bundle $TM \ra M$.
-
-
+Provided that $M$ has a Hermitian structure and hence metric, then this metric gives rise to an inner-product on the vector bundles $\Lambda^{0,k} = \Lambda^{0,k}TM$. Moreover, provided $\mcL$ also has a Hermitian structure, then there are Hermitian inner-products on the vector bundles $\mcL \otimes \Lambda^{0,k}$ also. These Hermitian products and the volume form give rise to differential operators,
+	\begin{equation*}
+		\bar{\partial}^{\ast} : \W^{0,k}(M; \mcL) \lra \W^{0,k-1}(M; \mcL),
+	\end{equation*}
+as the product gives rise to an adjoint to the Dolbeault operator, $\bar{\partial}$. By Hodge theory, one can show that
+	\begin{equation*}
+		\ind(\bar{\partial}) := \ker( \bar{\partial} + \bar{\partial}^{\ast} ) - \coker( \bar{\partial} + \bar{\partial}^{\ast} ) =  \sum (-1)^{k} \dim H^{k}(M; \mcL),
+	\end{equation*}
+as virtual vector spaces.
 
 
 
