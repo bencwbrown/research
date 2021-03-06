@@ -157,32 +157,16 @@
 
 \begin{abstract}
 
+Often in mathematics, we are tasked with the problem of evaluating an integral $\int_{M} \w$ over some space $M$. Depending on the form $\w$, this integral can be related to calculating volume, finding topological or enumerative invariants, or integrating characteristic classes. Such computations are often difficult, but two notions can simplify them, which are \emph{symmetry} and \emph{localisation}.
+
+By symmetry, we mean that we have a group $G$ acting on $M$, and by identifying orbits we reduce the problem to that over a smaller space, $M/G$; this comes up in symplectic reduction, gauge theory, and integrable systems. By localisation, this means that we reduce global calculations to local ones; for example, as in the Poincaré-Hopf theorem. Symmetry and localisation synergise together through the Atiyah-Bott-Berline-Vergne fixed-point formula; when we have a smooth manifold $M$ together with the action of a compact, connected Lie group $G$, then the integral on $M$ localises on the ﬁxed-point set of the $G$-action.
+
+In this talk, I want to introduce the equivariant cohomology of a $G$-manifold via the Cartan model - that is, equivariant de Rham theory - before going through some example calculations including the equivariant Riemann-Roch-Hirzebruch, the Duistermaat-Heckman, and the Lefschetz fixed-point theorems.
 
 \end{abstract}
 
 \section{Introduction}
 
-Often in mathematics, we are tasked with the problem of evaluating an integral over some space, that is trying to evaluate
-
-$$ \int_{M}\w $$
-
-for some space $M$. Depending on the form $\w$, this integral can be related to finding the volume, to finding topological or enumerative invariants, integrating characteristic classes, or computing partition functions of physical systems. Such computations can be difficult, and there are many ways that we can tackle the integral. Two methods are particularly fruitful - that of \emph{localisation} and \emph{symmetry}.
-
-\subsection{Symmetry and Localisation}
-
-By symmetry, we mean that we have a group $G$ acting on $M$, and by identifying orbits we reduce the problem to that over a smaller space, $M/G$. Such an approach comes up in symplectic reduction, gauge theory, and integrable systems.
-
-By localisation, informally this means that we relate global calculations to ones that are local. The Poincaré-Hopf theorem is an example of this, which relates the Euler characteristic of a compact manifold $M$ to the sum of the indices of the zeros of a vector field on it:
-
-$$ \chi(M) = \int_{M} e(TM) = \sum\limits_{\mathbf{V}(p)=0} \Ind(\mathbf{V}). $$
-
-Unsurprisingly, it is often easier to consider a finite set of points rather than the global space $M$. The notion of localisation in algebra is a similar notion, in which we consider a single point (a prime) at a time.
-
-Symmetry and localisation synergise through the Atiyah-Bott fixed-point theorem; in the situation that we have a smooth manifold $M$ together with the action of a compact connected Lie group $G$, then the integral on $M$ localises on the (isolated) fixed-point set $M^{G} := F \subseteq M$ of the $G$-action. If $i : F \hookrightarrow M$ is the inclusion, and $e(\nu_{p})$ is the Euler class of the normal bundle $\nu_{p}$ to the fixed-point $p \in F$, then
-
-$$ \int_{M} \w = \sum\limits_{p \in F} \int_{p} \frac{i^{\ast}\w}{e(\nu_{p})}. $$
-
-What I want to do in this talk is discuss some interesting cases when the fixed-point formula can be applied, and investigate how to use it in these examples. 
 Consider the following geometric sum:
 
 \begin{equation*}
