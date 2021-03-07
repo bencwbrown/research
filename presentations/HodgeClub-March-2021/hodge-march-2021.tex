@@ -580,6 +580,91 @@ as the product gives rise to an adjoint to the Dolbeault operator, $\bar{\partia
 	\end{equation*}
 as virtual vector spaces.
 
+\subsection{The Equivariant Index Theorem}
+
+Suppose now that in addition to the hypotheses above, we now have a bundle automorphism $\gamma$ of $\mcL$, which leaves all the given structures in variant. Then it induces an operator on $\Lambda^{0,\ast}$ which commutes with $\bar{\partial}$. Hence if $\gamma$ comes from a representation of a $G$-action, we get a \textbf{virtual representation} on $\Ind(\bar{\partial})$, by lifting the $G$-action to the sections of $\mcL$. Letting $\chi$ denote the character of this representation and letting $G = T$ be a torus, then we have:
+
+\begin{theorem}[\textbf{The Equivariant Index Formula}]
+	\begin{equation*}
+		\chi(e^{it}) = \int_{M} e^{c_{1}^{T}(\mcL)} \Td^{T}(TM), \qquad t \in \mft.
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}[(For isolated fixed-points):]
+	From the A-B-B-V localisation theorem, if $M^{T}$ is the fixed-point set for the $T$-action and $\imath : \{p\} \hookrightarrow M$ is the inclusion of such an isolated fixed-point $p \in M^{T}$, then
+	
+	\begin{equation*}
+		\begin{split}
+			\chi(e^{it}) &= \int_{M} e^{c_{1}^{T}(\mcL)} \Td^{T}(TM) \\
+			&= \sum\limits_{F \in M^{T}} \int_{F} \frac{ \imath_{p}^{\ast}\left( e^{c_{1}^{T}(\mcL)} \Td^{T}(TM) \right)}{e^{T}(\nu_{p})} \\
+			&= \sum\limits_{p \in M^{T}} \int_{F} \frac{e^{c_{1}^{T}(\imath_{p}^{\ast}\mcL)} \Td^{T}(\imath_{p}^{\ast}TM)}{e^{T}(\nu_{p})}.
+		\end{split}
+	\end{equation*}
+	
+	Now as our fixed-point set consists of isolated points $\{p\}$, the pullback of the tangent bundle $TM$ is just the normal bundle restricted to $p$, as $\{p\}$ is 0-dimensional:	
+	\begin{equation*}
+		\imath_{p}^{\ast}(TM) = \restr{TM}{p} \cong T_{p}M \oplus \nu_{p} \cong \nu_{p}.
+	\end{equation*}
+	Moreover, if $\alpha_{i}$, $i = 1, \ldots, \dim_{\CC}(M)$, denote the weights of the isotropy representation of $T$ at $p$, then by the equivariant splitting principle:
+	
+	\begin{equation*}
+		\imath_{p}^{\ast}(TM) \cong \nu_{p} \cong \mc{N}_{\alpha_{1}} \oplus \ldots \oplus \mc{N}_{\alpha_{n}},
+	\end{equation*}
+
+	where each $\mc{N}_{i}$ is a line bundle, with
+	
+	\begin{equation*}
+		c_{1}^{T}(\mc{N}_{i}) = c_{1}(\mc{N}_{i}) - \alpha_{i}(t).
+	\end{equation*}
+	
+	Thus
+	
+	\begin{equation*}
+		\Td^{T}(\imath_{p}^{\ast}TM) = \Td^{T}(\nu_{p}) = \prod_{i = 1}^{n} \frac{c_{1}^{T}(\mc{N}_{i})}{1 - e^{-c_{1}^{T}(\mc{N}_{i})} }.
+	\end{equation*}
+	
+	TODO: FINISH (REMOVE?)
+\end{proof}
+
+\begin{example}
+	Let $M = \CC\PP^{1}$ and $G = S^{1}$ act on $M$ as
+	\begin{equation*}
+		e^{it} \cdot [z_{0}: z_{1}] = [z_{0} : e^{it}z_{1}].
+	\end{equation*}
+
+	If the K{\"a}hler form on $M$ is
+	\begin{equation*}
+		\w = n \cdot \frac{\sqrt{-1}}{2}\sum dz_{j} \wedge d\bar{z}_{j} = n \cdot \w_{FS},
+	\end{equation*}
+	\ie, if we consider $\mcL = \mcO(n)$ on $M$, then a moment map $\mu : M \ra \mft^{\ast} \cong \RR$ is
+	\begin{equation*}
+		\mu([z_{0}:z_{1}]) = n \cdot \frac{|z_{1}|^{2}}{|z_{0}|^{2} + |z_{1}|^{2} },
+	\end{equation*}
+	that is, $\Image(\mu) = [0,n]$, with the fixed-points and their images being
+	\begin{equation*}
+		\mu([1:0]) = \{0\}, \qquad \mu([0:1]) = \{n\}.
+	\end{equation*}
+	The $S^{1}$-isotropy weights on each are:
+	\begin{equation*}
+		\begin{split}
+			\bullet\ [1:0] \quad &\rightsquigarrow \quad \text{locally,} \quad \frac{z_{1}}{z_{0}} \mapsto t \cdot \frac{z_{1}}{z_{0}} \quad \rightsquigarrow \quad \text{weight } = +1; \\
+			\bullet\ [0:1] \quad &\rightsquigarrow \quad \text{locally,} \quad \frac{z_{0}}{z_{1}} \mapsto \frac{1}{t} \cdot \frac{z_{0}}{z_{1}} \quad \rightsquigarrow \quad \text{weight } = -1. \\
+		\end{split}
+	\end{equation*}
+
+	Hence by the equivariant index theorem, the character of the $T$-action on the index $\Ind(\bar{\partial}; \mcO(n))$ is:
+	
+	\begin{equation*}
+		\chi(e^{it}) = \frac{t^{0}}{1 - t^{1}} + \frac{t^{n}}{1 - t^{-1}} = \frac{1}{1 - t} - \frac{t^{n+1}}{1 - t} = \sum_{k = 0}^{n} t^{k}.
+	\end{equation*}
+
+\end{example}
+
+
+
+
+
+
 
 
 
