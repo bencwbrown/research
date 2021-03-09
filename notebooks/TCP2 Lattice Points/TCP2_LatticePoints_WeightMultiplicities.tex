@@ -102,6 +102,15 @@
     \definecolor{ansi-white-intense}{HTML}{A1A6B2}
     \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
     \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+    
+    \definecolor{fuqqzz}{rgb}{0.9568627450980393,0,0.6}
+    \definecolor{ccqqqq}{rgb}{0.8,0,0}
+    \definecolor{qqqqff}{rgb}{0,0,1}
+    \definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+    \definecolor{zzttff}{rgb}{0.6,0.2,1}
+    \definecolor{zzttqq}{rgb}{0.6,0.2,0}
+    \definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+    \definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
 
     % common color for the border for error outputs.
     \definecolor{outerrorbackground}{HTML}{FFDFDF}
@@ -643,14 +652,22 @@ For example,
 
 \newpage
 
-\definecolor{fuqqzz}{rgb}{0.9568627450980393,0,0.6}
-\definecolor{ccqqqq}{rgb}{0.8,0,0}
-\definecolor{qqqqff}{rgb}{0,0,1}
-\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
-\definecolor{zzttff}{rgb}{0.6,0.2,1}
-\definecolor{zzttqq}{rgb}{0.6,0.2,0}
-\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
-\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{cartoon}{%
+	\subsubsection{Cartoon}\label{cartoon}}
+
+Notation:
+
+\begin{equation*}
+	\begin{split}
+		\mathbf{z}_{123}^{k} &:= z_{1}^{k_{1}} z_{2}^{k_{2}} z_{3}^{k_{3}}, \qquad k_{1} + k_{2} + k_{3} = k, \\
+		\mathbf{z}_{ij}^{k+a} &:= z_{i}^{k_{i}} z_{j}^{k_{j}}, \qquad k_{i} + k_{j} = k + a, \\
+		\mathbf{w}_{ij}^{k+a} &:= w_{i}^{m_{i}} w_{j}^{m_{j}}, \qquad m_{i} + m_{j} = k + a.
+	\end{split}
+\end{equation*}
+
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm, scale=0.6]
 	\begin{axis}[
 		x=1cm,y=1cm,
@@ -869,19 +886,21 @@ For example,
 			
 			% General monomial for each component:
 			
-			\draw[color=uuuuuu] (1.5,2.5) node {$\mathbf{z}_{123}^{\mathbf{k}}$}; % Delta123
+			\draw[color=uuuuuu] (1.5,2.5) node {$\mathbf{z}_{123}^{k}$}; % Delta123
 			
-			\draw[color=uuuuuu] (9,9) node {$\mathbf{z}_{12}^{\mathbf{k}}\cdot w_{3}^{a}$}; % Delta 12
+			\draw[color=uuuuuu] (9,9) node {$\mathbf{z}_{12}^{k+a}\cdot w_{3}^{a}$}; % Delta 12
 			
-			\draw[color=uuuuuu] (-11,7) node {$\mathbf{z}_{23}^{\mathbf{k}}\cdot w_{1}^{a}$}; % Delta 23
+			\draw[color=uuuuuu] (-11,7) node {$\mathbf{z}_{23}^{k+a}\cdot w_{1}^{a}$}; % Delta 23
 
-			\draw[color=uuuuuu] (7,-9) node {$\mathbf{z}_{13}^{\mathbf{k}}\cdot w_{2}^{a}$}; % Delta 13
+			\draw[color=uuuuuu] (7,-9) node {$\mathbf{z}_{13}^{k+a}\cdot w_{2}^{a}$}; % Delta 13
 
-			\draw[color=uuuuuu] (17,-6) node {$z_{1}^{k+a} \cdot \mathbf{w}_{23}^{\mathbf{a}}$}; % Delta 1
+			\draw[color=uuuuuu] (17,-6) node {$z_{1}^{k+a} \cdot \mathbf{w}_{23}^{a}$}; % Delta 1
 			
-			\draw[color=uuuuuu] (-7,-7) node {$z_{2}^{k+a} \cdot \mathbf{w}_{13}^{\mathbf{a}}$}; % Delta 2
+			\draw[color=uuuuuu] (-6,17) node {$z_{2}^{k+a} \cdot \mathbf{w}_{13}^{a}$}; % Delta 2
 			
-			\draw[color=uuuuuu] (-6,17) node {$z_{3}^{k+a} \cdot \mathbf{w}_{12}^{\mathbf{a}}$}; % Delta 3			
+			\draw[color=uuuuuu] (-7,-7) node {$z_{3}^{k+a} \cdot \mathbf{w}_{12}^{a}$}; % Delta 3	
+			
+			% --------------------------------------------------------------------		
 			
 			\draw [fill=ccqqqq] (0,4) circle (2.5pt);
 			\draw [fill=fuqqzz] (0,2) circle (2.5pt);
@@ -964,6 +983,84 @@ For example,
 		\end{scriptsize}
 	\end{axis}
 \end{tikzpicture}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{calculations}{%
+	\subsubsection{Calculations}\label{calculations}}
+
+From the Jupyter notebook, we have:
+
+\begin{table}[]
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+			     &                &                      &                \\
+		$(k,a)$  & Cut Difference & $\#(\mathbb{Z}^{2} \cap \mathcal{P})$ & $\chi(M_{\leq a}; \mathcal{L}_{\leq a}^{k})$ \\
+			     &                &                      &                \\ \hline
+			     &                &                      &                \\	     
+		$(k,0)$  & $\displaystyle \frac{\left(k + 1\right) \left(k + 2\right)}{2}$               & $\displaystyle \frac{\left(k + 1\right) \left(k + 2\right)}{2}$                     &                \\
+			     &                &                      &                \\ \hline
+			     &                &                      &                \\	     
+		$(k,1)$  & $\displaystyle \left(k + 2\right) \left(k + 4\right)$               & $\displaystyle \frac{k^{2}}{2} + \frac{9 k}{2} + 7$                     &                \\
+			     &                &                      &                \\ \hline
+			     &                &                      &                \\	     
+	    $(k,2)$  & $\displaystyle \frac{3 \left(k + 3\right) \left(k + 6\right)}{2}$               & $\displaystyle \frac{k^{2}}{2} + \frac{15 k}{2} + 19$                     &                \\
+			     &                &                      &                \\ \hline
+			     &                &                      &                \\	     
+	    $(k,3)$  & $\displaystyle 2 \left(k + 4\right) \left(k + 8\right)$               & $\displaystyle \frac{k^{2}}{2} + \frac{21 k}{2} + 37$                     &                \\
+			     &                &                      &                \\ \hline
+			     &                &                      &                \\	     
+		$(k,4)$  & $\displaystyle \frac{5 \left(k + 5\right) \left(k + 10\right)}{2}$               & $\displaystyle \frac{k^{2}}{2} + \frac{27 k}{2} + 61$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,5)$  & $\displaystyle 3 \left(k + 6\right) \left(k + 12\right)$               & $\displaystyle \frac{k^{2}}{2} + \frac{33 k}{2} + 91$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,6)$  & $\displaystyle \frac{7 \left(k + 7\right) \left(k + 14\right)}{2}$               & $\displaystyle \frac{k^{2}}{2} + \frac{39 k}{2} + 127$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,7)$  & $\displaystyle 4 \left(k + 8\right) \left(k + 16\right)$               & $\displaystyle \frac{k^{2}}{2} + \frac{45 k}{2} + 169$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,8)$  & $\displaystyle \frac{9 \left(k + 9\right) \left(k + 18\right)}{2}$               & $\displaystyle \frac{k^{2}}{2} + \frac{51 k}{2} + 217$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,9)$  & $\displaystyle 5 \left(k + 10\right) \left(k + 20\right)$               & $\displaystyle \frac{k^{2}}{2} + \frac{57 k}{2} + 271$                     &                \\
+				 &                &                      &                \\ \hline
+				 &                &                      &                \\	     
+		$(k,10)$ &                &                      &                \\
+				 &                &                      &                \\ \hline
+	\end{tabular}
+\end{table}
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
