@@ -111,6 +111,7 @@
     \definecolor{zzttqq}{rgb}{0.6,0.2,0}
     \definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
     \definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+    \definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
 
     % common color for the border for error outputs.
     \definecolor{outerrorbackground}{HTML}{FFDFDF}
@@ -517,14 +518,18 @@
 \hypertarget{summarising}{%
 \subsection{Summarising:}\label{summarising}}
 
-\[ \begin{split} \chi(M_{\leq a}, \mathcal{L}_{\leq a}^{k}) &= \frac{(a+1)(a+2)}{2} \cdot \frac{(k+a+1)(k+a+2)}{2}, \\ \#\{ \mathbb{Z}^{2} \cap \mathcal{P} \} &= \frac{(k+1)(k+2)}{2} + 3a(k+a+1). \end{split} \]
+\[ \begin{split} \chi(M_{\leq a}, \mathcal{L}_{\leq a}^{k}) &= \frac{(a+1)(a+2)}{2} \cdot \frac{(k+a+1)(k+a+2)}{2}  \\
+	& \\
+	&= h^{0}(\mathbb{CP}^{2}; \mathcal{O}(a)) \cdot h^{0}(\mathbb{CP}^{2}; \mathcal{O}(k+a)). \\
+	& \\
+	\#\{ \mathbb{Z}^{2} \cap \mathcal{P}_{a} \} &= \frac{(k+1)(k+2)}{2} + 3a(k+a+1). \end{split} \]
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{conjecture}{%
 \subsection{Conjecture:}\label{conjecture}}
 
-\[ \begin{split} &H^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k}) \cong \bigoplus_{m \leq a} H^{0}(M ; \mathcal{L}^{k})_{m} \\ & \\ \implies &H^{0}(M; \mathcal{L}^{k})_{m} \cong \frac{H^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k})}{H^{0}(M_{\leq (a-1)}; \mathcal{L}_{\leq (a-1)}^{k})}, \\ & \\ &h^{0}(M; \mathcal{L}^{k})_{m} = h^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k}) - h^{0}(M_{\leq (a-1)}; \mathcal{L}_{\leq (a-1)}^{k}). \end{split} \]
+\[ \begin{split} &H^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k}) \cong \bigoplus_{m \leq a} H^{0}(M ; \mathcal{L}^{k})_{m} \cong H^{0}(M; \mathcal{L}^{k})_{a} \oplus \left( \bigoplus_{m \leq a -1} H^{0}(M ; \mathcal{L}^{k})_{m} \right)   \\ & \\ \implies &H^{0}(M; \mathcal{L}^{k})_{m} \cong \frac{H^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k})}{H^{0}(M_{\leq (a-1)}; \mathcal{L}_{\leq (a-1)}^{k})}, \\ & \\ &h^{0}(M; \mathcal{L}^{k})_{m} = h^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k}) - h^{0}(M_{\leq (a-1)}; \mathcal{L}_{\leq (a-1)}^{k}). \end{split} \]
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -533,9 +538,9 @@
 
 Since
 
-\[ \begin{split} \chi\left(M_{\leq a}, \mathcal{L}_{\leq a}^{k}\right) &= \frac{(a+1)(a+2)}{2} \cdot \frac{(k+a+1)(k+a+2)}{2} \\ & \\ &= \chi\left(\mathbb{CP}^{2}; \mathcal{O}(a)\right) \cdot \chi\left(\mathbb{CP}^{2}; \mathcal{O}(k + a)\right), \end{split} \]
+\[ \begin{split} \chi\left(M_{\leq a}, \mathcal{L}_{\leq a}^{k}\right) &= \frac{(a+1)(a+2)}{2} \cdot \frac{(k+a+1)(k+a+2)}{2} \\ & \\ &= \underbrace{\chi\left(\mathbb{CP}^{2}; \mathcal{O}(a)\right)}_{\text{degree $a$}} \cdot \underbrace{\chi\left(\mathbb{CP}^{2}; \mathcal{O}(k + a)\right)}_{\text{degree } k+a}, \end{split} \]
 
-does
+does [EDIT: IGNORE BELOW]:
 
 \[ H^{0}(M_{\leq a}; \mathcal{L}_{\leq a}^{k}) \cong \bigoplus_{m \leq a} \{ \text{"$k$-weight monomials for $K$"} \} \otimes \{ \text{"$m$-weight monomials for $S^{1}$"} \}? \]
 
@@ -849,7 +854,8 @@ Notation:
 			\draw[color=uuuuuu] (-1.305502538376113,8.435005906752577) node {$z_{2}^{4}w_{1}$};
 			\draw [fill=xdxdff] (0,10) circle (2.5pt);
 			\draw[color=uuuuuu] (0.6028347872298625,10.44378203896939) node {$z_{2}^{5}w_{3}^{2}$};
-			\draw [fill=xdxdff] (10,0) circle (2.5pt);	
+			\draw [fill=xdxdff] (10,0) circle (2.5pt);
+	
 			\draw[color=uuuuuu] (0.6028347872298625,12.427448469533493) node {$z_{2}^{6}w_{3}^{3}$};
 			\draw [fill=ududff] (10,-4) circle (2.5pt);
 			\draw [fill=xdxdff] (0,14) circle (2.5pt);
@@ -878,7 +884,8 @@ Notation:
 			\draw [fill=ududff] (12,-6) circle (2.5pt);
 			\draw[color=uuuuuu] (12.70571098383618,-5.551097913806981) node {$z_{1}^{6}w_{2}^{3}$};
 			\draw [fill=xdxdff] (14,0) circle (2.5pt);
-			\draw[color=uuuuuu] (14.614048309442155,0.4501207811907467) node {$z_{1}^{7}w_{3}^{4}$};			
+			\draw[color=uuuuuu] (14.614048309442155,0.4501207811907467) node {$z_{1}^{7}w_{3}^{4}$};
+			
 			\draw [fill=ududff] (14,-8) circle (2.5pt);
 			\draw[color=uuuuuu] (14.90571098383618,-7.742519923) node {$z_{1}^{7}w_{2}^{4}$};
 			
@@ -1033,12 +1040,175 @@ From the Jupyter notebook, we have:
 	\end{tabular}
 \end{table}
 
+\newpage
  
- 
- 
+\hypertarget{minkowski}{%
+	\subsubsection{Minkowski Sum}\label{minkowski}}
 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm, scale=0.75]
+	\draw [color=cqcqcq,, xstep=1cm,ystep=1cm] (-5,-4) grid (20.88371075992751,7.473463425890853);
+	\clip(-5,-4) rectangle (20.88371075992751,7.473463425890853);
+	\fill[line width=2pt,color=fuqqzz,fill=fuqqzz,fill opacity=0.1] (0,3) -- (3,0) -- (0,0) -- cycle;
+	\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (-3,0) -- (0,0) -- (0,-3) -- cycle;
+	\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (0,6) -- (0,3) -- (3,0) -- (6,0) -- cycle;
+	\fill[line width=2pt,color=fuqqzz,fill=fuqqzz,fill opacity=0.1] (10,3) -- (13,0) -- (10,0) -- cycle;
+	\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (10,6) -- (16,0) -- (13,0) -- (10,3) -- cycle;
+	\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (10,0) -- (13,0) -- (13,-3) -- cycle;
+	\draw [line width=2pt,color=fuqqzz] (0,3)-- (3,0);
+	\draw [line width=2pt,color=fuqqzz] (3,0)-- (0,0);
+	\draw [line width=2pt,color=fuqqzz] (0,0)-- (0,3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (6,-3)-- (-3,6);
+	\draw [line width=2pt] (-3,0)-- (6,0);
+	\draw [line width=2pt] (0,6)-- (0,-3);
+	\draw [line width=2pt,color=zzttqq] (-3,0)-- (0,0);
+	\draw [line width=2pt,color=zzttqq] (0,0)-- (0,-3);
+	\draw [line width=2pt,color=zzttqq] (0,-3)-- (-3,0);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-3,6)-- (-3,0);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (0,6)-- (-3,6);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (6,-3)-- (0,-3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (6,0)-- (6,-3);
+	\draw [line width=2pt] (6,0)-- (0,6);
+	\draw [line width=2pt,color=zzttqq] (0,6)-- (0,3);
+	\draw [line width=2pt,color=zzttqq] (0,3)-- (3,0);
+	\draw [line width=2pt,color=zzttqq] (3,0)-- (6,0);
+	\draw [line width=2pt,color=zzttqq] (6,0)-- (0,6);
+	\draw [line width=2pt] (10,6)-- (10,0);
+	\draw [line width=2pt] (10,0)-- (13,-3);
+	\draw [line width=2pt] (13,-3)-- (13,0);
+	\draw [line width=2pt] (10,0)-- (13,0);
+	\draw [line width=2pt,color=fuqqzz] (10,3)-- (13,0);
+	\draw [line width=2pt,color=fuqqzz] (13,0)-- (10,0);
+	\draw [line width=2pt,color=fuqqzz] (10,0)-- (10,3);
+	\draw [line width=2pt] (10,6)-- (16,0);
+	\draw [line width=2pt] (13,0)-- (16,0);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (16,0)-- (19,-3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (13,-3)-- (19,-3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (13,6)-- (10,6);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (13,6)-- (13,3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (13,0)-- (13,3);
+	\draw [line width=2pt,color=zzttqq] (10,6)-- (16,0);
+	\draw [line width=2pt,color=zzttqq] (16,0)-- (13,0);
+	\draw [line width=2pt,color=zzttqq] (13,0)-- (10,3);
+	\draw [line width=2pt,color=zzttqq] (10,3)-- (10,6);
+	\draw [line width=2pt,color=zzttqq] (10,0)-- (13,0);
+	\draw [line width=2pt,color=zzttqq] (13,0)-- (13,-3);
+	\draw [line width=2pt,color=zzttqq] (13,-3)-- (10,0);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (19,0)-- (19,-3);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (19,0)-- (16,0);
+	\draw [line width=2pt,dash pattern=on 1pt off 1pt] (19,0)-- (13,6);
+	\begin{scriptsize}
+		\draw [fill=ududff] (6,-3) circle (2.5pt);
+		\draw[color=ududff] (7.114044854739787,-2.72339333214169) node {$z_{1}^{k+a}w_{2}^{a}$};
+		\draw [fill=ududff] (-3,6) circle (2.5pt);
+		\draw[color=ududff] (-2.881644011026107,6.569712065948223) node {$z_{2}^{k+a}w_{1}^{a}$};
+		\draw [fill=fuqqzz] (-3,0) circle (2.5pt);
+		\draw[color=fuqqzz] (-4.081644011026107,0.5700624306786071) node {$z_{3}^{k+a}w_{1}^{a}$};
+		\draw [fill=ududff] (6,0) circle (2.5pt);
+		\draw[color=ududff] (7.114044854739787,0.2700624306786071) node {$z_{1}^{k+a}w_{3}^{a}$};
+		\draw [fill=ududff] (0,6) circle (2.5pt);
+		\draw[color=ududff] (1.11691894422919114,6.269712065948223) node {$z_{2}^{k+a}w_{3}^{a}$};
+		\draw [fill=fuqqzz] (0,-3) circle (2.5pt);
+		\draw[color=fuqqzz] (0.91691894422919114,-3.62339333214169) node {$z_{3}^{k+a}w_{2}^{a}$};
+		\draw [fill=fuqqzz] (0,0) circle (2pt);
+		\draw[color=fuqqzz] (0.31691894422919114,0.34458621142056197) node {$z_{3}^{k}$};
+		\draw [fill=uuuuuu] (0,3) circle (2pt);
+		\draw[color=uuuuuu] (0.33691894422919114,3.3507800838698815) node {$z_{2}^{k}$};
+		\draw [fill=uuuuuu] (3,0) circle (2pt);
+		\draw[color=uuuuuu] (3.315481899484489,0.34458621142056197) node {$z_{1}^{k}$};
+		\draw [fill=ududff] (10,6) circle (2.5pt);
+		\draw [fill=fuqqzz] (10,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (13,-3) circle (2.5pt);
+		\draw [fill=fuqqzz] (13,0) circle (2.5pt);
+		\draw [fill=xdxdff] (10,3) circle (2.5pt);
+		\draw [fill=ududff] (16,0) circle (2.5pt);
+		\draw [fill=ududff] (19,-3) circle (2.5pt);
+		\draw [fill=ududff] (13,6) circle (2.5pt);
+		\draw [fill=xdxdff] (13,3) circle (2.5pt);
+		\draw [fill=ududff] (19,0) circle (2.5pt);
+		\draw [fill=xdxdff] (0,1) circle (2.5pt);
+		\draw [fill=xdxdff] (0,2) circle (2.5pt);
+		\draw [fill=xdxdff] (0,4) circle (2.5pt);
+		\draw [fill=xdxdff] (0,5) circle (2.5pt);
+		\draw [fill=xdxdff] (1,5) circle (2.5pt);
+		\draw [fill=ududff] (1,4) circle (2.5pt);
+		\draw [fill=ududff] (1,3) circle (2.5pt);
+		\draw [fill=xdxdff] (1,2) circle (2.5pt);
+		\draw [fill=ududff] (1,1) circle (2.5pt);
+		\draw [fill=xdxdff] (1,0) circle (2.5pt);
+		\draw [fill=xdxdff] (2,0) circle (2.5pt);
+		\draw [fill=ududff] (2,1) circle (2.5pt);
+		\draw [fill=ududff] (2,2) circle (2.5pt);
+		\draw [fill=ududff] (2,3) circle (2.5pt);
+		\draw [fill=xdxdff] (2,4) circle (2.5pt);
+		\draw [fill=xdxdff] (3,3) circle (2.5pt);
+		\draw [fill=ududff] (3,2) circle (2.5pt);
+		\draw [fill=ududff] (3,1) circle (2.5pt);
+		\draw [fill=xdxdff] (4,0) circle (2.5pt);
+		\draw [fill=ududff] (4,1) circle (2.5pt);
+		\draw [fill=xdxdff] (4,2) circle (2.5pt);
+		\draw [fill=xdxdff] (5,1) circle (2.5pt);
+		\draw [fill=ududff] (5,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (-2,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (-2,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (-1,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (-1,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (0,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (0,-2) circle (2.5pt);
+		\draw [fill=fuqqzz] (-1,-2) circle (2.5pt);
+		\draw [fill=xdxdff] (10,5) circle (2.5pt);
+		\draw [fill=ududff] (11,5) circle (2.5pt);
+		\draw [fill=xdxdff] (10,4) circle (2.5pt);
+		\draw [fill=ududff] (11,4) circle (2.5pt);
+		\draw [fill=xdxdff] (12,4) circle (2.5pt);
+		\draw [fill=ududff] (11,3) circle (2.5pt);
+		\draw [fill=ududff] (12,3) circle (2.5pt);
+		\draw [fill=xdxdff] (14,2) circle (2.5pt);
+		\draw [fill=xdxdff] (13,2) circle (2.5pt);
+		\draw [fill=ududff] (12,2) circle (2.5pt);
+		\draw [fill=xdxdff] (11,2) circle (2.5pt);
+		\draw [fill=ududff] (10,2) circle (2.5pt);
+		\draw [fill=xdxdff] (10,1) circle (2.5pt);
+		\draw [fill=ududff] (11,1) circle (2.5pt);
+		\draw [fill=xdxdff] (12,1) circle (2.5pt);
+		\draw [fill=xdxdff] (13,1) circle (2.5pt);
+		\draw [fill=ududff] (14,1) circle (2.5pt);
+		\draw [fill=xdxdff] (15,1) circle (2.5pt);
+		\draw [fill=xdxdff] (15,0) circle (2.5pt);
+		\draw [fill=xdxdff] (14,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (12,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (11,0) circle (2.5pt);
+		\draw [fill=fuqqzz] (11,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (12,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (13,-1) circle (2.5pt);
+		\draw [fill=fuqqzz] (13,-2) circle (2.5pt);
+		\draw [fill=fuqqzz] (12,-2) circle (2.5pt);
+	\end{scriptsize}
+\end{tikzpicture}
  
+ \begin{equation*}
+ 	\begin{split}
+ 		H^{0}\left(\mathbb{CP}^{2}; \mathcal{O}(a)\right) \cong \mathbb{C}[&w_{1}^{a_{1}}w_{2}^{a_{2}}w_{3}^{a_{3}} : a_{1} + a_{2} + a_{3} = a] \\
+ 		= \mathbb{C}[&w_{1}^{a}, w_{1}^{a-1}w_{2}, \ldots, w_{1}w_{2}^{a-1}, w_{2}^{a} \, | \\
+ 		&w_{1}^{a-1}w_{3}, w_{1}^{a-2}w_{3}^{2}, \ldots w_{1}w_{3}^{a-1}, w_{3}^{a} \, | \\
+ 		&w_{2}^{a-1}w_{3}, w_{2}^{a-2}w_{3}^{2}, \ldots, w_{2}^{a}w_{3}^{a-2}, w_{2}w_{3}^{a-1} \, | \\
+ 		&w_{1}^{a-2}w_{2}w_{3}, w_{1}^{a-3}w_{2}^{2}w_{3}, \ldots, w_{1}w_{2}^{2}w_{3}^{a-3}, w_{1}w_{2}^{2}w_{3}^{a-2}].
+ 	\end{split}
+ \end{equation*}
+
+Examples: $a = 1, 2, 3$:
  
+ \begin{equation*}
+ 	\begin{split}
+ 		H^{0}\left(\mathbb{CP}^{2}; \mathcal{O}(1)\right) &= \mathbb{C}[w_{1}, w_{2}, w_{3}], \\
+ 		H^{0}\left(\mathbb{CP}^{2}; \mathcal{O}(2)\right) &= \mathbb{C}[w_{1}^{2}, w_{1}w_{2}, w_{2}^{2} \, | w_{1}w_{3}, w_{3}^{2} \, | w_{2}w_{3} ], \\
+ 		H^{0}\left(\mathbb{CP}^{2}; \mathcal{O}(3)\right) &= \mathbb{C}[w_{1}^{3}, w_{1}^{2}w_{2}, w_{1}w_{2}^{2}, w_{2}^{3}\, | \, w_{1}^{2}w_{3}, w_{1}w_{3}^{2}, w_{3}^{3} \, | \,  w_{2}^{2}w_{3}, w_{2}w_{3}^{2}  \, | \, w_{1}w_{2}w_{3}]. 	 		
+ 	\end{split}
+ \end{equation*}
+ 
+The number of monomials equals:
+\begin{equation*}
+	h^{0}(\mathbb{CP}^{2}; \mathcal{O}(a)) = \frac{(a+1)(a+2)}{2}.
+\end{equation*}
  
  
  
