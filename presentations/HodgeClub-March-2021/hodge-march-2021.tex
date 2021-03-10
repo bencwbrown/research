@@ -28,6 +28,14 @@
 \usepackage{yfonts}
 \usepackage{dsfont}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{arrows}
+
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+\definecolor{wwzzff}{rgb}{0.4,0.6,1}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
@@ -105,6 +113,7 @@
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Vol}{Vol}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SO}{SO}
@@ -451,6 +460,8 @@ So given an ordinary characteristic class $[\w] \in H^{2}(M)$ and a moment map $
 		H^{2}(M) \ni [\w] \longmapsto [\w_{G}] = [\w + \mu] \in H_{G}^{2}(M).
 \end{equation*}
 
+\newpage
+
 \begin{prop}
 	If $E$ is a complex vector bundle with a $T$-action and $E \cong \bigoplus_{j} \mcL_{j}$, where $\mcL_{j}$ are complex line bundles with $T$-action given by weights $\lambda_{j} : T \ra U(1)$, then the equivariant Euler class of $E$ is
 	
@@ -478,6 +489,8 @@ So given an ordinary characteristic class $[\w] \in H^{2}(M)$ and a moment map $
 \end{example}
 
 
+
+\newpage
 
 
 
@@ -521,11 +534,6 @@ In the case when the fixed-point set $M^{T} = \{p_{i}\}$ consists of isolated fi
 
 \section{Examples}
 
-\subsection{Stationary Phase and Duistermaat-Heckman}
-
-Let $M$ be a compact, oriented $2n$-manifold, $f : M \ra \RR$ a function, and $\tau \in \W^{2n}(M)$.
-
-TODO: SEE LORING TU'S BOOK.
 
 \subsection{The Index and Hirzebruch-Riemann Roch Theorems}
 
@@ -587,7 +595,7 @@ Suppose now that in addition to the hypotheses above, we now have a bundle autom
 
 \begin{theorem}[\textbf{The Equivariant Index Formula}]
 	\begin{equation*}
-		\chi(e^{it}) = \int_{M} e^{c_{1}^{T}(\mcL)} \Td^{T}(TM), \qquad t \in \mft.
+		\Ind(\bar{\partial}; \mcL, T)(\xi) = \chi(e^{it}) = \int_{M} e^{c_{1}^{T}(\mcL)(\xi)} \Td^{T}(TM)(\xi), \qquad t \in \mft.
 	\end{equation*}
 \end{theorem}
 
@@ -600,6 +608,8 @@ Suppose now that in addition to the hypotheses above, we now have a bundle autom
 
 \begin{fact}
 	When the $T$-action on a symplectic manifold $(M, \w)$ is Hamiltonian with moment map $\mu : M \ra \mft^{\ast}$, the image of $\mu$ is a convex polytope, whose vertices are the images of the fixed-points of the $T$-action. The isotropy weights at each fixed-point $p \in M^{T}$ are given by the primitive edge vectors $\alpha_{p,j} \in \mft^{\ast}$, $j = 1\ldots, \dim_{\CC} M$.
+	
+	Moreover for symplectic toric manifolds, the weights of the $T$ action on $H^{0}(M, \mcL)$ are given by the lattice points in the moment polytope $\mu(M)$. In particular, a weight of the $T$-representation appears only if it is contained in the image of the moment map, and has multiplicity one.
 \end{fact}
 
 \begin{example}
@@ -612,22 +622,20 @@ Suppose now that in addition to the hypotheses above, we now have a bundle autom
 	\begin{equation*}
 		\mu([z_{0}:z_{1}]) = n\cdot\frac{|z_{1}|^{2}}{|z_{0}|^{2} + |z_{1}|^{2}},
 	\end{equation*}
-	with image $\mu(\CC\PP^{1}) = [0, n]$.
-	
-	The primitive edge vectors for the two fixed-points are
+	with image $\mu(\CC\PP^{1}) = [0, n]$. The primitive edge vectors for the two fixed-points are
 	\begin{equation*}
-		\alpha_{[0:1]} = +1, \qquad \alpha_{[1:0]} = -1.
+		\alpha_{[1:0]} = +1, \qquad \alpha_{[0:1]} = -1,
 	\end{equation*}
-	Letting the $U(1)$ action on the fibre of $\mcL$ at $[0:1]$ be trivial, by the gluing relation for sections
+	and the images of $\mu$ at these two fixed-points are
 	\begin{equation*}
-		s_{\infty} = z^{-n}s_{0},
-	\end{equation*}	
-	we find that the action on the fibre at $\mcL$ at $[1:0]$ to be of weight $-n$.
-	
-	Then
-	\begin{equation*}
-		\Ind(\bar{\partial}; \mcL, \CC\PP^{1})(t) = \frac{t^{0}}{1 - t^{-1}} + \frac{t^{-n}}{1 - t^{+1}} = \sum_{k = 0}^{n}t^{-n}, \qquad n \geq 0.
+		 \mu([1:0]) = 0, \qquad \mu([0:1]) = n,
 	\end{equation*}
+	giving us the weights on the fibres of $\mc{O}(n)$ at these two points. Thus
+	
+	\begin{equation*}
+		\Ind(\bar{\partial}; \mcL, \CC\PP^{1})(t) = \frac{1}{1 - t} + \frac{t^{n}}{1 - t^{-1}} = \sum_{k = 0}^{n}t^{n}, \qquad n \geq 0.
+	\end{equation*}
+
 \end{example}
 
 \begin{example}
@@ -637,12 +645,99 @@ Suppose now that in addition to the hypotheses above, we now have a bundle autom
 	\end{equation*}
 	and moment map $\mu : M \ra \RR^{2}$ given by
 	\begin{equation*}
-		\mu([z_{0}: z_{1} : z_{2}]) = \frac{n}{|z_{0}|^{2} + |z_{1}|^{2} + |z_{2}|^{2}} \cdot ( |z_{1}|^{2}, |z_{2}|^{2} ),
+		\mu([z_{0}: z_{1} : z_{2}]) = n\cdot \left( \frac{|z_{1}|^{2}}{\|z\|^{2}}, \frac{|z_{2}|^{2}}{\|z\|^{2}} \right),
 	\end{equation*}
 	for the bundle $\mcL = \mcO(n)$, so its moment map image is the dilated $2$-simplex,
 	\begin{equation*}
 		\mu(M) = n\cdot \Delta = \{ (x,y) \in \RR^{2}_{\geq 0} \st x + y \leq n \}.
 	\end{equation*}
+	As before, we can read off the combinatorial data required from the polytope:
+	\begin{alignat*}{3}
+		&\mu([1:0:0]) = p_{0} = (0,0), \qquad && \alpha_{1,1} = (1,0), \qquad	&& \alpha_{1,2} = (0,1), \\
+		&\mu([0:1:0]) = p_{1} = (n,0), \qquad&& \alpha_{2,1} = (-1,1), \qquad && \alpha_{2,2} = (-1,0), \\
+		&\mu([0:0:1]) = p_{2} = (0,n), \qquad && \alpha_{3,1} = (0,-1), \qquad && \alpha_{3,2} = (1,-1).
+	\end{alignat*}
+	
+\begin{center}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\draw [color=cqcqcq,, xstep=1cm,ystep=1cm] (-2,-2) grid (7,7);
+		\clip(-2,-2) rectangle (7,7);
+		\fill[line width=2pt,color=wwwwww,fill=wwwwww,fill opacity=0.1] (0,0) -- (0,5) -- (5,0) -- cycle;
+		\draw [->,line width=2pt] (0,5) -- (0,3);
+		\draw [->,line width=2pt] (0,0) -- (0,2);
+		\draw [->,line width=2pt] (0,0) -- (2,0);
+		\draw [->,line width=2pt] (5,0) -- (3,0);
+		\draw [->,line width=2pt] (5,0) -- (3.415476370307829,1.5845236296921712);
+		\draw [->,line width=2pt] (0,5) -- (1.5823813554983261,3.417618644501674);
+		\begin{scriptsize}
+			\draw [fill=wwzzff] (0,0) circle (2pt);
+			\draw[color=black] (-0.8958350907930224,-0.2) node {$p_{1} = (0,0)$};
+			\draw [fill=wwzzff] (0,5) circle (2.5pt);
+			\draw[color=black] (0.2958350907930224,5.256479409233972) node {$p_{3} = (0,n)$};
+			\draw [fill=wwzzff] (5,0) circle (2.5pt);
+			\draw[color=black] (5.691427001254021,0.2608874987729722) node {$p_{2} = (n,0)$};
+			\draw[color=black] (-1.08970629837108796,3.140958885538797) node {$\lambda_{3,2} = (0,-1)$};
+			\draw[color=black] (-1.007295486298057659,2.146028783878926) node {$\lambda_{1,2} = (0,1)$};
+			\draw[color=black] (1.547598921978901,-0.60026138335475616) node {$\lambda_{1,1} = (1,0)$};
+			\draw[color=black] (4.042529023638772,-0.59113437560196733) node {$\lambda_{2,2} = (-1,0)$};
+			\draw[color=black] (4.812282146809777,1.9035243222060619) node {$\lambda_{2,1} = (-1,1)$};
+			\draw[color=black] (2.8657205757242529,3.395588570295304) node {$\lambda_{3,1} = (1,-1)$};
+		\end{scriptsize}
+	\end{tikzpicture}
+\end{center}
+
+Putting this all together into the index formula, we get
+\begin{equation*}
+	\begin{split}
+		\Ind(\bar{\partial}, M, \mcO(n))(t_{1},t_{2}) &= \frac{1}{1 - t_{1}t_{2}} + \frac{t_{1}^{n}}{(1 - t_{1}^{-1})(1 - t_{1}^{-1}t_{2})} + \frac{t_{2}^{n}}{(1 - t_{2}^{-1})(1 - t_{1}t_{2}^{-1})} \\
+		&= \sum\limits_{\substack{0 \leq n_{1}, n_{2} \\ n_{1} + n_{2} \leq n}} t_{1}^{n_{1}}t_{2}^{n_{2}}.
+	\end{split}
+\end{equation*}
+The last equality can be determined by expanding each rational polynomial expression into its Laurent series, then calculating the coefficients by the residue theorem.
+
+[TODO]: Jupyter notebook.
+
+\subsection{Duistermaat-Heckman and the Stationary Phase Approximation}
+
+In physics, many integrals are of the form
+\begin{equation*}
+	\int_{M} e^{itf}d\mu,
+\end{equation*}
+where $M$ is a compact oriented $n$-manifold, $f$ is a function, and $\mu$ is an $n$-form on $M$. Such an integral is called an \textbf{oscillatory integral}. Examples of situations in which they come up include Fourier transformations, path integrals, etc.
+
+The method of stationary phase gives an approximation to such an oscillatory integral, based on the critical points of the function $f$; it is at these points that $f$ does not change fast enough to cancel out its other values, contributing to the value to the integral. However in the case that $(M, \w)$ is a symplectic manifold and $S^{1}$ acts symplectically on $M$ with isolated fixed-point set $F = M^{S^{1}}$, the equivariant localisation formula gives an \textbf{exact} value:
+
+\begin{theorem}[\textbf{Duistermaat-Heckman}]
+	Consider an $n$-dimensional manifold $(M, \w, \mu)$ with Hamiltonian $S^{1}$-action and moment map $\mu : M \ra \RR$. Then, for any $\hbar \in \CC$:
+	\begin{equation*}
+		\int_{M} e^{\hbar \mu} \frac{\w^{n}}{n!} \equiv \int_{M} e^{\w + \hbar \mu} = \left(\frac{-1}{\hbar}\right)^{n} \sum_{p\in F} \frac{e^{\hbar \mu(p)}}{\prod_{j=1}^{n}\alpha_{p,j}(p)},
+	\end{equation*}
+	where the $\alpha_{p,j}$, $j = 1, \ldots, n$, are the isotropy weights for the $S^{1}$-action at the fixed point $p$.
+\end{theorem}
+
+\begin{example}
+	Let $S^{1}$ act on $(S^{2}, \w)$ by rotating the sphere around its $z$-axis in a counter-clockwise orientation (when viewed from above) with period $1$ (or with speed $2\pi$). 
+	
+	[TODO]: Refresh remind yourself of spherical coordinates....
+
+\end{example}
+
+\begin{remark}
+	Expanding out the Duistermaat-Heckman formula in terms of $\hbar$, we get:
+	\begin{equation*}
+		\begin{split}
+			\int_{M} \cdot \frac{\w^{n}}{n!}\left( 1 + \hbar \mu + \ldots \right) = \left(\frac{-1}{\hbar}\right)^{n} \sum\limits_{p\in F} \left( 1 + \hbar\mu(p) + \ldots + \frac{\hbar^{n}\mu(p)^{n}}{n!} + \ldots \right) / \prod_{j = 1}^{n} \alpha_{p,j}.
+		\end{split}
+	\end{equation*}
+	Of special interest is the degree-$0$ term which, after cancelling factors, gets us a formula for the volume of $M$ in terms of its fixed-point data:
+	
+	\begin{equation*}
+		\Vol(M) = \int_{M} \w^{n} = (-1)^{n} \sum\limits_{p\in F} \frac{\mu(p)^{n}}{\prod_{j = 1}^{n}\alpha_{p,j}}.
+	\end{equation*}
+\end{remark}
+
+
+
 
 \end{example}
 
