@@ -29,7 +29,8 @@
 \usepackage{dsfont}
 
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=1.15}
+
 \usetikzlibrary{arrows}
 
 \definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
@@ -207,29 +208,7 @@ For example, if $G$ acts on itself by left multiplication, then
 	H_{G}^{\ast}(G) = H^{\ast}(\pt).
 \end{equation*}
 
-However, if the action is not free, then the space $M/G$ might not behave very nicely from a cohomological point of view. Then the idea is that $H_{G}^{\ast}(M)$ should be the ``correct'' subsitute for $H^{\ast}(M/G)$.
-
-\subsection{Classifying Bundles}
-
-As cohomology is unchanged under homotopy equivalence, our guiding idea is that the equivariant cohomology of $M$ should be the ordinary cohomology of $M^{\ast}/G$, where $M^{\ast}$ is some topological space homotopy equivalent to $M$ and on which $G$ acts freely. The standard way of constructing such a space is to take it to be the product $M^{\ast} = M \times E$, where $E$ is some contractible space on which $G$ acts freely. Then the equivariant cohomology groups of $M$ are defined by the recipe
-
-\begin{equation*}
-	H_{G}^{\ast}(M) := H^{\ast}\left( (M \times E)/G \right).
-\end{equation*}
-
-Note that if $G$ acts freely on $M$ then the projection
-
-\begin{equation*}
-	(M \times E)/G \lra M/G
-\end{equation*}
-
-is a fibration with typical fibre $E$. Then as $E$ is contractible, we get that
-
-\begin{equation*}
-	H_{G}^{\ast}(M) = H^{\ast}\left( (M \times E)/G \right) = H^{\ast}(M/G),
-\end{equation*}
-
-so we arrive at the same situation if $G$ acts freely on $M$.
+However, if the action is not free, then the space $M/G$ might not behave very nicely from a cohomological point of view. Then the idea is that $H_{G}^{\ast}(M)$ should be the ``correct'' subsitute for $H^{\ast}(M/G)$. This concept is much more clear in the \textbf{Weil model} of equivariant cohomology, where $H_{G}^{\ast}(M)$ is defined using \emph{``classifying bundles''}. However here, it will be much more convenient to use the \textbf{Cartan model} of equivariant cohomology; then the Lie group $G$ is \emph{compact}, the constructions are isomorphic.
 
 \subsection{The Cartan Model}
 
@@ -251,12 +230,22 @@ as the algebra of polynomial maps from $\mfg$ to $\W$. The group $G$ acts on an 
 	(g \cdot \alpha)(X) := g \cdot \left( \alpha ( g^{-1} \cdot X )  \right), \qquad \text{for all } g \in G, \text{ and } X \in \mfg.
 \end{equation*}
 
-Let $\W^{G}(M) = \left( \CC[\mfg] \otimes \W(M) \right)^{G}$ be the subalgebra of $G$-invariant elements; an element $\alpha \in \W^{G}(M)$ thus satisfies $\alpha(g \cdot X) = g\cdot \alpha(M)$, hence is an equivariant differential form. Equip $\CC[\mfg] \otimes \W(M$ with the following $\ZZ$-grading,
+Let $A := \W_{G}^{\ast}(M) = \left( \CC[\mfg] \otimes \W(M) \right)^{G}$ be the subalgebra of $G$-invariant elements; an element $\alpha \in A$ thus satisfies $\alpha(g \cdot X) = g\cdot \alpha(M)$, hence is an equivariant differential form. 
 
+Let $A^{k,l}$ denote the space of elements of $A$ which are homogeneous polynomial mappings of degree $k$, from $\mfg$ to $\W^{l}$. If $\w \in A^{k,l}$, then
+
+\begin{equation*}
+	\big(\, \mfg \ni X \longmapsto d(\w(X)) \in \W^{l+1} \, \big)  \in A^{k,l+1},
+\end{equation*}
+and
+\begin{equation*}
+	\big(\, \mfg \ni X \longmapsto \imath_{X_{M}}\big(\w(X)\big) \in \W^{l-1} \, \big)  \in A^{k+1,l-1}.
+\end{equation*}
+
+We then equip $\CC[\mfg] \otimes \W(M)$ with the following $\ZZ$-grading, 
 \begin{equation*}
 	\deg(P \otimes \alpha) := 2\cdot \deg(P) + \deg(\alpha),
 \end{equation*}
-
 for the polynomial $P \in \CC[\mfg]$, and $\alpha \in \W(M)$. Define the \emph{equivariant exterior differential}, or \emph{Cartan differential}, $d_{G}$ by
 
 \begin{equation*}
