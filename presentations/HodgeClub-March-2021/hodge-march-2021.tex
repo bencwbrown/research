@@ -246,37 +246,32 @@ We then equip $\CC[\mfg] \otimes \W(M)$ with the following $\ZZ$-grading,
 \begin{equation*}
 	\deg(P \otimes \alpha) := 2\cdot \deg(P) + \deg(\alpha),
 \end{equation*}
-for the polynomial $P \in \CC[\mfg]$, and $\alpha \in \W(M)$. Define the \emph{equivariant exterior differential}, or \emph{Cartan differential}, $d_{G}$ by
+for the polynomial $P \in \CC[\mfg]$, and $\alpha \in \W(M)$.
+
+\begin{remark}
+	To justify this grading, consider $(M,\w)$ a symplectic $G$-manifold with moment map $\Phi : M \ra \mfg^{\ast}$. The moment map condition means that $\Phi$ is $G$-equivariant and that
+	\begin{equation*}
+		d\langle \Phi,\, X \rangle =: d\Phi^{X} = \imath_{X_{M}}\w.
+	\end{equation*}
+	Thus
+	\begin{equation*}
+		\tilde{\w} := \w + \Phi^{X} 
+	\end{equation*}
+	has degree-2 in the above grading.
+\end{remark}
+
+Define the \emph{equivariant exterior differential}, or \emph{Cartan differential}, $d_{G}$ by
 
 \begin{equation*}
-	(d_{G}\alpha)(X) := (d - \imath_{X_{M}}) \alpha(X),
+	(d_{G}\alpha)(X) := (d - \imath_{X_{M}}) \alpha(X).
 \end{equation*}
-
-where $d :\W^{k}(M) \ra \W^{k+1}(M)$ is the usual de Rham differential, $X_{M}$ is the fundamental vector field of $X \in \mfg$ on $M$, and $\imath_{X} : \W^{k}(M) \ra \W^{k-1}(M)$ is the contraction of $X$ on a differential form.
 
 \begin{prop}
 	The Cartan differential $d_{G}$ is closed on $\W_{G}^{\ast}$, \ie $d_{G}^{2} = 0$.
 \end{prop}
 
-\begin{proof}
-	
-	The derivations $d$ and $\imath_{v}$ in $\W(M)$ are related to the \textbf{Lie derivative} $\mcL$, by means of the \textbf{homotopy formula}:
-	
-	\begin{equation*}
-		\mc{L}(v) := \restr{\frac{d}{dt}}{t = 0} (e^{tv})^{\ast} = d \circ \imath_{v} + \imath_{v} \circ d.
-	\end{equation*}
-	
-	Here $e^{tv}$ is the flow in $M$ after a time $t$ of the velocity field equal to $v$.
-	
-	Now for $X \in \mfg$, if $X_{M}$ represents the infinitesimal action of $X$ in $M$, then 
-	
-	[TODO]
-	
-\end{proof}
-
 \begin{corollary}
 	The space of equivariant differential forms $\W_{G}^{\ast}(M) = \left( \CC[\mfg] \otimes \W^{\ast}(M) \right)^{G}$, equipped with the Cartan differential $d_{G}$ forms a complex, called the \textbf{Cartan complex}:
-	
 	\begin{equation*}
 		\left( \W_{G}^{\ast}(M), d_{G} \right) = \left( (\CC[\mfg] \otimes \W^{\ast}(M)   )^{G}, d_{G} \right).
 	\end{equation*}
@@ -287,217 +282,79 @@ where $d :\W^{k}(M) \ra \W^{k+1}(M)$ is the usual de Rham differential, $X_{M}$ 
 	The \textbf{equivariant cohomology} $H_{G}^{\ast}(M)$ of $M$ is the cohomology of the Cartan complex, $(\W_{G}^{\ast}(M), d_{G})$.
 \end{defn}
 
-\subsection{Characteristic Classes}
 
-Let $G$ and $T$ be compact, connected Lie groups.
 
-An ordinary characteristic class for a principal $G$-bundle on an $n$-dimensional manifold $M$ is $[p(F_{A})] \in H^{2n}(M)$, for a $G$ -invariant degree $n$ polynomial $p \in \RR[\mfg]^{G}$. here $F_{A}$ is the curvature of any connection $A$ on the $G$-bundle.
 
-To get a $T$-equivariant characteristic class for a principal $G$-bundle associated to a $G$-invariant, degree $n$ polynomial $p \in \RR[\mfg]^{G}$, we take $[p(F_{A, T})] \in H_{T}^{2n}(M)$, where now $F_{A,T}$ is the $T$-equivariant curvature of any $T$-equivariant connection $A$ on the $G$-bundle.
 
-Restricted to the $T$-fixed points $M^{T}$ of $M$, the $T$-equivariant characteristic class associated to a polynomial $p \in \RR[\mfg]^{G}$ is
-
-\begin{equation*}
-	p(F_{A} + \e^{a}\rho(T_{a})).
-\end{equation*}
-
-TODO: EXPLAIN WHAT $\e^{a}$, etc. ARE!
-
-In particular, when $V$ is a representation of $G$ and $p$ is the Chern character of the vector bundle $V$, then, if $M$ is a point, the equivariant Chern characters are just the ordinary characters of the space $V$ as a $G$-module.
-
-\subsection{The Euler Class}
-
-Here, let $G = \SO(2n)$ which preserves the Riemannian metric on an oriented real vector space $V$ of dimension $\dim_{\RR}(V) = 2n$.
-
-\begin{defn}
-	Consider the following adjoint-invariant polynomial,
-	
-	\begin{equation*}
-		\Pf : \mf{so}(2n;\RR) \lra \RR,
-	\end{equation*}
-
-	of degree $n$ on the Lie algebra $\mf{so}(2n;\RR)$, called the \textbf{Pfaffian}.
-	
-	The case that we shall be interested in is when we have the $(2n \times 2n)$-antisymmetric matrix,
-	
-	\begin{equation*}
-		\Pf
-		\begin{pmatrix}
-			0 & \lambda_{1} & \dots & \dots & 0 & 0 \\
-			-\lambda_{1} & 0 & \dots & \dots & 0 & 0 \\
-			\vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
-			\vdots & \vdots & \dots & \ddots & \vdots & \vdots \\
-			0 & 0 & \dots & \dots & 0 & \lambda_{n} \\
-			0 & 0 & \dots & \dots & -\lambda_{n} & 0			
-		\end{pmatrix}
-		= \lambda_{1}\cdot\ldots \cdot \lambda_{n}.
-	\end{equation*}
-	
-\end{defn}
-
-\begin{defn}
-	
-	Let $P \ra M$ be an $\SO(2n;\RR)$-principal bundle over $M$. The \textbf{Euler characteristic class} of $P$, $e(P)$, is given by
-	
-	\begin{equation*}
-		e(P) := [\Pf(F)] \in H^{2n}(M; \ZZ).
-	\end{equation*}
-
-\end{defn}
-
-\begin{example}
-	If $M$ is an oriented, $2n$-dimensional real manifold, then the \textbf{Euler characteristic} is given by
-
-	\begin{equation*}
-		e(M) = \int_{M} e(TM) = \int_{M} \Pf(R_{\nabla}),
-	\end{equation*}
-
-	where $R_{\nabla}$ is the curvature form of the tangent bundle $TM$, equipped with the Levi-Civita connection.
-\end{example}
-
-To upgrade the Euler characteristic class $e$ to a $T$-equivariant one $e_{T}$, where $T$ is a torus acting on a manifold $M$ with isolated fixed-point set $M^{T}$, we need to investigate the polynomial
-
-\begin{equation*}
-	\Pf(F_{A} + \e^{a}\rho(T_{a})).
-\end{equation*}
-
-For simplicity, let $T = S^{1}$. Then, for a point $p \in M^{S^{1}}$, the $S^{1}$-action on $T_{p}M$ gives rise to an $S^{1}$-representation,
-
-\begin{equation*}
-	\rho : S^{1} \lra \GL(T_{m}M); \qquad g \longmapsto l_{g, \ast},
-\end{equation*}
-
-where $l_{g, \ast} : T_{p}M \ra T_{g\cdot p}M = T_{p}M$ is the differential of the action of $g \in S^{1}$ on $T_{m}M$.
-
-As $p$ is isolated, $\rho$ decomposes into a direct sum of $2$-dimensional irreducible representations,
-
-\begin{equation*}
-	T_{p}M \cong L^{m_{1}} \oplus \ldots \oplus L^{m_{n}}.
-\end{equation*}
-
-Here, $L^{m} : S^{1} \ra \GL(2;\RR)$ is a representation of $S^{1}$ as $m$-fold rotations in $\RR^{2}$,
-
-\begin{equation*}
-	L^{m} : g \longmapsto l_{g,\ast}; \qquad
-	L^{m}(e^{it}) =
-	\begin{bmatrix}
-		-m\sin(mt) & -m\cos(mt) \\
-		m\cos(mt) & -m\sin(mt)
-	\end{bmatrix}.
-\end{equation*}
-
-\subsection{Chern Classes}
-
-Now let $G = \UU(n)$, then $\mfg = \mf{u}(n)$ can be identified with the space of matrices of the form $iA$, where $A = A^{T}$. Define the polynomial $c_{k}$, of degree $k$ in $A$ to be the coefficient of $(-1)^{k}\lambda^{n-k}$ in the characteristic polynomial of $A$:
-
-\begin{equation*}
-	\det(\lambda - A) = \lambda^{n} - c_{1}(A)\lambda^{n-1} + \ldots + (-1)^{n}c_{n}(A).
-\end{equation*}
-
-In particular, $c_{1}(A) = \Tr(A)$ and $c_{n}(A) = \det(A)$. These polynomials are clearly adjoint invariant, thus the characteristic polynomial is.
-
-The characteristic classes corresponding to the $c_{i}$ for a complex vector bundle are called its \textbf{Chern classes}.
-
-\begin{remark}
-	If we consider a complex vector bundle $V_{\CC}$ of $\dim_{\CC}(V) = n$ then, by forgetting the complex structure on $V_{\CC}$, we get an oriented real vector bundle $V_{\RR}$ of real dimension $\dim_{\RR}(V) = 2n$.
-	
-	By this correspondence, the Euler class $e(V)$ and the top Chern class $c_{n}(V)$ of $V$ are related by
-	
-	\begin{equation*}
-		e(V_{\RR}) = c_{n}(V_{\CC}).
-	\end{equation*}
-	
-\end{remark}
-
-\subsection{Equivariant Characteristic Classes}
+\section{Characteristic Classes}
 
 \begin{defn}
 	A $G$\textbf{-equivariant vector bundle} of a $G$-manifold $M$ is a vector bundle $V \ra M$ with an action of $G$ on the total space $V$ covering the action of $G$ on $M$.
 \end{defn}
 
 \begin{defn}
-	Let $(M, \w)$ be a symplectic manifold, and suppose that a torus $T$ acts on $M$ preserving $\w$. The action is \textbf{Hamiltonian} if there exists a \textbf{moment map} $\mu : M \ra \mft^{\ast}$, whuch satisfies
-	
-	\begin{equation*}
-		\imath_{\xi_{M}}\w = d\langle \mu,\, \xi \rangle, \quad \text{for all } \xi \in \mft.
-	\end{equation*}
-
-	Here, $\xi_{M}$ is the induced vector field on $M$.
+	A \textbf{prequantum line bundle with connection} $\mcL \ra M$ is a complex line bundle $\mcL \ra M$ for which $c_{1}(\mcL) = [\w]$, equipped with a connection $\theta$ satisfying $d\theta = \pi^{\ast}\w$.
 \end{defn}
 
+\begin{fact}
+	Imposing the condition $\mcL_{X_{M}}\theta = 0$ for the Lie derivative along $X$, we get
+	\begin{equation*}
+		\mcL_{X_{M}} \theta = (d\cdot\imath_{X_{M}} + \imath_{X_{M}} \cdot d) \theta = 0 \implies d \imath_{X_{M}} \theta = -\imath_{X_{M}}d\theta = -  \imath_{X_{M}}\w = - d\Phi^{X}.
+	\end{equation*}
+	So it's justified also impose the condition
+	\begin{equation*}
+		\imath_{X_{M}}\theta = - \Phi^{X}.
+	\end{equation*}
+\end{fact}
+
+\begin{fact}
+	For $F \subseteq M^{T}$, then
+	\begin{equation*}
+		i^{\ast}\tilde{\w}(X) = \restr{\w}{F} + \Phi^{X}(F).
+	\end{equation*}
+\end{fact}
+
+\subsection{Equivariant Euler Class}
+
+\begin{defn}
+	The \textbf{Euler class} of a complex vector bundle of rank $m$ is a characteristic class $e(E)$ associated to a real vector bundle $E \ra M$ of rank $2m$.
+\end{defn}
+
+\begin{defn}
+	If $E_{\CC}$ is a complex vector bundle of complex rank $m$, then $e(E_{\RR}) = c_{m}(E_{\CC})$.
+\end{defn}
+
+\begin{fact}
+	If $E = \mcL_{1} \oplus \ldots \mcL_{m}$ is the direct sum of line bundles, then $e(E) = c_{1}(\mcL_{1})\ldots c_{1}(\mcL_{m})$.
+\end{fact}
+
+We can usually reduce to this situation by the \textbf{splitting principle}.
+
 \begin{prop}
-	Let $(M, \w, \mu)$ be a symplectic manifold with a Hamiltonian action of a torus $T$ and associated moment map $\mu : M \ra \mft^{\ast}$. Set
-	
+	If $E$ is a complex vetor bundle with $T$-action, and $E = \sum_{j} \mcL_{j}$, where the $\mcL_{j}$ are complex line bundles with $T$-action given by weights $\beta_{j} : T \ra S^{1}$, then the equivariant Euler class of $E$ is
 	\begin{equation*}
-		\tilde{\w} := \w + \mu.
+		e^{T}(E) = \prod_{j} c_{1}^{T}(\mcL_{j}),
 	\end{equation*}
-	
-	Then $\tilde{\w}$ is a $T$-equivariantly closed two-form.
-\end{prop}
-
-\begin{proof}
-	For $\tilde{\w}$ to be equivariantly closed under $d_{T}$, we have
-	
+	which is represented in the Cartan model by
 	\begin{equation*}
-		d_{T}\tilde{\w} = 0 \iff (d - \imath_{\xi})(\w + \mu^{\xi}) = d\w - \imath_{\xi}\w + d\mu^{\xi} - \imath_{\xi}\mu^{\xi} = -\imath_{\xi}\w + d\mu^{\xi} = 0 \iff \imath_{\xi}\w = d\mu^{\xi}.
-	\end{equation*}
-\end{proof}
-
-So given an ordinary characteristic class $[\w] \in H^{2}(M)$ and a moment map $\mu : M \ra \mfg^{\ast}$, we can elevate it to an equivariant characteristic class by the substitution
-
-\begin{equation*}
-		H^{2}(M) \ni [\w] \longmapsto [\w_{G}] = [\w + \mu] \in H_{G}^{2}(M).
-\end{equation*}
-
-\newpage
-
-\begin{prop}
-	If $E$ is a complex vector bundle with a $T$-action and $E \cong \bigoplus_{j} \mcL_{j}$, where $\mcL_{j}$ are complex line bundles with $T$-action given by weights $\lambda_{j} : T \ra U(1)$, then the equivariant Euler class of $E$ is
-	
-	\begin{equation*}
-		e^{T}(E) = \prod\limits_{j} c_{1}^{T}(\mcL_{j}).
-	\end{equation*}
-	In the Cartan model, this is represented by
-	\begin{equation*}
-		e^{T}(E)(\xi) = \prod\limits_{j} (F_{j} - \lambda_{j})(\xi).
+		e^{T}(E)(X) = \prod_{j}(d\theta_{j} - \beta_{j})(X).
 	\end{equation*}
 \end{prop}
 
 \begin{example}
-	If $T$ acts on $M$ and $F$ is a component of $M^{T}$, then the normal bundle $\nu_{F}$ is a $T$-equivariant bundle over $V$. Assume that $\nu_{F}$ decomposes equivariantly as $\nu_{F} \cong \bigoplus_{j} \nu_{F, j}$ with weights $\lambda_{F, j} \in \mft^{\ast}$. Then the equivariant Euler class $e^{T}(\nu_{F})$ is
-	\begin{equation*}
-		e^{T}(\nu_{F}) = \prod\limits_{j} \left( c_{1}(\nu_{F,j}) + \beta_{F,j} \right).
-	\end{equation*}
-
-	When the fixed-point set $M^{T}$ consists of isolated fixed-points then, for $p \in M^{T}$,
+	If $T$ acts on $M$ and $F$ is a component of $M^{T}$, then the normal bundle $\nu_{F}$ is a $T$-equivariant bundle over $F$. Assuming $\nu_{F}$ decomposes equivariantly as $\sum_{j} \nu_{F,j}$ with weights $\beta_{F,j} \in \mft^{\ast}$.
 	
+	Then the equivariant Euler class $e_{F} := e^{T}(\nu_{F})$ is given by
 	\begin{equation*}
-		e^{T}(\nu_{p})
+		e_{F}(X) = \prod_{j}(c_{1}(\nu_{F,j}) - \beta_{F,j}).
 	\end{equation*}
-
 \end{example}
 
-
-
-\newpage
-
-
-
-
-
-
-
-
-
-
-\newpage
+\begin{example}
+		When the $T$-action on a symplectic manifold $(M, \w)$ is Hamiltonian with moment map $\mu : M \ra \mft^{\ast}$, the image of $\mu$ is a convex polytope, whose vertices are the images of the fixed-points of the $T$-action. As each fixed-point $p \in M^{T}$,  isotropy weights on $\restr{TM}{p} \cong \nu_{p}$ are then just given by the edge vectors $\alpha_{p,j} \in \mft^{\ast}$, $j = 1\ldots, \dim_{\CC} M$.
+\end{example}
 
 \section{Equivariant Localisation}
-
-
-
-
-
 
 \subsection{The Berline-Vergne-Atiyah-Bott Fixed Point Theorem}
 
@@ -584,22 +441,16 @@ Suppose now that in addition to the hypotheses above, we now have a bundle autom
 
 \begin{theorem}[\textbf{The Equivariant Index Formula}]
 	\begin{equation*}
-		\Ind(\bar{\partial}; \mcL, T)(\xi) = \chi(e^{it}) = \int_{M} e^{c_{1}^{T}(\mcL)(\xi)} \Td^{T}(TM)(\xi), \qquad t \in \mft.
+		\Ind(\bar{\partial}; \mcL, T)(\xi) = \chi(e^{i\xi}) = \int_{M} e^{c_{1}^{T}(\mcL)(\xi)} \Td^{T}(TM)(\xi), \qquad \xi \in \mft.
 	\end{equation*}
 \end{theorem}
 
 \begin{example}
 	In the case when the set $M^{T}$ fixed points is isolated, we obtain the \textbf{equivariant Lefschetz fixed-point formula}:
 	\begin{equation*}
-		\Ind(\bar{\partial}; \mcL)(t) = \sum\limits_{p \in M^{T}} \frac{\Tr_{\mcL_{p}}(t)}{\det_{T_{p}^{1,0}}(1 - t^{-1})}.
+		\Ind(\bar{\partial}; \mcL,T)(t) = \sum\limits_{p \in M^{T}} \frac{\Tr_{\mcL_{p}}(t)}{\det_{T_{p}^{1,0}}(1 - t^{-1})}.
 	\end{equation*}
 \end{example}
-
-\begin{fact}
-	When the $T$-action on a symplectic manifold $(M, \w)$ is Hamiltonian with moment map $\mu : M \ra \mft^{\ast}$, the image of $\mu$ is a convex polytope, whose vertices are the images of the fixed-points of the $T$-action. The isotropy weights at each fixed-point $p \in M^{T}$ are given by the primitive edge vectors $\alpha_{p,j} \in \mft^{\ast}$, $j = 1\ldots, \dim_{\CC} M$.
-	
-	Moreover for symplectic toric manifolds, the weights of the $T$ action on $H^{0}(M, \mcL)$ are given by the lattice points in the moment polytope $\mu(M)$. In particular, a weight of the $T$-representation appears only if it is contained in the image of the moment map, and has multiplicity one.
-\end{fact}
 
 \begin{example}
 	Let $M = \CC\PP^{1}$ and $G = U^{1}$ act on $M$ as
