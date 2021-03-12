@@ -1,0 +1,294 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{yfonts}
+\usepackage{dsfont}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usetikzlibrary{arrows}
+
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+\definecolor{wwzzff}{rgb}{0.4,0.6,1}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{defn}[theorem]{Definition\rm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}{\it Remark\/}
+\newtheorem{example}{Example}
+\newtheorem{fact}{Fact}
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\lbracket}{\left(}
+\newcommand{\rbracket}{\right)}
+
+
+\newcommand{\al}{\alpha}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+
+\newcommand{\pbrackets}[1]{\left( #1 \right)}
+\newcommand{\bbrackets}[1]{\left[ #1 \right]}
+
+\newcommand{\dbar}{\bar{\partial}}
+\newcommand{\mrr}{\mu_{\mathbb{R}}}
+\newcommand{\mcc}{\mu_{\mathbb{C}}}
+\newcommand{\prr}{\phi_{\mathbb{R}}}
+\newcommand{\pcc}{\phi_{\mathbb{C}}}
+
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Td}{Td}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Res}{Res}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\UU}{U}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\title{General Notes}
+
+\date{}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+%\author{
+%  David S.~Hippocampus\thanks{Use footnote for providing further
+%    information about author (webpage, alternative
+%    address)---\emph{not} for acknowledging funding agencies.} \\
+%  Department of Computer Science\\
+%  Cranberry-Lemon University\\
+%  Pittsburgh, PA 15213 \\
+%  \texttt{hippo@cs.cranberry-lemon.edu} \\
+%% examples of more authors
+%   \And
+% Elias D.~Striatum \\
+%  Department of Electrical Engineering\\
+%  Mount-Sheikh University\\
+%  Santa Narimana, Levand \\
+%  \texttt{stariate@ee.mount-sheikh.edu} \\
+%% \AND
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		Rough general notes.
+	\end{abstract}
+	
+	\section{Residue Theorems}
+	
+	\begin{lemma}[\cite{Guillemin1999}]\label{residue:1}
+		Let $A$ be a graded commutative algebra over $\CC$ and let $f = f(x)$ be a polynomial in $x$ with coefficients in $A$. Then for indeterminants $z_{1}, \ldots, z_{d}$,
+		\begin{equation*}
+			\Res_{x} \frac{f(x)}{(x - z_{1})\ldots(x - z_{d})} = \sum\limits_{i = 1}^{d}\frac{f(z_{i})}{\prod_{j \neq i}(z_{i} - z_{j})}.
+		\end{equation*}
+	\end{lemma}
+	
+	\begin{proof}
+		Decompose into simple fractions:
+		\begin{equation*}
+			\frac{f(x)}{(x - z_{1})\ldots(x - z_{d})} = F(x) + \sum\limits_{i = 1}^{d} \frac{f(z_{i})}{\prod_{j \neq i} (z_{i} - z_{j})} \frac{1}{(x - z_{i})}.
+		\end{equation*}
+		Here $F(x)$ is a polynomial term in $x$.
+	\end{proof}
+	
+	Let
+	
+	\begin{equation*}
+		h = \frac{f}{ \prod_{j = 1}^{d}(x - z_{j}) } \quad \text{and} \quad h_{j} = \frac{f(z_{j})}{\prod_{r \neq j}(z_{j} - z_{r})}, \quad \text{for all } j.
+	\end{equation*}
+	
+	\begin{lemma}[\cite{Guillemin1999}]\label{residue:2}
+		$h \in A[x]$ if and only if $\Res_{x}(x^{k}h) = 0$, for all $k \geq 0$.
+	\end{lemma}
+	
+	\begin{proof}
+		From Lemma \ref{residue:1}, we get that
+		\begin{equation*}
+			\Res_{x}(x^{k}h) = \sum_{j = 1}^{d} (z_{j})^{k} h_{j}.
+		\end{equation*}
+		
+		Then the condition that $\Res_{x}(x^{k}h) = 0$ for every $k = 1, \ldots, d$ can be written as
+		
+		\begin{equation*}
+			\begin{pmatrix}
+				z_{1}^{1} & \ldots & z_{j}^{1} & \ldots & z_{d}^{1} \\
+				\vdots & & \vdots & & \vdots \\
+				z_{1}^{k} & \ldots & z_{j}^{k} & \ldots & z_{d}^{k} \\
+				\vdots & & \vdots & & \vdots \\
+				z_{1}^{d} & \ldots & z_{j}^{d} & \ldots & z_{d}^{d}
+			\end{pmatrix}
+			\begin{pmatrix}
+				h_{1} \\ \vdots \\ h_{j} \\ \vdots \\ h_{d}
+			\end{pmatrix}
+			= 0.
+		\end{equation*}
+	
+		As the corresponding Van der Monde determinant is non-zero, we deduce that $h_{1} = \ldots = h_{d} = 0$, that is, $f(z_{j}) = 0$, for all $j = 1, \ldots, d$, from which we obtain that $h \in A[x]$.
+	\end{proof}
+	
+	\begin{theorem}[\cite{CanasdaSilva1996}]\label{residue:3}
+		Let $V$ be an $n$-dimensional vector space over $\CC$, and let $\tau_{k}$ be the standard representation of $\GL(V)$ on the $k$-th symmetric product, $S^{k}(V)$. Then for $z \in \CC$ large and $B \in \GL(V)$,
+		\begin{equation*}
+			\det(z - B)^{-1} = z^{-n}\sum\limits_{k=0}^{\infty} z^{-k} \Tr(\tau_{k}(B)).
+		\end{equation*}
+	\end{theorem}
+
+	\begin{proof}
+		Without loss of generality, assume that $B$ is diagonalisable with eigenvalues, $\lambda_{1}, \ldots, \lambda_{n}$. The left-hand side then becomes
+		\begin{equation*}
+			\det(z - B)^{-1} = z^{-n}\prod\limits_{j = 1}^{n}(1 - \lambda_{j}z^{-1})^{-1}.
+		\end{equation*}
+		Expanding each of the factors $(1 - \lambda_{j}z^{-1})^{-1}$ into a geometric series, we then get
+		\begin{equation*}
+			z^{-n}\prod\limits_{j = 1}^{n}(1 - \lambda_{j}z^{-1})^{-1} = z^{-1}\left( \sum_{k = 0}^{\infty} z^{k}t_{k} \right),
+		\end{equation*}
+		where
+		\begin{equation*}
+			t_{k} = \sum_{|I| = k} \lambda_{1}^{i_{1}}\ldots\lambda_{n}^{i_{n}} = \Tr\pbrackets{\tau_{k}(B)}.
+		\end{equation*}
+	\end{proof}
+	
+	\begin{corollary}[\cite{CanasdaSilva1996}]\label{residue:4}
+		Let $\Gamma$ be a contour about the origin containing the zeroes of $\det(z- B)$. Then
+		\begin{equation*}
+			\frac{1}{2\pi i} \int_{\Gamma} z^{n + k -1} \det(z - B)^{-1} dz = \Tr\pbrackets{\tau_{k}(B)}.
+		\end{equation*}
+	\end{corollary}
+	
+	\begin{example}[\cite{Pestun2017}]\label{residue:5}
+		Let us show that
+		\begin{equation*}
+			s_{n}(z_{0}, \ldots, z_{n}) = \sum_{k = 0}^{m} \frac{z_{k}^{n}}{\prod_{j \neq k} \pbrackets{ 1 - (z_{j} / z_{k}) }},
+		\end{equation*}
+		where $s_{n}(z_{0}, \ldots, z_{m})$ are complete homogeneous symmetric polynomials. Focus on the $m$-th term, relabel $z_{m} = x$, then the series above becomes
+		\begin{equation*}
+			\frac{x_{m}^{n}}{\prod_{j = 0}^{m-1} \pbrackets{1 - (z_{j}/x)}} = \frac{x_{m}^{n + m}}{(x - z_{0})\ldots (x - z_{m-1}) }
+		\end{equation*}
+	\end{example}
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\bibliographystyle{unsrt}  
+	\bibliography{general-notes}  %%% Remove comment to use the external .bib file (using bibtex).
+	%%% and comment out the ``thebibliography'' section.
+	
+	%%% Comment out this section when you \bibliography{references} is enabled.
+	
+\end{document}
