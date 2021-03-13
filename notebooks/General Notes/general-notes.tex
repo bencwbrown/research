@@ -250,23 +250,72 @@
 	\end{proof}
 	
 	\begin{corollary}[\cite{CanasdaSilva1996}]\label{residue:4}
-		Let $\Gamma$ be a contour about the origin containing the zeroes of $\det(z- B)$. Then
+		Let $\Gamma$ be a contour about the origin containing the zeroes of $\det(z - B)$. Then
 		\begin{equation*}
 			\frac{1}{2\pi i} \int_{\Gamma} z^{n + k -1} \det(z - B)^{-1} dz = \Tr\pbrackets{\tau_{k}(B)}.
 		\end{equation*}
 	\end{corollary}
+
+	\section{Representation Theory}
 	
-	\begin{example}[\cite{Pestun2017}]\label{residue:5}
-		Let us show that
+	\begin{defn}[\cite{Sturmfels2008}]
+		A \textbf{representation} of $\Gamma = \GL(\CC^{n})$ (or $\Gamma$-\textbf{module}) is a pair $(V, \rho)$, where $V$ is a $\CC$-vector space and
 		\begin{equation*}
-			s_{n}(z_{0}, \ldots, z_{n}) = \sum_{k = 0}^{m} \frac{z_{k}^{n}}{\prod_{j \neq k} \pbrackets{ 1 - (z_{j} / z_{k}) }},
+			\begin{split}
+				\rho : \Gamma &\lra \GL(V), \\
+				A = (a_{ij})_{1 \leq i,j \leq n} &\longmapsto \rho(A) = \pbrackets{\rho_{kl}(A)}_{1 \leq k, l \leq N}
+			\end{split}
 		\end{equation*}
-		where $s_{n}(z_{0}, \ldots, z_{m})$ are complete homogeneous symmetric polynomials. Focus on the $m$-th term, relabel $z_{m} = x$, then the series above becomes
+		is a group homomorphism. The \textbf{dimension} $N$ of the representation $(V, \rho)$ is the dimension of the vector space $V$. We say that $(V, \rho)$ is a \textbf{polynomial representation} (of \textbf{degree} $d$) if the matrix entries $\rho_{kl}(A) = \rho_{kl}(a_{11}, a_{12}, \ldots, a_{nn})$ are polynomial functions (homogeneous of degree $d$).
+	\end{defn}
+	
+	\begin{example}
+		The $d$-th symmetric power representation: $V = S_{d}(\CC^{n}) =$ the space of homogeneous polynomials of degree $d$ in $x_{1}, x_{2}, \ldots, x_{n},\ \rho =$ action by linear substitution, $N = \binom{n + d -1}{d}$.
+		
+		For example, for $d = 3, n = 2$, we have $S_{3}(\CC^{2}) =$ binary cubics $=\Span\{x^{3}, x^{2}y, xy^{2}, y^{3}\} \cong \CC^{4}$, and $\rho$ is the group homomorphism
 		\begin{equation*}
-			\frac{x_{m}^{n}}{\prod_{j = 0}^{m-1} \pbrackets{1 - (z_{j}/x)}} = \frac{x_{m}^{n + m}}{(x - z_{0})\ldots (x - z_{m-1}) }
+				\begin{pmatrix}
+					a_{11} & a_{12} \\ 
+					a_{21} & a_{22}
+				\end{pmatrix}
+				\mapsto
+				\begin{pmatrix}
+					a_{11}^{3} & a_{11}^{2}a_{12} & a_{11}a_{12}^{2} & a_{12}^{3} \\
+					3a_{11}^{2} & a_{11}^{2}a_{22} + 2a_{11}a_{12}a_{21} & 2a_{11}a_{12}a_{22} + a_{12}a_{21}^{2} & 3a_{12}^{2}a_{22} \\ 
+					3a_{11}^{2}a_{21}^{2} & 2a_{11}a_{21}a_{22} + a_{12}a_{21}^{2} & a_{11}a_{22}^{2} + 2a_{12}a_{21}a_{22} & 3a_{12}a_{22}^{2} \\ 
+					a_{21}^{3} & a_{21}^{2}a_{22} & a_{21}a_{22}^{2} & a_{22}^{3}
+				\end{pmatrix}.
 		\end{equation*}
 	\end{example}
 	
+	
+	
+	\section{Personal Calculations}
+	
+	\subsection{Index Formulae}
+	
+	Recall from Lemma (\ref{residue:1}) and (\ref{residue:2}):
+	
+	\begin{equation*}
+		\Res_{x} \frac{f(x)}{(x - z_{1})\ldots(x - z_{d})} = \sum\limits_{i = 1}^{d}\frac{f(z_{i})}{\prod_{j \neq i}(z_{i} - z_{j})}.
+	\end{equation*}
+	
+	and
+	
+	\begin{equation*}
+		\frac{1}{2\pi i} \int_{\Gamma} z^{n + k -1} \det(z - B)^{-1} dz = \Tr\pbrackets{\tau_{k}(B)},
+	\end{equation*}
+
+	for $\Gamma$ a contour circling the origin and the zeros of $\det(z - B)$.
+	
+	\subsubsection{$\Ind(\CC\PP^{2}, \mcO(k), T^{2})$}
+	
+	\begin{equation*}
+		\begin{split}
+			\Ind(\CC\PP^{2}, \mcO(k), T^{2})(z_{1}, z_{2}) &= \frac{1}{(1 - z_{1})(1 - z_{2})} + \frac{z_{1}^{k}}{(1 - z_{1}^{-1})(1 - z_{1}^{-1}z_{2})} + \frac{z_{2}^{k}}{(1 - z_{2}^{-1})(1 - z_{2}^{-1}z_{1})} \\
+			&= \frac{1}{(1 - z_{1})(1 - z_{2})} + \frac{z_{1}^{k+2}}{(z_{1} - 1)(z_{1} - z_{2})} + \frac{z_{2}^{k+2}}{(z_{2} - 1)(z_{2} - z_{1})}
+		\end{split}
+	\end{equation*}
 	
 	
 		

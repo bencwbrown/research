@@ -1,0 +1,241 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{yfonts}
+\usepackage{dsfont}
+\usepackage{braket}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usetikzlibrary{arrows}
+
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{defn}[theorem]{Definition\rm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}{\it Remark\/}
+\newtheorem{example}{Example}
+\newtheorem{fact}{Fact}
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\lbracket}{\left(}
+\newcommand{\rbracket}{\right)}
+
+
+\newcommand{\al}{\alpha}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+
+\newcommand{\pbrackets}[1]{\left( #1 \right)}
+\newcommand{\bbrackets}[1]{\left[ #1 \right]}
+
+\newcommand{\dbar}{\bar{\partial}}
+\newcommand{\mrr}{\mu_{\mathbb{R}}}
+\newcommand{\mcc}{\mu_{\mathbb{C}}}
+\newcommand{\prr}{\phi_{\mathbb{R}}}
+\newcommand{\pcc}{\phi_{\mathbb{C}}}
+
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Td}{Td}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Res}{Res}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\UU}{U}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\title{Hypertoric Manifolds}
+
+\date{}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+%\author{
+%  David S.~Hippocampus\thanks{Use footnote for providing further
+%    information about author (webpage, alternative
+%    address)---\emph{not} for acknowledging funding agencies.} \\
+%  Department of Computer Science\\
+%  Cranberry-Lemon University\\
+%  Pittsburgh, PA 15213 \\
+%  \texttt{hippo@cs.cranberry-lemon.edu} \\
+%% examples of more authors
+%   \And
+% Elias D.~Striatum \\
+%  Department of Electrical Engineering\\
+%  Mount-Sheikh University\\
+%  Santa Narimana, Levand \\
+%  \texttt{stariate@ee.mount-sheikh.edu} \\
+%% \AND
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		Notes on toric \HK manifolds.
+	\end{abstract}
+	
+	\section{Cotangent Spaces to Extended Core Components}
+	
+	Let $M_{\lambda} = \pbrackets{\mu_{\RR}^{-1}(\lambda) \cap \mu_{\CC}^{-1}(0)}/K$ be a toric \HK manifold. Define
+	\begin{equation*}
+		\CC_{A} := \Set{ (z_{i}, w_{i}) \in \CC^{2n}\ | \ w_{i} = 0\, \text{if } i \in A, \text{ and } z_{i} = 0\, \text{if } i \not\in A } \cong \CC^{n} \subset \HH^{n}.
+	\end{equation*}
+	
+	\begin{lemma}[\cite{Konno2002}]\label{cotangent:1}
+		Let $M_{\lambda}$ be a toric \HK manifold. If $\mcE_{A}$ is non-empty, then its holomorphic cotangent bundle $T^{\ast}\mcE_{A}$ is contained in $M_{\lambda}$ as an open subset.
+	\end{lemma}
+	
+	Fix a subset $A \subset \Set{1, \ldots, n}$, and define
+	\begin{equation*}
+		(x_{i}^{(A)}, y_{i}^{(A)}) :=
+		\begin{cases}
+			(z_{i}, w_{i}), \quad &\text{if } i \in A, \\
+			(w_{i}, -z_{i}), \quad &\text{if } i \not\in A.
+		\end{cases}
+	\end{equation*}
+
+	Then $x^{(A)} = (x_{1}^{(A)}, \ldots, x_{n}^{(A)})$ is a point in the vector space $\CC_{A}^{n}$, and $y^{(A)} = (y_{1}^{(A)}, \ldots, y_{n}^{(A)})$ is a point in the dual space $\pbrackets{\CC_{A}^{n}}^{\ast}$. That is, we identify the cotangent bundle $T^{\ast}\CC_{A}^{n}$ with $\HH^{n}$ as above.
+	
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=0.35]
+		\clip(-18.076279350071736,-8) rectangle (28.778992688025916,18);
+		\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (10,0) -- (0,0) -- (0,10) -- cycle;
+		\draw [line width=2pt,color=zzttqq] (10,0)-- (0,0);
+		\draw [line width=2pt,color=zzttqq] (0,0)-- (0,10);
+		\draw [line width=2pt,color=zzttqq] (0,10)-- (10,0);
+		\draw (4.987051324183269,9.66247942901259) node[anchor=north west] {$T^{\ast}\mathbb{C}_{12} =\{(z_{1}, z_{2}, w_{3};w_{1}, w_{2}, -z_{3})\}$};
+		\draw (-16.5,7.7288587527992325) node[anchor=north west] {$T^{\ast}\mathbb{C}_{23} =\{(w_{1}, z_{2}, z_{3};-z_{1}, w_{2}, w_{3})\}$};
+		\draw (-16.5,-2.1914560208171174) node[anchor=north west] {$T^{\ast}\mathbb{C}_{3} =\{(w_{1}, w_{2}, z_{3};-z_{1}, -z_{2}, w_{3})\}$};
+		\draw (0.6522562449167495,-6.4716909014277486) node[anchor=north west] {$T^{\ast}\mathbb{C}_{13} =\{(z_{1}, w_{2}, z_{3};w_{1}, -z_{2}, w_{3})\}$};
+		\draw (13.366074254441164,-1.1826104506188444) node[anchor=north west] {$T^{\ast}\mathbb{C}_{1} =\{(z_{1}, w_{2}, w_{3};w_{1}, -z_{2}, -z_{3})\}$};
+		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-100--10*\x)/-10});
+		\draw [line width=2pt] (0,-6.05869737324383) -- (0,20.39547535639977);
+		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-0-0*\x)/10});
+		\begin{scriptsize}
+			\draw [fill=xdxdff] (10,0) circle (2.5pt);
+			\draw [fill=uuuuuu] (0,0) circle (2pt);
+			\draw [fill=xdxdff] (0,10) circle (2.5pt);
+		\end{scriptsize}
+	\end{tikzpicture}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\bibliographystyle{unsrt}  
+	\bibliography{hypertoric}  %%% Remove comment to use the external .bib file (using bibtex).
+	%%% and comment out the ``thebibliography'' section.
+	
+	%%% Comment out this section when you \bibliography{references} is enabled.
+	
+\end{document}
