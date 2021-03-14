@@ -218,9 +218,29 @@
 			\draw [fill=xdxdff] (0,10) circle (2.5pt);
 		\end{scriptsize}
 	\end{tikzpicture}
+
+	\subsection{The Legendre Transform}
+	
+	In \cite{Konno2002}, Konno states that the proof of this lemma goes by an argument in \cite{Guillemin1994}, which itself is based on properties of the Legendre transform.
+	
+	\begin{lemma}[Section A1.3 of \cite{Guillemin1994}]
+		Consider a smooth function of one variable
+		\begin{equation*}
+			f = f(x), \qquad -\infty < x < \infty.
+		\end{equation*}
+	
+	Suppose that $f$ is strictly convex ($f^{\prime\prime}(x) > 0$ for all $x$). Then the four conditions are equivalent:
+	\begin{enumerate}
+		\item $f^{\prime}(x_{0}) = 0$ at some point $x_{0}$.
+		\item $f$ has a local minimum at some point $x_{0}$.
+		\item $f$ has a unique local minimum.
+		\item $f(x)$ tends to $+ \infty$ as $x$ tends to $\pm \infty$.
+	\end{enumerate} 
+	\end{lemma}
+
+	If $f$ has any one (and hence all four) of the above properties, we will say that $f$ is \emph{stable}.
 	
 	\section{Symplectic Cutting}
-	
 	
 	
 	
