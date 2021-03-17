@@ -1,3 +1,6 @@
+% Otherwise some colors may look a bit different in ipe and TeX
+%\PassOptionsToPackage{rgb}{xcolor}
+
 \documentclass{article}
 
 
@@ -28,14 +31,13 @@
 \usepackage{yfonts}
 \usepackage{dsfont}
 
+\usepackage{xypic}
+\xyoption{all} 
+
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 
 \usetikzlibrary{arrows}
-
-\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
-\definecolor{wwzzff}{rgb}{0.4,0.6,1}
-\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -90,6 +92,8 @@
 \newcommand{\mft}{\mathfrak{t}}
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mf}[1]{\mathfrak{#1}}
+
+\newcommand{\sfS }{{\mathsf S}}
 
 \newcommand{\pbrackets}[1]{\left( #1 \right)}
 \newcommand{\bbrackets}[1]{\left[ #1 \right]}
@@ -259,17 +263,32 @@
 	\section{Representation Theory}
 	
 	\section{Orbifolds}
-	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{From Simple Rational Polytopes}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\subsubsection{Weighted Projective Space $\CC\PP^2_{(1,1,2)}$, from \cite{Holm2012}}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Consider the following polytope with facets $H_i$, facet labels all (implicitly) $1$, and the corresponding primitive inward-pointing normal vectors $u_i$ to the facets.{\tiny
+		\[
+		\xymatrix{ 
+			\ar@{}[r]^{(0,2)}&\bullet\ar@{-}[dd]_{H_3}\ar@{-}[rdd]^{H_2}&&\\
+			&-&&\\
+			\ar@{}[r]_{(0,0)}&\bullet\ar@{-}[r]_{H_1}&\bullet \ar@{}[r]_{(0,1)}&
+		}
+		\ \ \ \ \ \ 
+		\xymatrix{
+			\circ&\circ&\bullet&\circ\\
+			\circ&\circ&\bullet_O\ar[u]_{u_1=^t(0,1) }\ar[r]_{u_3=^t(1,0) }\ar[dll]_{u_2=^t(-2,-1)}&\bullet\\
+			\bullet&\circ&\circ&\circ
+		}
+		\]
+	}
 	
-	\subsubsection{$\CC\PP(1,1,2)$ Example}
 	
-	Consider the following short exact sequence
-	
-	\begin{equation*}
-		
-	\end{equation*}
-	
+	The polytope is given by $$\Delta=\{v \in \RR^2 \ |\ \langle u_i, v \rangle \geq -\eta_i\ ,\ i=1,2,3 \}$$ where $(\eta_1,\eta_2,\eta_3)=(0,2,0)$. The corresponding matrix $B$ is {\small $\left(\begin{array}{ccc} 0&-2&1 \\ 1&-1&0 \end{array}\right)$} and $A$ is {\small $\left(\begin{array}{c} 1\\ 1\\2 \end{array}\right)$}. Thus $M$ is given by $|z_1|^2 + |z_2|^2 + 2|z_3|^2=2$ in $\\C^3$ and $S = \{(t,t,t^2) \ |\ t \in U(1)\} \subset T^{3} = U(1)^3$. The only elements $g$ of $S$ such that $G_g$ is not empty are
+	\[
+	(1,1,1) \ \ \ \ \ (-1,-1,1)
+	\]
 	
 	\begin{defn}[\cite{Sturmfels2008}]
 		A \textbf{representation} of $\Gamma = \GL(\CC^{n})$ (or $\Gamma$-\textbf{module}) is a pair $(V, \rho)$, where $V$ is a $\CC$-vector space and
@@ -333,11 +352,70 @@
 	
 		
 	
+	\subsection{Representation Theory of Polynomial Rings}
+	
+	\subsubsection{$k = 3,\, a = 2$ Polyptych}
+	
+	Set $$ V := \CC[z_{1}, z_{2}, z_{3}] $$, the polynomial $$ \CC $$-algebra in three variables.
+	
+	$a = 0$ monomials:
+	
+	\begin{alignat*}{7}
+		& z_{1}^{3} && && z_{1}^{2}z_{2} && && z_{1}z_{2}^{2} && && z_{2}^{3} \\
+		& && z_{1}^{2}z_{3} && && z_{1}z_{2}z_{3} && && z_{2}^{2}z_{3} && \\
+		& && && z_{1}z_{3}^{2} && && z_{2}z_{3}^{2} && &&  \\
+		& && && && z_{3}^{3} && && &&
+	\end{alignat*}
+	
+	
+	So we have $S_{3}[V]$
+	
+	$a = 1$ monomials:
+	
+	\begin{table}[]
+		\begin{tabular}{lllll}
+			$z_{1}^{4} w_{3}$ & $z_{1}^{3} z_{2} w_{3}$ & $z_{1}^{2} z_{2}^{2} w_{3}$ & $z_{1} z_{2}^{3} w_{3}$ & $z_{2}^{4}w_{3}$ \\
+			&                       &                           &                       &                  \\
+			$z_{2}^{4} w_{1}$ & $z_{2}^{3} z_{3} w_{1}$ & $z_{2}^{2} z_{3}^{2} w_{1}$ & $z_{2} z_{3}^{3} w_{1}$ & $z_{3}^{4}w_{1}$ \\
+			&                       &                           &                       &                  \\
+			$z_{3}^{4} w_{2}$ & $z_{3}^{3} z_{1} w_{2}$ & $z_{3}^{2} z_{1}^{2} w_{2}$ & $z_{3} z_{1}^{3} w_{2}$ & $z_{1}^{4}w_{2}$            
+		\end{tabular}
+	\end{table}
+
+
+	$a = 2$ monomials:
+	
+	\begin{table}[]
+		\begin{tabular}{lllllll}
+			$\bigg(z_{1}^{5}$ & $z_{1}^{4}z_{2}$ & $z_{1}^{3}z_{2}^{2}$ & $z_{1}^{2}z_{2}^{3}$ & $z_{1}z_{2}^{4}$ & $z_{2}^{5} \bigg)$ & $\times \quad w_{3}^{2}$ \\
+			$\bigg(z_{2}^{5}$ & $z_{2}^{4}z_{3}$ & $z_{2}^{3}z_{3}^{2}$ & $z_{2}^{2}z_{3}^{3}$ & $z_{2}z_{3}^{4}$ & $z_{3}^{5} \bigg)$ & $\times \quad w_{1}^{2}$ \\
+			$\bigg(z_{3}^{5}$ & $z_{3}^{4}z_{1}$ & $z_{3}^{3}z_{1}^{2}$ & $z_{3}^{2}z_{1}^{3}$ & $z_{3}z_{1}^{4}$ & $z_{1}^{5} \bigg)$ & $\times \quad w_{2}^{2}$ \\
+			& & & $\big($ & $z_{1}^{5}$ & \big)& $\times \quad w_{2}w_{3}$ \\
+			& & & $\big($ & $z_{2}^{5}$ & \big)& $\times \quad w_{1}w_{3}$ \\
+			& & & $\big($ & $z_{3}^{5}$ & \big)& $\times \quad w_{1}w_{2}$ \\              
+		\end{tabular}
+	\end{table}
+
+	$a = 3$ monomials:
+
+	\begin{table}[]
+		\begin{tabular}{llllllll}
+		$\bigg(z_{1}^{6}$ & $z_{1}^{5}z_{2}$ & $z_{1}^{4}z_{2}^{2}$ & $z_{1}^{3}z_{2}^{3}$ & $z_{1}^{2}z_{2}^{4}$ & $z_{1}z_{2}^{5}$ & $z_{2}^{6} \bigg)$ & $\times \quad w_{3}^{3}$ \\
+		$\bigg(z_{2}^{6}$ & $z_{2}^{5}z_{3}$ & $z_{2}^{4}z_{3}^{2}$ & $z_{2}^{3}z_{3}^{3}$ & $z_{2}^{2}z_{3}^{4}$ & $z_{2}z_{3}^{5}$ & $z_{3}^{6} \bigg)$ & $\times \quad w_{1}^{3}$ \\
+		$\bigg(z_{3}^{6}$ & $z_{3}^{5}z_{1}$ & $z_{3}^{4}z_{1}^{2}$ & $z_{3}^{3}z_{1}^{3}$ & $z_{3}^{2}z_{1}^{4}$ & $z_{3}z_{1}^{5}$ & $z_{1}^{6} \bigg)$ & $\times \quad w_{2}^{3}$ \\
+		& & & & $\big($ & $z_{1}^{6}$ & \big)& $\times \quad \big( w_{2}^{2}w_{3} \qquad w_{2}w_{3}^{2} \big)$ \\
+		& & & &  $\big($ & $z_{2}^{6}$ & \big)& $\times \quad \big( w_{1}^{2}w_{3} \qquad w_{1}w_{3}^{2} \big)$ \\
+		& & & & $\big($ & $z_{3}^{6}$ & \big)& $\times \quad \big( w_{3}^{2}w_{1} \qquad w_{3}w_{1}^{2} \big)$ \\           
+		\end{tabular}
+	\end{table}
+
+	
+		
 	
 	
 	
 	
-	
+
 	
 	
 	
