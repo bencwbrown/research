@@ -103,6 +103,7 @@
 
 \DeclareMathOperator{\Lie}{Lie}
 \DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Image}{Im}
 \DeclareMathOperator{\Ad}{Ad}
@@ -120,6 +121,7 @@
 \DeclareMathOperator{\Pf}{Pf}
 \DeclareMathOperator{\Vol}{Vol}
 \DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Id}{Id}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SO}{SO}
@@ -317,7 +319,115 @@
 		\end{equation*}
 	\end{example}
 	
+	\section{Equivariant Localisation}
 	
+	\subsection{Kawasaki-Riemann-Roch Formula for Orbifolds}
+	
+	The construction here follows \cite{Meinrenken1996} (until stated otherwise).
+	
+	Let $\mcL \ra M$ be a $G$-equivariant Hermitian vector bundle over $M$, with fibre dimension $n$. Let $\mcA(M; \mcL)$ be the $\mcL$-valued differential forms, and $\mcA_{G}(M; \mcL)$ their equivariant counter-part. For each $G$-invariant Hermitian connection $\nabla : \mcA(M; \mcL) \ra \mcA(M; \mcL)$ the moment map $\mu \in \mcA_{G}(M; \End(\mcL))$ of Berline and Vergne \cite{Berline1985} is defined by
+	
+	\begin{equation*}
+		\mu(\xi) \cdot \sigma := \xi \cdot \sigma - \nabla_{\xi_{M}} \cdot \sigma,
+	\end{equation*}
+	
+	where $\sigma \mapsto \xi \cdot \sigma$ denote the representation of $\mfg$ on the space of sections.
+	
+	\emph{Geometrically, $\mu(\xi)$ is the vertical part (with respect to the connection $\nabla$) of the fundamental vector field $\xi_{\mcL}$ on $\mcL$.}
+	
+	Let $F(\mcL) \in \mcA^{2}(M; \End(\mcL))$ denote the curvature of $\nabla$; then the \textbf{equivariant curvature} $F_{\mfg}(\mcL; \xi)$ is defined by
+	
+	\begin{equation*}
+		F_{\mfg}(\mcL;\xi) := F(\mcL) + 2\pi i \mu(\xi),
+	\end{equation*}
+	
+	and it satisfies the Bianchi identity with respect to the \textbf{equivariant covariant derivative}
+	
+	\begin{equation*}
+		\nabla_{\mfg} := \nabla - 2\pi i \cdot \imath(\xi_{m}).
+	\end{equation*}
+	
+	Suppose now that $A \mapsto f(A)$ is the germ of an $\UU(n)$-invariant analytic function on $\mf{u}(n)$; then $f(F_{\mfg}) \in \mcA_{G}(M)$ is $d_{\mfg}$-closed, and moreover one can show that choosing a different equivariant connection changes $f(F_{\mfg})$ by a $d_{\mfg}$-exact form. The corresponding cohomology classes are the \textbf{equivariant characteristic classes} of the bundle $\mcL \ra M$.
+	
+	If the action on $M$ is locally free, one can choose $\nabla$ in such a way that $\mu = 0$, which shows that the mapping $H_{G}^{\w}(M) \ra H(M/G)$ sends the equivariant characteristic classes of $\mcL$ to the usual characteristic classes of the orbifold bundle $\mcL/G$.
+	
+	The following characteristic classes will play an important role:
+	
+	\begin{itemize}
+		\item The \textbf{equivariant Chern character}, defined by
+		
+		\begin{equation*}
+			\Ch_{\mfg}(\mcL;\xi) := \Tr\left( e^{\tfrac{i}{2\pi} F_{\mfg}(\mcL;\xi) } \right).
+		\end{equation*}
+		
+		In the setting of geometric quantisation, $\mcL$ is a line bundle, and for the equivariant curvature one has
+		
+		\begin{equation*}
+			\frac{i}{2\pi} F_{\mfg}(\mcL;\xi) = \w + 2\pi i \langle J,\, \xi \rangle,
+		\end{equation*}
+	
+		thus
+	
+		\begin{equation*}
+			\Ch_{\mfg}(\mcL;\xi) = e^{\w + 2\pi i \langle J,\, \xi \rangle}.
+		\end{equation*}
+		
+		
+		More generally, if $g \in G$ acts trivially on the base $M$, one defines
+		
+		\begin{equation*}
+			\Ch_{\mfg}^{g}(\mcL;\xi) = \Tr\left( \rho(g) e^{\tfrac{i}{2\pi} F_{\mfg}(\mcL;\xi) } \right),
+		\end{equation*}
+	
+		where $\rho(g) \in \Gamma(M; \End(\mcL))$ is the induced action of $g$ on $\mcL$.
+		
+		\emph{In the line bundle case, this s simply $c_{\mcL}(g)\cdot \Ch_{\mfg}(\mcL;\xi)$, where $c_{L}(g) \in S^{1}$ is the action of $g$ on the fibres.}
+		
+		\item The \textbf{equivariant Todd class},
+		
+		\begin{equation*}
+			\Td_{\mfg}(\mc{V}; \xi) := \det\left( \frac{ \tfrac{i}{2\pi} F_{\mfg}(\mc{V}; \xi)}{\left( 1 - e^{-\tfrac{i}{2\pi} F_{\mfg}(\mc{V}; \xi)} \right) } \right).
+		\end{equation*}
+	
+		The Todd class of a complex manifold is defined as the Todd class of its tangent bundle.
+		
+		\item The \textbf{equivariant Euler class},
+		
+		\begin{equation*}
+			\chi_{\mfg}(\mc{V}; \xi) := \det\left( \frac{i}{2 \pi} F_{\mfg}(\mc{V}; \xi)\right).
+		\end{equation*}
+	
+		\item The class
+		
+		\begin{equation*}
+			D_{\mfg}^{g} := \det\left( \Id - \rho(g)^{-1}\cdot e^{-\tfrac{i}{2\pi} F_{\mfg}(\mc{V}; \xi)} \right),
+		\end{equation*}
+	
+		for $g \in G$ acting trivially on $M$.
+	
+	\end{itemize}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\newpage
 	
 	\section{Personal Calculations}
 	
