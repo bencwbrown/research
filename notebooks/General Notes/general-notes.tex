@@ -27,9 +27,9 @@
 \usepackage{tensor}
 \usepackage{yfonts}
 \usepackage{dsfont}
-
 \usepackage{xypic}
-\xyoption{all} 
+
+\usepackage{braket}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
@@ -122,6 +122,7 @@
 \DeclareMathOperator{\Vol}{Vol}
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Conj}{Conj}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SO}{SO}
@@ -261,7 +262,83 @@
 
 	\section{Representation Theory}
 	
+	\subsection{Symmetric Polynomials}
+	
+		\begin{defn}[\cite{Sturmfels2008}]
+		A \textbf{representation} of $\Gamma = \GL(\CC^{n})$ (or $\Gamma$-\textbf{module}) is a pair $(V, \rho)$, where $V$ is a $\CC$-vector space and
+		\begin{equation*}
+			\begin{split}
+				\rho : \Gamma &\lra \GL(V), \\
+				A = (a_{ij})_{1 \leq i,j \leq n} &\longmapsto \rho(A) = \pbrackets{\rho_{kl}(A)}_{1 \leq k, l \leq N}
+			\end{split}
+		\end{equation*}
+		is a group homomorphism. The \textbf{dimension} $N$ of the representation $(V, \rho)$ is the dimension of the vector space $V$. We say that $(V, \rho)$ is a \textbf{polynomial representation} (of \textbf{degree} $d$) if the matrix entries $\rho_{kl}(A) = \rho_{kl}(a_{11}, a_{12}, \ldots, a_{nn})$ are polynomial functions (homogeneous of degree $d$).
+	\end{defn}
+	
+	\begin{example}
+		The $d$-th symmetric power representation: $V = S_{d}(\CC^{n}) =$ the space of homogeneous polynomials of degree $d$ in $x_{1}, x_{2}, \ldots, x_{n},\ \rho =$ action by linear substitution, $N = \binom{n + d -1}{d}$.
+		
+		For example, for $d = 3, n = 2$, we have $S_{3}(\CC^{2}) =$ binary cubics $=\Span\{x^{3}, x^{2}y, xy^{2}, y^{3}\} \cong \CC^{4}$, and $\rho$ is the group homomorphism
+		\begin{equation*}
+			\begin{pmatrix}
+				a_{11} & a_{12} \\ 
+				a_{21} & a_{22}
+			\end{pmatrix}
+			\mapsto
+			\begin{pmatrix}
+				a_{11}^{3} & a_{11}^{2}a_{12} & a_{11}a_{12}^{2} & a_{12}^{3} \\
+				3a_{11}^{2} & a_{11}^{2}a_{22} + 2a_{11}a_{12}a_{21} & 2a_{11}a_{12}a_{22} + a_{12}a_{21}^{2} & 3a_{12}^{2}a_{22} \\ 
+				3a_{11}^{2}a_{21}^{2} & 2a_{11}a_{21}a_{22} + a_{12}a_{21}^{2} & a_{11}a_{22}^{2} + 2a_{12}a_{21}a_{22} & 3a_{12}a_{22}^{2} \\ 
+				a_{21}^{3} & a_{21}^{2}a_{22} & a_{21}a_{22}^{2} & a_{22}^{3}
+			\end{pmatrix}.
+		\end{equation*}
+	\end{example}
+	
 	\section{Orbifolds}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+	\subsection{The Associated Inertia Orbifold}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\begin{defn}
+		Given an orbifold $M$, the \textbf{associated orbifold} $\hat{M}$ has charts $(\hat{V}, \Gamma, \psi)$ built as follows:
+		
+		For each chart $(\tilde{U}, \Gamma, \phi)$ of $M$, let
+		\begin{equation*}
+			\hat{V} := \Set{(u,g) \in \tilde{U} \times \Gamma | g \cdot u = u }.
+		\end{equation*}
+	
+	$\Gamma$ acts on $\hat{V}$ by
+	\begin{equation*}
+		h \cdot (u,g) = (h \cdot u, hgh^{-1}).
+	\end{equation*}
+	Let $V := \hat{V}/\Gamma$ be the space of orbits with projection $\phi : \hat{V} \ra V$. The orbifold charts $(\hat{V}, \Gamma, \phi)$ inherit the compatibility conditions from the $(\tilde{U}, \Gamma, \phi)$. As a set,
+	\begin{equation*}
+		\hat{M} = \bigsqcup_{p \in M} \Conj(\Gamma_{p}),
+	\end{equation*}
+	where $\Conj(\Gamma_{p})$ is the set of conjugacy classes in $\Gamma_{p}$.
+	\end{defn}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{From Simple Rational Polytopes}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
@@ -289,35 +366,7 @@
 	(1,1,1) \ \ \ \ \ (-1,-1,1)
 	\]
 	
-	\begin{defn}[\cite{Sturmfels2008}]
-		A \textbf{representation} of $\Gamma = \GL(\CC^{n})$ (or $\Gamma$-\textbf{module}) is a pair $(V, \rho)$, where $V$ is a $\CC$-vector space and
-		\begin{equation*}
-			\begin{split}
-				\rho : \Gamma &\lra \GL(V), \\
-				A = (a_{ij})_{1 \leq i,j \leq n} &\longmapsto \rho(A) = \pbrackets{\rho_{kl}(A)}_{1 \leq k, l \leq N}
-			\end{split}
-		\end{equation*}
-		is a group homomorphism. The \textbf{dimension} $N$ of the representation $(V, \rho)$ is the dimension of the vector space $V$. We say that $(V, \rho)$ is a \textbf{polynomial representation} (of \textbf{degree} $d$) if the matrix entries $\rho_{kl}(A) = \rho_{kl}(a_{11}, a_{12}, \ldots, a_{nn})$ are polynomial functions (homogeneous of degree $d$).
-	\end{defn}
-	
-	\begin{example}
-		The $d$-th symmetric power representation: $V = S_{d}(\CC^{n}) =$ the space of homogeneous polynomials of degree $d$ in $x_{1}, x_{2}, \ldots, x_{n},\ \rho =$ action by linear substitution, $N = \binom{n + d -1}{d}$.
-		
-		For example, for $d = 3, n = 2$, we have $S_{3}(\CC^{2}) =$ binary cubics $=\Span\{x^{3}, x^{2}y, xy^{2}, y^{3}\} \cong \CC^{4}$, and $\rho$ is the group homomorphism
-		\begin{equation*}
-				\begin{pmatrix}
-					a_{11} & a_{12} \\ 
-					a_{21} & a_{22}
-				\end{pmatrix}
-				\mapsto
-				\begin{pmatrix}
-					a_{11}^{3} & a_{11}^{2}a_{12} & a_{11}a_{12}^{2} & a_{12}^{3} \\
-					3a_{11}^{2} & a_{11}^{2}a_{22} + 2a_{11}a_{12}a_{21} & 2a_{11}a_{12}a_{22} + a_{12}a_{21}^{2} & 3a_{12}^{2}a_{22} \\ 
-					3a_{11}^{2}a_{21}^{2} & 2a_{11}a_{21}a_{22} + a_{12}a_{21}^{2} & a_{11}a_{22}^{2} + 2a_{12}a_{21}a_{22} & 3a_{12}a_{22}^{2} \\ 
-					a_{21}^{3} & a_{21}^{2}a_{22} & a_{21}a_{22}^{2} & a_{22}^{3}
-				\end{pmatrix}.
-		\end{equation*}
-	\end{example}
+
 	
 	\section{Equivariant Localisation}
 	
