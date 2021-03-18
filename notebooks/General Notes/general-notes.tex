@@ -321,9 +321,9 @@
 	
 	\section{Equivariant Localisation}
 	
-	\subsection{Kawasaki-Riemann-Roch Formula for Orbifolds}
+	\subsection{Kawasaki-Riemann-Roch Formula for Orbifolds}\label{subsec:KRR}
 	
-	The construction here follows \cite{Meinrenken1996} (until stated otherwise).
+	\subsubsection{C.f. `\emph{On Riemann-Roch for Multiplicities}', \cite{Meinrenken1996}}\label{subsubsec:Meinrenken1996}
 	
 	Let $\mcL \ra M$ be a $G$-equivariant Hermitian vector bundle over $M$, with fibre dimension $n$. Let $\mcA(M; \mcL)$ be the $\mcL$-valued differential forms, and $\mcA_{G}(M; \mcL)$ their equivariant counter-part. For each $G$-invariant Hermitian connection $\nabla : \mcA(M; \mcL) \ra \mcA(M; \mcL)$ the moment map $\mu \in \mcA_{G}(M; \End(\mcL))$ of Berline and Vergne \cite{Berline1985} is defined by
 	
@@ -406,11 +406,39 @@
 		for $g \in G$ acting trivially on $M$.
 	
 	\end{itemize}
+
+The equivariant Euler class occurs in the Localisation Formula for Atiyah-Bott-Berline-Vergne:
+
+\begin{theorem}
+	Suppose that $M$ is an orientable $G$-manifold, and $\sigma \in \mcA_{G}^{\w}(M)$ is $d_{\mfg}$-closed. Assume that $\xi \in \mfg$ is in the domain of definition of $\sigma(\xi)$, and let $F$ be the set of zeros of $\xi_{M}$. The connected components of $F$ are then smooth submanifolds of even codimension, and the normal bundle $N_{F}$ admits a Hermitian structure which is invariant under the flow of $\xi_{M}$. Choose orientations on $F$ and $M$ which are compatible with the corresponding orientation of $N_{F}$. Then
+	
+	\begin{equation*}
+		\int_{M} \sigma(\xi) = \int_{F} \frac{\imath_{F}^{\ast} \sigma(\xi) }{\chi_{\mfg}(N_{F}; \xi)},
+	\end{equation*}
+
+	where $\imath_{F} : F \hookrightarrow M$ denotes the embedding.
+\end{theorem}
 	
 	
+	\subsubsection{C.f. `\emph{The Heat Kernel Lefschetxz Fixed-Point Formula}', \cite{Duistermaat2011}}\label{subsubsec:Duistermaat}
+	
+	\begin{lemma}
+		The linear transformations $\gamma_{L,x}$ and $\gamma_{N,x}$ in $L_{x}$ and $N_{x}$, respectively, are diagonalisable. The respective eigenvalues $\lambda_{L,j}$ and $\lambda_{N,k}$ are constant when $x$ varies in a connected component $F$ of $M^{\gamma}$, the fixed-point set of $\gamma$ in $M$. The corresponding eigenspaces $L_{j,x} \subset L_{x}$ and $N_{k,x} \subset N_{x}$, with $x$ ranging over $F$, form smooth complex vector subbundles $L_{j}$ and $N_{j}$ of $L$ and $N$, respectively.
+	\end{lemma}
+
+\begin{proof}
+	We may assume that $\gamma_{L}$ belongs to a compact group $K$ of transformations\footnote{In Section 10.1 of \cite{Duistermaat2011}, it is remarked that the isometry group of a fixed-point is compact.}. Now let $H$ be the closure in $K$ of the set of $\gamma^{p}$ with $p \in \ZZ$. Then $H$ is a compact abelian group of automorphisms of our structure, and $h(x) = x$ for each $x \in M^{\gamma}$, $h \in H$. We therefore have, for each $x \in M^{\gamma}$, the complex representations
+	\begin{equation*}
+		h \longmapsto \restr{T_{x}h_{M}}{N_{x}}
+	\end{equation*}
+	and
+	\begin{equation*}
+		h \longmapsto h_{L,x}
+	\end{equation*}
+	of $H$ in $N_{x}$ and $L_{x}$, respectively.
 	
 	
-	
+\end{proof}
 	
 	
 	
