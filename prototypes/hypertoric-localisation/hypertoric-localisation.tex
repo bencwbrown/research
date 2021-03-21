@@ -1,27 +1,53 @@
-\documentclass[11pt]{amsart}
+\documentclass{article}
 
-\usepackage[parfill]{parskip}    
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{amsmath} 
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{amssymb, amsfonts,mathabx}
 \usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{yfonts}
+\usepackage{dsfont}
+\usepackage{braket}
 
-\usepackage{amsmath, amsthm}
-\usepackage[all,cmtip]{xy}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
 
-\usepackage{tikz}
-\usepackage{tikz-cd}
-\usetikzlibrary{matrix,arrows,patterns,calc,through,backgrounds,fadings, decorations}
-\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows}
+
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{prop}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition\rm}
+\newtheorem{defn}[theorem]{Definition\rm}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{remark}{\it Remark\/}
 \newtheorem{example}{Example}
+\newtheorem{fact}{Fact}
 
 \newcommand{\st}{\ensuremath{:}}% such that
 \newcommand{\ie}{\emph{i.e.} }
@@ -29,7 +55,7 @@
 \newcommand{\cf}{\emph{cf.} }
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-\newcommand{\lra}{\longleftarrow}
+\newcommand{\lra}{\longrightarrow}
 \newcommand{\lla}{\longleftarrow}
 \newcommand{\lbracket}{\left(}
 \newcommand{\rbracket}{\right)}
@@ -37,6 +63,7 @@
 
 \newcommand{\al}{\alpha}
 \newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
 \newcommand{\m}{\mu}
 \newcommand{\n}{\nu}
 \newcommand{\e}{\epsilon}
@@ -52,6 +79,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\vp}{\varphi}
+\newcommand{\mcA}{\mathcal{A}}
 \newcommand{\mcE}{\mathcal{E}}
 \newcommand{\mcF}{\mathcal{F}}
 \newcommand{\mcG}{\mathcal{G}}
@@ -64,13 +92,16 @@
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mf}[1]{\mathfrak{#1}}
 
+\newcommand{\pbrackets}[1]{\left( #1 \right)}
+\newcommand{\bbrackets}[1]{\left[ #1 \right]}
+
 \newcommand{\dbar}{\bar{\partial}}
 \newcommand{\mrr}{\mu_{\mathbb{R}}}
 \newcommand{\mcc}{\mu_{\mathbb{C}}}
 \newcommand{\prr}{\phi_{\mathbb{R}}}
 \newcommand{\pcc}{\phi_{\mathbb{C}}}
 
-\DeclareMathOperator{\Lie}{\text{Lie}}
+\DeclareMathOperator{\Lie}{Lie}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Image}{Im}
@@ -82,268 +113,193 @@
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Td}{Td}
 \DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Res}{Res}
 
-\usepackage{hyperref}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\UU}{U}
 
-\title{Hypertoric Manifolds and Equivariant Localisation}
-\author{Benjamin C. W. Brown}
-\address[Benjamin Brown]{School of Mathematics and Maxwell Institute, The University of Edinburgh, Peter Guthrie Tait Road, Edinburgh EH9 3FD, United Kingdom}
-\email{B.Brown@ed.ac.uk}
-\date{\today}  
-\thanks{}                                         
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\title{Hypertoric Manifolds}
+
+\date{}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+%\author{
+%  David S.~Hippocampus\thanks{Use footnote for providing further
+%    information about author (webpage, alternative
+%    address)---\emph{not} for acknowledging funding agencies.} \\
+%  Department of Computer Science\\
+%  Cranberry-Lemon University\\
+%  Pittsburgh, PA 15213 \\
+%  \texttt{hippo@cs.cranberry-lemon.edu} \\
+%% examples of more authors
+%   \And
+% Elias D.~Striatum \\
+%  Department of Electrical Engineering\\
+%  Mount-Sheikh University\\
+%  Santa Narimana, Levand \\
+%  \texttt{stariate@ee.mount-sheikh.edu} \\
+%% \AND
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%}
+
 \begin{document}
-
-\maketitle
- 
-
-\section{Index Theory} \label{sec:index-theory}
-
-\subsection{Non-Equivariant Index Formula} \label{subsec:non-equivariant-index-formula}
-
-For a holomorphic vector bundle $\mcL$ over a complex $n$-dimensional variety $M$, the \emph{index} $\ind(\dbar, \mcL)$w is defined as
-
-\begin{equation*}
-	\ind(\dbar, \mcL) := \sum\limits_{k = 0}^{n}(-1)^{k}\dim H^{k}(M; \mcL).
-\end{equation*}
-
-Viewing the index $\ind(\dbar, \mcL)$ as the Euler characteristic $\chi(M, \mcL)$ of the vector bundle $\mcL$, we can apply the Atiyah-Singer index theorem, which we state below, to express the index as an integral over $M$ of the product of the Todd class $\Td(TM)$ of the tangent bundle $TM \ra M$ over $M$, and the Chern character $\Ch(\mcL) := \exp(c_{1}(\mcL))$ of $\mcL$, where $c_{1}(\mcL)$ is the first Chern class of $\mcL$.
-
-\begin{theorem}[Atiyah-Singer Index Theorem, \cite{MAIS1968}]
-	\label{thm:atiyah-singer-index-theorem}
-	Let $M$ be a compact complex manifold, $\mcL$ a holomorphic vector bundle over $M$. Let
-
+	\maketitle
+	
+	\begin{abstract}
+		Notes on toric \HK manifolds.
+	\end{abstract}
+	
+	\section{Cotangent Spaces to Extended Core Components}
+	
+	Let $M_{\lambda} = \pbrackets{\mu_{\RR}^{-1}(\lambda) \cap \mu_{\CC}^{-1}(0)}/K$ be a toric \HK manifold. Define
 	\begin{equation*}
-		\Td(TM) = \prod \frac{x_{i}}{1 - e^{-x_{i}}}
+		\CC_{A} := \Set{ (z_{i}, w_{i}) \in \CC^{2n}\ | \ w_{i} = 0\, \text{if } i \in A, \text{ and } z_{i} = 0\, \text{if } i \not\in A } \cong \CC^{n} \subset \HH^{n}.
+	\end{equation*}
+	
+	\begin{lemma}[\cite{Konno2002}]\label{cotangent:1}
+		Let $M_{\lambda}$ be a toric \HK manifold. If $\mcE_{A}$ is non-empty, then its holomorphic cotangent bundle $T^{\ast}\mcE_{A}$ is contained in $M_{\lambda}$ as an open subset.
+	\end{lemma}
+	
+	Fix a subset $A \subset \Set{1, \ldots, n}$, and define
+	\begin{equation*}
+		(x_{i}^{(A)}, y_{i}^{(A)}) :=
+		\begin{cases}
+			(z_{i}, w_{i}), \quad &\text{if } i \in A, \\
+			(w_{i}, -z_{i}), \quad &\text{if } i \not\in A.
+		\end{cases}
 	\end{equation*}
 
-	be the Todd class of the complex vector bundle $TM \ra M$, where the $x_{i}$ are the Chern roots of $TM$. Then the Euler characteristic $\chi(M, \mcL)$ of the sheaf of germs of holomorphic sections of $\mcL$ is given by
+	Then $x^{(A)} = (x_{1}^{(A)}, \ldots, x_{n}^{(A)})$ is a point in the vector space $\CC_{A}^{n}$, and $y^{(A)} = (y_{1}^{(A)}, \ldots, y_{n}^{(A)})$ is a point in the dual space $\pbrackets{\CC_{A}^{n}}^{\ast}$. That is, we identify the cotangent bundle $T^{\ast}\CC_{A}^{n}$ with $\HH^{n}$ as above.
 	
-	\begin{equation*}
-		\chi(M, \mcL) = \int_{M} \Td(M)\cdot \Ch(\mcL).
-	\end{equation*}
-\end{theorem}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=0.35]
+		\clip(-18.076279350071736,-8) rectangle (28.778992688025916,18);
+		\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (10,0) -- (0,0) -- (0,10) -- cycle;
+		\draw [line width=2pt,color=zzttqq] (10,0)-- (0,0);
+		\draw [line width=2pt,color=zzttqq] (0,0)-- (0,10);
+		\draw [line width=2pt,color=zzttqq] (0,10)-- (10,0);
+		\draw (4.987051324183269,9.66247942901259) node[anchor=north west] {$T^{\ast}\mathbb{C}_{12} =\{(z_{1}, z_{2}, w_{3};w_{1}, w_{2}, -z_{3})\}$};
+		\draw (-16.5,7.7288587527992325) node[anchor=north west] {$T^{\ast}\mathbb{C}_{23} =\{(w_{1}, z_{2}, z_{3};-z_{1}, w_{2}, w_{3})\}$};
+		\draw (-16.5,-2.1914560208171174) node[anchor=north west] {$T^{\ast}\mathbb{C}_{3} =\{(w_{1}, w_{2}, z_{3};-z_{1}, -z_{2}, w_{3})\}$};
+		\draw (0.6522562449167495,-6.4716909014277486) node[anchor=north west] {$T^{\ast}\mathbb{C}_{13} =\{(z_{1}, w_{2}, z_{3};w_{1}, -z_{2}, w_{3})\}$};
+		\draw (13.366074254441164,-1.1826104506188444) node[anchor=north west] {$T^{\ast}\mathbb{C}_{1} =\{(z_{1}, w_{2}, w_{3};w_{1}, -z_{2}, -z_{3})\}$};
+		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-100--10*\x)/-10});
+		\draw [line width=2pt] (0,-6.05869737324383) -- (0,20.39547535639977);
+		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-0-0*\x)/10});
+		\begin{scriptsize}
+			\draw [fill=xdxdff] (10,0) circle (2.5pt);
+			\draw [fill=uuuuuu] (0,0) circle (2pt);
+			\draw [fill=xdxdff] (0,10) circle (2.5pt);
+		\end{scriptsize}
+	\end{tikzpicture}
 
-\subsection*{Example}
-
-Let $M = \CC\PP^{1}$ and let $\mcL$ be the line bundle $\mcO(k)$ for some positive integer $k$. If $\langle \xi \rangle = H^{2}(M; \ZZ)$, \ie $\xi$ is the generator of $H^{2}(\CC\PP^{1}; \ZZ)$, then $c_{1}(\mcL) = k\xi$, and thus the Chern character of $\mcL$ is
-\begin{equation*}
-	\Ch(\mcL) = e^{c_{1}(\mcL)} = \sum_{j=0}^{\infty} (k\xi)^{j} = 1 + k\xi
-\end{equation*}
-(the higher powers of $\xi$ vanish since $\dim_{\CC} M = 1)$.
+	\subsection{The Legendre Transform}
 	
-For $n$-dimensional complex projective space $\CC\PP^{n}$, both the total Chern class 
-
-\begin{equation*}
-	c(\CC\PP^{n}) := c(T\CC\PP^{n}) := 1 + c_{1} + c_{2} + c_{3} + \ldots,
-\end{equation*}
-
-and the Todd class $\Td(T\CC\PP^{n})$ for the tangent bundle $T\CC\PP^{n} \ra \CC\PP^{n}$, can be calculated using the exact Euler sequence,
-\begin{figure}[h!]
-	\begin{tikzcd}
-		\{0\} \arrow[r] & \mathcal{O} \arrow[r] & \mathcal{O}(1)^{\oplus(n+1)} \arrow[r] & T\mathbb{CP}^{n} \arrow[r] & \{0\},
-	\end{tikzcd}
-\end{figure}
-along with the multiplicativity of the total Chern class and the Todd class,
-\begin{equation*}
-	c(\mcF \oplus \mcG) = c(\mcF)\cdot c(\mcG), \qquad \Td(\mcF \oplus \mcG) = \Td(\mcF) \cdot \Td(\mcG),
-\end{equation*}
-
-which yields
-
-\begin{equation*}
-	c(\CC\PP^{n}) = c(T\CC\PP^{n} \oplus \mcO) = c(\mcO(1)^{\oplus(n+1)}) = (1 + \xi)^{n+1},
-\end{equation*}
-and
-\begin{equation*}
-	\Td(T\CC\PP^{n}) = \Td(T\CC\PP^{n} \oplus \mcO ) = \Td(\mcO(1)^{\oplus (n+1)}) = \Td\lbracket\mcO(1)\rbracket^{n+1} = \lbracket \frac{\xi}{1 - e^{-\xi}} \rbracket^{n+1}.
-\end{equation*}
+	In \cite{Konno2002}, Konno states that the proof of this lemma goes by an argument in \cite{Guillemin1994}, which itself is based on properties of the Legendre transform.
 	
-This expression can be expanded as a formal power series which, for $n = 1$ in our example with the complex projective line $\CC\PP^{1}$, gets us
-
-\begin{equation*}
-	c(\CC\PP^{1}) = (1 + \xi)^{2} = 1 + 2\xi, \qquad \Td(T\CC\PP^{1}) = 1 + \tfrac{1}{2}c_{1}(T\CC\PP^{1}) = 1 + \xi.
-\end{equation*}
-
-Finally, applying the Atiyah-Singer index theorem \ref{thm:atiyah-singer-index-theorem}, we have
-
-\begin{equation*}
-	\chi(\CC\PP^{1}, \mcL) = \int_{\CC\PP^{1}} \Td(\CC\PP^{1}) \cdot \Ch(\mcL) = \int_{\CC\PP^{1}} (1 + \xi) \cdot (1 + k\xi ) = \int_{\CC\PP^{1}} 1 + (k+1)\xi = k + 1.
-\end{equation*}
-
-\subsection*{Example}
-
-Now we let $M = \CC\PP^{2}$, and let $\mcL = \mcO(k)$ and $\langle \xi \rangle = H^{2}(M, \ZZ)$ again as above. Now we have
-
-\begin{equation*}
-	c(\mcL) = e^{c_{1}(\mcL)} = 1 + k\xi + k^{2}\xi^{2},
-\end{equation*}
-
-and 
-\begin{equation*}
-	\begin{split}
-		c(T\CC\PP^{2}) &= 1 + c_{1} + c_{2} = (1 + \xi)^{3} = 1 + 3\xi + 3\xi^{2}, \\ 
-		\Td(T\CC\PP^{2}) &= 1 + \frac{c_{1}}{2} + \frac{c_{1}^{2} + c_{2}}{12} = 1 + \frac{3}{2}\xi + \frac{9\xi^{2} + 3\xi^{2}}{12} = 1 + \frac{3}{2}\xi + \xi^{2}.
-	\end{split}
-\end{equation*}
-
-Hence by the Atiyah-Bott index theorem \ref{thm:atiyah-singer-index-theorem},
-
-\begin{equation*}
-	\begin{split}
-		\chi(M, \mcL) &= \int_{M} \Td(TM) \cdot \Ch(\mcL) = \int_{M} \lbracket 1 + \tfrac{3}{2}\xi + \xi^{2} \rbracket \cdot \lbracket 1 + k\xi + k^{2}\xi^{2} \rbracket \\
-		&= \int_{M} (k^{2} + \tfrac{3}{2}k + 1)\xi^{2} + O(\xi) = k^{2} + \tfrac{3}{2}k + 1.
-	\end{split}
-\end{equation*}
-
-\subsection*{Example}
-
-Let $M = \CC\PP^{3}$, and let $\mcL$, $\xi$, etc. be as above. Then
-
-\begin{equation*}
-	\begin{split}
-		\Ch(\mcL) &= 1 + k\xi + (k\xi)^{2} + (k\xi)^{3}, \\
-		c(TM) &= (1 + \xi)^{4} = 1 + 4\xi + 6\xi^{2} + 4\xi^{3}, \\
-		\Td(TM) &= 1 + \frac{c_{1}}{2} + \frac{c_{1}^{2} + c_{2}}{12} + \frac{c_{1}c_{2}}{24} = 1 + 2\xi + \frac{11}{6}\xi^{2} + \xi^{3}.
-	\end{split}
-\end{equation*}
-
-Then by the Atiyah-Bott Index theorem \ref{thm:atiyah-singer-index-theorem},
-
-\begin{equation*}
-	\begin{split}
-		\chi(M, \mcL) &= \int_{M} \Td(TM) \cdot \Ch(\mcL) = \int_{M} \lbracket 1 + 2\xi + \frac{11}{6}\xi^{2} + \xi^{3} \rbracket \cdot \lbracket 1 + k\xi + k^{2}\xi^{2} + k^{3}\xi^{3} \rbracket \\
-		&= \int_{M} \lbracket k^{3} + 2k^{2} + \frac{11}{6}k + 1 \rbracket\xi^{3} + O(\xi^{2}) = 
-	\end{split}
-\end{equation*}
-
-\subsection{Equivariant Index Theorems}
-
-\subsubsection{Equivariant Characteristic Classes}
-
-%==============================================================================
-
-\section{Compactifying the Hypertoric Variety via Symplectic Cutting}
-
-\subsection{Set-Up}
-
-We can use the residual $S^{1}$-action to perform a symplectic cut of the toric \HK manifold $M$ in order to compactify it as follows: consider the product $M \times \CC$, where now $S^{1}$ acts on $M \times \CC$ as
-$$
-e^{i\theta} \cdot \big( [z,w], \xi   \big) = \big( [z,e^{i\theta}w], e^{i\theta}\xi\big),
-$$
-which is a Hamiltonian action with associated moment map
-\begin{equation*}
-	\begin{split}
-		\mu_{\text{cut}}: M \times \CC &\longrightarrow \RR_{\geq 0}, \\
-		\mu_{\text{cut}}\big( [z,w], \xi  \big) &= \Phi[z,w] + \tfrac{1}{2}|\xi|^{2} - \e,,
-	\end{split}
-\end{equation*}
-where $\Phi:M \ra \RR_{\geq 0}$ is the moment map $\Phi[z,w] = \tfrac{1}{2}\|w\|^{2}$ for the residual $S^{1}$-action on $M$, and $\e \in \RR_{\geq 0}$.
-
-Then we have
-
-\begin{equation*}
-	\begin{split}
-		\mu_{\text{cut}}^{-1}(0) &= \big\{ ([z,w],\xi) \in M \times \CC \st \|w\|^{2} + |\xi|^{2} = 2\e    \big\} \\
-		&= \big\{ [z,w] \in M \st \|w\|^{2} = 2\e    \big\} \bigsqcup \big\{ ([z,w],\xi) \in M \times \CC \st |\xi| = \pm\sqrt{2\e - \|w\|^{2}} \big\} \\
-		&= \big\{ [z,w] \in M \st \|w\|^{2} = 2\e    \big\} \bigsqcup \big\{ ([z,w],\xi) \in M \times \CC \st \xi = e^{i\arg(\xi)}\sqrt{2\e - \|w\|^{2}}    \big\} \\
-		&= \Phi^{-1}(\e) \bigsqcup (M \times S^{1}) \\
-		&=: \Sigma_{1} \bigsqcup \Sigma_{2},
-	\end{split}
-\end{equation*}
-
-where $\Sigma_{1}$ is just the level-set of $\Phi$ at the level $\e$ in $M$, and $\Sigma_{2} = M \times S^{1}$ is exhibited as a trivial $S^{1}$-bundle over $\Sigma_{2}$, using the globally defined section
-
-\begin{equation*}
-	M \rightarrow M \times S^{1}, \qquad [z,w] \longmapsto \big( [z,w], e^{i\theta}\sqrt{2\e - \|w\|^{2}}\big), \qquad e^{i\theta} \in S^{1}.
-\end{equation*}
-
-Finally, by taking the quotient of $\m_{\text{cut}}^{-1}(0)$ by the $S^{1}$-action, we obtain the \emph{symplectic cut of $M$ at level $\epsilon$},
-
-\begin{equation*}
-	M_{\leq \e} := \m_{\text{cut}}^{-1}(0)/S^{1} = \Sigma_{1}/S^{1} \bigsqcup \Sigma_{2}/S^{1},
-\end{equation*}
-
-where $\Sigma_{1}/S^{1} = \Phi^{-1}(\e)/S^{1}$ is just the symplectic reduction, and where $\Sigma_{2}/S^{1}$ is diffeomorphic to $M$ for $\|w\|^{2} < 2\e$, which we denote by $M_{<\epsilon}$.
-
-\subsection{Restriction to the Extended Core Component, $\mc{E}_{A}$}
-
-Since the residual circle $S^{1}$-action acts as a subgroup of the original torus $T^{n}$ when restricted to each component $\mc{E}_{A}$ of the extended core $\mc{E}$, we can describe the resulting configuration of the hyperplane arrangement in $(\RR^{d})^{\ast}$ from taking the cut in a combinatorial way. For each component, let $j_{A}: \mf{s}^{1} \rightarrow \RR^{n}$ be the derivative of the inclusion of $S^{1}$ into $T^{n}$ on the Lie algebra level, that is
-\begin{equation*}
-	j_{A}( \xi  ) = (\xi_{1},\ldots, \xi_{n}),\qquad \text{where } \xi_{i} = 
-	\begin{cases}
-		-1\qquad&\text{if } i\in A,\\
-		0\qquad &\text{if } i \not\in A,
-	\end{cases}
-\end{equation*}
-so that its image in $\RR^{n}$ generates a circle subgroup $S^{1}$ in $T^{n}$ that depends on each component $\mc{E}_{A}$. Then the moment map for this restriction for the $S^{1}$-action is
-\begin{equation*}
-	\Phi[z,w] = j_{A}^{\ast} \circ \mrr[z,w] = \bigg\langle \mrr(z,w), \sum_{i\in A}\xi_{i} u_{i} \bigg\rangle,
-\end{equation*}
-and so from our above discussion of how we constructed the symplectic cut, the image in $(\RR^{d})^{\ast}$ of the symplectic quotient $\Phi^{-1}(\e)/S^{1}$ is
-\begin{equation*}
-	\prr(\Phi^{-1}(\e)) = \bigg\{ y \in \Delta_{A} \st \bigg\langle y, \sum_{i\in A}\xi_{i}u_{i}\bigg\rangle + \e = 0 \bigg\} =: H_{A}
-\end{equation*}
-which introduces an inward-pointing half-space
-\begin{equation*}
-	F_{A} := \bigg\{ y \in \Delta_{A} \st \bigg\langle y, \sum_{i\in A}\hbar_{i}u_{i}\bigg\rangle + \e \geq 0 \bigg\}
-\end{equation*}
-such that the image of the extended core component $\mc{E}_{A}$ after being compactified is the original convex polytope $\Delta_{A}$ intersected with $H_{A}$. One can also see clearly that the symplectic quotient $\Phi^{-1}(\e)/S^{1}$ has the restricted $S^{1}$-action as its stabiliser subgroup since, by definition of $H_{A}$, the moment map $\Phi|_{\mc{E}_{A}}$ equals the hyperplane $H_{A}$, \ie $\Phi|_{\mc{E}_{A}}$ is constant along $\Phi^{-1}(\epsilon)/S^{1}$.
-
-\begin{example}
-	In our $M = T^{\ast}\CC\PP^{2}$ example, for each component $\mcE_{A}$ of the extended core $\mcE$, we have:
-	\begin{equation*}
-		\begin{split}
-			\mcE_{123} = \{ [z_{1}, z_{2}, z_{3}; 0, 0, 0] \in M \}; \qquad S_{123}^{1} &= \{(\tau, \tau, \tau) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{12} = \{ [z_{1}, z_{2}, 0; 0, 0, w_{3}] \in M \}; \qquad S_{12}^{1} &= \{(\tau, \tau, 1) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{23} = \{ [0, z_{2}, z_{3}; w_{1}, 0, 0] \in M \}; \qquad S_{23}^{1} &= \{(1, \tau, \tau) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{13} = \{ [z_{1}, 0, z_{3}; 0, w_{2}, 0] \in M \}; \qquad S_{13}^{1} &= \{(\tau, 1, \tau) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{1} = \{ [z_{1}, 0, 0; 0, w_{2}, w_{3}] \in M \}; \qquad S_{1}^{1} &= \{(\tau, 1, 1) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{2} = \{ [0, z_{2}, 0; w_{1}, 0, w_{3}] \in M \}; \qquad S_{2}^{1} &= \{(1, \tau, 1) : \tau \in S^{1} \} < T^{3}, \\
-			\mcE_{3} = \{ [0, 0, z_{3}; w_{1}, w_{2}, 0] \in M \}; \qquad S_{3}^{1} &= \{(1, 1, \tau) : \tau \in S^{1} \} < T^{3}. 
-		\end{split}
-	\end{equation*}
-\end{example}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
-\providecommand{\href}[2]{#2}
-
-\bibliographystyle{unsrt}
-\bibliography{index-theorems}
-
-\end{document}  
-
-
-
-
-
-
-
-
-
-
+	\begin{lemma}[Section A1.3 of \cite{Guillemin1994}]
+		Consider a smooth function of one variable
+		\begin{equation*}
+			f = f(x), \qquad -\infty < x < \infty.
+		\end{equation*}
+	
+	Suppose that $f$ is strictly convex ($f^{\prime\prime}(x) > 0$ for all $x$). Then the four conditions are equivalent:
+	\begin{enumerate}
+		\item $f^{\prime}(x_{0}) = 0$ at some point $x_{0}$.
+		\item $f$ has a local minimum at some point $x_{0}$.
+		\item $f$ has a unique local minimum.
+		\item $f(x)$ tends to $+ \infty$ as $x$ tends to $\pm \infty$.
+	\end{enumerate} 
+	\end{lemma}
+
+	If $f$ has any one (and hence all four) of the above properties, we will say that $f$ is \emph{stable}.
+	
+	\section{Symplectic Cutting}
+	
+	\subsection{Compactifying the Extended Core}
+	
+	Let $S^{1}$ act on $M$ by rotating the cotangent fibres, that is, for $\tau \in S^{1}$,
+	\[
+		\tau \cdot [z; w] = [z; \tau w].
+	\]
+	This $S^{1}$-action is Hamiltonian, with moment map
+	\[
+		\Phi : M \lra (\RR)^{\ast}; \qquad [z:w] \longmapsto \frac{1}{2} \|w\|^{2}.
+	\]
+	Let $S_{A}^{1}$ denote the residual $S^{1}$-action on $M$ restricted to the extended core component 
+	\[
+		\mcE_{A} = \Set{ [z_{1}: \ldots z_{n}; w_{1}, \ldots, w_{n}] | w_{0} = 0 \text{ if } i \in A, \text{ and } z_{i} = 0 \text{ if } i \not\in A }.
+	\]
+	Now the \emph{global }$S^{1}$-action does not act on the cotangent fibres of $M$ as a subtorus of $T^{n}$, but it does when \emph{restricted} to each component of the extended core, $\mcE_{A}$. Indeed,
+	\[
+		\tau \cdot [z; w] = [z; \tau w] = [z_{1} : \ldots : z_{n} ; \tau w_{1} : \ldots : \tau w_{n} ] = [\tau_{1 }z_{1} : \ldots : \tau_{n}z_{n} ; \tau_{1}^{-1}w_{1} : \ldots : \tau_{n}^{-1} w_{n} ],
+	\]
+	where
+	\[
+		\tau_{i} :=
+		\begin{cases}
+			\tau^{-1}, \qquad &\text{if } i \in A, \\
+			1, \qquad &\text{if } i \not\in A,
+		\end{cases}
+	\]
+	which shows that the $S^{1}$-action restricted to each individual $\mcE_{A}$ acts as a subtorus of the original torus $T^{n}$.
+	
+	Denote by $S_{A}^{1}$ the image of $S^{1}$ in $T^{n}$ when considered as a subtorus restricted to each individual $\mcE_{A}$, and let $\jmath_{A} : S^{1} \hookrightarrow T^{n}$ be the respective inclusion homomorphism, so we have $S_{A}^{1} := \jmath_{A}(S^{1}) \lhd T^{n}$.
+	
+	On the Lie algebra level, we have that
+	\[
+		(\jmath_{A})_{\ast} : \Lie(S_{A}^{1})  \lra \mft^{n}; \qquad \xi \longmapsto ( \xi_{1}, \ldots, \xi_{n}),
+	\]
+	where analogously
+	\[
+		\xi_{i} :=
+		\begin{cases}
+			-1, \qquad &\text{if } i \in A, \\
+			0, \qquad &\text{if } i \not\in A.
+		\end{cases}
+	\]
+	
+	[TODO: $S^{1}_{A}$ and $S_{A^{\prime}}^{1}$-action (say) on adjacent $\Delta_{A}$'s coincide along the common hyperplane $H_{i}$; formalise this!]
+	
+	Since $S_{A}^{1}$ acts as the subtorus $\jmath_{A}(S^{1})$ of $T^{n}$ on each $\mcE_{A}$, the moment map $\Phi_{A} := \restr{\Phi}{\mcE_{A}}$ for this action is given by composing $\mu_{\RR}$ with the dual of the inclusion $(\jmath_{A})_{\ast}$, so
+	\[
+		\Phi_{A}[z,w] = \left( \jmath_{A}^{\ast} \circ \mu_{\RR} \right)[z;w] = \jmath_{A}^{\ast} \left( \frac{1}{2} \sum_{i = 1}^{n} \left( |z_{i}|^{2} - |w_{i}|^{2} \right) e^{i} \right).
+	\]
+	
+	
+	
+	
+	
+	\bibliographystyle{unsrt}  
+	\bibliography{hypertoric}  %%% Remove comment to use the external .bib file (using bibtex).
+	%%% and comment out the ``thebibliography'' section.
+	
+	%%% Comment out this section when you \bibliography{references} is enabled.
+	
+\end{document}
