@@ -242,11 +242,38 @@
 	
 	\section{Symplectic Cutting}
 	
+	\subsection{Compactifying the Extended Core}
 	
+	Let $S_{A}^{1}$ denote the residual $S^{1}$-action on $M$ restricted to the extended core component $\mcE_{A} = \Set{ [z_{1}: \ldots z_{n}; w_{1}, \ldots, w_{n}] | w_{0} = 0 \text{ if } i \in A, \text{ and } z_{i} = 0 \text{ if } i \not\in A  }$. Recall that the global $S^{1}$-action acts on $M$ by rotating its cotangent fibres, that is
+	\[
+		\tau \cdot [z; w] = [z; \tau w] = [z_{1} : \ldots : z_{n} ; \tau w_{1} : \ldots : \tau w_{n} ] = [\tau_{1 }z_{1} : \ldots : \tau_{n}z_{n} ; \tau_{1}^{-1}w_{1} : \ldots : \tau_{n}^{-1} w_{n} ],
+	\]
+	where
+	\[
+		\tau_{i} :=
+		\begin{cases}
+			\tau^{-1}, \qquad &\text{if } i \in A, \\
+			1, \qquad &\text{if } i \not\in A,
+		\end{cases}
+	\]
+	which shows that the $S^{1}$-action, when restricted to each individual $\mcE_{A}$, acts as a subtorus of the original torus $T^{n}$.
 	
+	Denote by $S_{A}^{1}$ the image of $S^{1}$ in $T^{n}$ when considered as a subtorus when restricted to each individual $\mcE_{A}$, and let $\jmath_{A} : S^{1} \hookrightarrow T^{n}$ denote the respective inclusion homomorphism.
 	
+	On the Lie algebra level, we have that
+	\[
+		\jmath_{A; \ast} : \Lie(S_{A}^{1})  \lra \mft^{n}; \qquad \xi \longmapsto ( \xi_{1}, \ldots, \xi_{n}),
+	\]
+	where analogously
+	\[
+		\xi_{i} :=
+		\begin{cases}
+			-1, \qquad &\text{if } i \in A, \\
+			0, \qquad &\text{if } i \not\in A.
+		\end{cases}
+	\]
 	
-	
+	[TODO: $S^{1}_{A}$ and $S_{A^{\prime}}^{1}$-action (say) on adjacent $\Delta_{A}$'s coincide along the common hyperplane $H_{i}$; formalise this!]	
 	
 	
 	
