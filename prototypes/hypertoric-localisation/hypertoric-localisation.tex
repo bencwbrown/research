@@ -328,7 +328,7 @@
 	\[
 		(\jmath_{A})_{\ast} : \Lie(S_{A}^{1})  \lra \mft^{n}; \qquad \xi \longmapsto ( \xi_{1}, \ldots, \xi_{n}),
 	\]
-	where analogously
+	where we analogously define
 	\[
 		\xi_{i} :=
 		\begin{cases}
@@ -337,13 +337,17 @@
 		\end{cases}
 	\]
 	
-	[TODO: $S^{1}_{A}$ and $S_{A^{\prime}}^{1}$-action (say) on adjacent $\Delta_{A}$'s coincide along the common hyperplane $H_{i}$; formalise this!]
-	
 	Since $S_{A}^{1}$ acts as the subtorus $\jmath_{A}(S^{1})$ of $T^{n}$ on each $\mcE_{A}$, the moment map $\Phi_{A} := \restr{\Phi}{\mcE_{A}}$ for this action is given by composing $\mu_{\RR}$ with the dual of the inclusion $(\jmath_{A})_{\ast}$, so
 	\[
-		\Phi_{A}[z,w] = \left( \jmath_{A}^{\ast} \circ \mu_{\RR} \right)[z;w] = \jmath_{A}^{\ast} \left( \frac{1}{2} \sum_{i = 1}^{n} \left( |z_{i}|^{2} - |w_{i}|^{2} \right) e^{i} \right).
+	\begin{split}
+		\Phi_{A}[z,w] = \left( \jmath_{A}^{\ast} \circ \mu_{\RR} \right)[z;w] &= \jmath_{A}^{\ast} \left( \frac{1}{2} \sum_{i = 1}^{n} \left( |z_{i}|^{2} - |w_{i}|^{2} \right) e^{i} \right) \\
+		&= -\frac{1}{2} \sum_{i \in A} |z_{i}|^{2} \jmath_{A}^{\ast}(e^{i}) \\
+		&= \frac{1}{2} \sum_{i \not\in A} |w_{i}|^{2} \jmath_{A}^{\ast}(e^{i}) \\
+		&= \left\langle \mu_{\RR}[z;w],\, \xi_{A} \right\rangle \\
+		&= \mu_{\RR}^{A}[z;w],
+	\end{split}
 	\]
-	
+	where $\xi_{A} = -\sum_{i \in A} \xi_{i}$, and $\mu_{\RR}^{A}[z;w]$ is the component of $\mu_{\RR}[z;w]$ in the $\xi_{A}$-direction.
 	
 	
 	
