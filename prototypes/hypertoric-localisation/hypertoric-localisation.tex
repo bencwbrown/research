@@ -250,47 +250,14 @@
 
 	Then $x^{(A)} = (x_{1}^{(A)}, \ldots, x_{n}^{(A)})$ is a point in the vector space $\CC_{A}^{n}$, and $y^{(A)} = (y_{1}^{(A)}, \ldots, y_{n}^{(A)})$ is a point in the dual space $\pbrackets{\CC_{A}^{n}}^{\ast}$. That is, we identify the cotangent bundle $T^{\ast}\CC_{A}^{n}$ with $\HH^{n}$ as above.
 	
-	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=0.35]
-		\clip(-18.076279350071736,-8) rectangle (28.778992688025916,18);
-		\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (10,0) -- (0,0) -- (0,10) -- cycle;
-		\draw [line width=2pt,color=zzttqq] (10,0)-- (0,0);
-		\draw [line width=2pt,color=zzttqq] (0,0)-- (0,10);
-		\draw [line width=2pt,color=zzttqq] (0,10)-- (10,0);
-		\draw (4.987051324183269,9.66247942901259) node[anchor=north west] {$T^{\ast}\mathbb{C}_{12} =\{(z_{1}, z_{2}, w_{3};w_{1}, w_{2}, -z_{3})\}$};
-		\draw (-16.5,7.7288587527992325) node[anchor=north west] {$T^{\ast}\mathbb{C}_{23} =\{(w_{1}, z_{2}, z_{3};-z_{1}, w_{2}, w_{3})\}$};
-		\draw (-16.5,-2.1914560208171174) node[anchor=north west] {$T^{\ast}\mathbb{C}_{3} =\{(w_{1}, w_{2}, z_{3};-z_{1}, -z_{2}, w_{3})\}$};
-		\draw (0.6522562449167495,-6.4716909014277486) node[anchor=north west] {$T^{\ast}\mathbb{C}_{13} =\{(z_{1}, w_{2}, z_{3};w_{1}, -z_{2}, w_{3})\}$};
-		\draw (13.366074254441164,-1.1826104506188444) node[anchor=north west] {$T^{\ast}\mathbb{C}_{1} =\{(z_{1}, w_{2}, w_{3};w_{1}, -z_{2}, -z_{3})\}$};
-		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-100--10*\x)/-10});
-		\draw [line width=2pt] (0,-6.05869737324383) -- (0,20.39547535639977);
-		\draw [line width=2pt,domain=-18.076279350071736:28.778992688025916] plot(\x,{(-0-0*\x)/10});
-		\begin{scriptsize}
-			\draw [fill=xdxdff] (10,0) circle (2.5pt);
-			\draw [fill=uuuuuu] (0,0) circle (2pt);
-			\draw [fill=xdxdff] (0,10) circle (2.5pt);
-		\end{scriptsize}
-	\end{tikzpicture}
-
-	\subsection{The Legendre Transform}
+	\subsection{K{\"a}hler Quotients}
 	
-	In \cite{Konno2002}, Konno states that the proof of this lemma goes by an argument in \cite{Guillemin1994}, which itself is based on properties of the Legendre transform.
+	The K{\"a}hler quotient $X = \mu^{-1}(0) / N$ can be identified with the quotient of an open subset of $\CC^{n}$ by the complexified torus $N^{\CC}$ as follows: every orbit in $\CC^{n}$ of $T_{\CC}^{n}$ is of the form
+	\[
+		\CC_{A}^{n} = \Set{ (z_{1}, \ldots, z_{n}) | z_{i} = 0 \text{ if } i \in A},
+	\]
+	for some subset $A \subset \{1,\ldots, n\}$. If $F$ is a face of $\Delta$ of codimension $r$, then $F$ is defined by the intersection of $r$ hyperplanes $\cap_{j }H_{i_{j}$} 
 	
-	\begin{lemma}[Section A1.3 of \cite{Guillemin1994}]
-		Consider a smooth function of one variable
-		\begin{equation*}
-			f = f(x), \qquad -\infty < x < \infty.
-		\end{equation*}
-	
-	Suppose that $f$ is strictly convex ($f^{\prime\prime}(x) > 0$ for all $x$). Then the four conditions are equivalent:
-	\begin{enumerate}
-		\item $f^{\prime}(x_{0}) = 0$ at some point $x_{0}$.
-		\item $f$ has a local minimum at some point $x_{0}$.
-		\item $f$ has a unique local minimum.
-		\item $f(x)$ tends to $+ \infty$ as $x$ tends to $\pm \infty$.
-	\end{enumerate} 
-	\end{lemma}
-
-	If $f$ has any one (and hence all four) of the above properties, we will say that $f$ is \emph{stable}.
 	
 	\section{Symplectic Cutting}
 	
