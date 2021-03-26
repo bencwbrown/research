@@ -28,6 +28,7 @@
 \usepackage{yfonts}
 \usepackage{dsfont}
 \usepackage{braket}
+\usepackage{todonotes}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
@@ -347,8 +348,45 @@
 	
 	\subsection{Moment Polyptychs}
 	
+	\todo{Distinct $S_{A}^{1}$ actions have common zeros?}
 	
+	The holomorphic moment map $\bar{\mu}_{\CC} : M \ra (\mft_{\CC}^{d})^{\ast}$ is $\CC^{\ast}$-equivariant with respect to the $\CC^{\ast}$-scalar action on $(\mft_{\CC}^{d})^{\ast}$, hence both $M^{\CC^{\ast}}$ and $\mcL$ will be contained in
+	\[
+		\mcE := \bar{\mu}_{\CC}^{-1}(0) = \Set{[z;w] \in M | z_{i}w_{i} = 0 \text{ for all } i = 1, \ldots, n },
+	\]
+	which is called the \textbf{extended core} of $M$, and $\bar{\mu}_{\RR}$ surjects onto $\mcE$. The extended core $\mcE$ breaks into the components
+	\[
+		\mcE_{A} := \Set{ [z;w] \in M | w_{i} = 0 \text{ if i } i \in A, \text{ and } z_{i} = 0 \text{ if } i \not\in A },
+	\]
+	indexed by subsets $A \subseteq \{1, \ldots, n\}$.
 	
+	The hyperplanes $\{H_{i}\}_{i = 1}^{n}$ divide $(\mft^{d})^{\ast}$ into a union of convex, possibly empty, possibly unbounded, polyhedra
+	\[
+		\Delta_{A} := \bigcap_{i \in A} F_{i} \cap \bigcap_{i \not\in A} G_{i},
+	\]
+	where we recall that
+	\[
+		\begin{split}
+			F_{i} &= \Set{v \in (\mft^{d})^{\ast} | \langle v,\, u_{i} \rangle + r_{i} \geq 0 }, \\
+			G_{i} &= \Set{v \in (\mft^{d})^{\ast} | \langle v,\, u_{i} \rangle + r_{i} \leq 0 }, \\
+			H_{i} &= \Set{v \in (\mft^{d})^{\ast} | \langle v,\, u_{i} \rangle + r_{i} = 0 } = F_{i} \cap G_{i}.
+		\end{split}
+	\]
+	
+	\begin{lemma}[\cite{Proudfoot2004}]
+		If $w_{i} = 0$, then $\bar{\mu}_{\RR}[z;w] \in F_{i}$, whereas if $z_{i} = 0$, then $\bar{\mu}_{\RR}[z;w] \in G_{i}$.
+	\end{lemma}
+
+	\begin{proof}
+		Suppose that $\bar{\mu}_{\RR}[z;w] = v \in (\mft^{d})^{\ast}$. Then \todo{Work out this sequence of equivalences.}
+		
+		\[
+			\begin{split}
+				\langle \bar{\mu}_{\RR}[z;w],\, u_{i} \rangle &\iff \langle \bar{\mu}_{\RR}[z;w],\, u_{i} \rangle
+			\end{split}
+		\]
+		
+	\end{proof}
 	
 	
 	

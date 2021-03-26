@@ -29,6 +29,8 @@
 \usepackage{dsfont}
 \usepackage{xypic}
 
+\usepackage{comment}
+\usepackage{todonotes}
 \usepackage{braket}
 
 \usepackage{pgfplots}
@@ -172,6 +174,11 @@
 %% \texttt{email} \\
 %}
 
+\includecomment{comment}
+\newenvironment{note}{\sffamily\color{red}}
+% \excludecomment{comment}
+
+
 \begin{document}
 	\maketitle
 	
@@ -229,6 +236,83 @@
 		\]
 		where $z \in M$, $w \in T_{z}^{\ast}M$ is a linear form $T_{z}M \ra \RR$.
 	\end{defn}
+
+	\subsubsection{Orbits, Stabilisers, and the Image of the Momentum Mapping}
+	
+	Let $z$ be a fixed-point of the Hamiltonian action of the torus $T^{d}$ on the symplectic manifold $M$. The torus $T^{d}$ acts in a linear way on the tangent space $T_{z}M$, which decomposes
+	\[
+		T_{z}M = V_{1} \oplus \ldots \oplus V_{m}.
+	\]
+	Each $V_{i}$ is a complex line bundle on which $T^{d}$ acts by multiplication
+	\[
+		t \cdot v_{i} = t^{\alpha_{i}}v_{i}, \text{ where } t = (t_{1}, \ldots, t_{d}) \in T^{d} = S^{1} \times \ldots \times S^{1} \subset \CC^{n},
+	\]
+	for some multi-exponent $\alpha_{i} = (a_{i}^{1}, \ldots, a_{i}^{n}) \in \ZZ^{n}$. We can also consider $\alpha_{i}$ as the element of $t^{\ast}$ defined by
+	\[
+		\langle \alpha_{i},\, e_{j} \rangle = a_{j}^{i},
+	\]
+	where $(e_{1}, \ldots, e_{d})$ is the basis of $\mft$ defined by the above decomposition.
+	
+	The equation of any hyperplane in $\mft$ can be written as $\langle X, \xi \rangle = a$ for some $X \in \mft$ and $a \in \RR$. In our can, we can assume that $X$ generates a circle $S_{X}$ in $T^{d}$, namely that $\exp(X) = 1$.
+	
+	Choose one these hyperplanes, say $H$, and such a vector $X$. The induced vector $\underline{X}$ is periodic and is the Hamiltonian vector field of the function
+	\[
+		x \longmapsto \langle X,\, \mu(x) \rangle = \tilde{\mu}_{X}(x).
+	\]
+	Let $F \subset H$ be a face of $P$ which is contained in $H$, and consider $\mu^{-1}(F)$. $\tilde{\mu}_{X}$ is constant on $\mu^{-1}(F)$, or in other words the circle $S_{X}$ fixes all points of $\mu^{-1}(F)$, which is thus included in the union of the fixed submanifolds of $S_{X}$, and hence is a \emph{symplectic submanifold} of $M$.
+	
+	As the $T^{d}$-action on $M$ is effective, $T/S_{X} \cong T^{d-1}$ is a torus with an effective action of $\mu^{-1}(F)$. The open set consisting of principal orbits corresponds to the points $x$ of $\mu^{-1}(F)$ for which $\Image d_{x}\mu = H$ (which is always a subspace of $H$). In this case,
+	\[
+		(\Image d_{x}\mu)^{\circ} = \mf{s}_{X},
+	\]
+	the Lie algebra of the stabiliser of $\mu^{-1}(F)$ in $T$. In particular,
+	\[
+		\dim \mu^{-1}(F) = \dim H - 1. 
+	\]
+	The moment map of the $(T^{d}/S_{X})$-action on $\mu^{-1}(F)$ is obtained from:
+	
+	\begin{itemize}
+		\item The short exact sequence of tori
+		\[
+			\{1\} \lra S_{X} \lra T^{d} \lra T^{d}/S_{X} \cong T^{d-1} \lra \{1\}
+		\]
+		\item which can be differentiated
+		\[
+			\{0\} \lra \mf{s}_{X} \lra \mft^{d} \lra \mft^{d}/\mf{s}_{X} \ra \{0\}
+		\]
+		\item and then transposed to the exact sequence of vector spaces
+		\[
+			\{0\} \lra  (\mft^{d}/\mf{s}_{X})^{\ast} \lra (\mft^{d})^{\ast} \lra \mf{s}_{X}^{\ast} \lra \{0\},
+		\]
+	\end{itemize}
+	which exhibits $(\mft^{d}/\mf{s}_{X})^{\ast}$ as a hyperplane of $\mft^{\ast}$, parallel to $H$. The moment mapping $\mu$ which takes its values in the hyperplane (up to translation), is the moment map for the quotient torus, $T^{d-1}$.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	\subsection{Morse Theory}
 
@@ -254,7 +338,8 @@
 	
 	Let us see how $\exp(X_{H})$ acts on this decomposition; on each complex subspace $V_{j}$, it acts as multiplication by some scalar $\exp(i\lambda_{j})$ for a real number $\lambda_{j}$, since $X_{H} \in \mft \subset \mf{u}(n)$. Moreover, 
 
-
+	\todo{Don't forget to put a real introduction here.}
+	
 
 
 
