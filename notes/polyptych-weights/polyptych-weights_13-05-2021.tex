@@ -1,0 +1,232 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{yfonts}
+\usepackage{dsfont}
+
+%%%%%%%%%%%%%%%%%%% Custom packages
+\usepackage{braket}
+\usepackage{todo}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usetikzlibrary{arrows}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{defn}[theorem]{Definition\rm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}{\it Remark\/}
+\newtheorem{example}{Example}
+\newtheorem{fact}{Fact}
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\lbracket}{\left(}
+\newcommand{\rbracket}{\right)}
+
+\newcommand{\al}{\alpha}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+
+\newcommand{\pbrackets}[1]{\left( #1 \right)}
+\newcommand{\bbrackets}[1]{\left[ #1 \right]}
+\newcommand{\norm}[1]{|#1|^{2}}
+
+\newcommand{\dbar}{\bar{\partial}}
+\newcommand{\mrr}{\mu_{\mathbb{R}}}
+\newcommand{\mcc}{\mu_{\mathbb{C}}}
+\newcommand{\prr}{\phi_{\mathbb{R}}}
+\newcommand{\pcc}{\phi_{\mathbb{C}}}
+
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Td}{Td}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Res}{Res}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\UU}{U}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\title{Polyptych Isotropy Weights}
+
+\date{}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+%\author{
+%  David S.~Hippocampus\thanks{Use footnote for providing further
+%    information about author (webpage, alternative
+%    address)---\emph{not} for acknowledging funding agencies.} \\
+%  Department of Computer Science\\
+%  Cranberry-Lemon University\\
+%  Pittsburgh, PA 15213 \\
+%  \texttt{hippo@cs.cranberry-lemon.edu} \\
+%% examples of more authors
+%   \And
+% Elias D.~Striatum \\
+%  Department of Electrical Engineering\\
+%  Mount-Sheikh University\\
+%  Santa Narimana, Levand \\
+%  \texttt{stariate@ee.mount-sheikh.edu} \\
+%% \AND
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		Calculations for the isotropy data of the compactified hypertoric manifolds.
+	\end{abstract}
+	
+	\section{Example: $M = T^{\ast}\CC\PP^{1}$}
+	
+	Short exact sequence for the usual Delzant construction of $\CC\PP^{1}$:
+	\[
+		\begin{tikzcd}
+				\{1\} \arrow[rr] &  & K \cong S^{1} \arrow[rr, "{t \longmapsto (t,t)}", hook] &  & T^{2} \arrow[rr, "{(a,b) \longmapsto ab^{-1}}"', two heads] &  & T^{2}/K \cong T^{1} \arrow[rr] &  & \{1\}.
+		\end{tikzcd}
+	\]
+	The induced action of $K$ on $T^{\ast}\CC^{2}$ is thus
+	\[
+		t \cdot (z;w) \longmapsto (t, t) \cdot (z_{1}, z_{2}; w_{1}, w_{2}) = (t z_{1}, t z_{2}; t^{-1} w_{1}, t^{-1} w_{2}),
+	\]
+	which is Hamiltonian with associated moment map
+	\[
+		\mu_{\RR} : T^{\ast}\CC \lra \RR; \qquad  \mu_{\RR}(z,w) = |z_{1}|^{2} + |z_{2}|^{2} - |w_{1}|^{2} - |w_{2}|^{2}.
+	\]
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\bibliographystyle{unsrt}  
+	\bibliography{hypertoric}  %%% Remove comment to use the external .bib file (using bibtex).
+	%%% and comment out the ``thebibliography'' section.
+	
+	%%% Comment out this section when you \bibliography{references} is enabled.
+	
+\end{document}
