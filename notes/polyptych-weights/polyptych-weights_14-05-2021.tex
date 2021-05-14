@@ -2,6 +2,9 @@
 
 
 \usepackage{arxiv}
+%\usepackage{ebgaramond}
+\usepackage{garamondx}
+% \usepackage{CormorantGaramond}
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
@@ -98,6 +101,9 @@
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mf}[1]{\mathfrak{#1}}
 
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\sssslash}{\mathbin{/\mkern-6mu/\mkern-6mu/\mkern-6mu/}}
+
 \newcommand{\pbrackets}[1]{\left( #1 \right)}
 \newcommand{\bbrackets}[1]{\left[ #1 \right]}
 \newcommand{\norm}[1]{|#1|^{2}}
@@ -193,11 +199,15 @@
 	\]
 	The induced action of $K$ on $T^{\ast}\CC^{2}$ is thus
 	\[
-		t \cdot (z;w) \longmapsto (t, t) \cdot (z_{1}, z_{2}; w_{1}, w_{2}) = (t z_{1}, t z_{2}; t^{-1} w_{1}, t^{-1} w_{2}),
+		t \cdot (z|w) \longmapsto (t, t) \cdot (z_{1}, z_{2}\, |\, w_{1}, w_{2}) = (t z_{1}, t z_{2}\, |\, t^{-1} w_{1}, t^{-1} w_{2}),
 	\]
 	which is Hamiltonian with associated moment map
 	\[
-		\mu_{\RR} : T^{\ast}\CC \lra \RR; \qquad  \mu_{\RR}(z,w) = |z_{1}|^{2} + |z_{2}|^{2} - |w_{1}|^{2} - |w_{2}|^{2}.
+		\mu_{\RR} : T^{\ast}\CC \lra \RR; \qquad  \mu_{\RR}(z\, |\, w) = |z_{1}|^{2} + |z_{2}|^{2} - |w_{1}|^{2} - |w_{2}|^{2}.
+	\]
+	For some $a \in \ZZ_{>0}$, take the \HK quotient of $T^{\ast}\CC$ to get
+	\[
+		M := T^{\ast}\CC \sssslash K
 	\]
 
 	
