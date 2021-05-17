@@ -243,10 +243,12 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}w_{1} : t^{-1}y_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, w_{1} : st^{-1}y_{2} : sy_{3} : sy_{4}], s\xi \right) \\ &\implies (s, t, st^{-1}, s).
+			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}w_{1} : t^{-1}y_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, w_{1} : st^{-1}y_{2} : sy_{3} : sy_{4}], s\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s, t, st^{-1}, s).
 		\end{align*}
 	
-		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
+		so normal weights $(t, st^{-1})$ from $(z_{2}, w_{2})$ respectively, and inwards-pointing weight $s$ with multiplicity $2$ coming from $z_{1}$ and $\xi$, since $|w_{1}|$ achieves its maximum at $Q_{12}^{(2)}$.
+		
+		\todo{}
 	
 		\item[$Q_{23}^{(2)}$:]
 		\[
@@ -254,7 +256,7 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4} ], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : s^{-1}y_{4} ], s^{-1}\xi \right) \\ &\implies (s^{-1}t, s^{-1}, t^{-1}, s^{-1}).
+			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4} ], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : s^{-1}y_{4} ], s^{-1}\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}t, s^{-1}, t^{-1}, s^{-1}).
 		\end{align*}
 	
 		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
@@ -265,7 +267,7 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}w_{2} : sy_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : s^{-1}ty_{4}], s^{-1}t \xi \right) \\ &\implies (s^{-1}t, s^{-1}, t, s^{-1}t).
+			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}w_{2} : sy_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : s^{-1}ty_{4}], s^{-1}t \xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}t, s^{-1}, t, s^{-1}t).
 		\end{align*}
 	
 		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
@@ -276,7 +278,7 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tz_{2} : x_{3} : x_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tz_{2} : s^{-1}x_{3} : x_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, y_{1} : y_{2} : sw_{3} : s^{-1}ty_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, s^{-1}y_{1} : s^{-1}y_{2} : w_{3} : s^{-2}ty_{4}], s^{-1}\xi \right) \\ &\implies (s^{-1}, st^{-1}, s^{-2}t, s^{-1}).
+			\left( [sz_{1} : tz_{2} : x_{3} : x_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tz_{2} : s^{-1}x_{3} : x_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, y_{1} : y_{2} : sw_{3} : s^{-1}ty_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, s^{-1}y_{1} : s^{-1}y_{2} : w_{3} : s^{-2}ty_{4}], s^{-1}\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}, st^{-1}, s^{-2}t, s^{-1}).
 		\end{align*}
 	
 		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
