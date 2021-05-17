@@ -1,0 +1,144 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[parfill]{parskip}    
+\usepackage{graphicx}
+\usepackage{amssymb, amsfonts,mathabx}
+\usepackage{epstopdf}
+
+\usepackage{amsmath, amsthm}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{braket}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix,arrows,patterns,calc,through,backgrounds,fadings, decorations}
+\usetikzlibrary{decorations.pathreplacing}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition\rm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}{\it Remark\/}
+\newtheorem{example}{Example}
+
+\newcommand{\st}{\ensuremath{:}}% such that
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longleftarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\lbracket}{\left(}
+\newcommand{\rbracket}{\right)}
+
+
+\newcommand{\al}{\alpha}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\vp}{\varphi}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mft}{\mathfrak{t}}
+
+\newcommand{\dbar}{\bar{\partial}}
+
+\DeclareMathOperator{\Lie}{\text{Lie}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Sympl}{Sympl}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Td}{Td}
+\DeclareMathOperator{\Ch}{Ch}
+
+\usepackage{hyperref}
+
+\title{Question R.E. $S^{1}$-Action via a Subtorus}
+\author{Benjamin C. W. Brown}
+\address[Benjamin Brown]{School of Mathematics and Maxwell Institute, The University of Edinburgh, Peter Guthrie Tait Road, Edinburgh EH9 3FD, United Kingdom}
+\email{B.Brown@ed.ac.uk}
+\date{\today}  
+\thanks{}                                         
+\begin{document}
+
+\maketitle
+ 
+\section{Example}
+
+Take $(\CC^{2}, \w_{std})$ with $T^{2}$ acting on $\CC^{2}$ as
+\[
+	(t_{1}, t_{2}) \cdot (z_{1}, z_{2}) = (t_{1}z_{1}, t_{2}z_{2}).
+\]
+
+This action is Hamiltonian with moment map $\mu : \CC^{2} \ra \RR^{2}$ given by
+\[
+	\mu(z_{1},z_{2}) = \frac{1}{2}\left(|z_{1}|^{2}, |z_{2}|^{2}\right).
+\]
+
+For the symplectic cut, relabel $M:= \CC^{2}$ then consider $M \times \CC$, along with the following $S^{1}$-action:
+\[
+	\tau \cdot (z_{1}, z_{2}, \xi) = (\tau z_{1}, \tau z_{2}, \tau \xi),
+\]
+
+so $S^{1}$ can be thought of acting on the first factor, $M$, via the inclusion $S^{1} \hookrightarrow T^{2}$ as $\tau \mapsto (\tau, \tau)$, and then via the diagonal product action on $M \times \CC$. This action is also Hamiltonian, with moment map $\Phi : M \times \CC \ra \RR$, given by
+\[
+	\Phi(z_{1}, z_{2}, \xi) = \frac{1}{2}\left(|z_{1}|^{2} + |z_{2}|^{2} + |\xi|^{2}\right).
+\]
+
+Consider the preimage of $k \in \ZZ$ under $\Phi$ to get
+\[
+	\Phi^{-1}(k) = \Set{(z_{1} , z_{2}, 0) \in M \times \CC | \|z\|^{2} = 2k} \bigsqcup \Set{ (z_{1}, z_{2}, \xi) \in M \times \CC | \|z\|^{2} < 2k },
+\]
+then its quotient by the $S^{1}$-action is the symplectic cut of $\CC^{2}$:
+\[
+	M_{k} \cong \
+\]
+
+
+
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\href}[2]{#2}
+
+\bibliographystyle{unsrt}
+\bibliography{question}
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
