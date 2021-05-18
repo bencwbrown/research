@@ -14,7 +14,7 @@
 \usepackage{amsfonts}       % blackboard math symbols
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
-\usepackage{lipsum}		% Can be removed after putting your text content
+% \usepackage{lipsum}		% Can be removed after putting your text content
 \usepackage{amsmath} 
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -223,6 +223,103 @@
 		[z_{1} : tz_{2} : z_{3} : tz_{4} \, | \, w_{1} : t^{-1}w_{2} : w_{3} : t^{-1}w_{4}] = [z_{1} : z_{2} : z_{3} : z_{4} \, | \, w_{1} : w_{2} : w_{3} : w_{4} ].
 	\]
 	
+	\subsection{Figure}
+	
+	\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+	\definecolor{aqaqaq}{rgb}{0.6274509803921569,0.6274509803921569,0.6274509803921569}
+	\definecolor{ffffff}{rgb}{1,1,1}
+	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+
+	\scalebox{0.1}{
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\clip(-80.91285845240186,-49.5404739373378) rectangle (93.8413205283568,54.72638210324665);
+		\fill[line width=2pt,color=aqaqaq,fill=aqaqaq,fill opacity=1] (0,0) -- (20,0) -- (0,20) -- cycle;
+		\fill[line width=2pt,color=aqaqaq,fill=aqaqaq,fill opacity=1] (0,20) -- (0,30) -- (-10,30) -- cycle;
+		\fill[line width=2pt,fill=black,fill opacity=0.1] (20,30) -- (-30,30) -- (-20,40) -- (0,40) -- cycle;
+		\fill[line width=2pt,fill=black,fill opacity=0.1] (0,30) -- (0,20) -- (50,-30) -- (50,0) -- (20,30) -- cycle;
+		\fill[line width=2pt,fill=black,fill opacity=0.1] (-30,0) -- (20,0) -- (50,-30) -- (0,-30) -- cycle;
+		\fill[line width=2pt,fill=black,fill opacity=0.1] (-30,30) -- (-10,30) -- (0,20) -- (0,0) -- (-30,0) -- cycle;
+		\draw [line width=0.4pt,dash pattern=on 1pt off 1pt,color=ffffff,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-0-0*\x)/20});
+		\draw [line width=0.4pt,dash pattern=on 1pt off 1pt,color=ffffff,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-400--20*\x)/-20});
+		\draw [line width=0.4pt,dash pattern=on 1pt off 1pt,color=ffffff] (0,-49.5404739373378) -- (0,54.72638210324665);
+		\draw [line width=0.4pt,dash pattern=on 1pt off 1pt,color=ffffff,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-300-0*\x)/-10});
+		\draw [line width=2pt,color=aqaqaq] (0,0)-- (20,0);
+		\draw [line width=2pt,color=aqaqaq] (20,0)-- (0,20);
+		\draw [line width=2pt,color=aqaqaq] (0,20)-- (0,0);
+		\draw [line width=2pt,color=aqaqaq] (0,20)-- (0,30);
+		\draw [line width=2pt,color=aqaqaq] (0,30)-- (-10,30);
+		\draw [line width=2pt,color=aqaqaq] (-10,30)-- (0,20);
+		\draw (1.0783302495220166,46.56909547218789) node[anchor=north west] {$Q_{14}^{(1)} = [0: z_{2}:0:0\, |\, 0:0:w_{3}:w_{4}]$};
+		\draw (-60.62422247258906,44.79122530900842) node[anchor=north west] {$Q_{34}^{(3)} = [0: z_{2}:0:0\, |\, w_{1}:0:0:w_{4}]$};
+		\draw (0.3462660646834106,31.19574759057714) node[anchor=north west] {$P_{14}$};
+		\draw (-5.719408609693611,21.260590796338903) node[anchor=north west] {$P_{13}$};
+		\draw (15.92877514196231,0.5536324251897347) node[anchor=north west] {$P_{23}$};
+		\draw (-5.3010862183572645,0.3444712295215612) node[anchor=north west] {$P_{12}$};
+		\draw (-14.817920621259143,30.568264003572622) node[anchor=north west] {$P_{34}$};
+		\draw [line width=2pt] (0,-49.5404739373378) -- (0,54.72638210324665);
+		\draw [line width=2pt,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-0-0*\x)/-20});
+		\draw [line width=2pt,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-300-0*\x)/-10});
+		\draw [line width=2pt,domain=-80.91285845240186:93.8413205283568] plot(\x,{(-200--10*\x)/-10});
+		\draw [line width=2pt] (0,40)-- (20,30);
+		\draw [line width=2pt] (20,30)-- (50,0);
+		\draw [line width=2pt] (50,0)-- (50,-30);
+		\draw [line width=2pt] (50,-30)-- (0,-30);
+		\draw [line width=2pt] (0,-30)-- (-30,0);
+		\draw [line width=2pt] (-30,0)-- (-30,30);
+		\draw [line width=2pt] (-30,30)-- (-20,40);
+		\draw [line width=2pt] (-20,40)-- (0,40);
+		\draw (15.196710957123704,-17.74797219577544) node[anchor=north west] {$\Delta_{2}$};
+		\draw (40.296054437304484,-8.649460184209897) node[anchor=north west] {$\Delta_{23}$};
+		\draw (24.71354536002558,15.717819111132307) node[anchor=north west] {$\Delta_{3}$};
+		\draw (4.215748184544614,36.32019688444739) node[anchor=north west] {$\Delta_{34}$};
+		\draw (-10.94843850139794,39.66677601513817) node[anchor=north west] {$\Delta_{134}$};
+		\draw (-21.72024007830886,36.73851927578374) node[anchor=north west] {$\Delta_{14}$};
+		\draw (-22.138562469645205,16.031560904634567) node[anchor=north west] {$\Delta_{1}$};
+		\draw (-12.307986273241065,-6.5578482275281615) node[anchor=north west] {$\Delta_{12}$};
+		\draw (4.215748184544614,8.815499654082585) node[anchor=north west] {$\Delta_{\emptyset}$};
+		\draw (-5.196505620523178,29.62703862306584) node[anchor=north west] {$\Delta_{13}$};
+		\draw (19.58909606615534,37.57516405845643) node[anchor=north west] {$Q_{14}^{(4)} = [z_{1}: z_{2}:0:0\, |\, 0:0:w_{3}:0]$};
+		\draw (49.60372764453819,7.665113077907631) node[anchor=north west] {$Q_{23}^{(2)} = [z_{1}: 0 :0:z_{4}\, |\, 0:0:w_{3}:0]$};
+		\draw (50.649533622879055,-22.767840891811602) node[anchor=north west] {$Q_{23}^{(3)} = [z_{1}:0:0:z_{4}\, |\, 0:w_{2} :0:0]$};
+		\draw (-37.616490949090014,-29.147257359690894) node[anchor=north west] {$Q_{12}^{(1)} = [0 : 0 : z_{3} : z_{4} \, | \, 0 : w_{2} : 0 : 0]$};
+		\draw (-66.79447774480018,0.5536324251897347) node[anchor=north west] {$Q_{12}^{(2)} = [0 : 0 : z_{3} : z_{4} \, | \, w_{1} : 0 : 0 : 0]$};
+		\draw (-67.63112252747287,30.98658639490897) node[anchor=north west] {$Q_{34}^{(4)} = [0 : z_{2} : z_{3} : 0 \, | \, w_{1} : 0 : 0 : 0]$};
+		\draw [line width=2pt] (20,30)-- (-30,30);
+		\draw [line width=2pt] (-30,30)-- (-20,40);
+		\draw [line width=2pt] (-20,40)-- (0,40);
+		\draw [line width=2pt] (0,40)-- (20,30);
+		\draw [line width=2pt] (0,30)-- (0,20);
+		\draw [line width=2pt] (0,20)-- (50,-30);
+		\draw [line width=2pt] (50,-30)-- (50,0);
+		\draw [line width=2pt] (50,0)-- (20,30);
+		\draw [line width=2pt] (20,30)-- (0,30);
+		\draw [line width=2pt] (-30,0)-- (20,0);
+		\draw [line width=2pt] (20,0)-- (50,-30);
+		\draw [line width=2pt] (50,-30)-- (0,-30);
+		\draw [line width=2pt] (0,-30)-- (-30,0);
+		\draw [line width=2pt] (-30,30)-- (-10,30);
+		\draw [line width=2pt] (-10,30)-- (0,20);
+		\draw [line width=2pt] (0,20)-- (0,0);
+		\draw [line width=2pt] (0,0)-- (-30,0);
+		\draw [line width=2pt] (-30,0)-- (-30,30);
+		\begin{scriptsize}
+			\draw [fill=xdxdff] (0,0) circle (2.5pt);
+			\draw [fill=xdxdff] (20,0) circle (2.5pt);
+			\draw [fill=xdxdff] (0,20) circle (2.5pt);
+			\draw [fill=xdxdff] (0,30) circle (2.5pt);
+			\draw [fill=xdxdff] (-10,30) circle (2.5pt);
+			\draw [fill=xdxdff] (0,40) circle (2.5pt);
+			\draw [fill=xdxdff] (20,30) circle (2.5pt);
+			\draw [fill=xdxdff] (50,0) circle (2.5pt);
+			\draw [fill=xdxdff] (50,-30) circle (2.5pt);
+			\draw [fill=ududff] (0,-30) circle (2.5pt);
+			\draw [fill=ududff] (-30,0) circle (2.5pt);
+			\draw [fill=ududff] (-30,30) circle (2.5pt);
+			\draw [fill=ududff] (-20,40) circle (2.5pt);
+		\end{scriptsize}
+	\end{tikzpicture}
+}
+	
 	\subsection{Isotropy Weights}
 	
 	\begin{itemize}
@@ -232,7 +329,7 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : ty_{4}], t\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s, t, s^{-1}t, t),
+			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : ty_{4}], t\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \longleftrightarrow (s, t, s^{-1}t, t),
 		\end{align*}
 	
 		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
@@ -243,7 +340,7 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}w_{1} : t^{-1}y_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, w_{1} : st^{-1}y_{2} : sy_{3} : sy_{4}], s\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s, t, st^{-1}, s).
+			\left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}w_{1} : t^{-1}y_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, w_{1} : st^{-1}y_{2} : sy_{3} : sy_{4}], s\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \longleftrightarrow (s, t, st^{-1}, s).
 		\end{align*}
 	
 		so normal weights $(t, st^{-1})$ from $(z_{2}, w_{2})$ respectively, and inwards-pointing weight $s$ with multiplicity $2$ coming from $z_{1}$ and $\xi$, since $|w_{1}|$ achieves its maximum at $Q_{12}^{(2)}$.
@@ -256,10 +353,10 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4} ], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : s^{-1}y_{4} ], s^{-1}\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}t, s^{-1}, t^{-1}, s^{-1}).
+			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4} ], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : s^{-1}y_{4} ], s^{-1}\xi \right) \\ &\implies (s^{-1}tz_{2}, s^{-1}w_{1}, t^{-1}w_{2}, s^{-1}\xi) \longleftrightarrow (s^{-1}t, s^{-1}, t^{-1}, s^{-1}).
 		\end{align*}
 	
-		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
+		so normal weights $(s^{-1}t, t^{-1})$ from $(z_{2}, w_{2})$ respectively, and inwards-pointing weight $s^{-1}$ with multiplicity $2$ coming from $w_{1}$ and $\xi$, since $|z_{1}|$ achieves its maximum at $Q_{23}^{(2)}$.
 	
 		\item[$Q_{23}^{(3)}$:]
 		\[
@@ -267,10 +364,10 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}w_{2} : sy_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : s^{-1}ty_{4}], s^{-1}t \xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}t, s^{-1}, t, s^{-1}t).
+			\left( [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}w_{2} : y_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}w_{2} : sy_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, s^{-1}ty_{1} : w_{2} : ty_{3} : s^{-1}ty_{4}], s^{-1}t \xi \right) \\ &\implies (s^{-1}z_{3}, s^{-1}tw_{1}, tw_{3}, s^{-1}t\xi) \longleftrightarrow (s^{-1}, s^{-1}t, t, s^{-1}t).
 		\end{align*}
 	
-		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
+		so normal weights $(s^{-1}, t)$ from $(z_{3}, w_{3})$ respectively, and inwards-pointing weight $s^{-1}t$ with multiplicity $2$ coming from $w_{1}$ and $\xi$, since $|z_{1}|$ and $|z_{4}|$ achieve their maximum at $Q_{23}^{(3)}$. (???)
 	
 		\item[$Q_{14}^{(4)}$:]
 		\[
@@ -278,10 +375,10 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			\left( [sz_{1} : tz_{2} : x_{3} : x_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tz_{2} : s^{-1}x_{3} : x_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, y_{1} : y_{2} : sw_{3} : s^{-1}ty_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, s^{-1}y_{1} : s^{-1}y_{2} : w_{3} : s^{-2}ty_{4}], s^{-1}\xi \right) \\ &\implies (sz_{1}, tz_{2}, s^{-1}tw_{1}, t\xi) \leftrightarrow (s^{-1}, st^{-1}, s^{-2}t, s^{-1}).
+			\left( [sz_{1} : tz_{2} : x_{3} : x_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}], \xi \right) &\sim \left( [z_{1} : s^{-1}tz_{2} : s^{-1}x_{3} : x_{4} \, | \, y_{1} : st^{-1}y_{2} : sw_{3} : y_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, y_{1} : y_{2} : sw_{3} : s^{-1}ty_{4}], \xi \right) \\ &\sim \left( [z_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, s^{-1}y_{1} : s^{-1}y_{2} : w_{3} : s^{-2}ty_{4}], s^{-1}\xi \right) \\ &\implies (st^{-1}z_{4}, s^{-1}w_{1}, s^{-2}tw_{4}, s^{-1}\xi) \longleftrightarrow (st^{-1}, s^{-1}, s^{-2}t, s^{-1}).
 		\end{align*}
 	
-		so normal weights $(s, s^{-1}t)$ from $(z_{1}, w_{1})$ respectively, and inwards-pointing weight $t$ with multiplicity $2$ coming from $z_{2}$ and $\xi$, since $|w_{2}|$ achieves its maximum at $Q_{12}^{(1)}$.
+		so normal weights $(st^{-1}, s^{-2}t)$ from $(z_{4}, w_{4})$ respectively, and inwards-pointing weight $s^{-1}$ with multiplicity $2$ coming from $w_{1}$ and $\xi$, since $|z_{1}|$ achieves its maximum at $Q_{14}^{(4)}$.
 	
 	
 	\end{itemize}
