@@ -277,10 +277,43 @@
 		\]
 		has isotropy weights
 		\begin{align*}
-			[sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}] &\sim [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}]  \\ &\implies (sx_{1}, tx_{2}, s^{-1}y_{1}, t^{-1}y_{2}) \longleftrightarrow (s, t, s^{-1}, t^{-1}),
+			[sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}] &\sim [z_{1} : s^{-1}tx_{2} : s^{-1}x_{3} : z_{4} \, | \, y_{1} : st^{-1}y_{2} : sy_{3} : y_{4}]  \\ &\implies (s^{-1}tx_{2}, s^{-1}x_{3}, st^{-1}y_{2}, sy_{3}) \longleftrightarrow (s^{-1}t, s^{-1}, st^{-1}, s),
 		\end{align*}
 		
-		so tangent space weights $(s, t)$ from $(z_{1}, z_{2})$ respectively, and cotangent space weights $(s^{-1}, t^{-1})$ coming from $(w_{1}, w_{2})$ respectively.
+		so tangent space weights $(s^{-1}t,s^{-1})$ from $(z_{2}, z_{3})$ respectively, and cotangent space weights $(st^{-1}, s)$ coming from $(w_{2}, w_{3})$ respectively.
+		
+		\item[$P_{13}$:]
+		\[
+		P_{13} = [ 0 : z_{2} : 0 : z_{4} \, | \, 0 : 0: 0 : 0 ],
+		\]
+		has isotropy weights
+		\begin{align*}
+			[sx_{1} : tz_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}] &\sim [st^{-1}x_{1} : z_{2} : t^{-1}x_{3} : z_{4} \, | \, s^{-1}ty_{1} : y_{2} :t y_{3} : y_{4}] \\ &\implies (st^{-1}x_{1}, t^{-1}x_{3}, s^{-1}ty_{1}, ty_{3}) \longleftrightarrow (st^{-1}, t^{-1}, s^{-1}t, t),
+		\end{align*}
+		
+		so tangent space weights $(st^{-1},t^{-1})$ from $(z_{1}, z_{3})$ respectively, and cotangent space weights $(s^{-1}t, t)$ coming from $(w_{1}, w_{3})$ respectively.
+		
+		\item[$P_{14}$:]
+		\[
+		P_{14} = [ 0 : z_{2} : 0 : 0 \, | \, 0 : 0: w_{3} : 0 ],
+		\]
+		has isotropy weights
+		\begin{align*}
+			[sx_{1} : tz_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : w_{3} : y_{4}] &\sim [sx_{1} : z_{2} : x_{3} : t^{-1}x_{4} \, | \, s^{-1}y_{1} : y_{2} :w_{3} : ty_{4}] \\ &\implies (sx_{1}, t^{-1}x_{4}, s^{-1}y_{1}, ty_{4}) \longleftrightarrow (s, t^{-1}, s^{-1}, t),
+		\end{align*}
+		
+		so tangent space weights $(s^{-1},t^{-1})$ from $(w_{1}, z_{4})$ respectively, and cotangent space weights $(s,t)$ coming from $(z_{1}, w_{4})$ respectively.
+		
+		\item[$P_{34}$:]
+		\[
+		P_{34} = [ 0 : z_{2} : 0 : 0 \, | \, w_{1} : 0: 0 : 0 ],
+		\]
+		has isotropy weights
+		\begin{align*}
+			[sx_{1} : tz_{2} : x_{3} : x_{4} \, | \, s^{-1}w_{1} : t^{-1}y_{2} : y_{3} : y_{4}] &\sim [x_{1} : s^{-1}tz_{2} : s^{-1}x_{3} : x_{4} \, | \, w_{1} : st^{-1}y_{2} : sy_{3} : y_{4}] \\ &\sim [x_{1} : z_{2} : s^{-1}x_{3} : st^{-1}x_{4} \, | \, w_{1} : y_{2} : sy_{3} : s^{-1}ty_{4}] \\ &\implies (s^{-1}x_{3}, st^{-1}x_{4}, sy_{3}, s^{-1}ty_{4}) \longleftrightarrow (s^{-1}, st^{-1}, s, s^{-1}t),
+		\end{align*}
+		
+		so tangent space weights $(st^{-1}, s)$ from $(z_{4}, w_{3})$ respectively, and cotangent space weights $(s^{-1}, s^{-1}t)$ coming from $(z_{3}, w_{4})$ respectively.
 		
 	\end{itemize}
 	
