@@ -257,6 +257,36 @@
 	
 	\subsection{Isotropy Weights}
 	
+	\subsubsection{Interior Points}
+	
+	\begin{itemize}
+		\item[$P_{12}$:]
+		\[
+		P_{12} = [ 0 : 0 : z_{3} : z_{4} \, | \, 0 : 0: 0 : 0 ],
+		\]
+		has isotropy weights
+		\begin{align*}
+			[sx_{1} : tx_{2} : z_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}] & \\ &\implies (sx_{1}, tx_{2}, s^{-1}y_{1}, t^{-1}y_{2}) \longleftrightarrow (s, t, s^{-1}, t^{-1}),
+		\end{align*}
+		
+		so tangent space weights $(s, t)$ from $(z_{1}, z_{2})$ respectively, and cotangent space weights $(s^{-1}, t^{-1})$ coming from $(w_{1}, w_{2})$ respectively.
+		
+		\item[$P_{23}$:]
+		\[
+		P_{23} = [ z_{1} : 0 : 0 : z_{4} \, | \, 0 : 0: 0 : 0 ],
+		\]
+		has isotropy weights
+		\begin{align*}
+			[sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}] &\sim [sz_{1} : tx_{2} : x_{3} : z_{4} \, | \, s^{-1}y_{1} : t^{-1}y_{2} : y_{3} : y_{4}]  \\ &\implies (sx_{1}, tx_{2}, s^{-1}y_{1}, t^{-1}y_{2}) \longleftrightarrow (s, t, s^{-1}, t^{-1}),
+		\end{align*}
+		
+		so tangent space weights $(s, t)$ from $(z_{1}, z_{2})$ respectively, and cotangent space weights $(s^{-1}, t^{-1})$ coming from $(w_{1}, w_{2})$ respectively.
+		
+	\end{itemize}
+	
+	
+	\subsubsection{Exterior Points}
+	
 	\begin{itemize}
 		\item[$Q_{12}^{(1)}$:]
 		\[
