@@ -353,7 +353,7 @@
 	\begin{equation*}
 		\Delta_{A} = \bigg(\bigcap_{i\in A} F_{i}   \bigg) \cap \bigg( \bigcap_{i\not\in A} G_{i}.   \bigg),
 	\end{equation*}
-	some of which may be empty.
+	some of which may be empty. Note that $\mcE_{\emptyset} = \mf{X}$ and that in general, each variety $\mcE_{A}$ is a $d$-dimensional \K subvariety of $\mf{M}$ with an effective Hamiltonian $T^{d}$-action, so is itself a toric variety.
 	
 	\begin{lemma}
 		If $w_{i} = 0$ then $\Image(\prr) \subseteq F_{i}$, and if $z_{i} = 0$ then $\Image(\prr) \subseteq G_{i}$.
@@ -367,41 +367,45 @@
 		and hence $y \geq 0$ if $i \in A$, and $y \leq 0$ if $i \not\in A$.
 	\end{proof}
 	
-	
-
-	
 	\begin{lemma}
 		The component $\mc{E}_{A}$ of the extended core is isomorphic to the toric variety corresponding to the polytope $\Delta_{A}$.
 	\end{lemma}
 	
-	The $\CC^{\ast}$-action does not act as a sub-torus of $T_{\CC}^{d}$ on $M$ globally, but when restricted to each component $\mc{E}_{A}$ of the extended core it does in a combinatorial fashion that we shall now describe.
-	
-	Consider a component $\mc{E}_{A} \subset \mc{E}$, then for some $[z,w] \in \mc{E}_{A}$ and $\hbar \in \CC^{\ast}$:
-	\begin{equation*}
-		\hbar \cdot [z,w] = [z,\hbar w] = [\hbar_{1} z_{1}, \ldots, \hbar_{n} z_{n}, w_{1}, \ldots , w_{n}     ],\qquad \text{where } \hbar_{i} = 
+	The $S^{1}$-action does not act as a subtorus of $T^{d}$ on $\mf{M}$ globally, but does when restricted to each individual component $\mc{E}_{A}$ of the extended core. Consider a component $\mc{E}_{A} \subset \mc{E}$, then for some $[z,w] \in \mc{E}_{A}$ and $\tau \in S^{1}$,
+	\[
+		\tau \cdot [z,w] = [z,\tau w] = [\tau_{1} z_{1}, \ldots, \tau_{n} z_{n} | \tau_{i}^{-1}w_{1}, \ldots , \tau_{n}^{-1}w_{n}     ],\qquad \text{where } \tau_{i} = 
 		\begin{cases}
-			\hbar^{-1}\qquad &\text{if } i \in A,\\
-			1\qquad &\text{if } i \not\in A.
-		\end{cases}
-	\end{equation*}
-	This shows that the restriction of the $\CC^{\ast}$-action to the component $\mc{E}_{A}$ is the one-dimensional sub-torus $(\CC^{\ast})_{A} := (\hbar_{1}, \ldots, \hbar_{n})$ of the original torus $T_{\CC}^{n}$, which we can then restrict to the circle subgroup $S_{A} \subset T^{n}$.
+			\tau^{-1} \qquad &\text{if } i \in A,\\
+			1\qquad &\text{if } i \not\in A,
+		\end{cases}	
+	\]
+	since for each pair $(z_{i}, w_{i})$, if $i \in A$ then $(\tau z_{i}, \tau^{-1}w_{i}) = (0, \tau w_{i})$, and if $i \not\in A$, then $(\tau z_{i}, \tau^{-1}w_{i}) = (z_{i}, 0)$.
 	
-	For $B \subseteq \{1,\ldots, n\}$, denote by $\mc{E}_{A}^{B}$ the subvariety of the extended core component $\mc{E}_{A}$ defined by
-	\begin{equation*}
-		\mc{E}_{A}^{B} := \mc{E}_{A} \cap \{z_{j} = 0 = w_{j}\}
-	\end{equation*}
-	which may be empty. In $(\RR^{d})^{\ast}$, this corresponds to the intersection of the polyhedron $\Delta_{A}$ with the collection of hyperplanes $\{ H_{j}  \}_{j \in B}$, that is
-	\begin{equation*}
-		\Delta_{A}^{B} = \bigg( \bigcap_{j \in B} H_{j} \bigg) \cap \Delta_{A}.
-	\end{equation*}
+	Thus when restricting our attention to each individual component $\mc{E}_{A}$ of the extended core, the $S^{1}$-action acts on $\mcE_{A}$ via an inclusion homomorphism onto a one-parameter subgroup of $T^{n}$, which consequently then descends to a $T^{d}$-action after taking the quotient of $T^{n}$ by $K$.
 	
-	\begin{prop}
-		The fixed point set of the $S^{1}$-action on $\mc{E}_{A}$ is the union of those toric subvarieties $\mc{E}_{A}^{B}$ such that $\sum_{i\in A} u_{i}$ lies in $\text{Span}_{j \in B} u_{j}$.
-	\end{prop}
+	Let us denote the restricted action of the image of $S^{1}$ in $T^{d}$ to $\mcE_{A}$ by $S^{1}_{A}$,
+	\[
+		\begin{tikzcd}
+			S^{1} \arrow[rr, "j_{A}", hook] &  & T^{n} \arrow[rr, "\pi"]                                      &  & S^{1}_{A} < T^{d}    \\
+			\tau \arrow[rr, maps to]        &  & {(\tau_{1}^{-1}, \ldots, \tau_{n}^{-1})} \arrow[rr, maps to] &  & v_{A} := \sum_{i \in A} u_{i}
+		\end{tikzcd}
+	\]
+	where we have denoted the generator of the one-parameter subgroup $S_{A}^{1}$ in $T^{d}$ by $v_{A} = \sum_{i \in A} u_{i}$.
 	
-	\begin{corollary}
-		Every vertex $v \in (\RR^{d})^{\ast}$ of the polyhedral complex given by our arrangement is the image of an $S^{1}$-fixed point in $\mf{M}$. Every component of $\mf{M}^{S^{1}}$ maps to a face of the polyhedral complex.
-	\end{corollary}
+	
+	\begin{example}
+		For $\mf{M} = T^{\ast}\CC\PP^{2}$,
+		
+		\begin{figure}[h!]
+			%		\centering
+			\includegraphics[width=1\linewidth]{figures/T_CP2_combinatorics.pdf}
+			\caption{Combinatorics of the action of the residual $S^{1}$-action on the extended core $\mcE_{A}$ of $T^{\ast}\CC\PP^{2}$, represented by each generator $v_{A}$ of $S_{A}^{1}$ in $T^{2}$.}
+%			\label{fig:test1}
+		\end{figure}
+		
+
+	
+	\end{example}
 	
 	\section{Compactifying the Hypertoric Variety via Symplectic Cutting}
 	
@@ -423,19 +427,19 @@
 			&=: \Sigma_{1} \sqcup \Sigma_{2},
 		\end{split}
 	\end{equation*}
-	where we denote the level-set $\phi^{-1}(\e) \subseteq \mf{M}$ by $\Sigma_{1}$, and $\Sigma_{2} \cong \mf{M} \times S^{1}$ is the trivial $S^{1}$-bundle over $\Sigma_{2}$, using the globally defined section
+	where we denote the level-set $\phi^{-1}(\e) \subseteq \mf{M}$ by $\Sigma_{1}$, and $\Sigma_{2} \cong \mf{M} \times S^{1}$ is the trivial $S^{1}$-bundle over $\Sigma_{2}$ given by the globally defined section
 	\begin{equation*}
 		\mf{M} \rightarrow \mf{M} \times S^{1}, \qquad [z,w] \longmapsto \big( [z,w], e^{i\theta}\sqrt{\e - \|w\|^{2}}\big), \qquad e^{i\theta} \in S^{1}.
 	\end{equation*}
-	Finally, taking the quotient of $\m_{\text{cut}}^{-1}(0)$ by the $S^{1}$-action, we obtain the symplectic cut
+	Finally, taking the symplectic reduction of $\Phi^{-1}(\e)$ with respect to the $S^{1}$-action, we obtain the \emph{symplectic cut of $\mf{M}$ at level-$\e$},
 	\begin{equation*}
-		M_{\leq \e} := \m_{\text{cut}}^{-1}(0)/S^{1} = \Sigma_{1}/S^{1} \bigsqcup \Sigma_{2}/S^{1},
+		M_{\leq \e} := \Phi^{-1}(\e)/S^{1} = \Sigma_{1}/S^{1} \bigsqcup \Sigma_{2}/S^{1},
 	\end{equation*}
-	where $\Sigma_{1}/S^{1} = \Phi^{-1}(\e)/S^{1}$ is just the symplectic reduction, and where $\Sigma_{2}/S^{1}$ is diffeomorphic to $M$ for $\|w\|^{2} < 2\e$, which we denote by $\mf{M}_{<\epsilon}$.
+	where $\Sigma_{1}/S^{1} \cong \phi^{-1}(\e)/S^{1}$ is just the usual symplectic reduction, and where $\Sigma_{2}/S^{1}$ is diffeomorphic to $\mf{M}$ for $\|w\|^{2} < \e$, which we will denote by $\mf{M}_{<\epsilon}$.
 	
-	\subsection{Restriction to an Extended Core Component, $\mc{E}_{A}$}
+	\subsection{The Combinatorics of the Cut Space, $\mf{M}_{\leq \e}$}
 	
-	Since the residual circle $S^{1}$-action acts as a subgroup of the original torus $T^{n}$ when restricted to each component $\mc{E}_{A}$ of the extended core $\mc{E}$, we can described combinatorially the resulting configuration of the hyperplane arrangement in $(\RR^{d})^{\ast}$ from taking the cut. For each component, let $j_{A}: \mf{s}^{1} \rightarrow \RR^{n}$ be the derivative of the inclusion of $S^{1}$ into $T^{n}$ on the Lie algebra level, that is
+	Since the residual circle $S^{1}$-action acts as a subgroup of the original torus $T^{n}$ when restricted to each component $\mc{E}_{A}$ of the extended core $\mc{E}$, we can combinatorially describe the resulting configuration of the hyperplane arrangement in $(\mft^{d})^{\ast}$ after taking the cut. For each component, let $j_{A}: \mf{s}^{1} \rightarrow \RR^{n}$ be the derivative of the inclusion of $S^{1}$ into $T^{n}$ on the Lie algebra level, that is
 	\begin{equation*}
 		j_{A}( \xi  ) = (\xi_{1},\ldots, \xi_{n}),\qquad \text{where } \xi_{i} = 
 		\begin{cases}
