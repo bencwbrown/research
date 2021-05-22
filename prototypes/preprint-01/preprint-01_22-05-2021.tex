@@ -455,15 +455,19 @@
 	
 	Since the residual circle $S^{1}$-action acts as a subtorus $S_{A}^{1}$ of the residual torus $T^{d}$ on each component $\mc{E}_{A}$ of the extended core, the hyperplane arrangement determined in $(\mft^{d})^{\ast}$ by the real moment map $\bar{\mu}_{\RR}$ is compactified by dropping in half-spaces with an inwards-pointing normal vector, given by $v_{A}$ when taking the cut. 
 	
-	Recall from the previous section that $j_{A}: S_{1} \hookrightarrow T^{n}$ denoted the inclusion homomorphism of $S^{1}$ into the big torus $T^{n}$. If we let $j_{A, \ast}: \mf{s}^{1} \rightarrow (\mft^{\ast})^{n}$ represent the differential of this inclusion,
-	\begin{equation*}
-		j_{A}( \xi  ) = (\xi_{1},\ldots, \xi_{n}),\qquad \text{where } \xi_{i} = 
-		\begin{cases}
-			-1\qquad&\text{if } i\in A,\\
-			0\qquad &\text{if } i \not\in A,
-		\end{cases}
-	\end{equation*}
-	so that its image in $\RR^{n}$ generates a circle subgroup $S^{1}$ in $T^{n}$ that depends on each component $\mc{E}_{A}$. Then the moment map for this restriction for the $S^{1}$-action is
+	Recall from the previous section that $j_{A}: S_{1} \hookrightarrow T^{n}$ denoted the inclusion homomorphism of $S^{1}$ into the big torus $T^{n}$. If we let $j_{A, \ast}: \mf{s}^{1} \rightarrow \mft^{n}$ represent the differential of this inclusion, then
+	\[
+		j_{A,\ast}(1) = \sum_{i \in A} e_{i} \in \mft^{n},
+	\]
+	and the generator $\exp(v_{A})$ of the one-parameter subgroup $S_{A}^{1}$ in $T^{d}$ is
+	\[
+		\exp(v_{A}) = \exp\lbracket \pi_{\ast} \circ j_{A, \ast}(1) \rbracket,
+	\]
+	or to be more concise,
+	\[
+		S_{A}^{1} = \Set{ \exp \lbracket r \cdot \sum_{i \in A} u_{i} \rbracket | r \in \RR }.
+	\]
+	Then the moment map for this restriction for the $S^{1}$-action is
 	\begin{equation*}
 		\Phi[z,w] = j_{A}^{\ast} \circ \mrr[z,w] = \bigg\langle \mrr(z,w), \sum_{i\in A}\xi_{i} u_{i} \bigg\rangle,
 	\end{equation*}
