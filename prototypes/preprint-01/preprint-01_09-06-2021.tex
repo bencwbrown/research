@@ -197,6 +197,67 @@
 	
 	\section{Hypertoric Varieties}
 
+	\subsection{Compactification via Symplectic Cutting}
+	
+	We will use the $S^{1}$-action to perform a symplectic cut of the toric \HK manifold $\mf{M}$ to compactify it, which has the effect of bounding the $\|w\|^{2}$-norm component of the real moment map $\bar{\mu}_{\RR}$ by above, and discarding the rest that lies above this bound. Consider the product $\mf{M} \times \CC$,  and let $S^{1}$ act on $\mf{M} \times \CC$ via the diagonal product action, i.e. $S^{1}$ acts on $M$ by rotating the cotangent fibre coordinates, and on $\CC$ in the standard way:
+	$$
+	e^{i\theta} \cdot \big( [z,w], \xi   \big) = \left( e^{i\theta} \cdot [z,w], e^{i\theta}\xi\right) = \left( [z,e^{i\theta}w], e^{i\theta}\xi\right).
+	$$
+	This action is Hamiltonian, and the corresponding moment map $\Phi : \mf{M} \times \CC \ra \RR_{\geq 0}$ for the $S^{1}$-action is
+	\[
+	\Phi\big( [z,w], \xi  \big) = \phi[z,w] + |\xi|^{2} = \|w\|^{2} + |\xi|^{2}.
+	\]
+	Then we have
+	\begin{equation*}
+		\begin{split}
+			\Phi^{-1}(\e) &= \big\{ ([z,w],\xi) \in M \times \CC \st \|w\|^{2} + |\xi|^{2} = \e    \big\} \\
+			&= \big\{ [z,w] \in M \st \|w\|^{2} = \e    \big\} \bigsqcup \big\{ ([z,w],\xi) \in M \times \CC \st |\xi| = \pm\sqrt{\e - \|w\|^{2}} \big\} \\
+			&= \big\{ [z,w] \in M \st \|w\|^{2} = \e    \big\} \bigsqcup \big\{ ([z,w],\xi) \in M \times \CC \st \xi = e^{i\arg(\xi)}\sqrt{\e - \|w\|^{2}}    \big\} \\
+			&= \phi^{-1}(\e) \bigsqcup \lbracket \mf{M} \times S^{1}\rbracket \\
+			&=: \Sigma_{1} \sqcup \Sigma_{2},
+		\end{split}
+	\end{equation*}
+	where we denote the level-set $\phi^{-1}(\e) \subseteq \mf{M}$ by $\Sigma_{1}$, and $\Sigma_{2} \cong \mf{M} \times S^{1}$ is the trivial $S^{1}$-bundle over $\Sigma_{2}$ given by the globally defined section
+	\begin{equation*}
+		\mf{M} \rightarrow \mf{M} \times S^{1}, \qquad [z,w] \longmapsto \big( [z,w], e^{i\theta}\sqrt{\e - \|w\|^{2}}\big), \qquad e^{i\theta} \in S^{1}.
+	\end{equation*}
+	Finally, taking the symplectic reduction of $\Phi^{-1}(\e)$ with respect to the $S^{1}$-action, we obtain the \emph{symplectic cut of $\mf{M}$ at level-$\e$},
+	\begin{equation*}
+		M_{\leq \e} := \Phi^{-1}(\e)/S^{1} = \Sigma_{1}/S^{1} \bigsqcup \Sigma_{2}/S^{1},
+	\end{equation*}
+	where $\Sigma_{1}/S^{1} \cong \phi^{-1}(\e)/S^{1}$ is just the usual symplectic reduction, and where $\Sigma_{2}/S^{1}$ is diffeomorphic to $\mf{M}$ for $\|w\|^{2} < \e$, which we will denote by $\mf{M}_{<\epsilon}$.
+	
+	\subsection{The Combinatorics of the Cut Space, $\mf{M}_{\leq \e}$}
+	
+	Since the residual circle $S^{1}$-action acts as a subtorus $S_{A}^{1}$ of the residual torus $T^{d}$ on each component $\mc{E}_{A}$ of the extended core, the hyperplane arrangement determined in $(\mft^{d})^{\ast}$ by the real moment map $\bar{\mu}_{\RR}$ is compactified by dropping in half-spaces with an inwards-pointing normal vector, given by $v_{A}$ when taking the cut. 
+	
+	Recall from the previous section that $j_{A}: S_{1} \hookrightarrow T^{n}$ denoted the inclusion homomorphism of $S^{1}$ into the original torus $T^{n}$. If we let $j_{A, \ast}: \mf{s}^{1} \rightarrow \mft^{n}$ represent the differential of this inclusion, then
+	\[
+	j_{A,\ast}(1) = \sum_{i \in A} e_{i} \in \mft^{n},
+	\]
+	and the generator $\exp(v_{A})$ of the one-parameter subgroup $S_{A}^{1}$ in $T^{d}$ is
+	\[
+	\exp(v_{A}) = \exp\lbracket \pi_{\ast} \circ j_{A, \ast}(1) \rbracket,
+	\]
+	or to be more concise,
+	\[
+	S_{A}^{1} = \Set{ \exp \lbracket r \cdot \sum_{i \in A} u_{i} \rbracket | r \in \RR }.
+	\]
+	Then the moment map for the restricted $S^{1}$-action to $\mcE_{A}$ is
+	\begin{equation*}
+		\phi_{A}[z,w] := \restr{\phi}{\mcE_{A}} [z,w] =  (j_{A}^{\ast} \circ \mrr)[z,w] = \left\langle \bar{\mu}_{\RR}[z,w], \sum_{i\in A} u_{i} \right\rangle,
+	\end{equation*}
+	where $j_{A}^{\ast} : (\mft^{n})^{\ast} \ra \RR^{\ast}$ is the transposed differential of the inclusion, $j_{A, \ast}$.
+	
+	As the $S_{A}^{1}$-action depends combinatorially on the component $\mcE_{A}$, the image of the real moment map in $(\mft^{d})^{\ast}$ is compactified by inserting a half-space $Z_{A}$ with inwards-pointing normal $v_{A} = \sum_{i \not\in A}u_{i}$ determining the orientation, on each component $\Delta_{A}$.
+	
+	\section{Hypertoric Subvarieties}
+	
+	\subsection{Universal Modifications}
+	
+	
+	
+	
 	
 
 	
