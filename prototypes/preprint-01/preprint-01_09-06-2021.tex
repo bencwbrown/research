@@ -94,12 +94,15 @@
 \newcommand{\mcH}{\mathcal{H}}
 \newcommand{\mcL}{\mathcal{L}}
 \newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcR}{\mathcal{R}}
 \newcommand{\mfg}{\mathfrak{g}}
 \newcommand{\mfh}{\mathfrak{h}}
 \newcommand{\mfk}{\mathfrak{k}}
 \newcommand{\mft}{\mathfrak{t}}
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\krr}{k_{\RR}}
+\newcommand{\kcc}{k_{\CC}}
 
 \newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
 \newcommand{\sssslash}{\mathbin{/\mkern-6mu/\mkern-6mu/\mkern-6mu/}}
@@ -273,7 +276,23 @@
 		\end{lemma}
 	
 	\begin{proof}
-		The map $m \mapsto (1, \Phi(m))$ sends $M$  to the Lagrangian $\mfk^{\ast} \subset T^{\ast}K$,  so $j$ pulls back the complex-symplectic form $\w_{\CC} \times 0 $ on $M \times \mfk^{\ast} \subset M \times T^{\ast}K_{\CC}$ to $\w_{HK}$ on $M$. Thus $j_{\CC}$ is a complex-symplectic embedding.
+		The map $m \mapsto (1, \Phi_{\CC}(m))$ sends $M$  to the Lagrangian $\mfk_{\CC}^{\ast} \subset T^{\ast}K_{\CC}$,  so $j_{\CC}$ pulls back the complex-symplectic form $\w_{\CC} \times 0 $ on $M \times \mfk^{\ast} \subset M \times T^{\ast}K_{\CC}$ to $\w_{HK}$ on $M$. Thus $j_{\CC}$ is a holomorphic-symplectic embedding.
+		
+		The complex moment map for the diagonal left $K$-action on $M \times T^{\ast}K_{\CC}$ is $\Psi_{\CC}^{\mcL}(m, k, \lambda_{\CC}) = \Phi_{\CC} - k\cdot \lambda_{\CC}$, so $j_{\CC}$ maps $M$ into
+			\[
+				\Phi_{\CC}^{-1}(0) = \Set{ (m, k_{\CC}, \lambda_{\CC}) \in M \times T^{\ast}K_{\CC} | \Phi_{\CC}(m) = k_{\CC}\cdot \lambda_{\CC} }.
+			\]
+		The induced map $\bar{\jmath}_{\CC}$ is a \nb{biholomorphism?}, and moreover is a holomorphic symplectomorphism as $j_{\CC}$ is a holomorphic symplectic embedding.
+		
+		Moreover,
+			\[
+				j_{\CC}(\kcc\cdot m) = (\kcc \cdot m, e_{K_{\CC}}, \Phi_{\CC}(\kcc\cdot m) ) = (\kcc \cdot m, e_{K_{\CC}}, \kcc\cdot\Phi_{\CC}(m) ) = \mcL_{\kcc}\mcR_{\kcc}j_{\CC}(m),
+			\]
+			and
+			\[
+				\Psi_{\CC}^{\mcR}(j(m)) = \Psi_{\CC}^{\mcR}(m, e_{K_{\CC}}, \Phi_{\CC}(m)) = \Phi_{\CC}(m),
+			\]
+			so $\bar{\jmath}$ is $K$-equivariant and intertwines the complex moment maps on $M$ and the complex-symplectic quotient, $\Psi_{\CC}^{-1}(0) / K =  \left(M \times T^{\ast}K_{\CC}\right)\sslash K$.
 	\end{proof}
 	
 	
