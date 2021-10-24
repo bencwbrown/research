@@ -1,0 +1,491 @@
+\documentclass[a4paper,onecolumn,12pt]{article}
+
+\usepackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{IEEEtrantools}
+\usepackage{mathtools}
+\setstretch{1.44}
+\setlength{\columnsep}{6mm}
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries\large\scshape\filcenter}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\normalsize\scshape\filcenter}{\thesubsection}{1em}{}
+
+\newtheorem{thm}{Theorem}[]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{exer}{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{qstn}[thm]{Question}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\vm}{V_{\mu}}
+\newcommand{\vn}{V_{\nu}}
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial \tau}}
+\newcommand{\dd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ddxm}{\frac{\partial}{\partial x^{\mu}}}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\dirac}{\slashed{\partial}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\hooft}{\bar{\eta}}
+\newcommand{\vol}{\w=dt\wedge dx^{1}\wedge dx^{2}\wedge dx^{3}}
+\newcommand{\vole}{\w=d\tau\wedge dx\wedge dy\wedge dz}
+\newcommand{\half}{\frac{1}{2}}
+% Following change makes the caption size footnotesize From: http://rorasa.wordpress.com/2010/01/13/instant-latex-command-for-small-figure-and-table-caption/  
+
+\renewcommand{\abstractname}{}    % clear the title
+\newcommand{\captionfonts}{\footnotesize}
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\Alph{subsection}.}
+
+\makeatletter
+\long\def\@makecaption#1#2{
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\renewcommand\p@subsection{\thesection}
+    
+\makeatother
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Final Year Physics Project - Interim Report}
+
+\author{Benjamin Brown \\
+        \small
+        Department of Physics, University of Warwick,
+        Coventry CV4 7AL, United Kingdom}
+\date{}
+
+
+\maketitle
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\subsection{Aims and Objectives}
+
+The aim of this project is to study the notion of \emph{folded hyperk{\"a}hler manifolds}, i.e. a 4-dimensional manifold which is hyperk{\"a}hler away from some folding hypersurface, on which the hyperk{\"a}hler structure degenerates and the metric is singular \cite{hitchin_2015,biquard_2015}. The canonical example of a folded hyperk{\"a}hler metric is a form of the Gibbons-Hawking ansatz on $\mathbb{R}^{4} = \{(\tau, x, y, z)\}$ with coordinates \cite{evanescent_2016}
+\begin{equation}
+\label{fold_gh_metric}
+	h = \frac{1}{z}(d\tau + \psi)^2 + z(dx^{2} + dy^{2} + dz^{2}),\qquad d\psi = dx\wedge dy.
+\end{equation}
+$h$ is clearly undefined at $z=0$ which defines the fold hypersurface $\mathcal{S}$, has signature $(++++)$ for $z>0$, and signature $(----)$ for $z<0$. The K{\"a}hler 2-forms are given by 
+\begin{subequations}
+	\begin{align} 
+	\theta^{1} &= (d\tau + \psi)\wedge dx - z dy\wedge dz, \\ 
+	\theta^{2} &= (d\tau + \psi)\wedge dy - z dz\wedge dx, \\
+	\theta^{3} &= (d\tau + \psi)\wedge dz - z dx\wedge dy.
+	\end{align}
+\end{subequations}
+Under the pullback of the involution $\imath:z \mapsto -z$, we have
+\begin{equation}
+\label{parity}
+\imath^{*}h = -h,\qquad \imath^{*}\theta^{1} = \theta^{1},\qquad \imath^{*}\theta^{2} = \theta^{2},\qquad \imath^{*}\theta^{3} = -\theta^{3}.
+\end{equation}
+We note that the 2-forms $\theta^{1}, \theta^{2}, \theta^{3}$ are smooth at $z=0$, whilst $h$ is undefined. Pulling back these 2-forms to $\mathcal{S}$, we have
+\begin{equation}
+\mathcal{S}^{*}\theta^{1} = (d\tau+\psi)\wedge dx,\qquad \mathcal{S}^{*}\theta^{2} = (d\tau+\psi)\wedge dy,\qquad
+\mathcal{S}^{*}\theta^{3} = 0.
+\end{equation}
+If we write $\eta = d\tau +\psi,$ then  we note that $d\eta = dx\wedge dy,$ we have that
+\begin{equation}
+	\eta \wedge d\eta = d\tau \wedge dx\wedge dy \neq 0,
+\end{equation}
+\ie it defines a volume form on $\mathcal{S}$ and hence $\eta$ defines a contact form for $\mathcal{S}.$\\
+
+\begin{defn}[\cite{biquard_2015,evanescent_2016}]
+	A folded \HK structure consists of a smooth 4-manifold $\mathcal{M},$ a smoothly imbedded hypersurface $\mathcal{S}\subset\mathcal{M},$ three smooth, closed 2-forms $\theta^{i}$ $(i=1,2,3)$ on $\mathcal{M},$ and a smooth diffeomorphism $\imath:\mathcal{M}\to\mathcal{M}$ such that
+	\begin{enumerate}
+		\item $\mathcal{S}$ divides $\mathcal{M}$ into two disjoint connected components: $\mathcal{M}\backslash\mathcal{S} \cong \mathcal{M}^{+} \cup \mathcal{M}^{-},$
+		\item the 2-forms $\theta^{i}$ define a \HK structure on $\mathcal{M}^{\pm}$ with \HK metric $h^{\pm},$ where $h^{+}$ has signature $(++++)$ and $h^{-}$ has signature $(----),$
+		\item on the fold hypersurface $\mathcal{S}\subset \mathcal{M},$ one has $\mathcal{S}^{\ast}\theta^{1} \neq 0,$ $\mathcal{S}^{\ast}\theta^{2} \neq 0,$
+		$\mathcal{S}^{\ast}\theta^{3} = 0,$ and the distribution $\mathcal{D}\subset T\mathcal{S}$ given by $\mathcal{D} := \ker\mathcal{S}^{\ast}\theta^{1}\oplus\ker\mathcal{S}^{\ast}\theta^{2}$ is a contact distribution,
+		\item $\imath$ is an involution that fixes $\mathcal{S}$ and maps $\mathcal{M}^{\pm}$ to $\mathcal{M}^{\mp}$ such that
+		\begin{equation}
+			\imath^{\ast}h^{\pm} = -h^{\mp},\qquad \imath^{\ast}\theta^{1} = \theta^{1},\qquad \imath^{\ast}\theta^{2} = \theta^{2},\qquad
+			\imath^{\ast}\theta^{3} = -\theta^{3}.
+		\end{equation}
+	\end{enumerate}
+\end{defn}
+
+\begin{defn}
+	Let $\mathcal{S}$ be a manifold of odd dimension $2n+1.$ A \emph{contact structure} is a maximally non-integrable hyperplane field $\xi = \ker \theta \subset T\mathcal{S},$ \ie the defining differential 1-form $\theta$ is required to satisfy
+	\begin{equation}
+		\theta\wedge(d\theta)^{n}\neq 0,
+	\end{equation}
+	so it is nowhere vanishing. In other words, $\theta\wedge(d\theta)^{n}$ defines a volume form on $\mathcal{S}.$
+\end{defn}
+
+\begin{rmk}
+	An integrable hyperplane field means that for any point $p\in \mathcal{M}$ one can find a codimension 1 submanifold $\mathcal{S}$ whose tangent spaces coincide with the hyperplane field, \ie such that $T_{q}\mathcal{S}=\xi_{q}$for all $q\in\mathcal{S}.$
+\end{rmk}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Week 9 Lecture}
+
+Given a 3-dimensional manifold $Y$, we have three symplectic forms $\theta^{a}$ defined on the product manifold $\mathbb{R}\times Y$ by
+\begin{subequations}
+	\begin{align}
+	\label{three_symp}
+	\theta^{1} &= f(dt \wedge \epsilon_{1} +  \epsilon_{2}\wedge \epsilon_{2}), \\ 
+	\theta^{2} &= f(dt \wedge \epsilon_{2} +  \epsilon_{3}\wedge \epsilon_{1}), \\
+	\theta^{3} &= f(dt \wedge \epsilon_{3} +  \epsilon_{1}\wedge \epsilon_{2}),
+\end{align}
+\end{subequations}
+where $f$ is a real, non-zero valued function of $\mathbb{R}\times Y$. Let $\omega = f^{2} dt\wedge dx\wedge dy \wedge dz$ be the volume form on $\mathbb{R}\times Y$, so that
+\begin{equation}
+	\theta^{1} \wedge \theta^{1} = \theta^{2} \wedge \theta^{2} = \theta^{3} \wedge \theta^{3} = 2 \omega.
+\end{equation}
+Recall the 't Hooft eta tensors $\bar{\eta}^{a}_{\mu \nu}$ $(a=1,2,3)$ defined in Ref. \cite{thooft_1976} by
+\[
+\bar{\eta}^{a}_{\mu \nu}= 
+\begin{cases}
+\epsilon_{a\mu\nu},& \text{if } \mu,\nu = 1,2,3\\
+\delta_{a\nu},& \text{if } \mu = 0\\
+-\delta_{a\mu},& \text{if } \nu = 0\\
+0,& \text{otherwise,}
+\end{cases}
+	\]
+and which obey the following identities,
+\begin{subequations}
+	\begin{align}
+	\label{thooft}
+	\bar{\eta}^{a}_{\mu \nu} &= \epsilon_{0 a\mu\nu} + \delta_{0\mu}\delta_{a\nu} - \delta_{a\mu}\delta_{0\nu},\\
+	\bar{\eta}^{a}_{\mu \nu} &= -\bar{\eta}^{a}_{\nu \mu},\\
+	\bar{\eta}^{a}_{\mu \nu}\bar{\eta}^{b}_{\mu \sigma} &= \delta_{ab}\delta_{\nu\sigma} + \epsilon_{abc}\bar{\eta}^{c}_{\nu \sigma}
+	\end{align}
+\end{subequations}
+so that three almost complex structures $J^{a}$ on $\mathbb{R}\times Y$ can be given by
+\begin{equation}
+\label{complex_structure}
+	J^{a}(V_{\mu}) = \bar{\eta}^{a}_{\nu \mu}(V_{\nu}).
+\end{equation}
+Indeed, we observe through an explicit calculation that
+\begin{align*} 
+	J^{a}J^{b}(V_{\mu}) &= \bar{\eta}^{a}_{\nu \mu}\bar{\eta}^{b}_{\sigma\nu}(V_{\sigma})\\ 
+	&= -\bar{\eta}^{a}_{\nu \mu}\bar{\eta}^{b}_{\nu\sigma}(V_{\sigma})\\
+	&= -(\delta_{ab}\delta_{\mu\sigma} + \epsilon_{abc}\bar{\eta}^{c}_{\mu \sigma})(V_{\sigma})\\
+	&= -\delta_{ab}(V_{\mu}) + \epsilon_{abc}\bar{\eta}^{c}_{\sigma\mu}(V_{\sigma})\\
+	&= (-\delta_{ab} + \epsilon_{abc}J^{c})(V_{\mu}),
+\end{align*}
+so the endomorphisms defined in \eqref{complex_structure} obey the quaternionic multiplication relations, therefore providing three almost complex structures on $\mathbb{R}\times Y$. For $\mathbb{R}\times Y$ to be a hyperk{\"a}hler manifold, we still require a metric that is compatible with each of the $J^{a}$. To this end, we can define the metric $g$ to be given by $g_{\mu\nu} = \delta_{\mu\nu}\omega(V_{0},V_{1},V_{2},V_{3})$. Then  the three symplectic forms given in \ref{three_symp} are compatible with the metric $g$, since
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{claim}
+	For each symplectic form $\theta^{a}$, $(a=1,2,3)$, induced by the volume-preserving, linearly-independent vector fields $V_{\mu}$, $(\mu = 0,1,2,3)$ on the product manifold $\mathbb{R}\times Y$, we may write
+	\begin{equation}
+	\theta^{a} = \frac{1}{2}\hooft^{a}_{\mu\nu}\imath_{V_{\mu}}\imath_{V_{\nu}}\omega,
+	\end{equation}
+	where $\omega = f dt \wedge \epsilon_{1}\wedge \epsilon_{2} \wedge \epsilon_{3}$ is the volume form on $\mathbb{R}\times Y$, and $\imath_{V_{\mu}}$ is interior multiplication (equivalently contraction) by the vector $V_{\mu}$.
+\end{claim}
+\begin{proof}
+	By using the first identity in \ref{thooft} and the anticommutativity of the interior multiplication $\imath_{V_{\mu}}\imath_{V_{\nu}} = -\imath_{V_{\nu}}\imath_{V_{\mu}}$, it follows immediately that
+	\begin{align*}
+		\frac{1}{2}\hooft^{a}_{\mu\nu}\imath_{V_{\mu}}\imath_{V_{\nu}}\omega 
+		&= \frac{1}{2}(\epsilon_{0 a\mu\nu} + \delta_{0\mu}\delta_{a\nu} - \delta_{a\mu}\delta_{0\nu})\imath_{V_{\mu}}\imath_{V_{\nu}}\omega\\
+		&= f\Big(\frac{1}{2}\epsilon_{0 a\mu\nu}\imath_{V_{\mu}}\imath_{V_{\nu}} + \imath_{V_{0}}\imath_{V_{a}}\Big)dt\wedge\epsilon_{1}\wedge\epsilon_{2}\wedge\epsilon_{3}\\
+		&=
+		\begin{cases}
+		f(dt \wedge \e_{1} +  \e_{2}\wedge \e_{3}) ,& \text{if } a = 1\\
+		f(dt \wedge \e_{2} +  \e_{3}\wedge \e_{1}) ,& \text{if } a = 2\\
+		f(dt \wedge \e_{3} +  \e_{1}\wedge \e_{2}) ,& \text{if } a = 3
+		\end{cases}\\
+		&= \theta^{a}.
+	\end{align*}
+\end{proof}
+
+\begin{cor}[Half-flat condition]
+	The vector fields $V_{\mu}$ given above satisfy the half-flat condition\footnote{A 4-metric is said to be \emph{half-flat} if its Riemann tensor is proportional to its dual. Then, by the virtue of the Bianchi identity, a half-flat metric is necessarily Ricci flat \cite{ashtekar_1988}.}
+	\begin{equation}
+		\frac{1}{2}\hooft^{a}_{\mu\nu}[V_{\mu},V_{\nu}] = 0,
+	\end{equation}
+	where $[$\ $,$\ $]$ is the Lie bracket for vector fields.
+\end{cor}
+
+\begin{proof}
+	Since the symplectic forms $\theta^{a}$ are closed, we have that
+	\begin{align*}
+		d\theta^{a} &= d\Big(\frac{1}{2}\hooft^{a}_{\mu\nu}\imath_{V_{\mu}}\imath_{V_{\nu}}\omega\Big)\\
+		&= \frac{1}{2}\hooft^{a}_{\mu\nu}d(\imath_{V_{\mu}}\imath_{V_{\nu}}\omega)\\
+		&= \frac{1}{2}\hooft^{a}_{\mu\nu}\imath_{[V_{\mu},V_{\nu}]}\omega\\
+		&= \imath_{\frac{1}{2}\hooft^{a}_{\mu\nu}[V_{\mu},V_{\nu}]}\omega = 0
+	\end{align*}
+	where we have used the volume-preserving property of the $V_{\mu}$, along with the identity
+	\begin{equation}
+	\label{cartan}
+		d(\imath_{V_{\mu}}\imath_{V_{\nu}}\omega) = \imath_{[V_{\mu},V_{\nu}]}\omega + \imath_{V_{\nu}}\mathcal{L}_{V_{\mu}}\omega - \imath_{V_{\mu}}\mathcal{L}_{V_{\nu}}\omega + \imath_{V_{\mu}}\imath_{V_{\nu}}d\omega.
+	\end{equation}
+	From the non-degeneracy of the volume form $\omega$, it follows that
+	\begin{equation*}
+	\label{half_flat}
+	\frac{1}{2}\hooft^{a}_{\mu\nu}[V_{\mu},V_{\nu}] = 0.
+	\end{equation*}\end{proof}
+\begin{defn}
+	\label{defn_half_flat}
+	A 4-metric is said to be \emph{half-flat} if its Riemann tensor is proportional to its dual.\\
+\end{defn}
+\begin{rmk}
+	\label{rmk_half_flat}
+	A half-flat 4-metric induces a \HK structure on the manifold, since half-flatness corresponds to the self-dual Weyl tensor vanishing, which is equivalent to the holonomy group of the manifold being equal to the compact symplectic group $Sp(1),$ which characterises \HK structures by Berger's classification.
+\end{rmk}
+\newpage
+We summarise the above results following \cite{hashimoto_1997}.
+
+\begin{prop}
+	Let $\Sigma^{(n)}$ be an n-dimensional manifold with corresponding volume form $\omega^{(n)}$, and consider the gauge Lie algebra $\mathfrak{sdiff}(\Sigma^{(n)})$ consisting of volume-preserving vector fields on $\Sigma^{(n)}$. The connections on Euclidean space $\R^{n}$ may be written explicitly as 1-forms valued in $\mathfrak{sdiff}(\Sigma^{(n)})$ as $A=A_{\mu}dx^{\mu}$ $(\mu=0,1,2,3)$.
+	Then, if on $\Sigma^{(n)}\times \R^{4-n}$ we have that:
+	\begin{enumerate}
+		\item The $A_{\mu}$ are $\R^{n}$-invariant with respect to the coordinates $(x^{0},...,x^{n-1})$,
+		
+		\item The covariant derivatives of the connection $D_{\mu} = \ddxm + A_{\mu}$ satisfy the half-flat condition, namely
+		$$
+		\frac{1}{2}\hooft^{a}_{\mu\nu}[D_{\mu},D_{\nu}] = 0,
+		$$
+		\item The $A_{\mu}$ $(0 \leq \mu \leq n-1)$ are linearly independent at each point of $\Sigma^{(n)}.$
+	\end{enumerate}
+	Then four vector fields $V_{\mu}$ may be defined on $\Sigma^{(n)}\times \R^{4-n}$ as follows:
+	\[
+	V_{\mu}= 
+	\begin{cases}
+	A_{\mu},& \text{for } 0 \leq \mu \leq n-1,\\
+	D_{\mu},& \text{for } n \leq \mu \leq 3.\\
+	\end{cases}
+	\]
+	These vector fields preserve the volume form $\omega = \omega^{(n)}\wedge...\wedge dx^{3}$ and satisfy the half-flat condition \ref{half_flat}. Hence, by the virtue of Remark \ref{rmk_half_flat}, they induce a \HK structure on $\Sigma^{(n)}\times \R^{4-n}$.\\
+\end{prop}
+
+\begin{ex}[Gibbons-Hawking Metric]
+	Suppose $n=1$ and that $\Sigma^{(1)}=\R$, \ie the underlying space-time is $\R^{4} = \{(\tau,x,y,z)\}$ with volume form $\vole$.
+	Let the four vector fields $V_{\mu}$ be given by
+	\begin{align}
+		V_{0} &= \phi \ddt{},\\
+		V_{i} &= \dd{}{x^{i}}+\psi_{i}\ddt{},
+	\end{align}
+	where $\phi$ and $\psi_{i}$ $(i=1,2,3)$ are smooth functions. For the $\vm$ to be volume-preserving, $\phi$ and $\psi_{i}$ must be independent of $\tau$. Moreover for the half-flat condition to be satisfied, we require that
+	\begin{equation}
+		\frac{1}{2}\hooft^{a}_{\mu\nu}[V_{\mu},V_{\nu}]	=0	
+		\implies
+		\left\{ \,
+		\begin{IEEEeqnarraybox}[
+			\IEEEeqnarraystrutmode
+			\IEEEeqnarraystrutsizeadd{7pt}
+			{7pt}
+			][c]{rCl}
+			{[V_{0},V_{1}]} + {[V_{2},V_{3}]} & = & 
+			0
+			\\
+			{[V_{0},V_{2}]} + {[V_{3},V_{1}]} & = & 
+			0
+			\\
+			{[V_{0},V_{3}]} + {[V_{1},V_{2}]} & = & 
+			0
+		\end{IEEEeqnarraybox}
+		\right.
+	\implies
+		\left\{ \,
+		\begin{IEEEeqnarraybox}[
+			\IEEEeqnarraystrutmode
+			\IEEEeqnarraystrutsizeadd{7pt}
+			{7pt}
+			][c]{rCl}
+			\dd{\phi}{x} & = & \dd{\psi_{3}}{y} - \dd{\psi_{2}}{z},
+			\\
+			\dd{\phi}{y} & = & \dd{\psi_{1}}{z} - \dd{\psi_{3}}{x},
+			\\
+			\dd{\phi}{z} & = & \dd{\psi_{2}}{z} - \dd{\psi_{3}}{y}.
+		\end{IEEEeqnarraybox}
+		\right.
+		\label{gh_half}
+	\end{equation}
+\end{ex}
+\label{gh_metric}
+Setting $\underline{\psi}\equiv(\psi_{1},\psi_{2},\psi_{3})$, or $\psi\equiv\Sigma_{i=1}^{3}\psi_{i}dx^{i}$, then \ref{gh_half} is equivalent to the condition that
+\begin{equation}
+	\underline{\nabla}\phi = \underline{\nabla}\times\underline{\psi}\quad \text{\ie that}\quad \underset{3}{\ast} d\phi = d\psi,
+	\label{monopole}
+\end{equation}
+where $\ast_{3}$ is the Hodge duality operator acting on $\R^{3} = \{(x,y,z)\}$. Equation \ref{monopole}  is known as the \emph{Bogomolny equations} or the \emph{monopole equations} \cite{}, and implies that $\phi$ is harmonic. This set up corresponds to the Gibbons-Hawking ansatz used to create the Gibbons-Hawking multi-centre \HK metric
+\begin{equation}
+	h = \phi^{-1}(d\tau + \psi)^{2} + \phi (dx^{2} + dy^{2} + dz^{2})
+\end{equation}
+with a triholomorphic Killing vector $\ddt{}$, since the coefficients of $h$ are independent of $\tau$ \cite{gibbons_1978}.
+\\
+\begin{rmk}
+	One may recover the canonical folded \HK metric \ref{fold_gh_metric} from Example \ref{gh_metric} by choosing $\phi=z$, so that ${\ast}_{3} d\phi = {\ast}_{3}dz = dx\wedge dy=d\psi$.\\
+\end{rmk}
+
+\begin{ex}
+	Suppose that $n=3,$ \ie we consider the manifold $\Sigma^{(3)}\times\R= \{(x,y,z,\tau)\}$ with the $\mathfrak{sdiff}(\Sigma^{(3)})$-valued 1-forms $A_{\mu}$ independent of $x,y,z$. Then \ref{half_flat} reduces to Nahm's equations
+	\begin{equation}
+	\label{nahm}
+		\dd{V_{a}}{\tau} + \half\epsilon_{abc}[ V_{b},V_{c} ] = 0.
+	\end{equation}
+	We can then use the $V_{a}$ to define three complex symplectic structures on the product manifold $\Sigma^{(3)} \times\R$ following \cite{donaldson}:\\
+	\begin{prop}
+		Let $\alpha$ be the volume form on $\Sigma^{(3)}$. Then given three time-dependent vector fields $V_{a}$ $(a=1,2,3)$ on $\Sigma^{(3)}$ which satisfy Nahm's equations \ref{nahm} and are volume preserving on $\Sigma^{(3)}$, \ie $\mathcal{L}_{V_{a}}\alpha=0,$ we can construct three complex symplectic structures on the product manifold $\Sigma^{(3)} \times\R.$
+	\end{prop}
+	\begin{proof}
+		For brevity, write $\mathcal{M} = \Sigma^{(3)}\times\R.$ For each time $\tau,$ let $\e_{1},\e_{2},\e_{3}$ be the basis of 1-forms dual to the $V_{a}.$ Then, for some non-vanishing real function $f$ on $\Sigma^{(3)}$ that $\alpha=f\e_{1}\wedge\e_{2}\wedge\e_{3}$
+		for the volume form on $\Sigma^{(3)}.$ Define two 2-forms on $\mathcal{M}$ by
+		\begin{subequations}
+		\begin{align}
+			\theta^{1} &= f(d\tau \wedge \e_{1} +  \e_{2}\wedge \e_{3}),\\
+			\theta^{2} &= f(d\tau \wedge \e_{2} +  \e_{3}\wedge \e_{1}).
+		\end{align}
+		\end{subequations}
+		Then $\theta^{2}_{1}=\theta^{2}_{2}=f dt\wedge\alpha,$ and $\theta_{1}\wedge\theta_{2}=\theta_{2}\wedge\theta_{1}=0$ and so if $\theta_{1}, \theta_{2}$ are closed on $\mathcal{M},$ then we have a complex symplectic structure on $\mathcal{M}.$ To this end, we apply the identity \ref{cartan} to $d(\imath_{V_{2}}\imath_{V_{3}}\alpha)$ to yield
+		\begin{align*}
+			d(\imath_{V_{2}}\imath_{V_{3}}\alpha) &= \imath_{[V_{2},V_{3}]}\alpha + \imath_{V_{2}}\mathcal{L}_{V_{3}}\alpha - \imath_{V_{3}}\mathcal{L}_{V_{2}}\alpha + \imath_{V_{2}}\imath_{V_{3}}d\alpha\\
+			&= \imath_{[V_{2},V_{3}]}\alpha,
+		\end{align*}
+		since the vector fields are volume-preserving. Furthermore, we have that 
+		\begin{equation*}
+		\imath_{V_{3}}\alpha = f\e_{1}\wedge e_{2},\qquad \imath_{V_{2}}\imath_{V_{3}}\alpha = f\e_{1},\qquad \imath_{V_{1}}\alpha=f\e_{2}\wedge\e_{3},
+		\end{equation*}
+		\begin{equation*}
+		d(\imath_{V_{1}}\alpha) = \mathcal{L}_{V_{1}}\alpha - \imath_{V_{1}}d\alpha = 0,
+		\end{equation*}
+		and so $\imath_{V_{1}}\alpha$ is a closed 2-form. Temporarily let us write $\underline{d}$ for the exterior derivative on forms over $\mathcal{M},$ and $d$ for the exterior derivative of forms over $\Sigma^{(3)}$ with time regarded as a parameter. In this notation,
+		\begin{equation*}
+			\underline{d}\psi = d\psi + dt\wedge\dd{\psi}{\tau},
+		\end{equation*}
+		and so
+		\begin{align*}
+			\underline{d}\theta_{1} &= d\theta_{1} + d\tau \wedge \dd{\theta_{1}}{\tau}\\
+			&= d(f\e_{2}\wedge\e_{3}) + d\tau\wedge \Bigg[\dd{f}{\tau} d\tau\wedge\e_{1} + \dd{}{\tau}(f \e_{2} \wedge e_{3})\Bigg]\\
+			&= d(\imath_{V_{1}}\alpha) + d\tau\wedge \Bigg[d(f\e_{1}) + \dd{}{\tau}(f \e_{2} \wedge e_{3})\Bigg]\\
+			&= 0 + d\tau\wedge \Bigg[d(\imath_{V_{2}}\imath_{V_{3}}\alpha) + \dd{}{\tau}(\imath_{V_{1}}\alpha)\Bigg],
+		\end{align*}
+		where we have used the fact that $\imath_{V_{1}}\alpha$ is closed on $\Sigma^{(3)}.$ Therefore $\theta_{1}$ is closed on $\mathcal{M}$ if and only if
+		\begin{equation*}
+		d(\imath_{V_{2}}\imath_{V_{3}}\alpha) + \dd{}{\tau}(\imath_{V_{1}}\alpha)
+		= \imath_{[V_{2},V_{3}]}\alpha + \imath_{\dd{V_{1}}{\tau}}\alpha
+		= 0,
+		\end{equation*}
+		since $\alpha$ is time-independent. From the non-degeneracy of $\alpha,$ we conclude that $\theta_{1}$ is closed on $\mathcal{M}$ if and only if $\dd{V_{1}}{\tau} + [V_{2},V_{3}] = 0,$ and the same argument for $\theta_{2}$ proves that $\theta_{2}$ is closed on $\mathcal{M}$ if and only if $\dd{V_{2}}{\tau} + [V_{3},V_{1}] = 0.$ Hence we have a complex symplectic structure on $\mathcal{M}.$
+	\end{proof}
+	
+	\begin{rmk}
+		If we define a third 2-form on $\mathcal{M}$ by $\theta_{3} = f(d\tau \wedge\e_{3} + \e_{1}\wedge\e_{2}),$ then $\theta_{3}$ is closed on $\mathcal{M}$ if and only if $\dd{V_{3}}{\tau} + [V_{1},V_{2}]=0.$ Therefore Nahm's equations \ref{nahm} define three closed 2-forms on $\mathcal{M}.$ By choosing the three almost complex structures given by \ref{complex_structure} and Riemannian metric $g(\vm,\vn) = \delta_{\mu\nu}\omega(V_{0},V_{1},V_{2},V_{3}),$ then the 2-forms are compatible with $g$ and are actually \K 2-forms and $g$ is a Hermitian metric - hence we have an almost \HK structure on $\mathcal{M}.$ By the virtue of Lemma 6.8 in \cite{hitchin_1987}, we actually have a \HK structure on the manifold $\mathcal{M}.$\\
+	\end{rmk}
+\end{ex}
+
+\begin{ex}[Real Heaven Metric]
+	Now we choose $n=2$ \ie consider $\Sigma^{(2)}\times\R^{2} = \{(\tau,x,y,z)\}$ and a smooth function $\psi = \psi(x,y,z)$ independent of time $\tau$. If we then choose the vector fields
+	\begin{subequations}
+	\begin{align}
+		V_{0} & = e^{\frac{\psi}{2}}\bigg(\partial_{z}\psi\cos(\tau/2)\ddt{} + \sin(\tau/2)\dd{}{z}\bigg),\\
+		V_{1} & = e^{\frac{\psi}{2}}\bigg(-\partial_{z}\psi\sin(\tau/2)\ddt{} + \cos(\tau/2)\dd{}{z}\bigg),\\
+		V_{2} & = \dd{}{x} + \partial_{y}\psi\ddt{},\\
+		V_{3} & = \dd{}{y} - \partial_{x}\psi\ddt{},
+	\end{align}
+	\end{subequations}
+	then for the $\vm$ to satisfy the half-flat condition \ref{half_flat}, the function $\psi$ must satisfy the 3-dimensional continuum Toda equation\footnote{Equivalently called the $SU(\infty)$ Toda equation in some literature.} \cite{ootsuka_1998}
+	\begin{equation}
+		\frac{\partial^{2}}{\partial^{2}z}(e^{\psi}) + \frac{\partial^{2}\psi}{\partial^{2}y} + \frac{\partial^{2}\psi}{\partial^{2}x} = 0.
+	\end{equation}
+	This solution induces a \HK metric with the Killing vector field $\ddt{}$, but is not triholomorphic. In the literature, this solution is known as the real heaven solution \cite{plebanski_1975}.
+\end{ex}
+
+\newpage
+
+
+\begin{thm}[Biquard, \cite{biquard_2015}]
+	Given the real analytic data $(\mathcal{S},\beta_{2},\beta_{3}),$ where $\mathcal{S}$ is a 3-manifold and $\beta_{2}$ and $\beta_{3}$ are closed 2-forms on $\mathcal{S},$ such that their kernels form a contact distribution, then there exists in a small neighbourhood $(-\e,\e)\times \mathcal{S}$ a unique folded \HK metric such that $\imath^{\ast}\w_{2}=\beta_{2}$ and $\imath^{\ast}\w_{3}=\beta_{3}.$ This metric satisfies the parity given in \ref{parity}.	
+\end{thm}
+\begin{proof}
+	A solution of the system of Nahm's equations for the vectors $V_{1}, V_{2}, V_{3}$ on $\mathcal{S},$ depending solely on $\tau,$ and preserve a fixed volume form $\alpha$ on $\mathcal{S}$ given by the system \ref{nahm} gives rise to a \HK metric.
+	
+	Given $(\mathcal{S},\beta_{2},\beta_{3})$ we take the basis of 1-forms $(\theta^{1}, \theta^{2},\theta^{3})$ which satisfy $d\theta^{1} = \theta^{2}\wedge\theta^{3},$ $\beta_{2} = -\theta^{1}\wedge\theta^{3},$ and $\beta_{3} = \theta^{1}\wedge\theta^{2},$ and $(X_{1},X_{2},X_{3})$ as the basis of vector fields dual to the 1-forms. Then the conditions $d\beta_{2} = d\beta_{3}=0$ correspond to the fact that $X_{2}$ and $X_{3}$ both preserve the volume form $\alpha.$ We therefore solve the system of equations with the initial conditions
+	\begin{equation}
+		V_{1}(0) = 0,\qquad V_{2}(0) = X_{2},\qquad V_{3}(0) = X_{3}.
+	\end{equation}
+	For the given real analytic data, the theorem of Cauchy-Kowalevski produces a unique solution defined for a small enough $\tau.$
+	
+	We observe that $(-V_{1}(-\tau), V_{2}(-\tau), V_{2}(-\tau))$ is also a solution with the same initial conditions, and so $V_{1}$ is even whereas $V_{2}, V_{3}$ are odd, which implies the invariance under the involution \ref{parity} for the solution. Moreover, since $X_{1} = -[X_{2},X_{3}]$ we have that
+	\begin{equation}
+		V_{1} = \tau \label{key}X_{1} + \mathcal{O}(\tau^{3}).
+	\end{equation}
+	Hence we deduce that, for the behaviour of the metric (odd, positive for $\tau>0$, negative for $\tau<0$):
+	\begin{equation}
+	\label{HK_metric}
+		h = \tau(d\tau^{2} + (\theta^{2})^{2} + (\theta^{3})^{2}) + \tau^{-1}(\theta^{1})^{2} + \mathcal{O}(\tau^{3})G(d\tau,\tau^{-1}\theta^{1}, \theta^{2}, \theta^{3}),
+	\end{equation}
+	which gives us the three \K forms. Here, $G((e^{i})) = \sum G_{ij}e^{i}e^{j}$ is a symmetric 2-tensor with smooth coefficient $G_{ij}.$
+	
+	Reciprocally, given a real analytic \HK metric with the behaviour \ref{HK_metric}, we calculate its Laplacian
+	\begin{equation}
+		\Delta = -\tau^{-1}(\partial_{\tau}^{2} + \tau^{2}X_{1}^{2} + X_{2}^{2} + X_{3}^{2}) + \dots\label{key}
+	\end{equation}
+	It then results immediately that we can resolve $\Delta y=0$ in a neighbourhood of $\mathcal{S}$ with $y = \tau + \mathcal{O}(\tau^{2}).$ This solution is unique, and lets us reconstruct the unique vector fields $V_{a}.$
+\end{proof}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Background Theory}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Work Done in Term 1}
+The results section is where you'll make a summary of your work done during Term 1. \textbf{It should occupy no more than one page.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aim for Term 2}
+The Plan of work to be done in Term 2 should occupy no more than one page.  Again, it may be convenient to present it as a series of bullet points or as a Table.  Provide estimated timescales for what you will do and try to be realistic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{BenBrown_Interim} 
+\bibliographystyle{ieeetr}
+
+\end{document}

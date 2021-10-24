@@ -1,0 +1,291 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% baposter Portrait Poster
+% LaTeX Template
+% Version 1.0 (15/5/13)
+%
+% Created by:
+% Brian Amberg (baposter@brian-amberg.de)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0paper,portrait]{baposter}
+
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{relsize} % Used for making text smaller in some places
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{xparse}
+\usepackage{physics}
+\usepackage{esint}
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{cleveref}
+
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}% For beginning \Cref
+\crefrangelabelformat{equation}{(#3#1#4--#5#2#6)}
+
+\crefmultiformat{equation}{equations (#2#1#3}{, #2#1#3)}{#2#1#3}{#2#1#3}
+\Crefmultiformat{equation}{Equations (#2#1#3}{, #2#1#3)}{#2#1#3}{#2#1#3}
+
+\newtheorem{thm}{Theorem}[]
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\w}{\omega}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\e}{\epsilon}
+\newcommand{\tta}[1]{\theta_{#1}}
+\newcommand{\vm}{V_{\mu}}
+\newcommand{\vn}{V_{\nu}}
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial \tau}}
+\newcommand{\ddxm}{\frac{\partial}{\partial x^{\mu}}}
+\newcommand{\K}{K\"ahler }
+\newcommand{\HK}{hyperk\"ahler }
+\newcommand{\x}[1]{x^{#1}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\vp}{\varphi}
+\newcommand{\conge}[1]{\stackrel{\rule{1em}{1pt}}{#1}}
+\newcommand{\hooft}[3]{\eta\indices{^{#1}_{#2}_{#3}}}
+\newcommand{\ihooft}[3]{\eta\indices{_{#1}^{#2}^{#3}}}
+\newcommand{\vol}{\w=d\tau\wedge dx^{1}\wedge dx^{2}\wedge dx^{3}}
+\newcommand{\vole}{d\tau\wedge dx\wedge dy\wedge dz}
+\newcommand{\half}{\frac{1}{2}}
+
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\definecolor{bordercol}{RGB}{40,40,40} % Border color of content boxes
+\definecolor{headercol1}{RGB}{186,215,230} % Background color for the header in the content boxes (left side)
+\definecolor{headercol2}{RGB}{80,80,80} % Background color for the header in the content boxes (right side)
+\definecolor{headerfontcol}{RGB}{0,0,0} % Text color for the header text in the content boxes
+\definecolor{boxcolor}{RGB}{255,255,255} % Background color for the content in the content boxes
+
+\begin{document}
+
+\background{ % Set the background to an image (background.pdf)
+\begin{tikzpicture}[remember picture,overlay]
+\draw (current page.north west)+(-2em,2em) node[anchor=north west]
+{\includegraphics[height=1.1\textheight]{gradient.png}};
+\end{tikzpicture}
+}
+
+\begin{poster}{
+grid=false,
+borderColor=bordercol, % Border color of content boxes
+headerColorOne=headercol1, % Background color for the header in the content boxes (left side)
+headerColorTwo=headercol2, % Background color for the header in the content boxes (right side)
+headerFontColor=headerfontcol, % Text color for the header text in the content boxes
+boxColorOne=boxcolor, % Background color for the content in the content boxes
+headershape=smallrounded, % Specify the rounded corner in the content box headers
+headerfont=\Large\sf\bf, % Font modifiers for the text in the content box headers
+textborder=rectangle,
+background=user,
+headerborder=closed, % Change to closed for a line under the content box headers
+boxshade=plain
+}
+{}
+%
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR NAME
+%----------------------------------------------------------------------------------------
+%
+{\vspace{-8pt}\sf\bf Folded Hyperk\"ahler  Manifolds
+	\vspace{16pt}}
+ % Poster title
+{\begin{minipage}{0.4\textwidth} \centering\smaller
+		Researcher: Benjamin Brown \\
+		Benjamin.Brown@Warwick.ac.uk
+\end{minipage}
+\qquad
+\begin{minipage}{0.4\textwidth} \centering\smaller
+	Supervisor: Dr. Weiyi Zhang \\
+	W.Zhang@Warwick.ac.uk
+\end{minipage}
+\vspace{8pt}
+
+{\smaller Department of Physics, University of Warwick,
+	Coventry CV4 7AL, United Kingdom}} 
+%{\includegraphics[scale=0.35]{}} 
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\headerbox{Abstract}{name=introduction,column=0,row=0}{
+An example of a folded \HK manifold is given based on a particular form of the Gibbons-Hawking ansatz, and its defining properties discussed. A folded analogue to Pleba{\'n}ski's real heaven background is then constructed, with the structure of the fold hypersurface determined by solutions to the Boyer-Finley equation.
+}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\headerbox{Introduction}{name=methods,column=0,below=introduction}{
+A \HK manifold is a Riemannian manifold of real dimension $4n,$ that admits three covariantly orthogonal automorphisms, $I,J,$ and $K$ on the tangent bundle, which satisfy the quaternionic identities $I^{2}=J^{2}=K^{2}=IJK=-\text{id},$ and are compatible with the Riemannian metric $h$ \cite{hitchin_1991}.
+
+Recently, Nigel Hitchin has introduced the notion of a folded hyperk{\"a}hler manifold, \emph{i.e.} a 4-dimensional manifold which is hyperk{\"a}hler away from some folding hypersurface, on which the hyperk{\"a}hler structure degenerates and the metric is singular \cite{hitchin_2015}.
+}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\headerbox{Conclusion}{name=conclusion,column=0,below=methods}{
+Two non-trivial families of folded \HK structures has been constructed, one where the embedded fold hypersurface descends to hyperbolic 2-space $\mathcal{H}^{2},$ and the other where it descends to the 2-sphere $S^{2}.$
+
+To continue in the direction of this project, it would be interesting to:
+\begin{itemize}
+	\item consider different solutions to the Boyer-Finley equation, and see if they admit a folded structure.
+	\item identify whether the folded real heaven background can be linearised to recover the folded Gibbons-Hawking ansatz.
+	\item generalise the definition of a folded \HK manifold to higher dimensions.
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\headerbox{References}{name=references,column=0,below=conclusion}{
+
+\smaller % Reduce the font size in this block
+\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+\nocite{*} % Insert publications even if they are not cited in the poster
+
+\bibliographystyle{ieeetr}
+\bibliography{project.bib} % Use sample.bib as the bibliography file
+}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\headerbox{Acknowledgements}{name=acknowledgements,column=0,below=references, above=bottom}{
+
+\smaller % Reduce the font size in this block
+I would like to thank my supervisor Dr. Weiyi Zhang for useful discussions, and for giving me the opportunity to pursue this project with the University of Warwick Mathematics Department.
+} 
+
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+
+\headerbox{Method}{name=results1,span=2,column=1,row=0}{ % To reduce this block to 1 column width, remove 'span=2'
+To get an idea of how a \HK manifold should admit a fold, we look at a particular example of the Gibbons-Hawking metric \cite{gibbons_1978}. Consider a principal $S^{1}$-bundle $\mathcal{M}^{4}\overset{\pi}{\rightarrow}\mathcal{U},$ where $\mathcal{U}\subset\R^{3}$ is an open set and consider a local trivialisation $\pi^{-1}(U) = \{(x,y,z,\tau) \in \mathcal{U}\times S^{1}\}.$ The Gibbons-Hawking ansatz we consider is \cite{hitchin_2015, biquard_2015}
+\begin{equation*}
+h = z^{-1}(d\tau + \mathcal{A})^{2} + z(dx^{2} + dy^{2} + dz^{2}), \qquad \mathcal{A} = (xdy-ydx)/2,
+\end{equation*} 
+with the \HK 2-forms given by
+\begin{align*}
+\w^{i} = (d\tau + \mathcal{A}) \wedge dx^{i} + \frac{x^{i}}{2}\e_{ijk} dx^{j}\wedge dx^{k},\qquad i=1,2,3.
+\end{align*}
+The metric $h$ is undefined at $z=0,$ and hence determines a hypersurface $\mathcal{Z} = \mathcal{M}\cap\{z=0\}$ that divides the ambient manifold $\mathcal{M}$ into two disjoint ones; one with an Euclidean signature $(++++)$ when $z>0,$ and the other with an anti-Euclidean signature $(----)$ when $z<0.$ Under the involution $i:z\mapsto-z$ one observes that
+\begin{gather*}
+i^{\ast}\w^{1} = \w^{1},\qquad
+i^{\ast}\w^{2} = \w^{2},\qquad
+i^{\ast}\w^{3} = -\w^{3},\qquad
+i^{\ast}h = -h.
+\end{gather*}
+Furthermore, whilst $h$ is undefined along the fold $\mathcal{Z}$ the \HK forms $\w^{i}$ are smooth there. Pulling them back to $\mathcal{Z},$
+\begin{equation*}
+\mathcal{Z}^{\ast}\w^{1} = \vp\wedge dx,\qquad \mathcal{Z}^{\ast}\w^{2} = \vp\wedge dy,\qquad \mathcal{Z}^{\ast}\w^{3} = 0,\qquad \text{where } \vp\equiv d\tau + \mathcal{A}.
+\end{equation*}
+Since $d\mathcal{A} = dx\wedge dy,$ it follows that
+\begin{equation*}
+\vp\wedge d\vp = d\tau\wedge dx \wedge dy \neq 0,
+\end{equation*}
+and so $(\mathcal{Z},\vp)$ determines a contact manifold. For a general 4-dimensional \HK manifold $\mathcal{M}$, the quadruple $(\mathcal{M},\mathcal{Z},\w^{i},i)$ with the above properties defines a folded \HK structure \cite{biquard_2015}.
+
+}
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+
+\headerbox{Results}{name=results2,span=2,column=1,below=results1,above=bottom}{ % To reduce this block to 1 column width, remove 'span=2'
+Pleba{\'n}ski's real heaven background is a more general version on the Gibbons-Hawking ansatz \cite{plebanksi_1975}; with the same $S^{1}$-bundle as before, its \HK metric and 2-forms are given by \cite{lebrun_1991}
+\begin{gather*}
+	\label{rh_metric}
+	h=u_{z}(e^{u}(dx^{2}+dy^{2}) + dz^{2}) + u_{z}^{-1}(d\tau + \mathcal{A}),\\
+	\begin{bmatrix}
+	\w^{1}\\
+	\w^{2}
+	\end{bmatrix}
+	=
+	e^{u/2}
+	\begin{bmatrix}
+	\cos(\tau) & -\sin(\tau) \\
+	\sin(\tau) & \cos(\tau)
+	\end{bmatrix}
+	\begin{bmatrix}
+	(d\tau + \mathcal{A})\wedge dx + u_{z}dy\wedge dz\\
+	(d\tau + \mathcal{A}) \wedge dy + u_{z}dz\wedge dx
+	\end{bmatrix},\\
+	\w^{3} = u_{z}e^{u}dx\wedge dy + dz \wedge (d\tau + \mathcal{A}),
+\end{gather*}
+where $\mathcal{A} = - u_{y}dx+u_{x}dy$ such that $\psi \equiv d\tau + \mathcal{A}$ is the connection 1-form of the $S^{1}$-bundle, and where $u\in C^{\infty}(\mathcal{U})$
+satisfies the Boyer-Finley equation
+\begin{equation*}
+	u_{xx} + u_{yy} + (e^{u})_{zz} = 0.
+\end{equation*}
+In separating the variables, the general solution is found to be
+\begin{equation*}
+	e^{u}=\frac{4(az^{2}+bz+c)}{(1+a(x^{2}+y^{2}))^{2}}\qquad \implies\qquad u_{z} = \frac{2az + b}{az^{2} + bz + c},\qquad e^{u}u_{z} = \frac{8az + 4b}{(1+a(x^{2}+y^{2}))^{2}},
+\end{equation*}
+with $a,b$ and $c$ constants \cite{tod_1995}. In order to have a fold, we must have that $u_{z}$ and $e^{u}u_{z}$ are odd in $z,$ so choosing $a\neq 0,b=0, c>0,$ and pulling back to the hypersurface $\mathcal{Z} = \mathcal{M}\cap\{z=0\},$ the \HK metric is singular, $\mathcal{Z}^{\ast}\w^{3} = 0,$ and the 2-forms $\w^{1}, \w^{2}$ become
+\begin{equation*}
+\mathcal{Z}^{\ast}
+\begin{bmatrix}
+\w^{1}\\
+\w^{2}
+\end{bmatrix}
+=
+\frac{2\sqrt{c}}{1+a(x^{2} + y^{2})}
+(d\tau + \mathcal{A})\wedge
+\begin{bmatrix}
+\cos(\tau) & -\sin(\tau) \\
+\sin(\tau) & \cos(\tau)
+\end{bmatrix}
+\begin{bmatrix}
+dx\\
+dy
+\end{bmatrix},\qquad \mathcal{A} = \frac{4a(xdy - ydx)}{1+a(x^{2}+y^{2})}.
+\end{equation*}
+
+
+Writing the $\w^{i}$ in this form suggests that we should take $\psi \equiv d\tau + \mathcal{A}$ to be our contact 1-form. Indeed,
+\begin{equation*}
+d\psi = \frac{8a}{(1+a(x^{2} + y^{2}))^{2}}dx\wedge dy,\qquad \psi\wedge d\psi = \frac{8a}{(1+a(x^{2} + y^{2}))^{2}}d\tau\wedge dx\wedge dy\neq 0
+\end{equation*}
+along $\mathcal{Z},$ whence $(\mathcal{Z},\psi)$ is a contact manifold. Let us identify $\mathbb{C}\cong\R^{2}$ via $w = x+iy$ and, as $d\psi$ is $S^{1}$-invariant and $i_{\partial_{\tau}}d\psi \equiv 0,$ a closed 2-form $\al$ is induced on $\mathbb{C}$ by $d\psi = \pi^{\ast}\al$ \cite{ding_2011}, with the form
+\begin{equation*}
+	\al = \frac{4ai}{(1+a|w|^{2})^{2}}dw\wedge d\bar{w} = 4i\partial\bar{\partial}\log(1+a|w|^{2}).
+\end{equation*}
+We see that if $a<0,$ then $\al$ is defined only on the open disk $\mathbb{D} = \{w\in\mathbb{C}: |w|<1/|a|\},$ which is conformally equivalent to hyperbolic space $\mathcal{H}^{2},$ whereas if $a>0$ then the boundary extends to $\{\infty\},$ \ie we may compactify to consider the Riemann sphere $\hat{\mathbb{C}} \cong S^{2},$ since $\al \rightarrow 0$ as $|w|\rightarrow \infty.$
+}
+%----------------------------------------------------------------------------------------
+
+\end{poster}
+
+\end{document}
