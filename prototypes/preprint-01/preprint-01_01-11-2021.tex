@@ -110,6 +110,7 @@
 \newcommand{\pbrackets}[1]{\left( #1 \right)}
 \newcommand{\bbrackets}[1]{\left[ #1 \right]}
 \newcommand{\norm}[1]{|#1|^{2}}
+\newcommand{\tuple}[2]{(#1, \ldots, #2)}
 
 \newcommand{\dbar}{\bar{\partial}}
 \newcommand{\mrr}{\mu_{\mathbb{R}}}
@@ -199,7 +200,9 @@
 	
 	\section{Background}
 	
-	\subsection{Hyperk\"ahler Quotients and Hypertoric Orbifolds}
+	\section{Toric Hyperk\"ahler manifolds}
+	
+	\subsection{Hyperk\"ahler Quotients}
 	
 	Hyperk\"ahler manifolds are Riemannian manifolds $(M,g)$ with three complex structures $J_{1}, J_{2}$, and $J_{3}$, satisfying the quaternionic multiplication identities, which are compatible with the metric $g$. By compatible we mean that
 	\[
@@ -208,6 +211,35 @@
 	with each $\w_{i}$ a symplectic $2$-form on $M$, so that each quintuple $(M, g, J_{i}, \w_{i})$ constitutes a K\"ahler manifold in their own individual right for $i = 1, 2, 3$; combining these three K\"ahler structures together endows $M$ with a \emph{hyperk\"ahler structure}.
 		
 	Let us fix a complex structure, $J_{1}$, say. Then the complex-valued $2$-form $\w_{2} + i\w_{3}$ is closed, non-degenerate, and holomorphic with respect to $J_{1}$. Therefore $\w_{\CC} := \w_{2} + i\w_{3}$ is a \emph{holomorphic-symplectic} $2$-form on $M$, and so any hyperk\"ahler manifold can be viewed as a \emph{holomorphic-symplectic} manifold with respect to the complex structure $J_{1}$, real symplectic form $\w_{\RR} := \w_{1}$, and holomorphic symplectic form $\w_{\CC}$.
+	
+	\begin{example}
+		The quaternionic vector space $\HH^{n}$ is a flat hyperk\"ahler manifold whose metric $g$ arises from the Euclidean inner-product on $\RR^{4n}\cong \HH^{n}$, which is K\"ahler with respect to all three complex structures, $J_{1}, J_{2}$, and $J_{3}$ that are identified with $i, j$, and $k$ respectively, via left-multiplication. Fixing the complex structure $I_{1}$ and introducing the coordinates $z_{j} = x_{j} + i y_{j}$ and $w_{j} = u_{j} + i v_{j}$, with $1 \leq j \leq n$, we can identify $\HH^{4n}$ with $\CC^{n} \times \CC^{n}$ via the map
+		\[
+		x_{j} + iy_{j} + ju_{j} + kv_{j} \mapsto (x_{j} + iy_{j}, u_{j} + iv_{j}).
+		\]
+		Then the symplectic forms on $\HH^{n}$ are
+		\begin{equation*}
+			\begin{split}
+				\w_{1} &= \sum_{j=1}^{n} dx_{j} \wedge dy_{j} + du_{j} \wedge dv_{j}, \\
+				\w_{2} &= \sum_{j=1}^{n} dx_{j} \wedge du_{j} + dv_{j} \wedge dy_{j}, \\
+				\w_{3} &= \sum_{j=1}^{n} dx_{j} \wedge dv_{j} + dy_{j} \wedge du_{j}.
+			\end{split}
+		\end{equation*}
+		Recalling that we fixed $J_{1}$, let us write
+		\[
+		z_{j} = x_{j} + iy_{j}, \quad w_{j} = u_{j} + iv_{j},
+		\]
+		and express the complex-symplectic form for $\HH^{n}$,
+		\[
+		\w_{\CC} = \w_{2} + i\w_{3} = \sum_{j=1}^{n} \left( dx_{j} \wedge du_{j} + dv_{j} \wedge dy_{j} \right) + i \left( dx_{j} \wedge dv_{j} + dy_{j} \wedge du_{j} \right) = \sum_{j=1}^{n} dz_{j} \wedge dw_{j}.
+		\]
+		We can observe now that
+		\[
+		\w_{\CC} = -d\theta, \quad \text{ where } \quad \theta = \sum_{j=1}^{n} w_{j}dz_{j} \text{ is the canonical symplectic $1$-form for $T^{\ast}\CC^{n}$,}
+		\]
+		so, after fixing $J_{1}$, we have the identification $(\HH^{n}, \w_{\CC}) \cong (T^{\ast}\CC^{n}, \w_{\text{can}})$.
+	\end{example}
+	
 	
 	Given a compact Lie group $G$, we say that an action of $G$ on $M$ is \emph{tri-symplectic} if it preserves each of the symplectic forms $\w_{i}$ which, from the compatibility condition , implies that the action also preserves the metric $g$ and complex structures $J_{i}$; so the action is additionally \emph{isometric} and \emph{tri-holomorphic}. We say that a tri-holomorphic action of $G$ on $M$ is \emph{tri-Hamiltonian} if it is Hamiltonian for each symplectic structure, meaning that there exists three corresponding $G$-equivariant moment maps
 	\begin{equation}
@@ -237,7 +269,22 @@
 
 	More generally, if $G$ does not act freely on $\mu_{\HK}^{-1}(\lambda)$ but only locally free, then the hyperk\"ahler quotient still has a hyperk\"ahler structure but is a \emph{hyperk\"ahler orbifold} rather than a manifold.
 	
-	\subsection{Localisation and Symplectic Cutting}
+	\subsection{Toric Hyperk\"ahler Manifolds}
+	
+	Let us now specialise to the case when the Lie group $G$ is the $n$-dimensional torus, $T^{n}$; it acts on $\CC^{n}$ via the diagonal left-multiplication and, after fixing the complex structure $J_{1}$, on $\HH^{n}$ via its identification with $T^{\ast}\CC^{n}$, with the natural torus action induced from that on $\CC^{n}$. On the other hand, fixing $J_{2}$ in order to identify $\HH^{n} \cong \CC^{n} \times \CC^{n}$, the $T^{n}$-action on $\CC^{n} \times \CC^{n}$ can be written as
+	\[
+			t \cdot (z,w) = (tz,t^{-1}w).
+	\]
+	This action is hyper-Hamiltonian, with three associated moment maps $\mu_{1}, \mu_{2}, \mu_{3}$ for each complex structure, that can be written as
+	\[
+		\mu_{1}(z,w) = \frac{1}{2}\sum_{j=1}^{n} \left(|z_{j}|^{2} - |w_{j}|^{2}\right)e_{j} + \lambda_{1} \in (\mft^{n})^{\ast},
+	\]
+	\[
+		(\mu_{2} + i\mu_{3})(z,w) = \sum_{j=1}^{n}(z_{j}w_{j})e_{j} + (\lambda_{2} + i \lambda_{3}) \in (\mft_{\CC}^{n})^{\ast}.
+	\]
+	\section{Localisation and Symplectic Cutting}
+	
+	\subsection{Index Theory}
 	
 	Let $(M, \w)$ be a symplectic manifold, and assume that the class of the symplectic form is \emph{integral}, \ie $\tfrac{1}{2\pi}[\w] \in H^{2}(M; \ZZ)$. This integrality condition is equivalent to the existence of a complex line bundle $\mcL \ra M$ with a Hermitian structure, such that its $1$\textsuperscript{st} Chern class $c_{1}(\mcL)$ equals the class of the symplectic form $\tfrac{1}{2\pi}[\w]$ \cite{Duistermaat2011}.
 	
