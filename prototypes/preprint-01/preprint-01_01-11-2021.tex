@@ -116,8 +116,8 @@
 \newcommand{\bbrackets}[1]{\left[ #1 \right]}
 \newcommand{\norm}[1]{|#1|^{2}}
 \newcommand{\tuple}[2]{(#1, \ldots, #2)}
-\newcommand{\half}{$\frac{1}{2}$}
-\newcommand{\thalf}{$\tfrac{1}{2}$}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\thalf}{\tfrac{1}{2}}
 
 \newcommand{\dbar}{\bar{\partial}}
 \newcommand{\mrr}{\mu_{\mathbb{R}}}
@@ -279,7 +279,7 @@
 	\subsection{Toric Hyperk\"ahler Manifolds}
 	
 	Let us quickly go over the construction of toric hyperk\"ahler manifolds; consider the quaternionic vector space $\HH^{n}$, identified with $T^{\ast}\CC^{n}$ after fixing $J_{1}$. The standard linear action of the $n$-dimensional real torus $T^{n}$ induces an action on the cotangent bundle $T^{\ast}\CC^{n}$, and this action is hyper-Hamiltonian. The hyperk\"ahler $T^{n}$-moment map $\mu_{\HK} = \mu_{\RR} + \mu_{\CC}$ on $T^{\ast}\CC^{n}$ is given as follows: let $\{e_{j}\}_{j=1}^{n}$ be the standard basis of the lattice $\mft_{\ZZ}^{n} \subset \mft^{n} \cong \RR^{n}$, and let $\{\e_{j}\}_{j=1}^{n}$ be its dual basis for the dual lattice $(\mft_{\ZZ}^{n})^{\ast} \subset (\mft^{n})^{\ast}$. For $(z,w) = (z_{1},\ldots, z_{n}, w_{1},\ldots w_{n}) \in T^{\ast}\CC^{n}$, where the $z_{j}$ are the base variables of $\CC^{n}$, and $w_{j}$ are the variables of the cotangent fibre, we have
-	\begin{align*}%\label{eq:mu-for-Tn}
+	\begin{align*}%\label{eq:phi-for-Tn}
 		\phi_{\RR}(z,w) &= \frac{1}{2} \sum_{j=1}^{n} \left( |z_{j}|^2 - |w_{j}|^2 \right) \e_{j} \in (\mft^{n})^{\ast},
 		\mbox{ and}\\
 		\phi_{\CC}(z,w) &= \sum_{i=j}^{n} (z_{j} w_{j}) \e_{j} \in (\mft_{\CC}^{n})^{\ast}.
@@ -314,9 +314,12 @@
 		\mu_{\HK} = (\imath^{\ast} \circ \phi_{\RR}) \oplus (\imath_{\CC}^{\ast} \circ \phi_{\CC}) : T^{\ast}\CC^{n} \ra \mfk^{\ast} \oplus \mfk_{\CC}^{\ast},
 	\]
 	where
-	\[
-		\mu_{\RR}(z,w) = \imath^{\ast}\left( \half \sum_{j=1}^{n}(|z_{j}|^{2} - |w_{j}|^{2})\e_{j} \right) \quad \text{ and } \quad \mu_{\CC}(z,w) = \imath_{\CC}^{\ast} \left(\sum_{j=1}^{n}(z_{j}w_{j})\e_{j} \right).
-	\]
+	\begin{align*}%\label{eq:mu-for-K}
+		\mu_{\RR}(z,w) &= \imath^{\ast}\left( \half \sum_{j=1}^{n}(|z_{j}|^{2} - |w_{j}|^{2})\e_{j} \right) \in \mfk^{\ast}
+		\mbox{ and}\\
+		\mu_{\CC}(z,w) &= \imath_{\CC}^{\ast} \left(\sum_{j=1}^{n}(z_{j}w_{j})\e_{j} \right) \in \mft_{\CC}^{\ast}.
+	\end{align*}
+
 		
 	\section{Localisation and Symplectic Cutting}
 	
