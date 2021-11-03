@@ -351,11 +351,7 @@
 		\begin{enumerate}
 			\item[(rational) --] The hyperplane $H$ is \emph{rational} if $u$ has integer-valued components, \ie $u \in \ZZ^{d}$.
 			\item[(weighted) --] The hyperplane $H$ is \emph{weighted} if $u$ is not required to be primitive.
-			\item[(cooriented) --] Let 
-			\[
-				H^{\pm} = \Set{x \in \RR^{d} | \langle x,\, \pm u \rangle = 0} = H.
-			\]
-			A \emph{coorientation} for $H$ is a choice of orientation such that $H^{+} = H$, or $H^{-} = H$. A hyperplane $H$ is \emph{cooriented} if it has a coorientation.
+			\item[(cooriented) --] Observe that the linear hyperplane $\bar{H} = \Set{ x \in \RR^{d} | \langle x,\, -u \rangle = 0}$ also define the same codimension $1$ subspace of $\RR^{d}$ as $H$.  A \emph{coorientation} is a choice of sign for the vector $u$, and a hyperplane $H$ is \emph{cooriented} if it has a coorientation.
 			\item[(affine) --] A hyperplane $\tilde{H}$ is \emph{affine} if it is a translate of the linear hyperplane $H$,
 			\[
 				\tilde{H} = \Set{x \in \RR^{d} | \langle x,\, u \rangle = a,\, a \in \RR} \subseteq \RR^{d-1}.	
