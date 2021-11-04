@@ -38,8 +38,29 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Non-Compact Example}
+\begin{frame}{Non-Compact Examples}
     \begin{itemize}
-        \item a
+        \item \textcolor{red}{$\mathbb{H}$:} Let $\mathbb{H}$ be the flat quaternionic vector space. Identify
+        \[
+            \mathbb{H}\ \longleftrightarrow\ \mathbb{R}^{4}, \quad q = x_{0} + ix_{1} + jx_{2} + kx_{3}\ \longleftrightarrow\ (x_{0}, x_{1}, x_{2}, x_{3}).
+        \]
+        $\mathbb{H}$ has K\"ahler forms
+        \begin{align*}
+            \omega_{1} &= dx_{0} \wedge dx_{1} + dx_{2} \wedge dx_{3}, \\
+            \omega_{2} &= dx_{0} \wedge dx_{2} + dx_{3} \wedge dx_{1}, \\
+            \omega_{3} &= dx_{0} \wedge dx_{3} + dx_{1} \wedge dx_{2}.
+        \end{align*}
+        Fix $J_{1}$, set $\omega_{\mathbb{C}} = \omega_{2} + i\omega_{3}$, \textcolor{red}{$z = x_{0} + ix_{1}$}, \textcolor{red}{$w = x_{2} + ix_{3}$},
+        \begin{align*}
+            \omega_{\mathbb{C}} &= (dx_{0} \wedge dx_{2} + dx_{3} \wedge dx_{1}) + i(dx_{0} \wedge dx_{3} + dx_{1} \wedge dx_{2}) \\
+            &= (dx_{0} + idx_{1}) \wedge (dx_{2} + i dx_{3}) = dz \wedge dw = d(-wdz),
+        \end{align*}
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \[
+        \omega_{\mathbb{C}} = dz \wedge dw = d(-wdz) = d\theta.
+    \]
+    View as $z\in \mathbb{C}$ (in base) and $w \in T_{z}^{\ast}\mathbb{C}$ (in fibre),\break $\implies dz \wedge dw$ is the \textcolor{red}{canonical $2$-form} on $T^{\ast}\mathbb{C}$, \break $\theta$ its \textcolor{red}{tautological/Liouville $1$-form}.
 \end{frame}
