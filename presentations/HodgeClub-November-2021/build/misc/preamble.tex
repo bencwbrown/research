@@ -24,6 +24,75 @@
 \usepackage{amsthm}
 \usepackage{mathrsfs}   % \mathscr
 \usepackage{stmaryrd}   % \lightning
+\usepackage{mathabx,epsfig}
+\usepackage{physics}
+
+% -----------------------------------
+% macros
+% -----------------------------------
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\kk}{\mathbb{k}}
+\newcommand{\ee}{\mathbb{e}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Mat}{\text{Mat}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Bl}{\operatorname{Bl}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Td}{\operatorname{Td}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\ed}{e^{\ast}}
+\newcommand{\fd}{f^{\ast}}
+\newcommand{\semistable}{\text{ss}}
+\newcommand{\stable}{\text{s}}
+\newcommand{\dual}[1]{#1^{\ast}}
+\newcommand{\w}{\omega}
+\newcommand{\pt}{\text{pt}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\Sp}{\operatorname{Sp}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\lat}{\operatorname{lat}}
+\newcommand{\gp}{\operatorname{gp}}
+\newcommand{\pos}{\operatorname{pos}}
+\newcommand{\Diff}{\operatorname{Diff}}
+\newcommand{\ind}{\operatorname{ind}}
+\newcommand{\td}{\operatorname{td}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Ver}{\operatorname{Ver}}
+
+\newcommand{\sssslash}{\mathbin{/\mkern-6mu/\mkern-6mu/\mkern-6mu/}}
+\newcommand{\restr}[2]{\left.#1\right|_{#2}}
+
+\def\acts{\mathrel{\reflectbox{$\righttoleftarrow$}}}
 
 % -----------------------------------
 % grammar and textstyle
@@ -34,6 +103,7 @@
 \usepackage{csquotes}
 % underlining
 \usepackage{soul} % ulem redifines \emph, this sucks
+\usepackage{bookmark}
 
 % -----------------------------------
 % colors
@@ -73,8 +143,7 @@
     backend=biber,
     style=alphabetic-verb
     ]{biblatex}
-\bibliography{presentation}
-
+\addbibresource{presentation.bib}
 \usepackage{glossaries}
 \input{glossary}
 \makeglossaries
@@ -86,6 +155,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, shadows, positioning}
+\usepackage{tikz-cd}
 \usepackage{adforn} % ornaments, used in titlepage
 
 % -----------------------------------
@@ -125,77 +195,3 @@
 
 \input{misc/javascript}
 %\input{misc/html5}
-
-% -----------------------------------
-% custom commands
-% -----------------------------------
-
-\usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypography
-% \usepackage{lipsum}		% Can be removed after putting your text content
-\usepackage{graphicx}
-\usepackage{epstopdf}
-\usepackage{url}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{parskip}
-\usepackage{IEEEtrantools}
-\usepackage{mathtools}
-\usepackage{tensor}
-\usepackage{yfonts}
-\usepackage{dsfont}
-
-%%%%%%%%%%%%%%%%%%% Custom packages
-\usepackage{braket}
-\usepackage{todo}
-\usepackage{xargs}                      % Use more than one optional parameter in a new commands
-\usepackage{tikz}
-\usepackage{tikz-cd}
-
-\newcommand{\ie}{\emph{i.e.} }
-\newcommand{\eg}{\emph{e.g.} }
-\newcommand{\cf}{\emph{cf.} }
-\newcommand{\ra}{\rightarrow}
-\newcommand{\la}{\leftarrow}
-\newcommand{\lra}{\longrightarrow}
-\newcommand{\lla}{\longleftarrow}
-\newcommand{\lbracket}{\left(}
-\newcommand{\rbracket}{\right)}
-
-\newcommand{\al}{\alpha}
-\newcommand{\w}{\omega}
-\newcommand{\W}{\Omega}
-\newcommand{\e}{\epsilon}
-\newcommand{\K}{K\"ahler }
-\newcommand{\into}{\hookrightarrow}
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\FF}{\mathbb{F}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\HH}{\mathbb{H}}
-\newcommand{\vp}{\varphi}
-\newcommand{\mcA}{\mathcal{A}}
-\newcommand{\mcC}{\mathcal{C}}
-\newcommand{\mcE}{\mathcal{E}}
-\newcommand{\mcF}{\mathcal{F}}
-\newcommand{\mcG}{\mathcal{G}}
-\newcommand{\mcH}{\mathcal{H}}
-\newcommand{\mcL}{\mathcal{L}}
-\newcommand{\mcO}{\mathcal{O}}
-\newcommand{\mcR}{\mathcal{R}}
-\newcommand{\mfg}{\mathfrak{g}}
-\newcommand{\mfh}{\mathfrak{h}}
-\newcommand{\mfk}{\mathfrak{k}}
-\newcommand{\mft}{\mathfrak{t}}
-
-\newcommand{\sssslash}{\mathbin{/\mkern-6mu/\mkern-6mu/\mkern-6mu/}}
-\newcommand{\half}{\frac{1}{2}}
-\newcommand{\thalf}{\tfrac{1}{2}}

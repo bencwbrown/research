@@ -1,0 +1,226 @@
+\section{Toric Manifolds}
+
+\begin{frame}{Hamiltonian Group Actions}
+    \begin{block}{Group Actions}
+        \begin{itemize}
+            \item $G$ compact connect Lie group, $\Lie(G) = \mfg$.
+            \item $G \acts X$ gives rise to an infinitesimal action of $\mfg$ which associates to each $\xi \in \mfg$ a vector field $\xi^{\#}$.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Hamiltonian Functions}
+        \begin{itemize}
+            \item $(X,\w)$ symplectic manifold, and $G \acts X$ preserves $\w$.
+            \item Say that $G$ acts in a \textbf{Hamiltonian way} on $X$ if every $\xi \in \mfg$ has a function $\phi^{\xi} \in C^{\infty}(X)$ such that
+            $$ \imath_{\xi^{\#}}\w = d\phi^{\xi}. $$
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Moment Maps}
+    \begin{block}{Definition}
+        Dual notion is the \textbf{moment mapping} $\mu : X \ra \mfg^{\ast}$, defined by
+        $$ ( \mu(p),\ \xi ) = \phi^{\xi}(p), $$
+        for all $p \in X$ and $\xi \in \mfg$.
+    \end{block}
+    \begin{block}{Properties}
+        \begin{itemize}
+            \item $\mu$ is $G$-equivariant when $G \acts \mfg^{\ast}$ by the dual coadjoint action.
+            \item If $G$ is abelian (\emph{i.e.} a torus), $\mu$ is unique up to a constant since dual coadjoint action is trivial.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{More on Hamiltonian $G$-Spaces}
+    \begin{block}{Transitive Actions}
+        \begin{itemize}
+            \item Recall: action is \textbf{transitive} if for any pair $x, y \in X$, there exists an element $g \in G$ such that $g \cdot x = y$.
+        \end{itemize}
+        \textbf{Theorem (Kostant) \cite{guillemin1994}:} For compact $G$, all Hamiltonian $G$-spaces with transitive $G$-action are coadjoint orbits.
+        \begin{itemize}
+            \item For $G$ abelian $\implies$ \emph{no} positive dimensional Hamiltonian $G$-spaces with transitive action.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Effective Actions}
+        \textbf{Theorem \cite{guillemin1994}:} If $G$ acts effectively, then $\dim X \geq 2 \dim G$.
+        \begin{itemize}
+            \item So for $G$ abelian and acting effectively, simplest examples are when $\dim X = 2 \dim G$.
+        \end{itemize}
+    \end{block}    
+\end{frame}
+
+\begin{frame}{Symplectic Toric Manifolds}
+    \begin{block}{Definition}
+        \textbf{Definition:} A \textbf{symplectic toric manifold} is a compact connected symplectic manifold $(X^{2n},\ \w)$ with an effective Hamiltonian action of a torus $T^{n}$, with moment map $\mu : X \ra \RR^{n}$.
+    \end{block}
+
+    \begin{block}{Example}
+        $T^{n} \acts \CC^{n}$ diagonally, with moment map
+        $$ \mu : \CC^{n} \ra \RR^{n},\quad \mu(z) = \frac{1}{2} \sum_{k=1}^{n} |z_{k}|^{2}e_{k}. $$
+    \end{block}
+\end{frame}
+
+\begin{frame}{Symplectic Reduction}
+    \begin{block}{Set-Up}
+        \begin{itemize}
+        \item $(X,\ \w)$ Hamiltonian $G$-space with moment map $\mu : X \ra \RR^{n}$.
+        \item $X_{0} := \mu^{-1}(0)$, for $c \in \RR^{n}$; $X_{0}$ is $G$-invariant as $\mu$ is $G$-equivariant.
+        \end{itemize}
+        \textbf{Theorem:} If $G \acts X_{0}$ freely, $0$ regular value of $\mu$, then $X_{0} \subseteq X$ closed submanifold and $\dim X_{0} = \dim X - \dim G$.
+    \end{block}
+
+    \begin{block}{Marsden-Weinstein Reduction}
+        \textbf{Theorem:} If $G \acts X_{0}$ freely, $X \sslash G := X_{0} / G$ is a symplectic manifold of dimension $\dim X - 2 \dim G$. 
+    \end{block}
+\end{frame}
+
+\begin{frame}{Symplectic Reduction}
+    \begin{block}{Example}
+        \begin{itemize}
+            \item Let $S^{1} \acts \CC^{n+1}$ as $t \cdot z_{k} = tz_{k}, \qquad k = 1, \ldots n+1$.
+            \item Choose the moment map $\mu : \CC^{n+1} \ra \RR$ to be
+            $$ \mu(z) = \sum_{k=1}^{n+1} |z_{k}|^{2} - c^{2}, \qquad c \in \RR. $$
+            \item Then $ X_{0} = \mu^{-1}(0) = \{ \| \vb{z} \| = c^{2} \} \cong S^{2n+1} $, so
+            $$ \CC^{n+1} \sslash S^{1} := \mu^{-1}(0)/S^{1} \cong S^{2n+1}/S^{1} \cong \CC\PP^{n}, $$
+            with residual $T^{n+1}/S^{1} \cong T^{n}$-action. 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Delzant's Construction}
+
+\begin{frame}{Residual Torus Action}
+    \begin{block}{Example Continued}
+        \begin{itemize}
+        \item Residual torus $T^{n} \acts \CC\PP^{n}$ diagonally, now with moment map
+        $$ \bar{\mu}(\vb{z}) = \frac{1}{2} \left( \frac{|z_{1}|^{2}}{\| \vb{z} \|^{2} },\ \ldots,\ \frac{|z_{n}|^{2}}{\| \vb{z} \|^{2} } \right) \in \RR^{n}. $$ 
+        \item Fixed-points for this action are the points with only one non-zero entry, \emph{e.g.} $[1:0:\ldots, 0]$.
+        \item Image of $\bar{\mu}$ is the convex hull of the images of the fixed-points.
+        \item This is a result of the \emph{Atiyah-Huillemin-Sternberg convexity theorem}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Convexity}
+    \begin{block}{Example}
+        \vspace{192pt}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Delzant Polytopes}
+    \begin{block}{Definition}
+        A \textbf{Delzant polytope} $\Delta \subset \RR^{n}$ is a convex polytope such that \cite{delzant1988}:
+        \begin{itemize}
+            \item (simple): $n$ edges meet at each vertex;
+            \item (rational): edges meeting a vertex $p$ are of the form $p + tu_{i}$, $t \geq 0$ and $u_{i} \in \ZZ^{n}$;
+            \item (smooth): for each $p$, the $u_{i}$ form a $\ZZ$-basis of $\ZZ^{n}$.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Examples}
+        \vspace{64pt}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Delzant's Theorem}
+    \begin{block}{Delzant's Theorem \cite{delzant1988}}
+        Toric manifolds are classified by Delzant polytopes, \emph{i.e.} there is a one-to-one correspondence:
+        $$ \frac{\text{toric manifolds}}{T^{n}-\text{equiv. symplectomorphisms}} \longleftrightarrow \frac{ \text{Delzant polytopes} }{ \SL(n;\ZZ) } $$ 
+    \end{block}
+    \begin{block}{Examples}
+        \vspace{68pt}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Part of the Delzant Construction}
+    \begin{block}{Set-Up}
+        \begin{itemize}
+            \item Start with a Delzant polytope, $\Delta = \bigcap_{k = 1}^{n} H_{k} \subseteq \RR^{d} $, where
+                $$ H_{k} = \{ x \in \RR^{d} : \langle x, u_{k} \rangle \geq \lambda_{k} \}, \quad \lambda_{k} \in \RR $$
+            are inward-pointing half-spaces delimiting $\Delta$.
+            \item Define a surjective map $\pi : \RR^{n} \ra \RR^{d}$, $\pi(e_{k}) = u_{k}$, where the $e_{k}$ are basis vectors for $\RR^{n}$.
+            \item Define $\mfn := \ker \pi$, and consider the inclusion $\imath : \mfn \hookrightarrow \RR^{n}$.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Short Exact Sequence}
+        \[
+            \begin{tikzcd}
+            \{0\} \arrow[r] & \mathfrak{n} \arrow[r, "\imath", hook] & \mathbb{R}^{n} \arrow[r, "\pi", two heads] & \mathbb{R}^{d} \arrow[r] & \{0\}
+            \end{tikzcd}
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Part of the Delzant Construction}
+    \begin{block}{More Short Exact Sequences}
+        \[
+            \begin{tikzcd}
+                \{0\} \arrow[r] & \mathfrak{n} \arrow[r, "\imath", hook] & \mathbb{R}^{n} \arrow[r, "\pi", two heads] & \mathbb{R}^{d} \arrow[r] & \{0\}
+            \end{tikzcd}
+        \]
+        \begin{itemize} 
+            \item Can exponentiate to get our tori:
+            \[
+                \begin{tikzcd}
+                    \{1\} \arrow[r] & N \arrow[r, "\imath", hook] & T^{n} \arrow[r, "\pi", two heads] & T^{d} \arrow[r] & \{1\}.
+                \end{tikzcd}
+            \]
+            \item Or dualise:
+            \[
+                \begin{tikzcd}
+                    \{0\} & \arrow[l] \mfn^{\ast} & \arrow[l, "\imath^{\ast}"'] (\RR^{n})^{\ast} & \arrow[l, "\pi^{\ast}"'] (\RR^{d})^{\ast} & \arrow[l] \{0\}.
+                \end{tikzcd}
+            \]
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Delzant Construction}
+    \begin{block}{Subtorus Action}
+        \begin{itemize}
+            \item If $T^{n} \acts \CC^{n}$ diagonally, then $N \leq T^{n}$ also acts on $\CC^{n}$ via the inclusion, $\imath$.
+            \item Moment map for this action via inclusion is
+            $$ \mu : \CC^{n} \overset{J}{\lra} (\RR^{n})^{\ast} \overset{\imath^{\ast}}{\lra} \mfn^{\ast}, $$
+            with $J : \CC^{n} \ra (\RR^{n})^{\ast}$ the usual moment map,
+            $$ J(z) = \frac{1}{2} \sum_{k=1}^{n} |z_{k}|^{2}e_{k} + (\lambda_{1}, \ldots, \lambda_{n}). $$
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{End of the Delzant Construction}
+    \begin{block}{Symplectic Reduction}
+        Finally for the Delzant $\Delta \subset \RR^{n}$, 
+        $$ X_{\Delta} := \CC^{n} \sslash N := \mu^{-1}(0) / N $$
+        is the corresponding toric manifold, with residual $T^{n} / N \cong T^{d}$-action.
+    \end{block}
+    \begin{block}{Comments}
+        \begin{itemize}
+        \item $\dim X_{\Delta} = 2n - 2 \dim N = 2(\dim T^{n} - \dim N) = 2 \dim T^{d}$.
+        \item The $\lambda$'s determine the position of the half-spaces - translating $\lambda$ by an element of $\ker \imath^{\ast} \subseteq (\RR^{n})^{\ast}$ gives the same result.
+        \item The $u$'s determine their (inwards-pointing) directions.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Review}
+    \begin{block}{Old Example}
+        \begin{itemize}
+            \item $T^{3} \acts \CC^{3}$ and $S^{1} \hookrightarrow T^{3}$ diagonally:
+            \[
+            \begin{tikzcd}
+                \{1\} \arrow[r] & S^{1} \arrow[r, "\imath", hook] & T^{3} \arrow[r, "\pi", two heads] & T^{2} \arrow[r] & \{1\}.
+            \end{tikzcd}
+            \]
+            \item $u_{1} = (1,0)$, $u_{2} = (0,1)$, $u_{3} = (-1,-1)$, so $\ker \pi = (t,t,t)$. 
+            \item Thus $\imath(t) = (t,t,t) \implies \imath^{\ast}(x,y,z) = x + y + z$.
+            \item Moment map
+            $$ \vb{z} \overset{J}{\longmapsto} \frac{1}{2}( |z_{1}|^{2}, |z_{2}|^{2}, |z_{3}|^{2} ) + \vb{\lambda} \overset{\imath^{\ast}}{\longmapsto} \frac{1}{2} \| \vb{z} \|^{2} + \lambda_{1} + \lambda_{2} + \lambda_{3}. $$
+            \item Then $X_{\Delta} \cong \CC\PP^{2}$ with $T^{2}$-action, and moment map image $\mu(X_{\Delta}) = \{ \langle x,\ u_{i} \rangle \geq \lambda_{i} \}$.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Example}
+    \begin{block}{$\CC\PP^{2}$ Example}
+        \vspace{192pt}
+    \end{block}
+\end{frame}
+

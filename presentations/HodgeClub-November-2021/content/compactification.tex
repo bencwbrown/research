@@ -1,0 +1,83 @@
+\section{Compactification \& Symplectic Cutting}
+
+\begin{frame}{Combinatorics of the $S^{1}$-Action}
+    \begin{itemize}
+        \item $S^{1}$ does not acts as a subtorus of $T^{d}$ globally, but does restricted to each $\mc{E}_{A}$:
+        \begin{equation*}
+            \tau \cdot [z,w] = [z,\tau w] = [\tau^{-1}_{1}z_{1}, \ldots, \tau^{-1}_{n}z_{n}; \tau_{1}w_{1}, \ldots, \tau_{n}w_{n}],
+        \end{equation*}
+        \begin{equation*}
+            \text{where } \tau_{i} = 
+            \begin{cases}
+                \tau, \quad &\text{if } i \in A, \\
+                1, \quad &\text{otherwise}.
+            \end{cases}
+        \end{equation*}
+        \item Restricted to $\mc{E}_{A}$, circle $S^{1}$ acts a subtorus of \emph{original} torus $T^{n}$.
+        \item Moment map
+        $$ \restr{\Phi}{A}[z,w] = - \bigg\langle \mu_{\RR}(z,w),\, \sum_{i\in A} u_{i} \bigg\rangle. $$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Product $S^{1}$-Action}
+    \begin{block}{Set-Up}
+        \begin{itemize}
+            \item Global moment map for this $S^{1}$-action is $\Phi[z,w] = \|w\|^{2}$.
+            \item Product $M \times \CC$ with $S^{1}$-action:
+            $$ e^{i\theta}\cdot (m,\xi) = (e^{i\theta}\cdot m,\, e^{i\theta}\xi ) \rightsquigarrow \rho(m,\xi) = \Phi[z,w] + |\xi|^{2}. $$
+            \item Preimage at level $\epsilon$ for $(m, \xi) \in M \times \CC$ is:
+            \begin{equation*}
+                \begin{split}
+                    \rho^{-1}(\epsilon) &= \big\{ (m,\xi) : \Phi(m) \leq \epsilon,\, |\xi| = e^{i\theta} \sqrt{\epsilon - \Phi(m)} \big\} \\
+                    &= \big\{ (m,\xi) : \Phi(m) < \epsilon,\, |\xi| = e^{i\theta}\sqrt{\epsilon - \Phi(m)} \big\} \\
+                    &\sqcup \big\{ (m,0) : \Phi(m) = \epsilon \big\} =: \Sigma_{1} \sqcup \Sigma_{2}.
+                \end{split}
+            \end{equation*}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Symplectic Cut}
+    \begin{block}{Definition}
+        Quotient $M_{\epsilon - \text{cut}} := \rho^{-1}(\epsilon)/S^{1} \cong (\Sigma_{1} \sqcup \Sigma_{2})/S^{1}$ is called the \textbf{symplectic cut} of $M$ at level-$\epsilon$ \cite{lerman1995}.
+    \end{block}
+    \begin{block}{What does it look like?}
+        \vspace*{-18pt}
+        \begin{equation*}
+            \begin{split}
+                \Sigma_{1} &= \big\{ (m,\xi) : \Phi(m) < \epsilon,\, |\xi| = e^{i\theta} \sqrt{\epsilon - \Phi(m)} \big\}, \\
+                \Sigma_{2} &= \big\{ (m,0) : \Phi(m) = \epsilon \big\}.
+            \end{split}
+        \end{equation*}
+        \vspace*{-12pt}
+        \begin{itemize}
+            \item $\Sigma_{1} \cong \{ m \in M : \Phi(m) < \epsilon \} \times S^{1}$, so $\Sigma_{1}/S^{1} \cong \{ \Phi(m) < \epsilon \}$;
+            \item $\Sigma_{2} \cong \Phi^{-1}(\epsilon)/S^{1}$.
+            \item $\Phi : M \ra \RR$ is proper, so the symplectic cut $M_{\epsilon-\text{cut}}$ is compact.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Compact Hyperplane Arrangement}
+    \begin{block}{Moment Polyptychs}
+        \begin{itemize}
+            \item Recall: $S^{1}$-action on $\mc{E}_{A}$ depends combinatorially on $A \subseteq \{ 1,\ldots, n \}$.
+            \item $M_{\epsilon-\text{cut}}$ is obtained by ``throwing-away'' the part of $M$ with $\Phi(m) > \epsilon$ on each $\mc{E}_{A}$.
+            \item Amounts to intersection each $\Delta_{A}$ with half-space \cite{proudfoot2004}, with normal $-\sum_{i \in A} u_{i}$, from
+            $$ \restr{\Phi}{\mc{E}_{A}}[z,w] = - \bigg\langle \mu_{\RR}(z,w),\ \sum_{i \in A} u_{i} \bigg\rangle. $$
+            \item We call such an arrangement of polytopes a \textbf{moment polyptych}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Examples}
+    \begin{block}{Example for $T^{\ast}\CC\PP^{2}$}
+        \vspace{192pt}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Examples}
+    \begin{block}{Example for $T^{\ast}\CC\PP^{3}$}
+        \vspace{192pt}
+    \end{block}
+\end{frame}
