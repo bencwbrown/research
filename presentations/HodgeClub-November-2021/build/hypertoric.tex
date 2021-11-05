@@ -1,127 +1,35 @@
 \section{Hypertoric Manifolds}
 
-\begin{frame}{Hyperk{\"a}hler Manifolds}
-    \begin{block}{Definition and Properties}
-        \begin{itemize}
-            \item A \textbf{hyperk{\"a}hler manifold} is a Riemannian manifold $(M,g)$ with three orthogonal, parallel complex structures $J_{1}, J_{2}, J_{3}$, that satisfy the quaternionic relations.
-            \item Get three symplectic forms $\w_{1}, \w_{2}, \w_{3}$, so each $(g,J_{i}, \w_{i})$ give a K{\"a}hler structure on $M$.
-            \item Fixing $J_{1}$, we can write
-            \vspace*{-6pt}
-            $$ \w_{\RR} := \w_{1}, \qquad \w_{\CC} := \w_{2} + i\cdot \w_{3}. $$
-            \vspace*{-18pt}
-        \end{itemize}
-    \end{block}
-    \begin{block}{Examples}
-        \begin{itemize}
-            \item Quaternionic space $\HH^{n}$.
-            \item Fixeds $J_{1}$, $T^{\ast}\CC^{n}$ inherits a hyperk{\"a}hler structure.
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Hyperhamiltonian Actions}
-    \begin{block}{Induced Action}
-        \begin{itemize}
-            \item For $M = T^{\ast}\CC^{n}$, Hamiltonian $G$-action of $\CC^{n}$ extends to hyperhamiltonian action on $T^{\ast}\CC^{n}$.
-            \item Original $\mu : \CC^{n} \ra \mfg^{\ast}$, induced maps are
-            \vspace*{-6pt}
-            $$ \mu_{\RR}(z,w) = \mu(z) - \mu(w), \qquad \mu_{\CC}(z,w)(v) = w(\hat{v}_{z}), $$
-            \vspace*{-6pt}
-            for $w \in T^{\ast}_{z}\CC^{n}$, $v \in \mfg_{\CC}$, and $\hat{v}_{z} \in T_{z}\CC^{n}$ induced by $v$.
-        \end{itemize}
-    \end{block}
-    \begin{block}{Subtori Action}
-        \begin{itemize}
-            \item If $N \overset{\imath}{\hookrightarrow} T^{n}$, get $N \acts T^{\ast}\CC^{n}$ via inclusion as before.
-            \item Maps $\mu_{\RR}, \mu_{\CC} \ra \mfn^{\ast}, \mfn^{\ast}_{\CC}$ then are:
-            \vspace*{-6pt}
-            $$ \mu_{\RR} = \imath^{\ast} \circ J_{\RR}, \qquad \mu_{\CC} = \imath^{\ast}_{\CC} \circ J_{\CC}. $$
-            \vspace*{-12pt}
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Examples}
-    \begin{block}{Diagonal Torus Action}
-        For $T^{n} \acts \CC^{n} \rightsquigarrow T^{n} \acts T^{\ast}\CC^{n}$ as $\tau \cdot (z,w) = (\tau z, \tau^{-1}w)$, thus
-        $$ J_{\RR}(z,w) = \sum_{k=1}^{n} ( |z_{k}|^{2} - |w_{k}|^{2} )e_{k}, \quad J_{\CC}(z,w) = \sum_{k=1}^{n}(z_{k}w_{k})e_{k}. $$
-    \end{block}
-    \begin{block}{$S^{1} \hookrightarrow T^{3} \acts T^{\ast}\CC^{n}$}
-        Example from before, with $S^{1} \overset{\imath}{\hookrightarrow} T^{3}$ diagonally.
-        $$ \mu_{\RR}(z,w) = \sum_{k=1}^{3} ( |z_{k}|^{2} - |w_{k}|^{2} ), \quad \mu_{\CC}(z,w) = \sum_{k=1}^{3}(z_{k}w_{k}). $$
-    \end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Hyperk{\"a}hler Reduction}
-    \begin{block}{Hyperk{\"a}hler Quotients \cite{BD2000}}
-        \begin{itemize}
-            \item Nice hyperk{\"a}hler quotient if $G$ acts freely on $(\mu_{\RR} \oplus \mu_{\CC})^{-1}(\xi)$, for $\xi \in \mfg^{\ast} \oplus \mfg_{\CC}^{\ast}$ regular.
-            \item Can assume that the $\mfg_{\CC}^{\ast}$-component of $\xi$ is zero, \cite{BD2000}.
-            \end{itemize}
-            \[
-                \begin{tikzcd}
-                    \text{Recall:} & \{1\} \arrow[r] & N \arrow[r, "\imath", hook] & T^{n} \arrow[r, "\pi", two heads] & T^{d} \arrow[r] & \{1\}.
-                \end{tikzcd}
-            \]
-    \end{block}
-    \begin{block}{Hyperk{\"a}hler Analogues \cite{proudfoot2004}}
-        For a toric $X = \CC^{n} \sslash N = \mu^{-1}(\lambda) / N$, its \textbf{hyperk{\"a}hler analogue} is
-        $$ M := T^{\ast}\CC^{n} \sssslash N := ( \mu_{\RR}^{-1}(\lambda) \cap \mu_{\CC}^{-1}(0) ) / N, $$
-        and is a \textbf{hypertoric variety}.
-    \end{block}
-\end{frame}
-
-\begin{frame}{Residual $T^{d}$-Action}
+\begin{frame}
     \begin{itemize}
-        \item Residual $T^{d} = T^{n}/N$ acts on $M$, with moment maps
-            \begin{equation*}
-                \begin{split}
-                    \bar{\mu}_{\RR}[z,w] &= \frac{1}{2}\sum_{k=1}^{n} ( |z_{k}|^{2} - |w_{k}|^{2} - \lambda_{k} )\partial_{k} \in \ker(\imath^{\ast}) \subseteq \RR^{d}, \\
-                    \bar{\mu}_{\CC}[z,w] &= \sum_{k=1}^{n}(z_{k}w_{k})\partial_{k} \in \ker(\imath^{\ast}_{\CC}) \subseteq \CC^{d}.
-                \end{split}
-            \end{equation*}
-            \item Image $\bar{\mu}_{\RR}(M)$ given by a hyperplane arrangement:
-            \begin{equation*}
-                \begin{split}
-                    F_{k} &= \{ y \in \RR^{d} : \langle y,\ u_{k} \rangle + \lambda_{k} \geq 0 \}, \\
-                    G_{k} &= \{ y \in \RR^{d} : \langle y,\ u_{k} \rangle + \lambda_{k} \leq 0 \}, \\
-                    H_{k} &= \{ y \in \RR^{d} : \langle y,\ u_{k} \rangle + \lambda_{k} = 0 \} = F_{k} \cap G_{k}.
-                \end{split}
-            \end{equation*}
-        \end{itemize}
+        \item $M_{\lambda} \cong T^{\ast}\CC\PP^{2}$ is an example of a \textcolor{red}{hypertoric manifold}.\
+        \item Had an exact sequence:
+        \[
+            1 \ra S^{1} \overset{\imath}{\hookrightarrow} T^{3} \overset{\pi}{\rightarrow} T^{3}/S^{1} \cong T^{2} \ra 1.    
+        \]
+        \item $\ker(\pi) = \Image(\imath)$, where $\imath(t) = (t,t,t)$.
+        \item Differentiating, $\imath_{\ast}(1) = (1,1,1)$.
+        \[
+            0 \ra \RR \overset{\imath_{\ast}}{\hookrightarrow} \RR^{3} \overset{\pi_{\ast}}{\rightarrow} \RR^{2} \ra 0.    
+        \]
+        \item $\ker(\pi_{\ast}) = \Span_{\RR}\{(1,0,-1),\, (0,1,-1)\}$,
+        \[
+        \implies \pi_{\ast} = \begin{bmatrix} 1 & 0 & -1 \\ 0 & 1 & -1 \end{bmatrix} = \begin{bmatrix} u_{1} & u_{2} & u_{3} \end{bmatrix}.
+        \]
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Example}
-    \begin{block}{$T^{\ast}\CC\PP^{2}$}
-        \begin{itemize}
-            \item From before, $S^{1} \acts \CC^{3} \rightsquigarrow \CC\PP^{2} = \mu^{-1}(\lambda) / S^{1}$ with residual $T^{2}$-action and moment polytope $\bar{\mu}(\CC\PP^{2}) = \Delta_{2}$.
-            \item Same arrangement as toric case but now $\bar{\mu}_{\RR}$ is surjective, for hypertoric $T^{\ast}\CC\PP^{2}$.
-        \end{itemize}
-    \end{block}
-    \begin{block}{Real Image}
-        \vspace{88pt}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Extended Core}
-    \begin{block}{Residual $S^{1}$-Action}
-        \begin{itemize}
-            \item $T^{\ast}\CC^{n}$ has an $S^{1}$-action from rotating cotangent fibres: $\tau\cdot (z,w) = (z,\tau w)$.
-            \item Descends to $\bar{\mu}_{\CC}^{-1}(0)$ as $\bar{\mu}_{\CC}$ is $S^{1}$-equivariant, so $M^{S^{1}} \subseteq \bar{\mu}_{\CC}(M)$.
-        \end{itemize}
-    \end{block}
-    \begin{block}{Extended Core of $M$}
-        \begin{itemize}
-            \item $\mc{E} := \bar{\mu}_{\CC}^{-1}(0) = \{ [z,w] \in M : z_{k}w_{k} = 0, \forall k \}. $
-            \item Breaks up further: for $A \subseteq \{ 1, \ldots, n \}$,
-            $$ \mc{E}_{A} := \{ [z,w] \in M : w_{k} = 0 \text{ for } k \in A,\ z_{k} = 0 \text{ for } k \not\in A \}. $$
-            \item $\bar{\mu}_{\RR}(\mc{E}_{A}) =: \Delta_{A}$, polyhedra from arrangement.
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Example}
-    \begin{block}{$\bar{\mu}_{\RR}(T^{\ast}\CC\PP^{2})$}
-        \vspace{192pt}
-    \end{block}
+\begin{frame}{Generally}
+    \begin{itemize}
+        \item $\Image(\bar{\mu}_{\RR})$ is hyperplane arrangement $\{H_{1}, \ldots, H_{n} \}$ in $\RR^{d}$.
+        \item Each $u_{i}$ is normal to $H_{i}$.
+        \item $\pi_{\ast} : \RR^{n} \ra \RR^{d}$, via $\pi : e_{i} \mapsto u_{i}$.
+        \item Set $\RR^{k} = \ker(\pi_{\ast}) \subset \RR^{n} \implies$ inclusion $\imath_{\ast} : \RR^{k} \into \RR^{n}$. 
+    \end{itemize}
+    \begin{equation*}
+        \xymatrix @R=-0.2pc {
+        0 \ar[r] & \RR^{k} \ar[r]^{\imath_{\ast}} & \RR^{n} \ar[r]^{\pi_{\ast}} & \RR^{d} \ar[r] & 0, \\
+                 &                                & e_{i} \ar@{|->}[r] & u_{i} & \\
+        }
+        \end{equation*}
 \end{frame}

@@ -23,9 +23,13 @@
 \begin{frame}{}
     \textcolor{blue}{\underline{Fun Facts cont'd:}} 
         \begin{itemize}
-            \item $\dim_{\mathbb{R}}(M) = 4n$, $2n$ from being symplectic, factor of $2$ from being complex,
+            \item $\dim_{\mathbb{R}}(M) = 4n$,
+            \begin{itemize}
+                \item $2n$ from being symplectic,
+                \item then $\times 2$ from being complex.
+            \end{itemize}
             \item Holonomy group of $M \unlhd \text{Sp}(n)$,
-            \item $\implies$ $\{$ Hyperk\"ahler manifolds $\} \subset$ $\{$ Calabi-Yau manifolds $\}$.
+            \item $\{$ Hyperk\"ahler manifolds $\} \subset$ $\{$ Calabi-Yau manifolds $\}$.
             \item Most hyperk\"ahler manifolds are non-compact $\rightsquigarrow$ completeness of the metric is the next best thing.
         \end{itemize}
 \end{frame}
@@ -77,10 +81,20 @@
 
 \begin{frame}
     \begin{itemize}
-        \item \textcolor{red}{Gibbons-Hawking Ansatz:} A principal $S^{1}$-bundle over $\mathbb{R}^{3}$,
+        \item \textcolor{red}{Gibbons-Hawking Ansatz:} Principal $S^{1}$-bundle over $\mathbb{R}^{3}$,
         \[
             (t,x,y,z) \ni S^{1} \times \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}.
         \]
-        
+        \textcolor{blue}{G. Gibbons \& S. Hawking (1978)} used the metric
+        \[
+            g = V(\underline{x})^{-1}(dt + \underline{A} \cdot d\underline{x})^{2} + V(\underline{x})\, d\underline{x} \cdot d\underline{x},
+        \]
+        a \textcolor{red}{``\emph{gravitational instanton}''}.
+        \item Here $\underline{A} = A_{i}dx^{i}$ is an $S^{1}$-connection $1$-form, and
+        \[
+            \underline{\nabla}V = \underline{\nabla} \times \underline{A} \implies \Delta V = 0,
+        \]
+        the \textcolor{red}{Bogomolny/monopole equations}.
+        \item They come up as solutions to the \textcolor{red}{Yang-Mills equations}.
     \end{itemize}
 \end{frame}
