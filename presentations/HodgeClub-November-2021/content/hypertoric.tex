@@ -22,14 +22,122 @@
 \begin{frame}{Generally}
     \begin{itemize}
         \item $\Image(\bar{\mu}_{\RR})$ is hyperplane arrangement $\{H_{1}, \ldots, H_{n} \}$ in $\RR^{d}$.
-        \item Each $u_{i}$ is normal to $H_{i}$.
+        \item The $u_{i}$ are the normals to the $H_{i}$.
         \item $\pi_{\ast} : \RR^{n} \ra \RR^{d}$, via $\pi : e_{i} \mapsto u_{i}$.
-        \item Set $\RR^{k} = \ker(\pi_{\ast}) \subset \RR^{n} \implies$ inclusion $\imath_{\ast} : \RR^{k} \into \RR^{n}$. 
+        \item Set $\mfk = \ker(\pi_{\ast}) \subset \RR^{n} \rightsquigarrow$ inclusion $\imath_{\ast} : \mfk \into \RR^{n}$. 
     \end{itemize}
     \begin{equation*}
         \xymatrix @R=-0.2pc {
-        0 \ar[r] & \RR^{k} \ar[r]^{\imath_{\ast}} & \RR^{n} \ar[r]^{\pi_{\ast}} & \RR^{d} \ar[r] & 0, \\
+        0 \ar[r] & \mfk \ar[r]^{\imath_{\ast}} & \RR^{n} \ar[r]^{\pi_{\ast}} & \RR^{d} \ar[r] & 0, \\
                  &                                & e_{i} \ar@{|->}[r] & u_{i} & \\
         }
         \end{equation*}
+    \begin{itemize}
+        \item $T^{n} \acts T^{\ast}\CC^{n}$ diagonally, moment map $\mu_{\HK} : T^{\ast}\CC^{n} \ra \RR^{3n}$.
+        \item $K  = \exp(\mfk) \acts T^{\ast}\CC^{n}$ too via inclusion $\imath : K \into T^{n}$.
+        \item Induces (real) moment map $\imath^{\ast} \circ \mu_{\RR} : T^{\ast}\CC^{n} \ra \mfk^{\ast}$, that we reduce with respect to.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item $T^{n}/K \cong T^{d} \acts M_{\lambda} := T^{\ast}\CC^{n} \sssslash_{\lambda} K$, \& $\lambda = (\alpha,0) \in \mfk^{\ast}\otimes \RR^{3}$.
+        \item Now $T^{d}$ moment map can be written down
+        \begin{align*}
+            \phi_{\RR}[z,w] &= \tfrac{1}{2}\left(\sum_{i=1}^{n} |z_{i}|^{2} - |w_{i}|^{2} - \alpha \right)e_{i} \in \ker(\imath^{\ast}) \cong \RR^{d} \\
+            \phi_{\CC}[z,w] &=\sum_{i=1}^{n}(z_{i}w_{i})e_{i} \in \ker(\imath_{\CC}^{\ast}) \cong \CC^{d}.
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+    \item Let's use combinatorics! Choose a lift $\beta = (\beta_{1}, \ldots, \beta_{n}) \in \RR^{n}$ such that $\imath^{\ast}(\beta) = \alpha$.
+    \item $\{H_{1}, \ldots, H_{n}\}$ hyperplane arrangement in $\RR^{d}$:
+    \[
+        H_{i} = \{x \in \RR^{d}\, |\, \langle x, u_{i} \rangle = \beta_{i} \}.
+    \]
+    \item Half-spaces
+    \begin{align*}
+        F_{i} &= \{x \in \RR^{d}\, |\, \langle x, u_{i} \rangle \geq \beta_{i} \}, \\
+        G_{i} &= \{x \in \RR^{d}\, |\, \langle x, u_{i} \rangle \leq \beta_{i} \}.
+    \end{align*}
+    \item So $H_{i} = F_{i} \cap G_{i}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Lemma}
+        If $w_{i} = 0$, then $\phi_{\RR}[z,w] \in F_{i}$, and if $z_{i} = 0$, then $\phi_{\RR}[z,w] \in G_{i}$.
+    \end{block}
+    Recall:
+    \begin{align*}
+        \phi_{\RR}[z,w] &= \tfrac{1}{2}\left(\sum_{i=1}^{n} |z_{i}|^{2} - |w_{i}|^{2} - \beta_{i} \right)e_{i} \in \ker(\imath^{\ast}), \\
+        \mu_{\RR}(z,w) &= \tfrac{1}{2}\left(\sum_{i=1}^{n} |z_{i}|^{2} - |w_{i}|^{2}\right)e_{i} \in \RR^{n}.
+    \end{align*}
+    \begin{block}{Proof, \textcolor{blue}{N. Proudfoot (2004)}}
+        If $w_{i} = 0$, 
+        \[
+            \langle \phi_{\RR}[z,w], u_{i} \rangle = \langle \mu_{\RR}(z,w), e_{i} \rangle - \beta_{i} = \tfrac{1}{2}(|z_{i}|^{2} - |w_{i}|^{2}) - \beta_{i} \geq 0
+        \]
+        so $\phi_{\RR}[z,w] \in F_{i}$.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize} 
+    \item As $\phi_{\CC}[z,w] = \sum_{i=1}^{n}(z_{i}w_{i})e_{i} = 0$, for
+    \[
+        \mathcal{E}_{A} = \{[z,w] \in M_{\alpha}\ |\ z_{i} = 0 \text{ for all } i \in A,\, w_{i} = 0 \text{ for all } i \not\in A \} 
+    \]
+    we have that $\mathcal{E}_{A} \subseteq \phi_{\CC}^{-1}(0)$, for each subset $A$.
+    \item For $A = \emptyset$, all $w$'s are zero $\rightsquigarrow$ get $X := \{[z,0] \in M\}$, which is a \textcolor{red}{symplectic toric subvariety} \`a la the \textcolor{red}{Delzant construction}.
+    \item Its moment map image is the convex polytope
+    \[
+        \Delta_{\emptyset} = \bigcap_{i=1}^{n} F_{i}.    
+    \]
+    \item Can be proven that $T^{\ast}X \subseteq M$, open and densely.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item More generally,
+        \[
+            \Delta_{A} = \left(\bigcap_{i \not\in A} F_{i}\right) \cap \left( \bigcap_{i \in A} G_{i} \right),
+        \]
+        is a convex (not necessarily bounded) polytope in $\RR^{d}$.
+        \item Each $\Delta_{A}$ corresponds to a $2d$-dimensional K\"ahler submanifold $X_{A} \subset M$, and is compact if $\Delta_{A}$ is bounded.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Adjectives for Hyperplane Arrangements}
+    Hyperplane arrangement $\{H_{1}, \ldots, H_{n}\}$ with normals $\{u_{1}, \ldots, u_{n}\}$:
+    \begin{itemize}
+        \item A hyperplane arrangement is \textcolor{red}{rational} if $u_{i} \in \ZZ^{d}$, for each $1 \leq i \leq n$,
+        \item A hyperplane arrangement is \textcolor{red}{simple} if any subset of $m$ hyperplanes intersect in codimension $m$,
+        \item A hyperplane arrangement is \textcolor{red}{smooth} if every subset of $d$ vectors from the $\{u_{i}\}$ forms a basis of $\ZZ^{d}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item If an arrangement is simple \textcolor{red}{but not} smooth, then we get a hypertoric \textcolor{red}{orbifold},
+        \item Example:
+        \[
+            u_{1} = (1,0),\quad u_{2} = (0,1), \quad u_{3} = (-1,-2), \text{ in } \RR^{2}.
+        \]
+        \item $u_{1}$ and $u_{3}$ do not form a basis of $\ZZ^{2}$.
+        \item In this case
+        \[
+            1 \ra K \into T^{3} \ra T^{2} \ra 1,    
+        \]
+        has $K \cong S^{1} \times \ZZ/2\ZZ$ (i.e. if arrangement is non-smooth, $K$ is not connected).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item For $K \cong S^{1} \times \ZZ/2\ZZ$,
+    \end{itemize}
 \end{frame}
