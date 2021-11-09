@@ -297,12 +297,12 @@
 		\end{tikzcd}
 	\]
 	and its dualised exact sequence
-%	\begin{equation}\label{eq:Delzant-Lie-dual}
-%		\xymatrix @R=-0.2pc {
-%			0 \ar[r] & (\mft^{d})^{\ast} \ar[r]^{\pi^{\ast}} \ar[r] & (\mft^{n})^{\ast} \ar[r]^{\imath^*} & \mfk^{\ast} = (\mft^{k})^{\ast} \ar[r] & 0.\\
-%			& & \e_{j} \ar@{|->}[r] & \lambda_{j} := \imath^* \e_{j} & \\
-%		}
-%	\end{equation}
+\[
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \ar[r] \&
+	\mfk \ar[r, hook, "\imath"] \& \mft^{n} \arrow{r}{\pi}[swap]{[u_{1}\ \ldots \ u_{n}]} \& \mft^{d} \ar[r] \& 0,
+\end{tikzcd}
+\]
 	where $\pi$ sends $e_{j}$ to $u_{j}$. Exponentiating the first exact sequence yields an exact sequence of tori
 %	\begin{equation}\label{eq:Delzant-Lie-group}
 %		\xymatrix{
