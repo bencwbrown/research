@@ -305,8 +305,7 @@
 	where $\pi$ sends $e_{j}$ to $u_{j}$. Exponentiating the first exact sequence yields an exact sequence of tori
 	\[
 		\begin{tikzcd}[ampersand replacement=\&]
-			0 \ar[r] \&
-			K \ar[r, hook, "\imath"] \& T^{n} \arrow{r}{\pi} \& T^{d} \ar[r] \& 0,
+			1 \ar[r] \&	K \ar[r, hook, "\imath"] \& T^{n} \arrow{r}{\pi} \& T^{d} \ar[r] \& 1,
 		\end{tikzcd}
 	\]
 	where 
@@ -340,7 +339,7 @@
 	Suppose for now that $K$ is connected, then both of these have a residual action of $T^{d} = T^{n}/K$ which is effective, and also Hamiltonian in the case of $X$, hyper-Hamiltonian in the case of $M$. Thus $M$ has a residual $T^{d}$ hyperk\"ahler moment map given by
 	\begin{align}
 		\bmu_{\HK}[z,w] = \bmu_{\RR}[z,w] \oplus \bmu_{\CC}[z,w] &= \half \sum_{j=1}^{n}(|z_{j}|^{2} - |w_{j}|^{2} - l_{j})\e_{j} \oplus \sum_{j=1}^{n}(z_{j}w_{j})\e_{j} \\
-		&\in \ker(\imath^{\ast}) \oplus \ker(\imath_{\CC}^{\ast}) = (\mft^{d})^{\ast} \oplus (\mft_{\CC}^{d})^{\ast}.
+		&\in \ker(\imath^{\ast}) \oplus \ker(\imath_{\CC}^{\ast}) \cong (\mft^{d})^{\ast} \oplus (\mft_{\CC}^{d})^{\ast}.
 	\end{align}
 
 	\subsection{Hyperplane Arrangements}
