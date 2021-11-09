@@ -386,7 +386,7 @@
 	
 	More generally, the hyperplane arrangement $\mcA = \{H_{1}, \ldots, H_{n} \}$ divides $(t^{d})^{\ast}$ into a finite family of closed, convex polyhedra, indexed by subsets $A \subseteq \{1,\ldots, n\}$,
 	\[
-		\Delta_{A} = \left(\bigcap_{j \not\in A} H_{j}^{+} \right) \cap \left(\bigcap_{j \in A} H_{j}^{-} \right).
+		\Delta_{A} = \left(\bigcap_{j \in A} H_{j}^{+} \right) \cap \left(\bigcap_{j \not\in A} H_{j}^{-} \right).
 	\]
 	For each subset $A \subseteq \{1, \ldots, n\}$, set
 	\[
@@ -412,7 +412,10 @@
 	\[
 		\mcE := \Set{[z,w] \in M | z_{j}w_{j} = 0, \text{ for all } j },
 	\]
-	and the \emph{extended core components}, already introduced in 
+	and the \emph{extended core components}, already introduced in the previous subsection,
+	\[
+		\mcE_{A} = \bar{\mu}_{\RR}^{-1}(\Delta_{A})\cap \bar{\mu}_{\CC}^{-1}(0) = \Set{[z,w] \in M | w_{j} = 0, \text{ if } j \not\in A, \text{ and } z_{j} = 0, \text{ if } j \in A}.
+	\]
 	
 	
 	\section{Localisation and Symplectic Cutting}
