@@ -303,10 +303,12 @@
 		\end{tikzcd}
 	\]
 	where $\pi$ sends $e_{j}$ to $u_{j}$. Exponentiating the first exact sequence yields an exact sequence of tori
-%	\begin{equation}\label{eq:Delzant-Lie-group}
-%		\xymatrix{
-%			1 \ar[r] & K = T^k \ar[r]^{\exp\iota} & T^n \ar[r]^{\exp \pi} & T^d \ar[r] & 1,}
-%	\end{equation}
+	\[
+		\begin{tikzcd}[ampersand replacement=\&]
+			0 \ar[r] \&
+			K \ar[r, hook, "\imath"] \& T^{n} \arrow{r}{\pi} \& T^{d} \ar[r] \& 0,
+		\end{tikzcd}
+	\]
 	where 
 	\[
 		T^{n} = \mft^{n}/\mft_{\ZZ}^{n}, \quad T^{d} = \mft^{d}/\mft_{\ZZ}^{d}, \quad \text{ and } \quad K = \ker(\pi : T^{n} \ra T^{d}).
