@@ -435,10 +435,9 @@
 		t \cdot [z, w] = [z, tw] = [z_{1}, \ldots, z_{n}, tw_{1}, \ldots, tw_{n}] = [t_{1}z_{1}, \ldots, t_{n}z_{n}, t_{1}^{-1}w_{1}, \ldots, t_{n}^{-1}w_{n}], \text{ where } t_{j} =
 		\begin{cases}
 			t^{-1}, &\text{ if } j \in A, \\
-			1, &\text{ if } j \not\in A,
+			1, &\text{ if } j \not\in A.
 		\end{cases}
 	\]
-	which holds because $t_{i} = t^{-1}$ when $z_{i} =0$, and $t_{i} = 1$ when $z_{i} \neq 0$.
 	This determines how $S^{1}$ can be viewed as a subtorus of the original torus $T^{n}$, and the image of this subtorus under the mapping $\pi$ is how $S^{1}$ acts on each $\mcE_{A}$ via a codimensional-$1$ subtorus of the residual torus $T^{d}$. On the Lie algebra level, this inclusion is the composition
 	\[
 	\begin{tikzcd}[ampersand replacement=\&]
@@ -482,9 +481,9 @@
 	\]
 	
 	\begin{defn}
-		The \emph{symplectic cut} $M^{\leq\e}$ of $M$ is the symplectic reduction of the product $M \times \CC$ at level $\e$ with respect to the diagonal $S^{1}$-action,
+		The \emph{symplectic cut} $M_{\cut}^{\e}$ of $M$ is the symplectic reduction of the product $M \times \CC$ at level $\e$ with respect to the diagonal $S^{1}$-action,
 		\[
-			M^{\leq\e} := (M \times \CC) \sslash_{\e} S^{1} = \rho^{-1}(\e)/S^{1}.
+			M_{\cut}^{\e} := (M \times \CC) \sslash_{\e} S^{1} = \rho^{-1}(\e)/S^{1}.
 		\]
 	\end{defn}
 	
@@ -503,31 +502,29 @@
 	
 	\paragraph{Compactifying Hypertoric Orbifolds}
 	
-	We will use the $S^{1}$-action to perform a symplectic cut of the toric hyperk\"ahler manifold $M$ to compactify it, which has the effect of bounding the $\|w\|^{2}$-norm component of the real moment map $\bar{\mu}_{\RR}$ by above, and discarding the rest that lies above this bound. So now consider the product $M \times \CC$, with $S^{1}$ acting diagonally in a Hamiltonian way on the product,
-	$$
-	e^{i\theta} \cdot \big( [z,w], \xi   \big) = \left( e^{i\theta} \cdot [z,w], e^{i\theta}\xi\right) = \left( [z,e^{i\theta}w], e^{i\theta}\xi\right).
-	$$
-	The corresponding moment map $\rho : M \times \CC \ra \RR$ is
+	We will use the residual $S^{1}$-action to compactify the hypertoric manifolds, which bounds the $w$-terms of the real moment map $\bar{\mu}_{\RR}$ from above. This is reflected in the image of $\bar{\mu}_{\RR}$ by inserting inwards-point half-spaces in each of the polyhedra, $\Delta_{A}$ and, in particular, bounding those which were originally unbounded.
+	
+	To this end, for a hypertoric manifold $M$, let $S^{1}$ act on the product $M \times \CC$ diagonally,
 	\[
-	\rho\big( [z,w], \xi  \big) = \|w\|^{2} + |\xi|^{2},
+		e^{i\theta} \cdot \big( [z,w], \xi   \big) = \left( e^{i\theta} \cdot [z,w], e^{i\theta}\xi\right) = \left( [z,e^{i\theta}w], e^{i\theta}\xi\right).
+	\]
+	This diagonal action is Hamiltonian, with moment map
+	\[
+		\Phi : \mf{M} \times \CC \ra \RR, \quad \Phi\left( [z,w], \xi  \right) = \phi[z,w] + |\xi|^{2} = \|w\|^{2} + |\xi|^{2}.
+	\]
+	For some $\e > 0$, the level-set $\Phi^{-1}(\e)$ decomposes into the disjoint union $\Phi^{-1}(\e) = \Sigma_{1} \sqcup \Sigma_{2}$, where
+	\begin{align*}
+		\Sigma_{1} &= \Set{([z,w],\xi) \in M \times \CC | \tfrac{1}{2}\|w\|^{2} < \e,\ |\xi| = + \sqrt{2\e - \|w\|^{2}}}, \\
+		\Sigma_{2} &= \Set{([z,w], 0) \in M \times \CC | \tfrac{1}{2}\|w\|^{2} = \e},
+	\end{align*}
+	so, after taking the quotient by $S^{1}$, we get the cut hypertoric manifold,
+	\[
+		M_{\cut}^{\e} = \Set{[z,w]\in M | \tfrac{1}{2}\|w\|^{2} \leq \e}.
 	\]
 	
-	and so taking the quotient of $\rho^{-1}(\e)$, where $\e > 0$, with respect to the diagonal $S^{1}$-action, produces the symplectic cut of $M$ at level-$\e$, 
-	\begin{equation*}
-		M^{\leq \e} := \rho^{-1}(\e)/S^{1} \cong \Set{[z,w] \in M | \tfrac{1}{2}\|w\|^{2} < \e}.
-	\end{equation*}
+	\subsection{The Combinatorics of the Cut Space, $\mf{M}_{\leq \e}$}
 	
-	\subsection{Combinatorics of the Compactified Hypertoric Orbifold, $M^{\leq \e}$}
-	
-	Whilst the procedure in the previous section compactifies the hypertoric orbifold $M$, replacing it with its symplectic cut $M^{\leq \e}$, we can see how cutting compactifies the components of the extended core, $\mcE_{A}$. This is particularly interesting since the $S^{1}$-action on each $\mcE_{A}$ depends, of course, on the subset $A \subseteq \{1, \ldots, n\}$.
-	
-	Recall that the way in which the circle acts on each $\mcE_{A}$ is via the inclusion, $\jmath_{A}: S^{1} \ra T^{n}$, and that the moment map for this action is
-	\[
-		\restr{\Phi}{\mcE_{A}}[z,w] = (\jmath_{A}^{\ast} \circ \mu_{\RR})[z,w] = \left\langle \bar{\mu}_{\RR}(z,w), \, -\sum_{i \in A} u_{i} \right\rangle.
-	\]
-	
-	
-	\section{Old Content - To be Ignored}
+	Since the residual circle $S^{1}$-action acts as a subtorus $S_{A}^{1}$ of the residual torus $T^{d}$ on each component $\mc{E}_{A}$ of the extended core, the hyperplane arrangement determined in $(\mft^{d})^{\ast}$ by the real moment map $\bar{\mu}_{\RR}$ is compactified by dropping in half-spaces with an inwards-pointing normal vector, given by $v_{A}$ when taking the cut. 
 	
 	Recall from the previous section that $j_{A}: S_{1} \hookrightarrow T^{n}$ denoted the inclusion homomorphism of $S^{1}$ into the original torus $T^{n}$. If we let $j_{A, \ast}: \mf{s}^{1} \rightarrow \mft^{n}$ represent the differential of this inclusion, then
 	\[
