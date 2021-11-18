@@ -106,6 +106,7 @@
 
 \newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
 \newcommand{\sssslash}{\mathbin{/\mkern-6mu/\mkern-6mu/\mkern-6mu/}}
+\newcommand{\open}[1]{\mathring{#1}}
 
 \newcommand{\pbrackets}[1]{\left( #1 \right)}
 \newcommand{\bbrackets}[1]{\left[ #1 \right]}
@@ -452,7 +453,7 @@
 		\langle y,\, \pi_{\ast}(e_{i}) \rangle &= \langle y,\, u_{i} \rangle \geq \lambda_{i}, \text{ for all } i \not\in A, \\
 		\text{and } \quad  \langle y,\, \pi_{\ast}(e_{i}) \rangle &= \langle y,\, u_{i} \rangle \leq \lambda_{i}, \text{ for all } i \in A.
 		\end{align*}
-		Specialising to the case $\mu_{\RR}(z,w) = x$, and $\bar{\mu}_{\RR}[z,w] = y$, we have that $\bar{\mu}_{\RR}[z,w] \in H_{i}^{+}$ if $i \not\in A$, and $\bar{\mu}_{\RR}[z,w] \in H_{i}^{-}$ if $i \in A$.
+		Specialising now to the case $\mu_{\RR}(z,w) = x$, and $\bar{\mu}_{\RR}[z,w] = y$, we have that $\bar{\mu}_{\RR}[z,w] \in H_{i}^{+}$ if $i \not\in A$, and $\bar{\mu}_{\RR}[z,w] \in H_{i}^{-}$ if $i \in A$.
 	\end{proof}
 
 	\begin{lemma}
@@ -484,6 +485,31 @@
 	\[
 		\restr{\Phi}{\mcE_{A}}[z,w] = (\jmath_{A}^{\ast} \circ \mu_{\RR})[z,w] = \left\langle \bar{\mu}_{\RR}(z,w), \, -\sum_{i \in A} u_{i} \right\rangle.
 	\]
+	
+	\section{Symplectic Toric and Hypertoric Suborbifolds}
+	
+	\subsection{Symplectic Toric Suborbifolds}
+	
+	We recall the definition of a symplectic toric orbifold.
+	
+	\begin{defn}{\cite{Aud04,Lerman1997}}
+		A $2n$-dimensional \emph{symplectic toric orbifold} is a connected symplectic orbifold $(M, \w)$ equipped with an effective Hamiltonian action of a $n$-torus $T^{n}$ and with corresponding moment map $\mu : M \ra (\mft^{n})^{\ast}$.
+	\end{defn}
+
+	We also have the orbifold analogue to the Delzant construction \cite{Del88}, where each symplectic toric orbifold can be associated to a labelled polytope.
+	
+	\begin{defn}{\cite{Lerman1997}}
+		A \emph{labelled polytope} in $\RR^{n}$ is a convex rational simple polytope $\Delta$ such that $\dim\Delta = n$, along with a positive integer attached to each facet.
+	\end{defn}
+
+	\begin{theorem}{\cite{Lerman1997}}
+		\begin{enumerate}
+			\item To every compact symplectic toric orbifold $(M, \w, T^{n}, \mu)$ there naturally corresponds a labelled polytope: the image of the moment map $\mu(M)$ is a rational simple polytope, $\Delta$. For every open facet $\open{F}$ of $\Delta$ there exists a positive integer $n_{\open{F}}$ such that the structure group of every $x \in \mu^{-1}(\open{F})$ is $\ZZ/n_{\open{F}}\ZZ$.
+			\item Two compact symplectic toric orbifolds are isomorphic if and only if their associated labelled polytopes are isomorphic.
+			\item Every labelled polytope arises from some compact symplectic toric orbifold.
+		\end{enumerate}
+
+	\end{theorem}
 	
 	
 	\section{Localisation and Symplectic Cutting}
