@@ -437,9 +437,9 @@
 			\mu_{\RR}(z,w) = \frac{1}{2}\sum_{i=1}^{n}\left(|z_{i}|^{2} - |w_{i}|^{2} - \lambda_{i} \right)e_{i},
 		\]
 		thus, restricted to $(T^{\ast}\CC^{n})_{A}$, its image in $(\mft^{n})^{\ast}$ is
-		\[
-			\Image\left(\restr{\mu_{\RR}}{(T^{\ast}\CC^{n})_{A}} \right) = \left(\bigcap_{i \not\in A} \tilde{H}_{i}^{+}\right) \cap \left(\bigcap_{i \in A} \tilde{H}_{i}^{-}\right).
-		\]
+		\begin{align*}
+			\Image\left(\restr{\mu_{\RR}}{(T^{\ast}\CC^{n})_{A}} \right) = \left(\bigcap_{i \not\in A} \tilde{H}_{i}^{+}\right) \cap \left(\bigcap_{i \in A} \tilde{H}_{i}^{-}\right) = \Set{x \in (\mft^{n})^{\ast} | \langle x,\, e_{i} \rangle \geq \lambda_{i}, \text{ if } i \not\in A } .
+		\end{align*}
 		Call this image $\tilde{\Delta}_{A}$ then, as $\pi^{\ast}$ is injective, $\pi^{\ast}\Delta_{A} \cong \tilde{\Delta}_{A}$. Now for $x \in (\mft^{n})^{\ast}$, we have $\imath^{\ast}(x) \iff x = \pi^{\ast}(y)$, for some $y \in (\mft^{d})^{\ast}$.
 	\end{proof}
 
