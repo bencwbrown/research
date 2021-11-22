@@ -521,7 +521,10 @@
     \begin{defn}
         Let $(M, \w, \mu, T^{n})$ be a $2n$-dimensional toric symplectic orbifold, with a Hamiltonian action of $T^{n}$ on $M$ with moment map $\mu : M \ra (\mft^{n})^{\ast}$. Denote by $\mu(M) = \Delta_{M} \subseteq (\mft^{n})^{\ast}$ the corresponding convex rational simple polytope.
         
-        Let $\mcF = \{F_{1}, \ldots, F_{n}\}$ denote the set of faces of $\Delta_{M}$. For each $(n-d)$-dimensional face $F_{i} \subset \Delta_{M}$, the suborbifold $N_{i} := \mu^{-1}(F_{i})$ is a $2d$-dimensional toric symplectic suborbifold, with moment map $\phi_{i} := \restr{\mu}{N_{i}}$, symplectic form $\w_{i} := \restr{\w}{N_{i}}$, and Hamiltonian torus action of $T^{d} = T^{n}
+        Let $\mcF = \{F_{1}, \ldots, F_{n}\}$ denote the set of faces of $\Delta_{M}$. For each $(n-d)$-dimensional face $F_{i} \subset \Delta_{M}$, the suborbifold $N_{i} := \mu^{-1}(F_{i})$ is a $2d$-dimensional toric symplectic suborbifold, with moment map $\phi_{i} := \restr{\mu}{N_{i}}$, symplectic form $\w_{i} := \restr{\w}{N_{i}}$, and whose Hamiltian torus action is generated from the Lie algebra,
+        \[
+            \mft_{i}^{d} := \mft^{n} / \Span_{\RR}\Set{ u_{j} \in \mft^{n} | u_{j} \text{ is normal to } F_{j} }
+        \]
     \end{defn}
     
     \begin{remark}{Old (and Incorrect) - Ignore:}
