@@ -378,6 +378,74 @@
 		\Delta = \bigcap_{i=1}^{n} H_{i}^{+} = \Set{x \in (\mft^{d})^{\ast} | \langle x,\, u_{i} \rangle \geq \lambda_{i}, \text{ for each } 1 \leq i \leq n }.
 	\]
 	be the polytope in $(\mft^{d})^{\ast}$ determined by the hyperplane arrangement $\mcA$; it is the image under $\bar{\mu}_{\RR}$ of the K\"ahler toric variety $X = \CC^{n}\sslash_{\alpha} K$.
+	
+	\subsection{Examples}
+	
+	In this subsection, we shall introduce some examples of the above construction for hypertoric manifolds and orbifolds.
+	
+	\subsubsection{$M = T^{\ast}\CC\PP^{2}$}
+	
+	Here, we consider
+	\[
+		u_{1} = (1,0), \quad u_{2} = (0,1), \quad u_{3} = (-1,-1),
+	\]
+	so that
+	\[
+		\pi = \begin{bmatrix}
+			1 & 0 & -1 \\ 0 & 1 & -1
+		\end{bmatrix},
+		\quad \text{ and } \quad
+		\imath = \begin{bmatrix}
+			1 & 1 & 1
+		\end{bmatrix}^{T},
+		\quad \text{ so } \quad
+		\imath^{\ast} = \begin{bmatrix}
+			1 & 1 & 1
+		\end{bmatrix}.
+	\]
+	They fit into the exact sequence of Lie algebras,
+	\[
+	\begin{tikzcd}[ampersand replacement=\&]
+		0 \ar[r] \&
+		\mfk \ar[r, hook, "\imath"] \& \mft^{3} \arrow{r}{\pi} \& \mft^{2} \ar[r] \& 0,
+	\end{tikzcd}
+	\]
+	that exponentiates to
+	\[
+	\begin{tikzcd}[ampersand replacement=\&]
+		0 \ar[r] \&
+		K \ar[r, hook, "\imath"] \& T^{3} \arrow{r}{\pi} \& T^{2} \ar[r] \& 0.
+	\end{tikzcd}
+	\]
+	From $\imath : K \hookrightarrow T^{3}$, which is $t \mapsto (t,t,t)$, we see that the moments map for this $K$-action are
+	\begin{align*}
+		(\imath^{\ast} \circ \mu_{\RR})(z,w) &= \frac{1}{2}\left(|z_{1}|^{2} +|z_{2}|^{2} +|z_{3}|^{2} - |w_{1}|^{2} - |w_{2}|^{2} - |w_{3}|^{2} \right) - (\lambda_{1} + \lambda_{2} + \lambda_{3}) \in \mfk^{\ast}, \\
+		(\imath_{\CC}^{\ast} \circ \mu_{\CC})(z,w) &= z_{1}w_{1} + z_{2}w_{2} + z_{3}w_{3} \in \mfk_{\CC}^{\ast},
+	\end{align*}
+	so that
+	\begin{align*}
+		(\imath^{\ast} \circ \mu_{\RR})^{-1}(0) &= \Set{(z,w) \in T^{\ast}\CC^{n} | \tfrac{1}{2}\left(\|z\|^{2} - \|w\|^{2} \right) = \lambda_{1} + \lambda_{2} + \lambda_{3}}, \\
+		(\imath_{\CC}^{\ast} \circ \mu_{\CC})^{-1}(0) &= \Set{(z,w) \in T^{\ast}\CC^{n} | \langle z,\, w \rangle = 0 }.
+	\end{align*}
+	Let us set $(\lambda_{1}, 0, 0) = (\alpha, 0, 0)$, whence
+	\[
+		M_{\alpha} = T^{\ast}\CC^{3} \sssslash_{\alpha} K \cong T^{\ast}\CC\PP^{2}.
+	\]
+	There is a residual $T^{2}$-action on $M_{\alpha}$, that is hyperHamiltonian and whose real moment map image is shown in Figure (\ref{fig:TCP2-moment-image}):
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+			\filldraw[fill=gray!10!white, draw=black] (0,0) -- (3,0) -- (0,3) -- cycle;
+			\draw (-1.5,0) -- (5,0);
+			\draw[thick,->] (1.5,0) -- (1.5,0.5) node[anchor=north west] {$u_{2}$};
+			\draw (0,-1.5) -- (0,5);
+			\draw[thick,->] (0,1.5) -- (0.5,1.5) node[anchor=south west] {$u_{1}$};
+			\draw (4.5,-1.5) -- (-1.5,4.5);
+			\draw[thick,->] (1.5,1.5) -- (1.146,1.146);
+		\end{tikzpicture}
+		\caption{Image of $T^{\ast}\CC\PP^{2}$ under $\mu_{\RR}$ in $(\mft^{2})^{\ast}$ for the $T^{2}$-action. The shaded $2$-simplex is the image of the core, $\mcE \cong \CC\PP^{2}$.} \label{fig:TCP2-moment-image}
+	\end{figure}
 		
 	\subsection{The Core, Extended Core, and Residual $S^{1}$-Action}
 	
@@ -483,8 +551,9 @@
 	\]
 	Restricted to each component $\mcE_{A}$ however, as $S^{1}$ acts via the inclusion $\jmath_{A}$ into $T^{n}$, its restricted moment map is
 	\[
-		\restr{\Phi}{\mcE_{A}}[z,w] = (\jmath_{A}^{\ast} \circ \mu_{\RR})[z,w] = \left\langle \bar{\mu}_{\RR}(z,w), \, -\sum_{i \in A} u_{i} \right\rangle.
+		\restr{\Phi}{\mcE_{A}}[z,w] = (\jmath_{A}^{\ast} \circ \mu_{\RR})[z,w] = \left\langle \bar{\mu}_{\RR}[z,w], \, -\sum_{i \in A} u_{i} \right\rangle = \left\langle \mu_{\RR}(z,w), \, -\sum_{i \in A} e_{i} \right\rangle.
 	\]
+	For brevity relabel $\restr{\Phi}{\mcE_{A}}$ as $\Phi_{A}$, viewed as the moment map map $\Phi_{A} : \mcE_{A} \ra \mf{s}^{\ast}$.
 	
 	\section{Symplectic Toric and Hypertoric Suborbifolds}
 	
@@ -514,7 +583,7 @@
 		Theorem (\ref{thm:orbifold-characterisation}), due to Lerman and Tolman, is the orbifold analogue of Delzant's construction for toric symplectic manifolds. Since orbifolds will appear naturally in this article, and also as a manifold is a special case of an orbifold, we consider the more general notion of an orbifold in this section. However, these results also apply to manifolds; one just needs to strengthen the simple condition on the respective polytope to being in fact a \emph{smooth} one meaning that, for each vertex of a polytope in $\RR^{n}$, the normals to the edges emanating from it form an integral basis for $\ZZ^{n}$.
 	\end{remark}
 	
-	Now let $(M, \w, T^{n}, \mu)$ be an $2m$-dimensional symplectic toric orbifold The critical points for $mu$ are those in $M$ of which have a non-trivial stabiliser. Those points which are stabilised by a given subgroup $H \leq T^{m}$ are mapped under $\mu$ into a finite union of planes in $(\mft^{m})^{\ast}$
+	Now let $(M, \w, T^{n}, \mu)$ be an $2m$-dimensional symplectic toric orbifold The critical points for $mu$ are those in $M$ of which have a non-trivial stabiliser. Those points which are stabilised by a given subgroup $H \leq T^{m}$ are mapped under $\mu$ into a finite union of planes in $(\mft^{m})^{\ast}$, of which each normal vector is parallel to the annihilator of $\mfh$ in $(\mft^{n})^{m}$.
     	
 	\section{Localisation and Symplectic Cutting}
 	
@@ -587,27 +656,7 @@
 	\]
 	
 	
-	\section{Old Content - To be Ignored}
 	
-	Recall from the previous section that $j_{A}: S_{1} \hookrightarrow T^{n}$ denoted the inclusion homomorphism of $S^{1}$ into the original torus $T^{n}$. If we let $j_{A, \ast}: \mf{s}^{1} \rightarrow \mft^{n}$ represent the differential of this inclusion, then
-	\[
-	j_{A,\ast}(1) = \sum_{i \in A} e_{i} \in \mft^{n},
-	\]
-	and the generator $\exp(v_{A})$ of the one-parameter subgroup $S_{A}^{1}$ in $T^{d}$ is
-	\[
-	\exp(v_{A}) = \exp\lbracket \pi_{\ast} \circ j_{A, \ast}(1) \rbracket,
-	\]
-	or to be more concise,
-	\[
-	S_{A}^{1} = \Set{ \exp \lbracket r \cdot \sum_{i \in A} u_{i} \rbracket | r \in \RR }.
-	\]
-	Then the moment map for the restricted $S^{1}$-action to $\mcE_{A}$ is
-	\begin{equation*}
-		\phi_{A}[z,w] := \restr{\phi}{\mcE_{A}} [z,w] =  (j_{A}^{\ast} \circ \mrr)[z,w] = \left\langle \bar{\mu}_{\RR}[z,w], \sum_{i\in A} u_{i} \right\rangle,
-	\end{equation*}
-	where $j_{A}^{\ast} : (\mft^{n})^{\ast} \ra \RR^{\ast}$ is the transposed differential of the inclusion, $j_{A, \ast}$.
-	
-	As the $S_{A}^{1}$-action depends combinatorially on the component $\mcE_{A}$, the image of the real moment map in $(\mft^{d})^{\ast}$ is compactified by inserting a half-space $Z_{A}$ with inwards-pointing normal $v_{A} = \sum_{i \not\in A}u_{i}$ determining the orientation, on each component $\Delta_{A}$.
 	
 	\section{Hypertoric Subvarieties}
 	
