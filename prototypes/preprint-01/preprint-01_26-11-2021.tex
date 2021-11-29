@@ -636,7 +636,7 @@
 	
 	\subsection{Orbifold Dolbeault Complex}
 	
-	Let $(M, \w)$ be a compact symplectic manifold, and assume that the class of the symplectic form is integral, \ie $[\w] \in H^{2}(M; \ZZ)$. This condition implies existence of a Hermitian line bundle $\mcL \ra M$, whose $1$\textsuperscript{st} Chern class is $c_{1}(\mcL) = [\w]$; then It is then possible to choose a Hermitian connection $\nabla$ on $\mcL$ with curvature form $F(\mcL) = (2\pi/i)\w$. In the case when $M$ is moreover K\"ahler, which we shall assume, then the line bundle $\mcL$ can be taken to be holomorphic. The complex structure $I$ induces a Dolbeault structure on the exterior algebra of the cotangent bundle, giving rise to a splitting of the complexified tangent bundle of $M$ into the $+i$ and $-i$ eigenspaces of $I$,
+	Let $(M, \w)$ be a compact symplectic manifold, and assume that the class of the symplectic form is integral, \ie $[\w] \in H^{2}(M; \ZZ)$. This condition implies existence of a Hermitian line bundle $\mcL \ra M$, whose $1$\textsuperscript{st} Chern class is $c_{1}(\mcL) = [\w]$; then It is then possible to choose a Hermitian connection $\nabla$ on $\mcL$ with curvature form $F(\mcL) = (2\pi/i)\w$. In the case when $M$ is moreover K\"ahler, which we shall assume, then the line bundle $\mcL$ can be taken to be holomorphic. The complex structure $J$ induces a Dolbeault structure on the exterior algebra of the cotangent bundle, giving rise to a splitting of the complexified tangent bundle of $M$ into the $+i$ and $-i$ eigenspaces of $J$,
     \[
         TM \otimes \CC \cong T^{1,0}M \oplus T^{0,1}M.
     \]
@@ -661,14 +661,14 @@
     Now, given the holomorphic line bundle $\mcL$ from before with its holomorphic connection $\nabla$, we define a \emph{twisted Dolbeault complex} by setting $\dbar_{\mcL} = \dbar \otimes 1 + 1 \otimes \nabla$, which defines the following complex for $\mcL$-valued forms
     \[
     \begin{tikzcd}[ampersand replacement=\&]
-        0 \ar[r] \& \mcC^{\infty}(\wedge^{0,0} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,1} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \ldots \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,2n} \otimes \mcL) \ar[r] \& 0.
+        0 \ar[r] \& \Omega^{0,0} \otimes \mcL \ar[r, "\dbar_{\mcL}"] \& \Omega^{0,1} \otimes \mcL \ar[r, "\dbar_{\mcL}"] \& \ldots \ar[r, "\dbar_{\mcL}"] \& \Omega^{0,n} \otimes \mcL \ar[r] \& 0.
     \end{tikzcd}
     \]
     The cohomology of this complex is the sheaf cohomology of holomorphic sections of $\mcL$,
     \[
         \ker \dbar_{\mcL}^{0,j} / \Image \dbar_{\mcL}^{0,j-1} \cong H^{j}(M, \mcO(\mcL)).
     \]
-    Letting $\dbar_{\mcL}^{\ast}$ be the adjoint operator of $\dbar_{\mcL}$, defined with respect to the Hermitian inner-product, 
+    From $\w$ and $J$, we also have a Hermitian structure of each of the $\Omega^{0,j}$'s, 
 	
 	
     
