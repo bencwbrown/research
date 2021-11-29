@@ -640,7 +640,7 @@
     \[
         TM \otimes \CC \cong T^{1,0}M \oplus T^{0,1}M.
     \]
-    The exterior powers of the complexified tangent bundle also split
+    The exterior powers of the complexified tangent bundle also split, giving a bigrading,
     \[
         \wedge^{k}T^{\ast}M \otimes \CC \cong \bigoplus_{i + j = k} \wedge^{i,j},
     \]
@@ -655,16 +655,20 @@
     When $M$ is a complex analytic orbifold, the operator $\dbar$ defines the \emph{Dolbeault orbifold complex},
     \[
         \begin{tikzcd}[ampersand replacement=\&]
-            0 \ar[r] \& \Omega^{0,0} \ar[r, "\dbar"] \& \Omega^{0,1} \ar[r, "\dbar"] \& \ldots \ar[r, "\dbar"] \& \Omega^{0,n} \ar[r, "\dbar"] \& 0.
+            0 \ar[r] \& \Omega^{0,0} \ar[r, "\dbar"] \& \Omega^{0,1} \ar[r, "\dbar"] \& \ldots \ar[r, "\dbar"] \& \Omega^{0,n} \ar[r] \& 0.
         \end{tikzcd}
     \]
     Now, given the holomorphic line bundle $\mcL$ from before with its holomorphic connection $\nabla$, we define a \emph{twisted Dolbeault complex} by setting $\dbar_{\mcL} = \dbar \otimes 1 + 1 \otimes \nabla$, which defines the following complex for $\mcL$-valued forms
     \[
     \begin{tikzcd}[ampersand replacement=\&]
-        0 \ar[r] \& \mcC^{\infty}(\wedge^{0,0} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,1} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \ldots \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,2n} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& 0.
+        0 \ar[r] \& \mcC^{\infty}(\wedge^{0,0} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,1} \otimes \mcL) \ar[r, "\dbar_{\mcL}"] \& \ldots \ar[r, "\dbar_{\mcL}"] \& \mcC^{\infty}(\wedge^{0,2n} \otimes \mcL) \ar[r] \& 0.
     \end{tikzcd}
     \]
-    
+    The cohomology of this complex is the sheaf cohomology of holomorphic sections of $\mcL$,
+    \[
+        \ker \dbar_{\mcL}^{0,j} / \Image \dbar_{\mcL}^{0,j-1} \cong H^{j}(M, \mcO(\mcL)).
+    \]
+    Letting $\dbar_{\mcL}^{\ast}$ be the adjoint operator of $\dbar_{\mcL}$, defined with respect to the Hermitian inner-product, 
 	
 	
     
