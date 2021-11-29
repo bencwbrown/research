@@ -591,17 +591,17 @@
 		For a subtorus $H \lhd G$, the fixed-point set $M^{H}$ in $M$ is a symplectic orbifold.
 	\end{prop}
 	
-    There are a finite number of subtori $H_{i}$ which can appear as stabiliser subgroups of points in $M$, with each fixed-point set having a finite number of components. Denote the set of these components by $\mcF = \{F_{1}, \ldots, F_{n} \}$, and label their respective stabiliser subtori by $\{H_{1}, \ldots, H_{n}\}$. By Proposition (\ref{thm:fixed-point-suborbifold}), each of these fixed-point components is a symplectic orbifold in its own right. Moreover, restricting the moment map $\mu$ to each $F_{i}$ makes it into a Hamiltonian $G$-space, albeit with a non-effective action. We obtain an effective Hamiltonian action of the quotient torus $G/H_{i}$ however, 
+    There are a finite number of subtori $H_{i}$ which can appear as stabiliser subgroups of points in $M$, with each fixed-point set having a finite number of components. Denote the set of these components by $\mcF = \{F_{1}, \ldots, F_{n} \}$, and label their respective stabiliser subtori by $\{H_{1}, \ldots, H_{n}\}$.
     
-    Let $i: M^{H} \hookrightarrow M$ denote the inclusion mapping.
-	Restricting the moment map $\mu$ makes $M^{H}$ into a symplectic orbifold with a Hamiltonian action of $G$, albeit non-effective. The quotient torus $G/H$ does act effectively on $M^{H}$ however, whence $(M^{H}, i^{\ast}\w, \restr{\mu}{M^{H}}, G/H)$ is a symplectic toric orbifold in its own right, in addition to being a symplectic orbifold of $M$.
-	
+    By Proposition (\ref{thm:fixed-point-suborbifold}), each of these fixed-point components is a symplectic orbifold in its own right. Moreover, restricting the moment map $\mu$ to each $F_{i}$ makes it into a Hamiltonian $G$-space, albeit with a non-effective action. We obtain an effective Hamiltonian action of the quotient torus $T_{i} = G/H_{i}$ however, though the moment map for it is only unique up to a translate (\ie up to a constant) in $\mfg^{\ast}$.
     
+    In the case when the quotient subtori $T_{i}$ has codimension $1$ in $G$, \ie when $H_{i}$ is a circle, then the corresponding fixed-point component $F_{i}$ also has codimension $1$ in $M$. In this case, the image of the moment map $\mu$, restricted to $F_{i}$, is an $(n-1)$-dimensional face $\Delta_{i}$ of $\Delta_{G}$, namely a facet. This facet $\Delta_{i}$ has a respective normal vector, $u_{i} \in \mfg$, and it is this normal vector that generates the Lie algebra of the stabiliser subgroup of $F_{i}$ in $G$, that is
+    \[
+    	\mfh_{i} = \Span_{\RR}\Set{u_{i} | u_{i} \text{ is normal to } \Delta_{i}} \subset \mfg, \quad \text{ and } \quad H_{i} \cong \Stab_{G}(F_{i}) \lhd G.
+    \]
     
-	\begin{prop}
-		$(M^{H}, i^{\ast}\w, \text{CHECK!}, G/H)$ is a symplectic toric suborbifold of $(M, \w, \mu , G)$.
-	\end{prop}
-
+   \subsection{Below - Old Content} 
+    
 	Suppose that
 	\[
 		\Delta_{G} = \bigcap_{i=1}^{n} \Set{x \in \mfg^{\ast} | \langle x,\, u_{i} \rangle \geq \lambda_{i} },
