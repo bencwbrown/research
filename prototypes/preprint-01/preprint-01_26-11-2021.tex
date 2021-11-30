@@ -253,11 +253,11 @@
     
     Depending on the assumptions on the torus $N$, we can either obtain a smooth K\"ahler quotient manifold or a singular K\"ahler quotient orbifold, and these conditions are reflected in the choice of the $u_{i}$. Such choices also analogously determine whether the corresponding hyperk\"ahler quotient is a manifold or an orbifold, when the $u_{i}$ come from the data associated with a polytope in $\RR^{d}$.
     
-    The subtorus $K$ acts on $\CC^{n}$ via the inclusion homomorphism $\imath$ into $T^{n}$, hence preserves its flat K\"ahler structure and form (\ref{eqn:flat-kahler-form}). As this $K$-action is also Hamiltonian, it has a moment map which comes from (\ref*{eqn:flat-kahler-moment}),
+    The subtorus $K$ acts on $\CC^{n}$ via the inclusion homomorphism $\imath$ into $T^{n}$, hence preserves its flat K\"ahler structure and form (\ref{eqn:flat-kahler-form}). As this $K$-action is also Hamiltonian, it has a moment map which comes from (\ref{eqn:flat-kahler-moment}),
     
-    \begin{equation*}\label{eqn:K-moment-map}
+    \begin{equation}\label{eqn:K-moment-map}
         \mu(z) = (\imath^{\ast} \circ \phi)(z) = \imath^{\ast} \left(\frac{1}{2}\sum_{i=1}^{n}|z_{i}|^{2}e_{i} - \lambda\right) = \frac{1}{2}\sum_{i=1}^{n}|z_{i}|^{2}\alpha_{i} - c,
-    \end{equation*}
+    \end{equation}
 
     where $\alpha_{i} = \imath^{\ast}(e_{i})$ and $c = \sum_{i=1}^{n} \lambda_{i}\alpha_{i}$, with each $\lambda_{i} \in \RR$.
     
@@ -269,19 +269,21 @@
 
     In the case when $X$ is compact, the image of $X$ under the moment map $\mubar$ is a convex polytope $\Delta$ in $(\mft^{d})^{\ast}$, by the Atiyah, Guillemin-Sternberg convexity theorem (\cite{Ati82, GS82}). In this picture, the vectors $u_{i}$ appear as the inwards-pointing normal vectors to the half-spaces delimiting $\Delta$, and the constants $\lambda_{i}$ determine their positions in $(\mft^{d})$. That is,
     
-    \begin{equation*}\label{eqn:polytope-half-spaces}
+    \begin{equation}\label{eqn:polytope-half-spaces}
         \Delta = \Set{x \in (\mft^{d})^{\ast} | \langle x,\, u_{i} \rangle \geq \lambda_{i}, \text{ for } 1 \leq i \leq n}.
-    \end{equation*}
+    \end{equation}
     
     \subsection{The Combinatorics to the Geometry}
    
    We should establish how the combinatorial properties of the polytope $\Delta$ in $(\mft^{d})^{\ast}$ determine the geometry of the toric manfiolds and orbifolds sooner rather than later, since these properties also apply, \emph{mutatus mutandi}, to the toric hyperk\"ahler manifolds and orbifolds later on. For ease of notation, we shall consider a \emph{convex} polytope $\Delta$ in $(\mft)^{d}$, and identify $(\mft^{d})^{\ast} \cong \mft^{d} \cong \RR^{d} \cong (\RR^{d})^{\ast}$, by means of an invariant inner-product, for example. \nb{``There should be no possibility of ambiguity in making this identification here.''?}
    
-   Recall from (\ref{eqn:polytope-half-spaces}) that $\Delta$ can be expressed as the intersection of finitely many half-spaces in $V$; in our case, $n$ half-spaces:
+   Recall from (\ref{eqn:polytope-half-spaces}) that $\Delta$ can be expressed as the intersection of finitely many half-spaces in $V$; in our case, $n$ half-spaces,
    
    \begin{equation}\label{eqn:intersection-polytope-half-spaces}
        \Delta = \bigcap_{i=1}^{n} \Set{x \in V^{\ast} | \langle x,\, u_{i} \rangle \geq \lambda_{i}},
    \end{equation}
+    
+    where the $u_{i} \in \RR^{n}$ are 
     
 	\section{Toric Hyperk\"ahler manifolds}
 	
