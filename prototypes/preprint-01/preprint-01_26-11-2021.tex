@@ -52,11 +52,21 @@
 \newtheorem*{lemma*}{Lemma}
 \newtheorem{prop}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{defn}[theorem]{Definition\rm}
+%\newtheorem{definition}{Definition}
+%\newtheorem{definition}[theorem]{Definition\rm}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{remark}{\it Remark\/}
 \newtheorem{example}{Example}
 \newtheorem{fact}{Fact}
+
+\newcounter{subdefinition}[theorem]
+\renewcommand{\thesubdefinition}{\thedefinition.\arabic{subdefinition}}
+\newenvironment{subdefinition}{
+    \refstepcounter{subdefinition}
+    \par\noindent
+    \textbf{\upshape Definition \thesubdefinition}%
+}{}
 
 \newcommand{\st}{\ensuremath{:}}% such that
 \newcommand{\ie}{\emph{i.e.} }
@@ -290,15 +300,25 @@
     
     Let us introduce some combinatorial terminology to describe important properties of the polytopes we shall consider:
     
-    \begin{defn}\label{defn:polytope-properties}
+    \begin{definition}\label{defn:polytope-properties}
         Suppose that $\Delta$ is a convex polytope in $\RR^{d}$. We say that it is:
-        \begin{enumerate}
-            \item \textbf{simple}, if there are $d$ edges meeting at each vertex;
-            \item \textbf{rational}, if the edges meeting at the vertex $v$ are of the form, $v + ta_{i}$, with $t \geq 0$ and $a_{i} \in \ZZ^{d}$, for $1 \leq i \leq d$. \Ie, the edges to the vertex $v$ emanate out in a direction given by the integral vectors, $a_{i}$;
-            \item \textbf{smooth}, if for each vertex, the corresponding edge vectors $a_{1}, \ldots, a_{d}$ form a $\ZZ$-basis of $\ZZ^{d}$;
-            \item \textbf{Delzant}, if the polytope is simultaneously simple, rational, and smooth.
-       \end{enumerate}        
-    \end{defn}
+        \begin{subdefinition}
+            \textbf{simple}, if there are $d$ edges meeting at each vertex;
+        \end{subdefinition}
+    
+        \begin{subdefinition}
+            \textbf{rational}, if the edges meeting at the vertex $v$ are of the form, $v + ta_{i}$, with $t \geq 0$ and $a_{i} \in \ZZ^{d}$, for $1 \leq i \leq d$. \Ie, the edges to the vertex $v$ emanate out in a direction given by the integral vectors, $a_{i}$;
+        \end{subdefinition}
+        
+        
+        \begin{subdefinition}
+            \textbf{smooth}, if for each vertex, the corresponding edge vectors $a_{1}, \ldots, a_{d}$ form a $\ZZ$-basis of $\ZZ^{d}$;
+        \end{subdefinition}
+    
+        \begin{subdefinition}
+            \textbf{Delzant}, if the polytope is simultaneously simple, rational, and smooth.
+        \end{subdefinition}    
+    \end{definition}
     
     
     
@@ -443,7 +463,7 @@
 	
 	The data used to construct a hypertoric orbifold $M$, consisting of the collection of non-zero vectors $\{u_{i}\}$ in $(\mft^{d})^{\ast}$ and an element $\lambda \in \mfk^{\ast}$, can be encoded into a finite \emph{hyperplane arrangement} in $(\mft^{d})^{\ast} \cong \RR^{d}$. 
 	
-	\begin{defn}
+	\begin{definition}
 		Let $H \subseteq \RR^{d-1}$ be a (linear) hyperplane in $\RR^{d}$, \ie for $u \in \RR^{d}$ a non-zero fixed vector, that
 		\[
 			H = \Set{x \in \RR^{d} | \langle x,\, u \rangle = 0 }.
@@ -458,7 +478,7 @@
 				\tilde{H} = \Set{x \in \RR^{d} | \langle x,\, u \rangle = a,\, a \in \RR} \subseteq \RR^{d-1}.	
 			\]
 		\end{enumerate}
-	\end{defn}
+	\end{definition}
 
 	Applied to our case, the collection of vectors $\{u_{i}\}$ in $\mft^{d}$ and choice of lift $\lambda \in (\mft^{n})^{\ast}$ with $\alpha = \imath^{\ast}(\lambda)$ correspond to a hyperplane arrangement $\mcA = \{H_{1}, \ldots, H_{n}\}$ of rational, weighted, cooriented, affine hyperplanes $H_{i}$ in $(\mft^{d})^{\ast}$, given by
 	\[
@@ -661,15 +681,15 @@
 	
 	We recall the definition of a symplectic toric orbifold.
 	
-	\begin{defn}{\cite{Aud04,Lerman1997}}
+	\begin{definition}{\cite{Aud04,Lerman1997}}
 		A $2n$-dimensional \emph{symplectic toric orbifold} is a connected symplectic orbifold $(M, \w)$ equipped with an effective Hamiltonian action of a $n$-torus $T^{n}$ and with corresponding moment map $\mu : M \ra (\mft^{n})^{\ast}$.
-	\end{defn}
+	\end{definition}
 
 	We also have the orbifold analogue to the Delzant construction \cite{Del88}, where each symplectic toric orbifold can be associated to a labelled polytope.
 	
-	\begin{defn}{\cite{Lerman1997}}
+	\begin{definition}{\cite{Lerman1997}}
 		A \emph{labelled polytope} in $\RR^{n}$ is a convex rational simple polytope $\Delta$ such that $\dim\Delta = n$, along with a positive integer attached to each facet.
-	\end{defn}
+	\end{definition}
 
 	\begin{theorem}{\cite{Lerman1997}}
 		\begin{enumerate}\label{thm:orbifold-characterisation}
@@ -790,12 +810,12 @@
 		\rho : M \times \CC \ra \RR, \qquad \rho(m,\xi) = \mu(m) + \frac{1}{2}|\xi|^{2}.
 	\]
 	
-	\begin{defn}
+	\begin{definition}
 		The \emph{symplectic cut} $M^{\leq\e}$ of $M$ is the symplectic reduction of the product $M \times \CC$ at level $\e$ with respect to the diagonal $S^{1}$-action,
 		\[
 			M^{\leq\e} := (M \times \CC) \sslash_{\e} S^{1} = \rho^{-1}(\e)/S^{1}.
 		\]
-	\end{defn}
+	\end{definition}
 	
 	In \cite{Ler95}, Lerman shows that the level-set
 	\[
