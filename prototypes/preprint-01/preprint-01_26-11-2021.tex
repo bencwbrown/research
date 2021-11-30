@@ -231,8 +231,20 @@
     This data gives rise to the following exact sequence of vector spaces
     
     \begin{equation}
-        
+        \begin{tikzcd}[ampersand replacement=\&]
+            0 \ar[r] \& \mfk \ar[r, hook, "\imath"] \& \mft^{n} \arrow{r}{\pi}[swap]{[u_{1}\ \ldots \ u_{n}]} \& \mft^{d} \ar[r] \& 0,
+        \end{tikzcd}
     \end{equation}
+    
+    and
+    
+    \begin{equation}
+        \begin{tikzcd}[ampersand replacement=\&]
+            0 \& \ar[l]	(\mfk)^{\ast} \& \ar[l, "\imath^{\ast}", swap] (\mft^{n})^{\ast} \& \arrow{l}[swap]{\pi^{\ast}} (\mft^{d})^{\ast} \& \ar[l] 0,
+        \end{tikzcd}
+    \end{equation}
+    
+    where $\pi$ maps $e_{i}$ to $u_{i}$
     
 	\section{Toric Hyperk\"ahler manifolds}
 	
