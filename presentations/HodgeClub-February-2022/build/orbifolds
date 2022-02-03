@@ -1,0 +1,37 @@
+\section{Orbifolds}
+
+\begin{frame}{Definition}
+    \textcolor{blue}{\underline{Def:}} For $X$ a paracompact Hausdorff space. An \textcolor{red}{orbifold chart} is a triple $(\widetilde{U}, \Gamma, \phi)$:
+        \begin{itemize}
+            \item $\widetilde{U} \subseteq \RR^{n}$ is open, and $\{0\} \in \widetilde{U}$;
+            \item $\Gamma$ finite group, effectively acting on $\widetilde{U}$;
+            \item $\phi : \widetilde{U} \ra U$ continuous onto $U \subset X$, \newline such that $\phi \circ \gamma = \phi$, for all $\gamma \in \Gamma$;
+            \item Induced $\phi : \widetilde{U}/\Gamma \ra U$ is a homeomorphism.\newline
+        \end{itemize}
+                
+        For two charts, $(\widetilde{U}_{1}, \Gamma_{1}, \phi_{1}$, $(\widetilde{U}_{2}, \Gamma_{2}, \phi_{2})$: \newline
+        
+        \textcolor{blue}{\underline{Def:}} An \textcolor{red}{embedding} between them is a smooth embedding $\lambda : \widetilde{U}_{1} \ra \widetilde{U}_{2}$ such that
+        \[
+            \phi_{2} \circ \lambda = \phi_{1}.    
+        \]
+\end{frame}
+
+
+
+\begin{frame}{Definition}
+    \textcolor{blue}{\underline{Def:}} $X$ is a paracompact Hausdorff space. An \textcolor{red}{orbifold chart} is a triple $(\widetilde{U}, \Gamma, \phi)$;
+        \begin{itemize}
+            \item $\widetilde{U} \subseteq \RR{n}$, open; 
+            \item $\Gamma$ finite group, effectively acting on $\widetilde{U}$;
+            \item $\phi : \widetilde{U} \ra U$ continuous onto $U \subset X$, such that $\phi \circ \gamma = \phi$, for $\gamma \in \Gamma$;
+        \end{itemize}        
+    \textcolor{blue}{\underline{Fun Facts:}}
+    \begin{itemize}
+        \item Fixing $\mathbb{C}$-stucture $J_{1}$ for hyperk\"ahler $(M, J_{i}, \omega_{i})$, set
+        \[
+            \omega_{\mathbb{C}} = \omega_{2} + i\omega_{3}.    
+        \]
+        $\rightsquigarrow (M,J_{1}, \omega_{\mathbb{C}})$ is a \textcolor{red}{complex-symplectic} manifold, holomorphic wrt $J_{1}$.
+    \end{itemize}
+\end{frame}
