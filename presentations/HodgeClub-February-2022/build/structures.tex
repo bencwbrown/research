@@ -1,0 +1,89 @@
+\section{Orbibundles}
+
+\begin{frame}{Tangent Orbibundle}
+    \begin{itemize}
+        \item $(\widetilde{U}, H, \phi)$ chart for $\mathcal{X} = (X, \mathcal{U})$, action $\rho_{h} : \widetilde{U} \ra \widetilde{U}$,
+        \[
+            \rho_{h}(\tilde{x}) := h \cdot \tilde{x}, \qquad h \in H.  
+        \]
+        \item Equip tangent bundle $T\widetilde{U}$ with the $H$-action:
+        \[
+            h \cdot (\tilde{x}, v) := \left( h \cdot \tilde{x}, d_{\tilde{x}}\rho_{h}v \right).
+        \]
+        \item Get orbifold charts
+        \[
+            \left(T\widetilde{U}, H, q\right), \qquad q : T\widetilde{U} \ra T\widetilde{U}/H =: TU.
+        \]
+        \item Projection $\pi : T\widetilde{U} \ra \widetilde{U}$ is $H$-equivariant
+        \[
+            \implies |\pi| : TU \ra U \cong \widetilde{U}/H.
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tangent Orbibundle}
+    \begin{itemize}
+        \item Let $\phi(\tilde{x}) = x \in U$, and 
+        \[
+            |\pi|^{-1}(x) = \{ H \cdot (y,v)\ |\ y = \tilde{x} \}.
+        \]
+    \end{itemize}
+    \textcolor{blue}{\underline{Claim:}} $|\pi|^{-1}(x) \cong T_{\tilde{x}}\widetilde{U}/\Gamma_{x} \subseteq TU$.
+        \begin{itemize}
+            \item
+            \begin{itemize}
+                \item Suppose $H \cdot (\tilde{x},v) = H \cdot (\tilde{x}, w)$
+                \item $\iff$ there exists a $h \in H$ such that $h \cdot (\tilde{x},v) = (\tilde{x},w)$
+                \item $\iff h \in H_{\tilde{x}}$ and $d_{\tilde{x}}\rho_{h} v = w$
+                \item $\iff H_{\tilde{x}} \cdot v = H_{\tilde{x}} \cdot w$
+            \end{itemize}
+            \item Hence get a well-defined continuous bijection
+            \[
+                |\pi|^{-1}(x) \rightarrow T_{\tilde{x}}\widetilde{U}, \qquad H \cdot (\tilde{x}, v) \mapsto \Gamma_{x} \cdot v,
+            \]
+            with inverse the inclusion
+            \[
+                T_{\tilde{x}}\widetilde{U}/\Gamma_{x} \hookrightarrow TU.    
+            \]
+        \end{itemize}
+\end{frame}
+
+\begin{frame}{Tangent Orbibundle}
+    \begin{itemize}
+        \item Glue the orbifold charts $(T\widetilde{U}, H, q) \rightsquigarrow$ \textcolor{red}{\underline{tangent bundle}}, $T\mathcal{X}$, to $\mathcal{X} = (X, \mathfrak{U})$.
+    \end{itemize}
+    Let $\phi(\tilde{x}) = x$ for the chart $(\widetilde{U}, H, \phi)$:
+    \begin{itemize}
+        \item \textcolor{red}{\underline{Tangent space}} at $x$ is $T_{\tilde{x}}\widetilde{U}$ with $\Gamma_{x}$-action.
+        \item \textcolor{red}{\underline{Tangent cone}} at $x$ is $C_{x}X := T_{\tilde{x}}\widetilde{U}/\Gamma_{x} \cong |\pi|^{-1}(x)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sections of Orbibundles}
+    \begin{itemize}
+        \item Given a section $\sigma_{\widetilde{U}} : \widetilde{U} \ra T\widetilde{U}$, we get an \textcolor{red}{\underline{invariant section}} $\sigma_{U}$ by averaging,
+        \[
+            \sigma_{U} := \frac{1}{|\Gamma|}\sum_{\gamma \in \Gamma} \sigma_{\widetilde{U}} \circ \gamma.
+        \]
+        \item Similarly, if $\w$ is a differential form on $V \subset \phi(\widetilde{u})$,
+        \[
+            \int_{V} \w = \frac{1}{|\Gamma|}\int_{\phi^{-1}(V)} \w_{\widetilde{U}}.
+        \]
+        \item Also have de Rham theory, cohomology, etc., for orbifolds.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{More Orbibundles}
+    \begin{itemize}
+        \item From $T\mathcal{X}$, get the cotangent bundle, tensor (symmetric/exterior) powers, etc., by considering each chart and gluing.
+        \item \textcolor{blue}{\underline{Def:}} An \textcolor{red}{\underline{orbifold vector bundle}} over $\mathcal{X}$ is:
+        \begin{itemize}
+            \item An orbifold $\mathcal{L}$ and $\pi : \mathcal{L} \ra \mathcal{X}$;
+            \item For $(\widetilde{U}, H, \phi)$ charts for $\mathcal{X}$, corresponding $(\widetilde{V}_{L}, H, \phi_{L})$ for $\mathcal{L}$;
+            \item That $\psi : \widetilde{V}_{L} \ra \widetilde{U}$ is a vector bundle, and $H$ acts on $\widetilde{V}_{L}$ by vector bundle automorphisms.
+        \end{itemize}
+        \item 
+    \end{itemize}
+\end{frame}
+
+
