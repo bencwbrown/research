@@ -175,9 +175,132 @@
 \end{frame}
 
 \begin{frame}{Examples}
+	\textcolor{blue}{\underline{Examples of orbifolds:}}
 	\begin{itemize}
-		\item Setting $\Gamma = \{0\}$, all manifolds are orbifolds (trivially)!
+		\item Any manifold $X$ is an orbifold with trivial $\Gamma$.
+		\item Let $T^{4} = (\RR/\ZZ)^{4}$, and introduce the $(\ZZ/2\ZZ)$-action:
+		\[
+		(t_{1}, t_{2}, t_{3}, t_{4}) \mapsto (t_{1}^{-1}, t_{2}^{-1}, t_{3}^{-1}, t_{4}^{-1}).
+		\]
+		$X := T^{4}/\ZZ_{2}$ quotient is a \textcolor{red}{Kummer surface}, with $|X^{\ZZ_{2}}| = 16$.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Examples}
+	\begin{itemize}
+		\item A \textcolor{red}{``mirror''}, i.e. $\RR^{2}/(x \sim -x) \cong \{(x,y) \in \RR^{2}\ |\ x \geq 0\}$.
+		\hfill \break
+		\item A \textcolor{red}{``barber shop''}, i.e. $\RR^{2}$ quotiented by the relations
+		\[
+		\{(x \sim -x),\ (1 + x \sim 1 - x)\} \cong (\ZZ/2\ZZ)^{2}.
+		\]
+		$\rightsquigarrow \RR^{2} / (\ZZ/2\ZZ)^{2} \cong \{(x,y) \in \RR^{2}\ |\ 0 \leq x \leq 1 \}$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Examples - teardrop orbifold}
+	\begin{itemize}
+		\item The \textcolor{red}{``teardrop''}.
+		
+		Let $(z_{1}, z_{2}) \in \CC^{2} - \{0\}$ and $t \in \CC^{\ast}$.
+		\[
+		t \cdot (z_{1}, z_{2}) = (tz_{1}, t^{p}z_{2}), \quad p \in \NN.
+		\]
+		Quotient $\left(\CC^{2} - \{0\}\right)/\CC^{\ast}$ topologically is $\CC\PP^{1}$.
+		\hfill \break
+		\item Fixed-points are $[z_{1}:0]$ and $[0:z_{2}]$.
+		\begin{itemize}
+			\item $[z_{1}:0]$ is smooth;
+			\item $[0:z_{2}]$ is singular, with $\Gamma \cong \ZZ_{p}$.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Examples - toric symplectic orbifolds}
+	\textcolor{blue}{\underline{Def:}} A \textcolor{red}{\underline{symplectic toric orbifold}} is a $4$-tuple $(M, \w, T^{n}, \mu)$, such that:
+	\begin{itemize}
+		\item $(M,\w)$ is a $2n$-dim. connected symplectic orbifold;
+		\item $T^{n}$ is an $n$-torus, with an effective and Hamiltonian action on $M$;
+		\item $\mu : M \ra \RR^{n}$ is a moment map for the $T^{n}$-action.
+	\end{itemize}
+	\hfill \break
+	\textcolor{blue}{\underline{Thm:}} Symplectic toric orbifolds $(M, \w, T^{n}, \mu)$ are classified by simple convex polytopes $\Delta \subseteq \RR^{n}$, where $\mu(M) = \Delta$ is the convex hull of the fixed-points for the $T^{n}$-action on $M$.
+\end{frame}
+
+\begin{frame}{Examples - toric symplectic orbifolds}
+	Convex polytope $\Delta \subseteq \RR^{n}$ represented as an intersection of half-spaces;
+	\[
+		\Delta = \bigcap_{i=1}^{N} \{ y \in \RR^{n}~|~\langle y, u_{i}\rangle + \lambda_{i} \geq 0 \}.
+	\]
+	\begin{itemize}
+		\item The $u_{i} \in (\RR^{n})^{\ast}$ represent the \textcolor{red}{\underline{normal vector}} to the $i$-th hyperplane;
+		\item The $\lambda_{i} \in \RR$ determine the half-space locations.
+	\end{itemize}
+
+	\begin{figure}[h!]
+		\centering
+		\scalebox{0.45}{
+		\begin{tikzpicture}
+			% Polytope's outline
+			\filldraw[fill=gray!10!white, draw=black] (0,0) -- (14,0) -- (0,7) -- cycle;
+			\node (A) at (0,0) {$\bullet$};     
+			\node (B) at (14,0) {$\bullet$};    
+			\node (C) at (0,7) {$\bullet$};     
+			% Circles to "zoom" into
+			%        \draw (A) circle(1.25cm);
+			%        \draw (B) circle(1.25cm);
+			%        \draw (C) circle(1.25cm);
+			% Normal vectors u_{i}
+			\draw[thick, ->] (0,3.5) -- (1,3.5) node[above] {$u_{1} = (1, 0)$};
+			\draw[thick, ->] (7,0) -- (7,1) node[right] {$u_{2} = (0, 1)$};
+			\draw[thick, ->] (7,3.5) -- (6.5,2.5) node[below left] {$u_{3} = (-1, -2)$};
+		\end{tikzpicture}
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Examples - toric symplectic orbifolds}
+	A vertex $v \in \Delta \subseteq \RR^{n}$ is determined by an intersection of $n$ hyperplanes:
+	\[
+	v = \bigcap_{i=1}^{n} \{ y \in \RR^{n}~|~\langle y, u_{i}\rangle + \lambda_{i} = 0 \}.
+	\]
+	Moreover,
+	\[
+		v = \mu(p), \text{ for some } p \in M^{T^{n}}, \text{ where } M^{T^{n}} := \{\text{fixed-point set for } T^{n}\}.
+	\]
+	Orbifold structure group $\Gamma_{p}$ is given by
+	\[
+		\Gamma_{p} \cong \ZZ^{n} / \Span_{\ZZ}\{u_{i}~|~u_{i} \text{ normal vector to } i\text{-th hyperplane} \}.
+	\]
+\end{frame}
+
+\begin{frame}{Examples - toric symplectic orbifolds}
+	Polytope below is the moment map image for $\CC\PP(1,2,1)$.
+	\begin{figure}[h!]
+		\centering
+		\scalebox{0.45}{
+			\begin{tikzpicture}
+				% Polytope's outline
+				\filldraw[fill=gray!10!white, draw=black] (0,0) -- (14,0) -- (0,7) -- cycle;
+				\node (A) at (0,0) {$\bullet$};     
+				\node (B) at (14,0) {$\bullet$};    
+				\node (C) at (0,7) {$\bullet$};     
+				% Circles to "zoom" into
+				%        \draw (A) circle(1.25cm);
+				%        \draw (B) circle(1.25cm);
+				%        \draw (C) circle(1.25cm);
+				% Normal vectors u_{i}
+				\draw[thick, ->] (0,3.5) -- (1,3.5) node[above] {$u_{1} = (1, 0)$};
+				\draw[thick, ->] (7,0) -- (7,1) node[right] {$u_{2} = (0, 1)$};
+				\draw[thick, ->] (7,3.5) -- (6.5,2.5) node[below left] {$u_{3} = (-1, -2)$};
+			\end{tikzpicture}
+		}
+	\end{figure}
+	Top vertex $\mu(p_{13}) = v_{13}$ has:
+	\[
+		\Gamma_{p_{13}} \cong \ZZ^{2} / \left(u_{1}\cdot \ZZ \oplus u_{3}\cdot \ZZ \right) = \ZZ^{2} / \left(\begin{pmatrix} 1 \\ 0 \end{pmatrix} \cdot \ZZ \oplus \begin{pmatrix} -1 \\ -2 \end{pmatrix}\cdot \ZZ \right) \cong \{0\} \oplus \ZZ/2\ZZ,
+	\]
+	so $p_{13}$ has ``multiplicity $2$''.
 \end{frame}
 
 %------------------------------------------------
@@ -187,7 +310,7 @@
 \begin{frame}{Tangent Orbibundle}
 	\begin{itemize}
 		\item $(\widetilde{U}, H, \phi)$ chart for $\mathcal{X} = (X, \mathcal{U})$, action $\rho_{h} : \widetilde{U} \ra \widetilde{U}$,
-		\[
+1		\[
 		\rho_{h}(\tilde{x}) := h \cdot \tilde{x}, \qquad h \in H.  
 		\]
 		\item Equip tangent bundle $T\widetilde{U}$ with the $H$-action:
@@ -273,30 +396,32 @@
 \section{Index Theory}
 %------------------------------------------------
 
-\begin{frame}{Symplectic Toric Manifolds}
-	\textcolor{blue}{\underline{Def:}} A $2n$-dimensional \textcolor{red}{\underline{symplectic toric manifold}} is:
+\begin{frame}{Prequantisation Line Bundles}
 	\begin{itemize}
-		\item A compact connected symplectic manifold $(M, \w)$;
-		\item With an effective Hamiltonian $T^{n}$-action;
-		\item And moment map $\mu: M \ra \RR^{n}$.
+		\item \textcolor{blue}{\underline{Def.:}} Let $(M, \w)$ be a compact connected $2n$-dimensional symplectic manifold. A \textcolor{red}{\underline{prequantum line bundle}} $\mcL \ra M$ is:
+		\begin{itemize}
+			\item A Hermitian line bundle $\mcL$;
+			\item With Hermitian connection $\nabla$;
+			\item Whose curvature class is $\tfrac{1}{2\pi}[\w]$;
+		\end{itemize}
+		\item \textcolor{blue}{\underline{Prop.:}} A prequantum line bundle $\mcL \ra M$ exists if $\tfrac{1}{2\pi}[\w] \in H^{2}(M; \ZZ)$. \\ If $M$ is simply-connected, then $\mcL$ is unique.
+		\hfill \break
+		\item For symplectic toric manifolds,
+		\[
+			\text{a quantum line bundle exists} \iff \text{its moment polytope has integral vertices.}
+		\]
 	\end{itemize}
-	There is a one-to-one correspondence:
-	\[
-		\text{toric symplectic } (M, \w, T^{n}, \mu) \longleftrightarrow \text{smooth convex polytopes } \Delta \subseteq \RR^{n}.
-	\]
 \end{frame}
 
-\begin{frame}{Smooth Convex Polytopes}
-	$\Delta = \Set
-	\begin{itemize}
-		\item A compact connected symplectic manifold $(M, \w)$;
-		\item With an effective Hamiltonian $T^{n}$-action;
-		\item And moment map $\mu: M \ra \RR^{n}$.
-	\end{itemize}
-	There is a one-to-one correspondence:
-	\[
-	\text{toric symplectic } (M, \w, T^{n}, \mu) \longleftrightarrow \text{smooth convex polytopes } \Delta \subseteq \RR^{n}.
-	\]
+\begin{frame}{Hirzeburch-Riemann-Roch Formula}
+	\begin{block}{Theorem (Hirzehurch-Riemann-Roch)}
+		Let $(M, \w)$ be a symplectic manifold, and $\mcL \ra M$ a prequantum line bundle. Then
+		\[
+			\dim H^{0}(M; \mcL) = \int_{M} e^{c_{1}(\mcL)} \wedge \Td_{M}(TM),
+		\]
+		where $e^{c_{1}(\mcL)}$ and $\Td_{M}(TM)$ are the Chern character and Todd class for $M$, respectively.
+	\end{block}
+	Assuming $TM$ splits by the splitting principle as $TM \cong \bigoplus_{i=1}^{n} V_{i}$, 
 \end{frame}
 
 %------------------------------------------------
